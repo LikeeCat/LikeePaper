@@ -1,0 +1,648 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FC97ED8B29A4A0E400425AFB /* LikeeWallPaperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */; };
+		FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8C29A4A0E400425AFB /* ContentView.swift */; };
+		FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC97ED8E29A4A0E600425AFB /* Assets.xcassets */; };
+		FC97ED9229A4A0E600425AFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC97ED9129A4A0E600425AFB /* Preview Assets.xcassets */; };
+		FC97ED9D29A4A0E600425AFB /* LikeeWallPaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED9C29A4A0E600425AFB /* LikeeWallPaperTests.swift */; };
+		FC97EDA729A4A0E700425AFB /* LikeeWallPaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDA629A4A0E700425AFB /* LikeeWallPaperUITests.swift */; };
+		FC97EDA929A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDA829A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift */; };
+		FC97EDB629A4A1B100425AFB /* PaperPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDB529A4A1B100425AFB /* PaperPlayerController.swift */; };
+		FC97EDB829A4A1C200425AFB /* PaperPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDB729A4A1C200425AFB /* PaperPlayerView.swift */; };
+		FC97EDBA29A5F49E00425AFB /* DesktopWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDB929A5F49E00425AFB /* DesktopWindow.swift */; };
+		FC97EDBC29A5F66200425AFB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDBB29A5F66200425AFB /* Utilities.swift */; };
+		FC97EDBE29A5F7ED00425AFB /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDBD29A5F7ED00425AFB /* AppState.swift */; };
+		FC97EDC529A5FC2400425AFB /* resource in Resources */ = {isa = PBXBuildFile; fileRef = FC97EDC429A5FC2400425AFB /* resource */; };
+		FC97EDC729A60AD800425AFB /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDC629A60AD800425AFB /* Menus.swift */; };
+		FC97EDC929A7466000425AFB /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDC829A7466000425AFB /* UserSetting.swift */; };
+		FC97EDCC29A748B000425AFB /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = FC97EDCB29A748B000425AFB /* Defaults */; };
+		FC97EDCE29A7561400425AFB /* PaperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDCD29A7561400425AFB /* PaperManager.swift */; };
+		FC97EDD029A75DDD00425AFB /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDCF29A75DDD00425AFB /* UserSettingView.swift */; };
+		FC97EDD229A77C7D00425AFB /* PaperSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */; };
+		FC97EDD429A7981700425AFB /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDD329A7981700425AFB /* EventManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FC97ED9929A4A0E600425AFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC97ED7F29A4A0E400425AFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC97ED8629A4A0E400425AFB;
+			remoteInfo = LikeeWallPaper;
+		};
+		FC97EDA329A4A0E700425AFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC97ED7F29A4A0E400425AFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC97ED8629A4A0E400425AFB;
+			remoteInfo = LikeeWallPaper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FC97ED8729A4A0E400425AFB /* LikeeWallPaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeeWallPaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeeWallPaperApp.swift; sourceTree = "<group>"; };
+		FC97ED8C29A4A0E400425AFB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FC97ED8E29A4A0E600425AFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC97ED9129A4A0E600425AFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FC97ED9329A4A0E600425AFB /* LikeeWallPaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LikeeWallPaper.entitlements; sourceTree = "<group>"; };
+		FC97ED9829A4A0E600425AFB /* LikeeWallPaperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LikeeWallPaperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC97ED9C29A4A0E600425AFB /* LikeeWallPaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeeWallPaperTests.swift; sourceTree = "<group>"; };
+		FC97EDA229A4A0E700425AFB /* LikeeWallPaperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LikeeWallPaperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC97EDA629A4A0E700425AFB /* LikeeWallPaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeeWallPaperUITests.swift; sourceTree = "<group>"; };
+		FC97EDA829A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeeWallPaperUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FC97EDB529A4A1B100425AFB /* PaperPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperPlayerController.swift; sourceTree = "<group>"; };
+		FC97EDB729A4A1C200425AFB /* PaperPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperPlayerView.swift; sourceTree = "<group>"; };
+		FC97EDB929A5F49E00425AFB /* DesktopWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopWindow.swift; sourceTree = "<group>"; };
+		FC97EDBB29A5F66200425AFB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		FC97EDBD29A5F7ED00425AFB /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		FC97EDC429A5FC2400425AFB /* resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resource; sourceTree = "<group>"; };
+		FC97EDC629A60AD800425AFB /* Menus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
+		FC97EDC829A7466000425AFB /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
+		FC97EDCD29A7561400425AFB /* PaperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperManager.swift; sourceTree = "<group>"; };
+		FC97EDCF29A75DDD00425AFB /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
+		FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSettingView.swift; sourceTree = "<group>"; };
+		FC97EDD329A7981700425AFB /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC97ED8429A4A0E400425AFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC97EDCC29A748B000425AFB /* Defaults in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC97ED9529A4A0E600425AFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC97ED9F29A4A0E700425AFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FC97ED7E29A4A0E400425AFB = {
+			isa = PBXGroup;
+			children = (
+				FC97ED8929A4A0E400425AFB /* LikeeWallPaper */,
+				FC97ED9B29A4A0E600425AFB /* LikeeWallPaperTests */,
+				FC97EDA529A4A0E700425AFB /* LikeeWallPaperUITests */,
+				FC97ED8829A4A0E400425AFB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FC97ED8829A4A0E400425AFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC97ED8729A4A0E400425AFB /* LikeeWallPaper.app */,
+				FC97ED9829A4A0E600425AFB /* LikeeWallPaperTests.xctest */,
+				FC97EDA229A4A0E700425AFB /* LikeeWallPaperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC97ED8929A4A0E400425AFB /* LikeeWallPaper */ = {
+			isa = PBXGroup;
+			children = (
+				FC97EDC429A5FC2400425AFB /* resource */,
+				FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */,
+				FC97ED8C29A4A0E400425AFB /* ContentView.swift */,
+				FC97ED8E29A4A0E600425AFB /* Assets.xcassets */,
+				FC97ED9329A4A0E600425AFB /* LikeeWallPaper.entitlements */,
+				FC97ED9029A4A0E600425AFB /* Preview Content */,
+				FC97EDB529A4A1B100425AFB /* PaperPlayerController.swift */,
+				FC97EDB729A4A1C200425AFB /* PaperPlayerView.swift */,
+				FC97EDB929A5F49E00425AFB /* DesktopWindow.swift */,
+				FC97EDBB29A5F66200425AFB /* Utilities.swift */,
+				FC97EDBD29A5F7ED00425AFB /* AppState.swift */,
+				FC97EDC629A60AD800425AFB /* Menus.swift */,
+				FC97EDC829A7466000425AFB /* UserSetting.swift */,
+				FC97EDCD29A7561400425AFB /* PaperManager.swift */,
+				FC97EDCF29A75DDD00425AFB /* UserSettingView.swift */,
+				FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */,
+				FC97EDD329A7981700425AFB /* EventManager.swift */,
+			);
+			path = LikeeWallPaper;
+			sourceTree = "<group>";
+		};
+		FC97ED9029A4A0E600425AFB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FC97ED9129A4A0E600425AFB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FC97ED9B29A4A0E600425AFB /* LikeeWallPaperTests */ = {
+			isa = PBXGroup;
+			children = (
+				FC97ED9C29A4A0E600425AFB /* LikeeWallPaperTests.swift */,
+			);
+			path = LikeeWallPaperTests;
+			sourceTree = "<group>";
+		};
+		FC97EDA529A4A0E700425AFB /* LikeeWallPaperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FC97EDA629A4A0E700425AFB /* LikeeWallPaperUITests.swift */,
+				FC97EDA829A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift */,
+			);
+			path = LikeeWallPaperUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC97ED8629A4A0E400425AFB /* LikeeWallPaper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC97EDAC29A4A0E700425AFB /* Build configuration list for PBXNativeTarget "LikeeWallPaper" */;
+			buildPhases = (
+				FC97ED8329A4A0E400425AFB /* Sources */,
+				FC97ED8429A4A0E400425AFB /* Frameworks */,
+				FC97ED8529A4A0E400425AFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LikeeWallPaper;
+			packageProductDependencies = (
+				FC97EDCB29A748B000425AFB /* Defaults */,
+			);
+			productName = LikeeWallPaper;
+			productReference = FC97ED8729A4A0E400425AFB /* LikeeWallPaper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FC97ED9729A4A0E600425AFB /* LikeeWallPaperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC97EDAF29A4A0E700425AFB /* Build configuration list for PBXNativeTarget "LikeeWallPaperTests" */;
+			buildPhases = (
+				FC97ED9429A4A0E600425AFB /* Sources */,
+				FC97ED9529A4A0E600425AFB /* Frameworks */,
+				FC97ED9629A4A0E600425AFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC97ED9A29A4A0E600425AFB /* PBXTargetDependency */,
+			);
+			name = LikeeWallPaperTests;
+			productName = LikeeWallPaperTests;
+			productReference = FC97ED9829A4A0E600425AFB /* LikeeWallPaperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FC97EDA129A4A0E700425AFB /* LikeeWallPaperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC97EDB229A4A0E700425AFB /* Build configuration list for PBXNativeTarget "LikeeWallPaperUITests" */;
+			buildPhases = (
+				FC97ED9E29A4A0E700425AFB /* Sources */,
+				FC97ED9F29A4A0E700425AFB /* Frameworks */,
+				FC97EDA029A4A0E700425AFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC97EDA429A4A0E700425AFB /* PBXTargetDependency */,
+			);
+			name = LikeeWallPaperUITests;
+			productName = LikeeWallPaperUITests;
+			productReference = FC97EDA229A4A0E700425AFB /* LikeeWallPaperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC97ED7F29A4A0E400425AFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					FC97ED8629A4A0E400425AFB = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					FC97ED9729A4A0E600425AFB = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = FC97ED8629A4A0E400425AFB;
+					};
+					FC97EDA129A4A0E700425AFB = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = FC97ED8629A4A0E400425AFB;
+					};
+				};
+			};
+			buildConfigurationList = FC97ED8229A4A0E400425AFB /* Build configuration list for PBXProject "LikeeWallPaper" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FC97ED7E29A4A0E400425AFB;
+			packageReferences = (
+				FC97EDCA29A748B000425AFB /* XCRemoteSwiftPackageReference "Defaults" */,
+			);
+			productRefGroup = FC97ED8829A4A0E400425AFB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC97ED8629A4A0E400425AFB /* LikeeWallPaper */,
+				FC97ED9729A4A0E600425AFB /* LikeeWallPaperTests */,
+				FC97EDA129A4A0E700425AFB /* LikeeWallPaperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC97ED8529A4A0E400425AFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC97ED9229A4A0E600425AFB /* Preview Assets.xcassets in Resources */,
+				FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */,
+				FC97EDC529A5FC2400425AFB /* resource in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC97ED9629A4A0E600425AFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC97EDA029A4A0E700425AFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC97ED8329A4A0E400425AFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC97EDCE29A7561400425AFB /* PaperManager.swift in Sources */,
+				FC97EDC929A7466000425AFB /* UserSetting.swift in Sources */,
+				FC97EDBC29A5F66200425AFB /* Utilities.swift in Sources */,
+				FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */,
+				FC97EDBE29A5F7ED00425AFB /* AppState.swift in Sources */,
+				FC97EDB829A4A1C200425AFB /* PaperPlayerView.swift in Sources */,
+				FC97ED8B29A4A0E400425AFB /* LikeeWallPaperApp.swift in Sources */,
+				FC97EDB629A4A1B100425AFB /* PaperPlayerController.swift in Sources */,
+				FC97EDC729A60AD800425AFB /* Menus.swift in Sources */,
+				FC97EDD029A75DDD00425AFB /* UserSettingView.swift in Sources */,
+				FC97EDD229A77C7D00425AFB /* PaperSettingView.swift in Sources */,
+				FC97EDBA29A5F49E00425AFB /* DesktopWindow.swift in Sources */,
+				FC97EDD429A7981700425AFB /* EventManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC97ED9429A4A0E600425AFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC97ED9D29A4A0E600425AFB /* LikeeWallPaperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC97ED9E29A4A0E700425AFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC97EDA929A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift in Sources */,
+				FC97EDA729A4A0E700425AFB /* LikeeWallPaperUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FC97ED9A29A4A0E600425AFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC97ED8629A4A0E400425AFB /* LikeeWallPaper */;
+			targetProxy = FC97ED9929A4A0E600425AFB /* PBXContainerItemProxy */;
+		};
+		FC97EDA429A4A0E700425AFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC97ED8629A4A0E400425AFB /* LikeeWallPaper */;
+			targetProxy = FC97EDA329A4A0E700425AFB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FC97EDAA29A4A0E700425AFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FC97EDAB29A4A0E700425AFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		FC97EDAD29A4A0E700425AFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LikeeWallPaper/LikeeWallPaper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LikeeWallPaper/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FC97EDAE29A4A0E700425AFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LikeeWallPaper/LikeeWallPaper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LikeeWallPaper/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		FC97EDB029A4A0E700425AFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LikeeWallPaper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LikeeWallPaper";
+			};
+			name = Debug;
+		};
+		FC97EDB129A4A0E700425AFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LikeeWallPaper.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LikeeWallPaper";
+			};
+			name = Release;
+		};
+		FC97EDB329A4A0E700425AFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = LikeeWallPaper;
+			};
+			name = Debug;
+		};
+		FC97EDB429A4A0E700425AFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = LikeeWallPaper;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC97ED8229A4A0E400425AFB /* Build configuration list for PBXProject "LikeeWallPaper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC97EDAA29A4A0E700425AFB /* Debug */,
+				FC97EDAB29A4A0E700425AFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC97EDAC29A4A0E700425AFB /* Build configuration list for PBXNativeTarget "LikeeWallPaper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC97EDAD29A4A0E700425AFB /* Debug */,
+				FC97EDAE29A4A0E700425AFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC97EDAF29A4A0E700425AFB /* Build configuration list for PBXNativeTarget "LikeeWallPaperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC97EDB029A4A0E700425AFB /* Debug */,
+				FC97EDB129A4A0E700425AFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC97EDB229A4A0E700425AFB /* Build configuration list for PBXNativeTarget "LikeeWallPaperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC97EDB329A4A0E700425AFB /* Debug */,
+				FC97EDB429A4A0E700425AFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC97EDCA29A748B000425AFB /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC97EDCB29A748B000425AFB /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC97EDCA29A748B000425AFB /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FC97ED7F29A4A0E400425AFB /* Project object */;
+}
