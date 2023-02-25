@@ -20,6 +20,7 @@ extension Defaults.Keys {
     static let isStopPlay = Key<Bool>("isStopPlay", default: false)
     static let isHiddenFolder = Key<Bool>("isHiddenFolder", default: false)
     static let isMuted = Key<Bool>("isMuted", default: true)
+    static let volume = Key<Float>("volume", default: 0.5)
     static let isUpdateAll = Key<Bool>("isUpdateAll", default: false)
     static let defaultScreenSetting = Key<ScreenSetting>("defaultScreenSetting", default: ScreenSetting(screenName: NSScreen.main!.localizedName, screenId: NSScreen.main!.id, screenAssetUrl: ""))
 }

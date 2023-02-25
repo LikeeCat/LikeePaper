@@ -269,6 +269,8 @@ final class SSMenu: NSMenu, NSMenuDelegate {
     var onUpdate: (() -> Void)?
 
     private(set) var isOpen = false
+    
+    static let popover = NSPopover()
 
     override init(title: String) {
         super.init(title: title)
@@ -472,17 +474,10 @@ extension NSMenu {
         }
     }
 
-    @discardableResult
-    func addMoreAppsItem() -> NSMenuItem {
-        addLinkItem(
-            "More Apps By Me",
-            destination: "macappstore://apps.apple.com/developer/id328077650"
-        )
-    }
 
     @discardableResult
     func addAboutItem() -> NSMenuItem {
-        addCallbackItem("About") {
+        addCallbackItem("关于") {
             NSApp.activate(ignoringOtherApps: true)
             NSApp.orderFrontStandardAboutPanel(nil)
         }

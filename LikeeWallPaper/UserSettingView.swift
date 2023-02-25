@@ -13,7 +13,7 @@ struct UserSettingView: View {
     var body: some View {
         TabView{
             GeneralSettings().tabItem{
-                Label("General", systemImage: "gearshape")
+                Label("通用设置", systemImage: "gearshape")
             }
             
             

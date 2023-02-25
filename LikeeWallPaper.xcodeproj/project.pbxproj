@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC61BEE529A9D95C00C6384F /* VolumeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */; };
+		FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */; };
 		FC97ED8B29A4A0E400425AFB /* LikeeWallPaperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */; };
 		FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8C29A4A0E400425AFB /* ContentView.swift */; };
 		FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC97ED8E29A4A0E600425AFB /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSettingView.swift; sourceTree = "<group>"; };
+		FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumentSettingController.swift; sourceTree = "<group>"; };
 		FC97ED8729A4A0E400425AFB /* LikeeWallPaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeeWallPaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeeWallPaperApp.swift; sourceTree = "<group>"; };
 		FC97ED8C29A4A0E400425AFB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				FC97EDCF29A75DDD00425AFB /* UserSettingView.swift */,
 				FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */,
 				FC97EDD329A7981700425AFB /* EventManager.swift */,
+				FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */,
+				FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */,
 			);
 			path = LikeeWallPaper;
 			sourceTree = "<group>";
@@ -305,9 +311,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC97EDCE29A7561400425AFB /* PaperManager.swift in Sources */,
+				FC61BEE529A9D95C00C6384F /* VolumeSettingView.swift in Sources */,
 				FC97EDC929A7466000425AFB /* UserSetting.swift in Sources */,
 				FC97EDBC29A5F66200425AFB /* Utilities.swift in Sources */,
 				FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */,
+				FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */,
 				FC97EDBE29A5F7ED00425AFB /* AppState.swift in Sources */,
 				FC97EDB829A4A1C200425AFB /* PaperPlayerView.swift in Sources */,
 				FC97ED8B29A4A0E400425AFB /* LikeeWallPaperApp.swift in Sources */,

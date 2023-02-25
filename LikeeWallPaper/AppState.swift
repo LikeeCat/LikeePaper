@@ -54,11 +54,10 @@ class ScreenManager{
 final class AppState: ObservableObject{
     static let shared = AppState()
     
+
     let menu = SSMenu()
     var cancellables = Set<AnyCancellable>()
-    
-    var hiddenFolder = Defaults[.isHiddenFolder]
-    
+        
     var screenManagers:[ScreenManager] = []
     
     private(set) lazy var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)

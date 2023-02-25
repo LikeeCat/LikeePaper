@@ -22,7 +22,6 @@ struct LikeeWallPaperApp: App {
         
         Settings{
             UserSettingView()
-
         }
     }
     

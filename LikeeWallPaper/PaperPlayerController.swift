@@ -12,10 +12,13 @@ import Defaults
 class PaperPlayerController:NSViewController{
     
     //property
-    var volume = 0.0
+    var volume = Defaults[.volume]{
+        didSet{
+            playerVolume(volume: volume)
+        }
+    }
     
     var cancellables = Set<AnyCancellable>()
-
     
     var ismuted = Defaults[.isMuted]{
         didSet{
@@ -37,7 +40,7 @@ class PaperPlayerController:NSViewController{
     
     var assetUrl:URL?
     
-    convenience init(volume: Double = 0.0, ismuted: Bool = false, playerLayer: AVPlayerLayer? = nil, avPlayerLooper: AVPlayerLooper? = nil, queuePlayer: AVQueuePlayer? = nil, stop: Bool? = nil, assetUrl: URL? = nil) {
+    convenience init(volume: Float = Defaults[.volume], ismuted: Bool = Defaults[.isMuted], playerLayer: AVPlayerLayer? = nil, avPlayerLooper: AVPlayerLooper? = nil, queuePlayer: AVQueuePlayer? = nil, stop: Bool? = nil, assetUrl: URL? = nil) {
         self.init()
         self.volume = volume
         self.ismuted = ismuted
@@ -90,6 +93,11 @@ class PaperPlayerController:NSViewController{
             .sink { [self] in
                 self.ismuted = Defaults[.isMuted]
             }.store(in: &cancellables)
+        
+        Defaults.publisher(keys:.volume,options: [])
+            .sink { [self] in
+                self.volume = Defaults[.volume]
+            }.store(in: &cancellables)
     }
 }
 
@@ -98,6 +106,8 @@ extension PaperPlayerController{
     //MARK: 播放器相关
     func playerplay(){
         playerLayer?.player?.play()
+        playerVolume(volume: self.volume)
+        playermuted(muted: self.ismuted)
     }
     
     func playerpause(){
