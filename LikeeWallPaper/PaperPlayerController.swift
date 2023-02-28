@@ -114,8 +114,20 @@ extension PaperPlayerController{
         playerLayer?.player?.pause()
     }
     
+    func updatePlayer(){
+        let rate = playerLayer?.player?.rate == 1 ? 0 : 1
+        if rate == 1{
+            print("开始播放啦 +++++++++")
+            playerplay()
+        }
+        else{
+            print("停止播放啦 +++++++++")
+            playerstop()
+        }
+    }
+    
     func playerstop(){
-        pause()
+        playerpause()
     }
     
     func playermuted(muted:Bool){

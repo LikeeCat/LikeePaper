@@ -56,7 +56,6 @@ class PaperManager{
 
 private class UserSetting{
     
-
     static func stopPlay(stop:Bool){
         Defaults[.isStopPlay] = stop
     }

@@ -9,6 +9,9 @@ import Foundation
 import Cocoa
 import Defaults
 import AVKit
+import IOKit.ps
+import Combine
+
 extension NSScreen: Identifiable {
     public var id: CGDirectDisplayID {
         deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as! CGDirectDisplayID
@@ -33,7 +36,7 @@ extension NSScreen {
         Self.screens.contains { $0.id == id }
     }
     
-    static var defaultScreen: NSScreen? {NSScreen.from(cgDirectDisplayID: Defaults[.defaultScreenSetting].screenId)}
+    static var defaultScreen: NSScreen? {NSScreen.from(cgDirectDisplayID: Defaults[.defaultScreenSetting].screenId) ?? .main}
     /**
     Get the main screen if the current screen is not connected.
     */
@@ -62,26 +65,26 @@ extension NSScreen {
 
         return screenFrame
     }
-
-    /**
-    Whether the screen has a notch.
-    */
+    
     var hasNotch: Bool {
-        guard let width = auxiliaryTopRightArea?.width else {
-            return false
+        if #available(macOS 12, *) {
+            guard let width = auxiliaryTopRightArea?.width else {
+                return false
+            }
+            return width < frame.width
         }
-
-        return width < frame.width
+        return false
     }
+
 }
 
 
 extension NSStatusBar {
-    /**
-    The actual thickness of the status bar. `.thickness` confusingly returns the thickness of the content area.
-
-    Keep in mind for screen calculations that the status bar has an additional 1 point padding below it (between it and windows).
-    */
+//    /**
+//    The actual thickness of the status bar. `.thickness` confusingly returns the thickness of the content area.
+//
+//    Keep in mind for screen calculations that the status bar has an additional 1 point padding below it (between it and windows).
+//    */
     static var actualThickness: Double {
         let legacyHeight = 24.0
 
@@ -598,14 +601,12 @@ extension AppState{
         let savePath = document.appendingPathComponent(String(fileName), isDirectory: false)
         do{
             try data?.write(to: savePath)
-
         }
         catch{
             return nil
         }
         print("this is the url \(savePath)")
        return savePath
-        
     }
     
     private static func getDocumentsDirectory() -> URL {
@@ -614,3 +615,4 @@ extension AppState{
     }
 
 }
+

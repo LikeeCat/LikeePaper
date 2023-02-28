@@ -13,13 +13,11 @@ struct LikeeWallPaperApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
     var body: some Scene {
-        Window("设置壁纸", id: "websites") {
-            ContentView()
+        WindowGroup {
+            VStack{
+                
+            }
         }
-            .windowToolbarStyle(.unifiedCompact)
-            .windowResizability(.contentSize)
-            .defaultPosition(.center)
-        
         Settings{
             UserSettingView()
         }
@@ -36,12 +34,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillFinishLaunching(_ notification: Notification) {
         // It's important that this is here so it's registered in time.
+
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        Constants.websitesWindow?.close()
+        Constants.mainWindow?.close()
+        if let window = NSApplication.shared.windows.first {
+            window.close()
+        }
     }
-
     // This is only run when the app is started when it's already running.
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         return false

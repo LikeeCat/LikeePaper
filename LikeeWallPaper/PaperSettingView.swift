@@ -13,8 +13,7 @@ struct PaperSettingView: View {
     var body: some View {
         List{
             GeneralSettings()
-            
-        }.formStyle(.grouped)
+        }
         
     }
 }
@@ -46,7 +45,7 @@ private struct GeneralSettings: View {
                 Button("确认") {
                     settingImage(assetUrlString: paperAssetUrl)
                     paperAssetUrl = ""
-                    Constants.websitesWindow?.close()
+                    Constants.mainWindow?.close()
                     
                 }
             }

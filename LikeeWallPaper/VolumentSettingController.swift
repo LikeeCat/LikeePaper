@@ -11,3 +11,7 @@ import SwiftUI
 class VolumentSettingController {
     static let shared = NSHostingController(rootView: VolumeSettingView())
 }
+
+class PaperViewController{
+    static let shared = NSHostingController(rootView: ContentView())
+}

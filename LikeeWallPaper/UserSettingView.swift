@@ -9,19 +9,18 @@ import SwiftUI
 import Defaults
 struct UserSettingView: View {
     
-
+    
     var body: some View {
         TabView{
             GeneralSettings().tabItem{
                 Label("通用设置", systemImage: "gearshape")
             }
-            
-            
-        }   .formStyle(.grouped)
-            .frame(width: 400, height: 500)
+            AdvancedSettings().tabItem{
+                Label("高级设置", systemImage: "gearshape.2")
+            }
+        }   
+            .frame(width: 300, height: 300)
             .fixedSize()
-
-        
     }
     
     private struct GeneralSettings: View {
@@ -33,8 +32,19 @@ struct UserSettingView: View {
                 }
                 Section {
                     hiddenFolderSetting()
-                    isStopPlaySetting()
                     mutedSetting()
+                }
+            }
+        }
+    }
+    
+    private struct AdvancedSettings: View {
+        var body: some View {
+            Form {
+                Section {
+                    isStopPlayWhenEnterFullScreen()
+                    isStopPlayWhenBattery()
+                    isStopPlayWhenOtherAppActivity()
                 }
             }
         }
@@ -42,7 +52,7 @@ struct UserSettingView: View {
 
     
     private struct DisplaySetting: View {
-
+        
         @State var select = 0
         var body: some View {
             Picker(
@@ -58,19 +68,24 @@ struct UserSettingView: View {
                 PaperManager.sharedPaperManager.updateDefaultScreen(screen: NSScreen.screens[newValue])
             }.onAppear{
                 let screen = NSScreen.from(cgDirectDisplayID: Defaults[.defaultScreenSetting].screenId)
-                select = NSScreen.screens.firstIndex(of: screen!) ?? 0
-            }
+                if screen.isNil{
+                    select = 0
+                }
+                else{
+                    select = NSScreen.screens.firstIndex(of: screen!) ?? 0
+                }
+            }.help("修改壁纸的默认显示屏幕")
             
         }
     }
-
+    
     private struct ShowOnAllSpacesSetting: View {
         var body: some View {
             Defaults.Toggle(
                 "将壁纸应用在所有的屏幕上",
                 key: .isUpdateAll
             )
-                .help("While disabled, Plash will display the website on the space that is active at launch.")
+            .help("默认只会更换主屏幕壁纸显示,打开后,所有的屏幕都会同步更换")
         }
     }
     
@@ -80,7 +95,7 @@ struct UserSettingView: View {
                 "隐藏桌面文件夹",
                 key: .isHiddenFolder
             )
-                .help("While disabled, Plash will display the website on the space that is active at launch.")
+            .help("打开后,会隐藏桌面上的文件夹")
         }
     }
     
@@ -90,7 +105,7 @@ struct UserSettingView: View {
                 "静音",
                 key: .isMuted
             )
-                .help("While disabled, Plash will display the website on the space that is active at launch.")
+            .help("在播放视频时,会进行静音处理")
         }
     }
     
@@ -100,10 +115,42 @@ struct UserSettingView: View {
                 "打开其他应用暂停播放视频",
                 key: .isStopPlay
             )
-                .help("While disabled, Plash will display the website on the space that is active at launch.")
+            .help("打开其他应用暂停播放视频")
         }
     }
-
+    
+    private struct isStopPlayWhenBattery : View {
+        var body: some View {
+            Defaults.Toggle(
+                "未连接电源时暂停播放",
+                key: .isStopPlayWhenBattery
+            )
+            .help("没有连接电源时停止播放视频")
+        }
+    }
+    
+    private struct isStopPlayWhenOtherAppActivity : View {
+        var body: some View {
+            Defaults.Toggle(
+                "其他应用使用时停止播放",
+                key: .isStopPlayWhenDeactivity
+            )
+            .help("当前桌面上有其他应用程序活跃时,停止播放视频")
+        }
+    }
+    
+    private struct isStopPlayWhenEnterFullScreen : View {
+        var body: some View {
+            Defaults.Toggle(
+                "当应用进入全屏模式时停止播放",
+                key: .isStopPlayWhenFullScreen
+            )
+            .help("应用进入全屏模式时停止播放")
+        }
+    }
+    
+    
+    
 }
 
 struct UserSettingView_Previews: PreviewProvider {
