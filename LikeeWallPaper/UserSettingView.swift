@@ -18,35 +18,36 @@ struct UserSettingView: View {
             AdvancedSettings().tabItem{
                 Label("高级设置", systemImage: "gearshape.2")
             }
-        }   
-            .frame(width: 300, height: 300)
-            .fixedSize()
+        }.frame(width: 300)
     }
     
     private struct GeneralSettings: View {
         var body: some View {
-            Form {
-                Section {
-                    DisplaySetting()
-                    ShowOnAllSpacesSetting()
-                }
-                Section {
-                    hiddenFolderSetting()
-                    mutedSetting()
-                }
+            VStack(alignment: .leading){
+                Spacer().frame(height: 10)
+                DisplaySetting().padding([.leading,.trailing], 20)
+                ShowOnAllSpacesSetting().padding([.leading,.trailing], 20)
+                Spacer().frame(height: 10)
+                Divider()
+                Spacer().frame(height: 10)
+                hiddenFolderSetting().padding([.leading,.trailing], 20)
+                mutedSetting().padding([.leading,.trailing], 20)
+                Spacer().frame(height: 10)
             }
+
         }
     }
     
     private struct AdvancedSettings: View {
         var body: some View {
-            Form {
-                Section {
-                    isStopPlayWhenEnterFullScreen()
-                    isStopPlayWhenBattery()
-                    isStopPlayWhenOtherAppActivity()
-                }
+            VStack(alignment: .leading){
+                Spacer().frame(height: 10)
+                isStopPlayWhenEnterFullScreen().padding([.leading,.trailing], 20)
+                isStopPlayWhenBattery().padding([.leading,.trailing], 20)
+                isStopPlayWhenOtherAppActivity().padding([.leading,.trailing], 20)
+                Spacer().frame(height: 10)
             }
+            
         }
     }
 
