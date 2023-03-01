@@ -46,16 +46,16 @@ class ScreenManager{
     }
     
     func settingWindowWallPaper(){
-        //        if let url = playerController?.assetUrl{
-        //            if let path = AppState.getFirstFrameWithUrl(url: url){
-        //                do{
-        //                    try NSWorkspace.shared.setDesktopImageURL(path, for:  display?.screen! ?? NSScreen.defaultScreen!, options: [:])
-        //                }
-        //                catch{
-        //                    print("error")
-        //                }
-        //            }
-        //        }
+        if let url = playerController?.assetUrl{
+            if let path = AppState.getFirstFrameWithUrl(url: url){
+                do{
+                    try NSWorkspace.shared.setDesktopImageURL(path, for:  display?.screen! ?? NSScreen.defaultScreen!, options: [:])
+                }
+                catch{
+                    print("error")
+                }
+            }
+        }
     }
     
 }
@@ -133,7 +133,7 @@ final class AppState: ObservableObject{
         setEvents()
         setUpAppEvents()
         setStatusItem()
-        BatteryManager.startob()
+        BatteryManager.shared.start()
     }
     
 }
@@ -186,23 +186,18 @@ extension AppState{
     
     
     func updatePlay(screen:NSScreen = NSScreen.from(cgDirectDisplayID: Defaults[.defaultScreenSetting].screenId)!,activeAppName:String = "", fullScreen:ScreenStateOption = .nomal){
-        print("现在需要更新 screen \(screen.localizedName)\n现在活跃的app 是 \(activeAppName)")
-        if fullScreen == .fullScreen && Defaults[.isStopPlayWhenFullScreen]{
-            print("暂停  全屏播放了")
+        if fullScreen == .activity && Defaults[.isStopPlayWhenFullScreen]{
             stop(screen: screen)
             return
         }
         if fullScreen == .activity && Defaults[.isStopPlayWhenDeactivity]{
-            print("暂停  appname")
             stop(screen: screen)
             return
         }
-        print("开始播放了")
         play(screen: screen)
     }
     
     func startPlay(deactive:Bool = false, updateScreen:NSScreen? , fromNoti:Bool = false){
-        
         
         if isScreenLocked{
             stopAll()
