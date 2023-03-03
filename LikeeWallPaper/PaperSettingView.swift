@@ -7,51 +7,99 @@
 
 import SwiftUI
 import Defaults
+
+let item = GridItem.init(.flexible(), spacing: 0, alignment: .center)
+private var symbols = ["主屏幕", "副屏幕:2", "副屏幕:3", "副屏幕:4", "副屏幕:5", "副屏幕:6", "副屏幕:7"  ]
+
 struct PaperSettingView: View {
     var screens = Defaults[.screensSetting]
     
     var body: some View {
-        List{
-            GeneralSettings()
+        GeneralSettings().frame(width: 500,height: 700)
+    }
+}
+
+private struct SelectImageView: View {
+    
+    var videoPath: String
+    var selected = false
+    var body: some View {
+        if selected && videoPath.count > 0{
+            Image(nsImage: getSelectImage(path: videoPath)).resizable().frame(width: 192*2, height: 168*2, alignment: .center).scaledToFill()
+        }else{
+            
+            Image(systemName: "plus").resizable().frame(width: 100, height: 100, alignment: .center).scaledToFit().foregroundColor(Color(.gray))
+            
         }
-        
+    }
+    
+    @MainActor func getSelectImage(path:String) -> NSImage{
+        let url = URL(string: path)
+        let imgPath = AppState.getFirstFrameWithUrl(url: url!)
+        let image = NSImage(contentsOf: imgPath!)
+        return image!
     }
 }
 
 private struct GeneralSettings: View {
     @State var paperAssetUrl:String = ""
+    @State var select = false
+    
+    private let gridItemLayout:[GridItem] = [GridItem](repeating: item, count: symbols.count / 5)
     
     var body: some View {
-        Form {
-            Section {
-                HStack{
-                    TextField("视频路径", text: $paperAssetUrl).padding(20).cornerRadius(10)
-                    Divider()
-                    Button("选择本地视频文件") {
-                        Task {
-                            guard let assetUrl = await chooseLocalWebsite() else{
-                                return
-                            }
-                            paperAssetUrl = assetUrl.absoluteString
-                            
-                        }
+        VStack{
+            Text("选择壁纸")
+            Spacer().frame(height: 20)
+            SelectImageView(videoPath: paperAssetUrl, selected: select).onTapGesture {
+                Task {
+                    guard let assetUrl = await chooseLocalWebsite() else{
+                        select = false
+                        return
                     }
-                    
+                    paperAssetUrl = assetUrl.absoluteString
+                    select = true
                 }
-                
-            }
-            
-            Section{
-                Button("确认") {
-                    settingImage(assetUrlString: paperAssetUrl)
-                    paperAssetUrl = ""
-                    Constants.mainWindow?.close()
-                    
+            }.frame(width: 400,height: 350).border(.gray,width: 1)
+            Spacer().frame(height: 20)
+            Text("选择屏幕")
+            Spacer().frame(height: 20)
+            ForEach(0..<colCount().count,id: \.self){
+                let col = colCount()[$0]
+                HStack{
+                    ForEach(0..<col.count, id:\.self){
+                        Text(col[$0]).frame(width:80,height: 60).border(.gray,width: 1)
+                    }
                 }
             }
-            
+            Spacer().frame(height: 40)
+            Button("确认") {
+                settingImage(assetUrlString: paperAssetUrl)
+                paperAssetUrl = ""
+                Constants.mainWindow?.close()
+            }
         }
     }
+    
+    func colCount() -> [[String]]{
+        var rows:[[String]] = []
+        var arr:[String] = []
+        for i in 0..<symbols.count{
+            if i % 4 == 0{
+                arr = []
+                arr.append(symbols[i])
+            }
+            else if (i + 1) % 4 == 0 || i == symbols.count - 1 {
+                arr.append(symbols[i])
+                rows.append(arr)
+            }
+            else{
+                arr.append(symbols[i])
+            }
+        }
+        return rows
+    }
+    
     
     @MainActor
     private func settingImage(assetUrlString:String){

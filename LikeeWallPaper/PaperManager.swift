@@ -73,7 +73,7 @@ private class UserSetting{
         Defaults[.screensSetting].removeAll(where: { $0.screenId == screen.id })
         let newScreenSetting = ScreenSetting(screenName: screen.localizedName, screenId: screen.id, screenAssetUrl: assetUrl)
         Defaults[.screensSetting].append(newScreenSetting)
-        AppState.shared.handle()
+        AppState.shared.startWallPaper()
 
     }
     
@@ -85,7 +85,7 @@ private class UserSetting{
         }
         Defaults[.screensSetting] = newSetting
 
-        AppState.shared.handle()
+        AppState.shared.startWallPaper()
     }
     
     

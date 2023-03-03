@@ -22,7 +22,6 @@
 		FC97EDBA29A5F49E00425AFB /* DesktopWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDB929A5F49E00425AFB /* DesktopWindow.swift */; };
 		FC97EDBC29A5F66200425AFB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDBB29A5F66200425AFB /* Utilities.swift */; };
 		FC97EDBE29A5F7ED00425AFB /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDBD29A5F7ED00425AFB /* AppState.swift */; };
-		FC97EDC529A5FC2400425AFB /* resource in Resources */ = {isa = PBXBuildFile; fileRef = FC97EDC429A5FC2400425AFB /* resource */; };
 		FC97EDC729A60AD800425AFB /* Menus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDC629A60AD800425AFB /* Menus.swift */; };
 		FC97EDC929A7466000425AFB /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDC829A7466000425AFB /* UserSetting.swift */; };
 		FC97EDCC29A748B000425AFB /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = FC97EDCB29A748B000425AFB /* Defaults */; };
@@ -69,7 +68,6 @@
 		FC97EDB929A5F49E00425AFB /* DesktopWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopWindow.swift; sourceTree = "<group>"; };
 		FC97EDBB29A5F66200425AFB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		FC97EDBD29A5F7ED00425AFB /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		FC97EDC429A5FC2400425AFB /* resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resource; sourceTree = "<group>"; };
 		FC97EDC629A60AD800425AFB /* Menus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menus.swift; sourceTree = "<group>"; };
 		FC97EDC829A7466000425AFB /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		FC97EDCD29A7561400425AFB /* PaperManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperManager.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 		FC97ED8929A4A0E400425AFB /* LikeeWallPaper */ = {
 			isa = PBXGroup;
 			children = (
-				FC97EDC429A5FC2400425AFB /* resource */,
 				FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */,
 				FC97ED8C29A4A0E400425AFB /* ContentView.swift */,
 				FC97ED8E29A4A0E600425AFB /* Assets.xcassets */,
@@ -288,7 +285,6 @@
 			files = (
 				FC97ED9229A4A0E600425AFB /* Preview Assets.xcassets in Resources */,
 				FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */,
-				FC97EDC529A5FC2400425AFB /* resource in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

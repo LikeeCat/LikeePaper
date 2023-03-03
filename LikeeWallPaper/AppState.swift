@@ -83,20 +83,19 @@ final class AppState: ObservableObject{
     init() {
         DispatchQueue.main.async { [self] in
             didLaunch()
-            handle()
+            startWallPaper()
         }
     }
     
-    func handle(){
+    func startWallPaper(){
         updateWallPaper()
-        playAll()
+        updatePlay(state: BatteryManager.shared.playState)
     }
     
     func updateWallPaper(){
         
         for sc in Defaults[.screensSetting]{
             let screen = NSScreen.from(cgDirectDisplayID: sc.screenId)
-//            request(url: sc.screenAssetUrl)
             creatPaperWindow(screen: screen, asset: sc.screenAssetUrl)
         }
     }
@@ -170,7 +169,7 @@ extension AppState{
 extension AppState{
     
     
-    func updatePlay(state:ScreenStateOption = .nomal){
+    func updatePlay(state:ScreenStateOption = .activity){
         if state == .activity && Defaults[.isStopPlayWhenFullScreen]{
             stopAll()
             return
@@ -182,17 +181,6 @@ extension AppState{
         playAll()
     }
     
-    func startPlay(deactive:Bool = false, updateScreen:NSScreen? , fromNoti:Bool = false){
-        
-        if isScreenLocked{
-            stopAll()
-        }
-        
-        if updateScreen != nil{
-            update(screen: updateScreen!)
-        }
-        
-    }
     
     func stopAll(){
         screenManagers.forEach { sc in
