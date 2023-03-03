@@ -18,7 +18,10 @@ struct UserSettingView: View {
             AdvancedSettings().tabItem{
                 Label("高级设置", systemImage: "gearshape.2")
             }
-        }.frame(width: 300)
+        }.windowLevel(.floating + 1)
+          .frame(width: 300)
+            
+    
     }
     
     private struct GeneralSettings: View {

@@ -83,39 +83,24 @@ final class AppState: ObservableObject{
     init() {
         DispatchQueue.main.async { [self] in
             didLaunch()
-        }
-    }
-    
-    func handleSingle(screen:NSScreen ,needStop:Bool){
-        let filterResult = screenManagers.filter({$0.display?.screen?.id == screen.id})
-        if filterResult.isEmpty == false{
-            let sc = filterResult[0]
-            if needStop{
-                sc.stop()
-            }
-            else{
-                sc.play()
-            }
+            handle()
         }
     }
     
     func handle(){
         updateWallPaper()
-        for sc in NSScreen.screens{
-            startPlay(deactive: false ,updateScreen: sc)
-        }
-        
+        playAll()
     }
     
     func updateWallPaper(){
         
         for sc in Defaults[.screensSetting]{
             let screen = NSScreen.from(cgDirectDisplayID: sc.screenId)
+//            request(url: sc.screenAssetUrl)
             creatPaperWindow(screen: screen, asset: sc.screenAssetUrl)
         }
     }
-    
-    private func setEvents(){
+        private func setEvents(){
         menu.onUpdate = { [self] in
             updateMenu()
         }
@@ -185,16 +170,16 @@ extension AppState{
 extension AppState{
     
     
-    func updatePlay(screen:NSScreen = NSScreen.from(cgDirectDisplayID: Defaults[.defaultScreenSetting].screenId)!,activeAppName:String = "", fullScreen:ScreenStateOption = .nomal){
-        if fullScreen == .activity && Defaults[.isStopPlayWhenFullScreen]{
-            stop(screen: screen)
+    func updatePlay(state:ScreenStateOption = .nomal){
+        if state == .activity && Defaults[.isStopPlayWhenFullScreen]{
+            stopAll()
             return
         }
-        if fullScreen == .activity && Defaults[.isStopPlayWhenDeactivity]{
-            stop(screen: screen)
+        if state == .activity && Defaults[.isStopPlayWhenDeactivity]{
+            stopAll()
             return
         }
-        play(screen: screen)
+        playAll()
     }
     
     func startPlay(deactive:Bool = false, updateScreen:NSScreen? , fromNoti:Bool = false){
@@ -215,27 +200,12 @@ extension AppState{
         }
     }
     
-    func updateAll(){
+    func playAll(){
         screenManagers.forEach { sc in
-            sc.update()
+            sc.play()
         }
     }
     
-    func play(screen:NSScreen){
-        let sms = screenManagers.filter{$0.display?.id == screen.id}
-        if sms.count > 0 {
-            let sm = sms[0]
-            sm.play()
-        }
-    }
-    
-    func stop(screen:NSScreen){
-        let sms = screenManagers.filter{$0.display?.id == screen.id}
-        if sms.count > 0 {
-            let sm = sms[0]
-            sm.stop()
-        }
-    }
     
     func update(screen:NSScreen){
         let sms = screenManagers.filter{$0.display?.id == screen.id}

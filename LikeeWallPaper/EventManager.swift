@@ -50,10 +50,10 @@ extension AppState{
 //                BatteryManager.updatePlay()
 //            }.store(in: &cancellables)
 //        
-//        BatteryManager.activeSpaceDidChangeNotification
+//        BatteryManager.didChangeScreenParametersNotification
 //            .sink{[self] _ in
-//                print("activeSpaceDidChangeNotification +++")
-//                BatteryManager.updatePlay()
+//                print("didChangeScreenParametersNotification +++")
+//                BatteryManager.shared.updatePlaying()
 //            }.store(in: &cancellables)
 //        
 //        BatteryManager.didDeactivateApplicationNotification

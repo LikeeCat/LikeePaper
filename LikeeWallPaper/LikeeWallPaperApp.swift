@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Defaults
 @main
 struct LikeeWallPaperApp: App {
     private var appState = AppState.shared
@@ -35,6 +35,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillFinishLaunching(_ notification: Notification) {
         // It's important that this is here so it's registered in time.
 
+    }
+    
+    func applicationWillTerminate(_ notification: Notification) {
+        BatteryManager.shared.invalidate()
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {

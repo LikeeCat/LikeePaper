@@ -16,21 +16,29 @@ enum ScreenStateOption{
     case nomal
 }
 
-
+@MainActor
 class BatteryManager:NSObject{
     static let shared = BatteryManager()
+    
+    //MARK: Timer
     var timer:Timer?
-    
-    private var isStopPlay = Defaults[.isStopPlay]
-    
-     func start(){
-         timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updatePlaying) , userInfo: nil, repeats: true)
-         timer?.fire()
+    func start(){
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updatePlaying) , userInfo: nil, repeats: true)
+        timer?.fire()
     }
     
-     func invalidate(){
-         timer?.invalidate()
+    func invalidate(){
+        timer?.invalidate()
     }
+    
+    @MainActor @objc  func updatePlaying(){
+        self.playState =  screenState()
+    }
+
+    //MARK: Noti
+    static let didChangeScreenParametersNotification = NotificationCenter.default.publisher(for: NSApplication.didChangeScreenParametersNotification)
+        .map { _ in }
+        .eraseToAnyPublisher()
     
     /**
      Publishes when the screen becomes locked/unlocked.
@@ -40,58 +48,28 @@ class BatteryManager:NSObject{
         DistributedNotificationCenter.default().publisher(for: .screenIsUnlocked).map { _ in false }
     )
         .eraseToAnyPublisher()
-        
-    @MainActor @objc  func updatePlaying(){
-        let mouseLocation = NSEvent.mouseLocation
-        let screens = NSScreen.screens
-        let screenWithMouse = (screens.first { NSMouseInRect(mouseLocation, $0.frame, false) })
-        let fullScreen = isFullScreen(screen: screenWithMouse!)
-        AppState.shared.updatePlay(screen: screenWithMouse!, activeAppName: "自定义",fullScreen:fullScreen)
+
+    
+    private var isStopPlay = Defaults[.isStopPlay]
+
+    var playState:ScreenStateOption = .activity{
+        didSet{
+            if playState != oldValue  {
+                AppState.shared.updatePlay(state: playState)
+            }
+        }
     }
-
-     func isFullScreen(screen:NSScreen) -> ScreenStateOption{
+    
+    func screenState() -> ScreenStateOption{
         let windowListInfo = CGWindowListCopyWindowInfo([.optionOnScreenOnly,.excludeDesktopElements],kCGNullWindowID)
-        var levelZero:[String] = []
-        var Level25:[String] = []
-        var full:[String] = []
         for window in windowListInfo as! [ [ String : AnyObject] ] {
-            if let name = window["kCGWindowOwnerName"] as? String{
-                guard let windowBounds = window["kCGWindowBounds"] else{
-                    continue
-                }
-
-                if let bounds = CGRect(dictionaryRepresentation: windowBounds as! CFDictionary) {
-                    let level = window["kCGWindowLayer"] as! Int
-                   if level == 0{
-                       if CGSizeEqualToSize(bounds.size, screen.frame.size){
-                           if full.contains(name) == false{
-                               full.append(name)
-                           }
-                       }
-                       else{
-                           if levelZero.contains(name) == false{
-                               levelZero.append(name)
-                           }
-                       }
-                    }
-                    else if level > 0{
-                        Level25.append(name)
-                    }
-                    else{
-                        
-                    }
-
+            if let level = window["kCGWindowLayer"] as? Int{
+                if level == 0{
+                    return .activity
                 }
             }
         }
-
-         if full.isEmpty == false || levelZero.isEmpty == false{
-            return .activity
-        }
-        else{
-            return .nomal
-        }
-
+        return .nomal
     }
     
 }
