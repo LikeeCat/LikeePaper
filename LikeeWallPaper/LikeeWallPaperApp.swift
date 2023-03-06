@@ -34,7 +34,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillFinishLaunching(_ notification: Notification) {
         // It's important that this is here so it's registered in time.
-
+//        Defaults.removeAll()
     }
     
     func applicationWillTerminate(_ notification: Notification) {
@@ -46,6 +46,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if let window = NSApplication.shared.windows.first {
             window.close()
         }
+        Constants.mainWindow?.title = "选择壁纸"
+
     }
     // This is only run when the app is started when it's already running.
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {

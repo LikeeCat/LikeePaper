@@ -40,6 +40,12 @@ class BatteryManager:NSObject{
         .map { _ in }
         .eraseToAnyPublisher()
     
+    //MARK: Noti
+    static let deviceDidWake = NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.didWakeNotification)
+        .map { _ in }
+        .eraseToAnyPublisher()
+
+    
     /**
      Publishes when the screen becomes locked/unlocked.
      */

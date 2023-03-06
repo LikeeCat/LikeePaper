@@ -15,77 +15,22 @@ extension AppState{
     func setUpAppEvents(){
         powerSourceWatcher?.didChangePublisher
             .sink { [self] result in
-//                handle()
+                AppState.shared.startWallPaper()
                 //电源
             }
             .store(in: &cancellables)
         
-//        BatteryManager.deviceDidWake
-//            .sink{[self] _ in
-////                handle()
-//            }.store(in: &cancellables)
-//
-//        BatteryManager.didResignActiveNotification
-//            .sink{[self] result in
-//                print("didResignActiveNotification +++")
-//                BatteryManager.updatePlay()
-//            }.store(in: &cancellables)
-////
-//        BatteryManager.didUpdateNotification
-//            .sink{[self] result in
-//                print("didUpdateNotification +++")
-//                BatteryManager.updatePlay()
-//            }.store(in: &cancellables)
-////
-//
-//        BatteryManager.didBecomeActiveNotification
-//            .sink{[self] _ in
-//                print("didBecomeActiveNotification +++")
-//                BatteryManager.updatePlay()
-//            }.store(in: &cancellables)
-//
-//        BatteryManager.willCloseNotification
-//            .sink{[self] _ in
-//                print("willCloseNotification +++")
-//                BatteryManager.updatePlay()
-//            }.store(in: &cancellables)
-//        
-//        BatteryManager.didChangeScreenParametersNotification
-//            .sink{[self] _ in
-//                print("didChangeScreenParametersNotification +++")
-//                BatteryManager.shared.updatePlaying()
-//            }.store(in: &cancellables)
-//        
-//        BatteryManager.didDeactivateApplicationNotification
-//            .sink{[self] _ in
-//                print("didDeactivateApplicationNotification +++")
-//                BatteryManager.updatePlay()
-//            }.store(in: &cancellables)
-//        
-//        BatteryManager.didActivateApplicationNotification
-//            .sink{[self] _ in
-//                print("didActivateApplicationNotification +++")
-//                BatteryManager.updatePlay()
-//            }.store(in: &cancellables)
-//        
-//        BatteryManager.didUnhideApplicationNotification
-//            .sink{[self] _ in
-//                print("didUnhideApplicationNotification +++")
-//                BatteryManager.updatePlay()
-//            }.store(in: &cancellables)
-//        
-//        BatteryManager.didHideApplicationNotification
-//            .sink{[self] _ in
-//                print("didHideApplicationNotification +++")
-//                BatteryManager.updatePlay()
-//            }.store(in: &cancellables)
-//        
-        //    public class let didActivateApplicationNotification: NSNotification.Name
-        //
-        //    @available(macOS 10.6, *)
-        //    public class let didDeactivateApplicationNotification: NSNotification.Name
-
+        BatteryManager.deviceDidWake
+            .sink{[self] _ in
+                AppState.shared.startWallPaper()
+            }.store(in: &cancellables)
         
+        BatteryManager.didChangeScreenParametersNotification
+            .sink{[self] _ in
+                AppState.shared.startWallPaper()
+                BatteryManager.shared.updatePlaying()
+            }.store(in: &cancellables)
+
         
         BatteryManager.isScreenLocked
             .sink { [self] in

@@ -688,3 +688,140 @@ extension AppState{
     
 }
 
+extension NSAlert {
+    /**
+    Show an async alert sheet on a window.
+    */
+    @MainActor
+    @discardableResult
+    static func show(
+        in window: NSWindow? = nil,
+        title: String,
+        message: String? = nil,
+        style: Style = .warning,
+        buttonTitles: [String] = [],
+        defaultButtonIndex: Int? = nil
+    ) async -> NSApplication.ModalResponse {
+        let alert = NSAlert(
+            title: title,
+            message: message,
+            style: style,
+            buttonTitles: buttonTitles,
+            defaultButtonIndex: defaultButtonIndex
+        )
+
+        guard let window else {
+            return await alert.run()
+        }
+
+        return await alert.beginSheetModal(for: window)
+    }
+
+    /**
+    Show an alert as a window-modal sheet, or as an app-modal (window-indepedendent) alert if the window is `nil` or not given.
+    */
+    @discardableResult
+    static func showModal(
+        for window: NSWindow? = nil,
+        title: String,
+        message: String? = nil,
+        style: Style = .warning,
+        buttonTitles: [String] = [],
+        defaultButtonIndex: Int? = nil
+    ) -> NSApplication.ModalResponse {
+        NSAlert(
+            title: title,
+            message: message,
+            style: style,
+            buttonTitles: buttonTitles,
+            defaultButtonIndex: defaultButtonIndex
+        )
+            .runModal(for: window)
+    }
+
+    /**
+    The index in the `buttonTitles` array for the button to use as default.
+
+    Set `-1` to not have any default. Useful for really destructive actions.
+    */
+    var defaultButtonIndex: Int {
+        get {
+            buttons.firstIndex { $0.keyEquivalent == "\r" } ?? -1
+        }
+        set {
+            // Clear the default button indicator from other buttons.
+            for button in buttons where button.keyEquivalent == "\r" {
+                button.keyEquivalent = ""
+            }
+
+            if newValue != -1 {
+                buttons[newValue].keyEquivalent = "\r"
+            }
+        }
+    }
+
+    convenience init(
+        title: String,
+        message: String? = nil,
+        style: Style = .warning,
+        buttonTitles: [String] = [],
+        defaultButtonIndex: Int? = nil
+    ) {
+        self.init()
+        self.messageText = title
+        self.alertStyle = style
+
+        if let message {
+            self.informativeText = message
+        }
+
+        addButtons(withTitles: buttonTitles)
+
+        if let defaultButtonIndex {
+            self.defaultButtonIndex = defaultButtonIndex
+        }
+    }
+
+    /**
+    Runs the alert as a window-modal sheet, or as an app-modal (window-indepedendent) alert if the window is `nil` or not given.
+    */
+    @discardableResult
+    func runModal(for window: NSWindow? = nil) -> NSApplication.ModalResponse {
+        guard let window else {
+            return runModal()
+        }
+
+        beginSheetModal(for: window) { returnCode in
+            NSApp.stopModal(withCode: returnCode)
+        }
+
+        return NSApp.runModal(for: window)
+    }
+
+    /**
+    Adds buttons with the given titles to the alert.
+    */
+    func addButtons(withTitles buttonTitles: [String]) {
+        for buttonTitle in buttonTitles {
+            addButton(withTitle: buttonTitle)
+        }
+    }
+}
+
+
+extension NSAlert {
+    /**
+    Workaround to allow using `NSAlert` in a `Task`.
+
+    [FB9857161](https://github.com/feedback-assistant/reports/issues/288)
+    */
+    @MainActor
+    @discardableResult
+    func run() async -> NSApplication.ModalResponse {
+        await withCheckedContinuation { continuation in
+            DispatchQueue.main.async { [self] in
+                continuation.resume(returning: runModal())
+            }
+        }
+    }
+}

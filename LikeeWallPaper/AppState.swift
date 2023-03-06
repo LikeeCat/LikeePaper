@@ -170,10 +170,6 @@ extension AppState{
     
     
     func updatePlay(state:ScreenStateOption = .activity){
-        if state == .activity && Defaults[.isStopPlayWhenFullScreen]{
-            stopAll()
-            return
-        }
         if state == .activity && Defaults[.isStopPlayWhenDeactivity]{
             stopAll()
             return

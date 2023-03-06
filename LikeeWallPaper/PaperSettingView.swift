@@ -9,13 +9,12 @@ import SwiftUI
 import Defaults
 
 let item = GridItem.init(.flexible(), spacing: 0, alignment: .center)
-private var symbols = ["主屏幕", "副屏幕:2", "副屏幕:3", "副屏幕:4", "副屏幕:5", "副屏幕:6", "副屏幕:7"  ]
+private var symbols = NSScreen.screens
 
 struct PaperSettingView: View {
-    var screens = Defaults[.screensSetting]
     
     var body: some View {
-        GeneralSettings().frame(width: 500,height: 700)
+        GeneralSettings().frame(width: 800,height: 600)
     }
 }
 
@@ -29,7 +28,6 @@ private struct SelectImageView: View {
         }else{
             
             Image(systemName: "plus").resizable().frame(width: 100, height: 100, alignment: .center).scaledToFit().foregroundColor(Color(.gray))
-            
         }
     }
     
@@ -41,16 +39,44 @@ private struct SelectImageView: View {
     }
 }
 
+
+private class ScreenModel: ObservableObject {
+    @Published var screenToSelected: String = ""
+    func update(update:String) {
+        // other functionality
+        screenToSelected = update
+    }
+    init(screenName:String) {
+        screenToSelected = screenName
+    }
+}
+
+private struct GeneralSettingsScreenView: View {
+    var stared = false
+    var name:String = ""
+    var body: some View {
+        if stared{
+            Text(name) + Text(Image(systemName: "star"))
+        }
+        else{
+            Text(name)
+        }
+    }
+    
+}
+
+
 private struct GeneralSettings: View {
     @State var paperAssetUrl:String = ""
     @State var select = false
-    
-    private let gridItemLayout:[GridItem] = [GridItem](repeating: item, count: symbols.count / 5)
+    @State var isShowAlert = false
+    @State var started = false
+
+    @ObservedObject var viewModel: ScreenModel = ScreenModel(screenName: "123")
+    @State var models:[[ScreenModel]] = getScreen()
     
     var body: some View {
         VStack{
-            Text("选择壁纸")
-            Spacer().frame(height: 20)
             SelectImageView(videoPath: paperAssetUrl, selected: select).onTapGesture {
                 Task {
                     guard let assetUrl = await chooseLocalWebsite() else{
@@ -64,30 +90,42 @@ private struct GeneralSettings: View {
             Spacer().frame(height: 20)
             Text("选择屏幕")
             Spacer().frame(height: 20)
-            ForEach(0..<colCount().count,id: \.self){
-                let col = colCount()[$0]
+            ForEach(0..<models.count){ colIndex in
+                let col = models[colIndex]
                 HStack{
-                    ForEach(0..<col.count, id:\.self){
-                        Text(col[$0]).frame(width:80,height: 60).border(.gray,width: 1)
+                    ForEach(0..<col.count) { index in
+                        GeneralSettingsScreenView(stared: started, name:col[index].screenToSelected ).frame(width:100,height: 100).border(.gray,width: 1).tag(index).onTapGesture {
+                            started = !started
+                        }
                     }
+
                 }
             }
             Spacer().frame(height: 40)
             Button("确认") {
-                settingImage(assetUrlString: paperAssetUrl)
-                paperAssetUrl = ""
-                Constants.mainWindow?.close()
+                if paperAssetUrl.isEmpty {
+                    NSAlert.showModal(title: "提示",message: "请选择壁纸后重试")
+                }
+                else{
+                    settingImage(assetUrlString: paperAssetUrl)
+                    paperAssetUrl = ""
+                    Constants.mainWindow?.close()
+                }
+
             }
         }
     }
     
-    func colCount() -> [[String]]{
-        var rows:[[String]] = []
-        var arr:[String] = []
+    static func colCount() -> [[NSScreen]]{
+        var rows:[[NSScreen]] = []
+        var arr:[NSScreen] = []
         for i in 0..<symbols.count{
             if i % 4 == 0{
                 arr = []
                 arr.append(symbols[i])
+                if i == symbols.count - 1{
+                    rows.append(arr)
+                }
             }
             else if (i + 1) % 4 == 0 || i == symbols.count - 1 {
                 arr.append(symbols[i])
@@ -100,11 +138,30 @@ private struct GeneralSettings: View {
         return rows
     }
     
+    func updateScreen(index:Int,col: Int,updateString:String){
+        let model = models[col][index]
+        model.update(update: updateString)
+        models[col][index] = model
+    }
+    
+    static func getScreen() -> [[ScreenModel]]{
+        var result:[[ScreenModel]] = []
+        for col in colCount() {
+            var colresult:[ScreenModel] = []
+            for index in col.indices{
+                let model = ScreenModel(screenName: col[index].localizedName)
+                colresult.append(model)
+                }
+            
+            result.append(colresult)
+            }
+        return result
+            
+    }
     
     @MainActor
     private func settingImage(assetUrlString:String){
         PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: nil)
-        
     }
     
     @MainActor

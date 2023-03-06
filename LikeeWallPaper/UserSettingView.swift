@@ -45,7 +45,6 @@ struct UserSettingView: View {
         var body: some View {
             VStack(alignment: .leading){
                 Spacer().frame(height: 10)
-                isStopPlayWhenEnterFullScreen().padding([.leading,.trailing], 20)
                 isStopPlayWhenBattery().padding([.leading,.trailing], 20)
                 isStopPlayWhenOtherAppActivity().padding([.leading,.trailing], 20)
                 Spacer().frame(height: 10)
@@ -136,22 +135,13 @@ struct UserSettingView: View {
     private struct isStopPlayWhenOtherAppActivity : View {
         var body: some View {
             Defaults.Toggle(
-                "其他应用使用时停止播放",
+                "使用其他应用时停止播放",
                 key: .isStopPlayWhenDeactivity
             )
             .help("当前桌面上有其他应用程序活跃时,停止播放视频")
         }
     }
     
-    private struct isStopPlayWhenEnterFullScreen : View {
-        var body: some View {
-            Defaults.Toggle(
-                "当应用进入全屏模式时停止播放",
-                key: .isStopPlayWhenFullScreen
-            )
-            .help("应用进入全屏模式时停止播放")
-        }
-    }
     
     
     
