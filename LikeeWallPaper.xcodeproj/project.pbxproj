@@ -29,6 +29,7 @@
 		FC97EDD029A75DDD00425AFB /* UserSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDCF29A75DDD00425AFB /* UserSettingView.swift */; };
 		FC97EDD229A77C7D00425AFB /* PaperSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */; };
 		FC97EDD429A7981700425AFB /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDD329A7981700425AFB /* EventManager.swift */; };
+		FC97FC462CBCCEC00032C598 /* setting.swift in Resources */ = {isa = PBXBuildFile; fileRef = FC97FC452CBCCEC00032C598 /* setting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		FC97EDCF29A75DDD00425AFB /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
 		FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSettingView.swift; sourceTree = "<group>"; };
 		FC97EDD329A7981700425AFB /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+		FC97FC432CBCCD110032C598 /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
+		FC97FC452CBCCEC00032C598 /* setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,7 @@
 		FC97ED7E29A4A0E400425AFB = {
 			isa = PBXGroup;
 			children = (
+				FC97FC432CBCCD110032C598 /* Untitled.swift */,
 				FC97ED8929A4A0E400425AFB /* LikeeWallPaper */,
 				FC97ED9B29A4A0E600425AFB /* LikeeWallPaperTests */,
 				FC97EDA529A4A0E700425AFB /* LikeeWallPaperUITests */,
@@ -125,6 +129,7 @@
 		FC97ED8929A4A0E400425AFB /* LikeeWallPaper */ = {
 			isa = PBXGroup;
 			children = (
+				FC97FC442CBCCEAB0032C598 /*  window */,
 				FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */,
 				FC97ED8C29A4A0E400425AFB /* ContentView.swift */,
 				FC97ED8E29A4A0E600425AFB /* Assets.xcassets */,
@@ -171,6 +176,14 @@
 				FC97EDA829A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift */,
 			);
 			path = LikeeWallPaperUITests;
+			sourceTree = "<group>";
+		};
+		FC97FC442CBCCEAB0032C598 /*  window */ = {
+			isa = PBXGroup;
+			children = (
+				FC97FC452CBCCEC00032C598 /* setting.swift */,
+			);
+			path = " window";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +298,7 @@
 			files = (
 				FC97ED9229A4A0E600425AFB /* Preview Assets.xcassets in Resources */,
 				FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */,
+				FC97FC462CBCCEC00032C598 /* setting.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,10 +494,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LikeeWallPaper/LikeeWallPaper.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LikeeWallPaper/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Likee桌面";
@@ -495,6 +510,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -506,10 +522,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = LikeeWallPaper/LikeeWallPaper.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LikeeWallPaper/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Likee桌面";
@@ -521,6 +538,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};

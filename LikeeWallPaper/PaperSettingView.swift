@@ -14,8 +14,67 @@ private var symbols = NSScreen.screens
 struct PaperSettingView: View {
     
     var body: some View {
-        GeneralSettings().frame(width: 800,height: 600)
+        GeneralSettings().background(Color.white).frame(width: 800,height: 600).background(Color.white)
     }
+}
+
+@MainActor
+private struct PaperView: View{
+    var papers = Papers.allPapers()
+    let columns = [GridItem(.adaptive(minimum: 100), spacing: 10)]
+    var body: some View{
+        ScrollView{
+            LazyVGrid(columns: columns, spacing: 10) {
+                ForEach(0..<papers.count){ index in
+                    if let url = papers[index][1] as? URL {
+                        Image(nsImage: NSImage(contentsOf: url)!).resizable().scaledToFit().frame(height: 100)
+                    }
+                }
+                
+                
+            }.padding(.horizontal)
+        }
+    }
+//        HStack{
+//
+//        }.onAppear{
+////            if Defaults[.defaultPaperFolder].isEmpty{
+////                Task {
+////                    guard let assetUrl = await chooseLocalWebsite() else{
+////                        return
+////                    }
+////                    updatePaperFolder(url: assetUrl.path)
+////                }
+////            }
+//        }
+//    }
+    
+    @MainActor
+    private func chooseLocalWebsite() async -> URL?{
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.canCreateDirectories = false
+        panel.title = "选择文件夹"
+        panel.message = "请选择一个包含视频文件的文件夹作为播放源"
+        panel.prompt = "选择"
+        panel.level = .modalPanel
+        // TODO: Make it a sheet instead when targeting the macOS bug is fixed. (macOS 13.1)
+        let result =  await panel.begin()
+        guard
+            result == .OK,
+            let url = panel.url
+        else {
+            return nil
+        }
+        
+        return url
+    }
+    
+    private func updatePaperFolder(url:String){
+        PaperManager.sharedPaperManager.updatePaperFolder(assetUrl:url)
+    }
+
 }
 
 private struct SelectImageView: View {
@@ -62,7 +121,6 @@ private struct GeneralSettingsScreenView: View {
             Text(name)
         }
     }
-    
 }
 
 
@@ -74,6 +132,30 @@ private struct GeneralSettings: View {
 
     @ObservedObject var viewModel: ScreenModel = ScreenModel(screenName: "123")
     @State var models:[[ScreenModel]] = getScreen()
+    
+    
+    @MainActor
+    private func chooseLocalWebsite() async -> URL?{
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.canCreateDirectories = false
+        panel.title = "选择文件"
+        panel.message = "请选择一个视频文件"
+        panel.prompt = "选择"
+        panel.level = .modalPanel
+        // TODO: Make it a sheet instead when targeting the macOS bug is fixed. (macOS 13.1)
+        let result =  await panel.begin()
+        guard
+            result == .OK,
+            let url = panel.url
+        else {
+            return nil
+        }
+        
+        return url
+    }
+
     
     var body: some View {
         VStack{
@@ -90,17 +172,6 @@ private struct GeneralSettings: View {
             Spacer().frame(height: 20)
             Text("选择屏幕")
             Spacer().frame(height: 20)
-            ForEach(0..<models.count){ colIndex in
-                let col = models[colIndex]
-                HStack{
-                    ForEach(0..<col.count) { index in
-                        GeneralSettingsScreenView(stared: started, name:col[index].screenToSelected ).frame(width:100,height: 100).border(.gray,width: 1).tag(index).onTapGesture {
-                            started = !started
-                        }
-                    }
-
-                }
-            }
             Spacer().frame(height: 40)
             Button("确认") {
                 if paperAssetUrl.isEmpty {
@@ -115,7 +186,7 @@ private struct GeneralSettings: View {
             }
         }
     }
-    
+
     static func colCount() -> [[NSScreen]]{
         var rows:[[NSScreen]] = []
         var arr:[NSScreen] = []
@@ -137,13 +208,13 @@ private struct GeneralSettings: View {
         }
         return rows
     }
-    
+
     func updateScreen(index:Int,col: Int,updateString:String){
         let model = models[col][index]
         model.update(update: updateString)
         models[col][index] = model
     }
-    
+
     static func getScreen() -> [[ScreenModel]]{
         var result:[[ScreenModel]] = []
         for col in colCount() {
@@ -151,71 +222,19 @@ private struct GeneralSettings: View {
             for index in col.indices{
                 let model = ScreenModel(screenName: col[index].localizedName)
                 colresult.append(model)
-                }
-            
-            result.append(colresult)
             }
+
+            result.append(colresult)
+        }
         return result
-            
+
     }
-    
+
     @MainActor
     private func settingImage(assetUrlString:String){
         PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: nil)
     }
-    
-    @MainActor
-    private func chooseLocalWebsite() async -> URL?{
-        //        guard let hostingWindow else {
-        //            return nil
-        //        }
-        
-        let panel = NSOpenPanel()
-        panel.canChooseFiles = true
-        panel.canChooseDirectories = false
-        panel.canCreateDirectories = false
-        panel.title = "选择本地文件"
-        panel.message = "选择本地视频文件作为壁纸"
-        panel.prompt = "选择"
-        
-        // Ensure it's above the window when in "Browsing Mode".
-        panel.level = .modalPanel
-        
-        //        let url = website.wrappedValue.url
-        //
-        //        if
-        //            isEditing,
-        //            url.isFileURL
-        //        {
-        //            panel.directoryURL = url
-        //        }
-        
-        // TODO: Make it a sheet instead when targeting the macOS bug is fixed. (macOS 13.1)
-        //        let result = await panel.beginSheet(hostingWindow)
-        let result =  await panel.begin()
-        
-        guard
-            result == .OK,
-            let url = panel.url
-        else {
-            return nil
-        }
-        
-        return url
-        
-        //        guard url.appendingPathComponent("index.html", isDirectory: false).exists else {
-        //            await NSAlert.show(title: "Please choose a directory that contains a “index.html” file.")
-        //            return await chooseLocalWebsite()
-        //        }
-        //
-        //        do {
-        //            try SecurityScopedBookmarkManager.saveBookmark(for: url)
-        //        } catch {
-        //            await error.present()
-        //            return nil
-        //        }
-        
-    }
+
 }
 
 

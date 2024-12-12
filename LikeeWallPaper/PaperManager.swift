@@ -20,10 +20,7 @@ class PaperManager{
         }
     }
     
-    func stopPlay(stop:Bool){
-        UserSetting.stopPlay(stop: stop)
-    }
-    
+
     func hiddenFolder(hiddenFolder:Bool){
         UserSetting.hiddenFolder(hidden: hiddenFolder)
     }
@@ -35,6 +32,22 @@ class PaperManager{
     func isUpdateAll(isUpdateAll:Bool){
         UserSetting.isUpdateAll(isUpdateAll: isUpdateAll)
     }
+    
+    func updatePaperFolder(assetUrl:String){
+            UserSetting.updatePaperFolder(assetUrl: assetUrl)
+    }
+    
+    // MARK: 播放设置
+
+    @MainActor func isStopPlayWhenBattery(isStopPlayWhenBattery:Bool){
+         UserSetting.isStopPlayWhenBattery(isStopPlayWhenBattery: isStopPlayWhenBattery)
+    }
+    
+    @MainActor func isStopPlayWhenDeactivity(isStopPlayWhenDeactivity:Bool){
+         UserSetting.isStopPlayWhenDeactivity(isStopPlayWhenDeactivity: isStopPlayWhenDeactivity)
+    }
+
+    
     
     @MainActor private func updateSinglePaper(assetUrlString:String, screen:NSScreen?){
         let updateScreen =  screen == nil ? NSScreen.defaultScreen! : screen!
@@ -55,17 +68,29 @@ class PaperManager{
 
 
 private class UserSetting{
-    
-    static func stopPlay(stop:Bool){
-        Defaults[.isStopPlay] = stop
-    }
-    
+        
     static func hiddenFolder(hidden:Bool){
         Defaults[.isHiddenFolder] = hidden
     }
     
     static func isUpdateAll(isUpdateAll:Bool){
         Defaults[.isUpdateAll] = isUpdateAll
+    }
+
+    @MainActor static func isStopPlayWhenBattery(isStopPlayWhenBattery:Bool){
+        Defaults[.isStopPlayWhenBattery] = isStopPlayWhenBattery
+        AppState.shared.updatePlay()
+
+    }
+    
+    @MainActor static func isStopPlayWhenDeactivity(isStopPlayWhenDeactivity:Bool){
+        Defaults[.isStopPlayWhenDeactivity] = isStopPlayWhenDeactivity
+        AppState.shared.updatePlay()
+
+    }
+
+    static func updatePaperFolder(assetUrl:String){
+        Defaults[.defaultPaperFolder] = assetUrl
     }
     
     @MainActor static func updateScreenDisplay(screen:NSScreen,assetUrl:String){

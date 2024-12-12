@@ -8,6 +8,21 @@
 import Foundation
 import AVKit
 import Defaults
+
+import AVFoundation
+
+extension AVPlayer.TimeControlStatus: @retroactive CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .paused: return "paused"
+        case .waitingToPlayAtSpecifiedRate: return "waitingToPlayAtSpecifiedRate"
+        case .playing: return "playing"
+        @unknown default: return "unknown"
+        }
+    }
+}
+
+
 @MainActor
 class PaperPlayerController:NSViewController{
     
@@ -35,6 +50,12 @@ class PaperPlayerController:NSViewController{
     var stop:Bool?{
         didSet{
             playerstop()
+        }
+    }
+    
+    var isPlay:Bool {
+        get{
+            playerLayer?.player?.timeControlStatus == .playing
         }
     }
     
@@ -104,26 +125,30 @@ class PaperPlayerController:NSViewController{
 extension PaperPlayerController{
     
     //MARK: 播放器相关
-    func playerplay(){
+    func   playerplay(){
+        
+        print("this is the status \( String(describing: playerLayer?.player?.timeControlStatus))")
+        if isPlay{
+            return 
+        }
         playerLayer?.player?.play()
         playerVolume(volume: self.volume)
         playermuted(muted: self.ismuted)
     }
+    
     
     func playerpause(){
         playerLayer?.player?.pause()
     }
     
     func updatePlayer(){
-        let rate = playerLayer?.player?.rate == 1 ? 0 : 1
-        if rate == 1{
-            print("开始播放啦 +++++++++")
-            playerplay()
-        }
-        else{
-            print("停止播放啦 +++++++++")
-            playerstop()
-        }
+//        let rate = playerLayer?.player?.rate == 1 ? 0 : 1
+//        if rate == 1{
+//            playerplay()
+//        }
+//        else{
+//            playerstop()
+//        }
     }
     
     func playerstop(){

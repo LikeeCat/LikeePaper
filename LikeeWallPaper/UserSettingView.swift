@@ -87,7 +87,9 @@ struct UserSettingView: View {
             Defaults.Toggle(
                 "将壁纸应用在所有的屏幕上",
                 key: .isUpdateAll
-            )
+            ).onChange({ newValue in
+                PaperManager.sharedPaperManager.isUpdateAll(isUpdateAll: newValue)
+            })
             .help("默认只会更换主屏幕壁纸显示,打开后,所有的屏幕都会同步更换")
         }
     }
@@ -97,7 +99,9 @@ struct UserSettingView: View {
             Defaults.Toggle(
                 "隐藏桌面文件夹",
                 key: .isHiddenFolder
-            )
+            ).onChange({ newValue in
+                PaperManager.sharedPaperManager.hiddenFolder(hiddenFolder: newValue)
+            })
             .help("打开后,会隐藏桌面上的文件夹")
         }
     }
@@ -112,22 +116,14 @@ struct UserSettingView: View {
         }
     }
     
-    private struct isStopPlaySetting: View {
-        var body: some View {
-            Defaults.Toggle(
-                "打开其他应用暂停播放视频",
-                key: .isStopPlay
-            )
-            .help("打开其他应用暂停播放视频")
-        }
-    }
-    
     private struct isStopPlayWhenBattery : View {
         var body: some View {
             Defaults.Toggle(
                 "未连接电源时暂停播放",
                 key: .isStopPlayWhenBattery
-            )
+            ).onChange({ newValue in
+                PaperManager.sharedPaperManager.isStopPlayWhenBattery(isStopPlayWhenBattery: newValue)
+            })
             .help("没有连接电源时停止播放视频")
         }
     }
@@ -137,7 +133,9 @@ struct UserSettingView: View {
             Defaults.Toggle(
                 "使用其他应用时停止播放",
                 key: .isStopPlayWhenDeactivity
-            )
+            ).onChange({ newValue in
+                PaperManager.sharedPaperManager.isStopPlayWhenDeactivity(isStopPlayWhenDeactivity: newValue)
+            })
             .help("当前桌面上有其他应用程序活跃时,停止播放视频")
         }
     }

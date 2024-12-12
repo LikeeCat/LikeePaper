@@ -13,6 +13,8 @@ import IOKit.ps
 import Combine
 import SwiftUI
 
+
+
 extension NSScreen: Identifiable {
     public var id: CGDirectDisplayID {
         deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as! CGDirectDisplayID
@@ -662,10 +664,15 @@ extension AppState{
     static func getFirstFrameWithUrl(url:URL)-> URL?{
         let asset = AVAsset(url: url)
         let imageGen = AVAssetImageGenerator(asset: asset)
-        guard let firstFrame = try? imageGen.copyCGImage(at: CMTime(value: 0, timescale: 1), actualTime: nil) else {
+        var firstFrame: CGImage? = nil
+        do {
+             firstFrame = try imageGen.copyCGImage(at: CMTime(value: 0, timescale: 1), actualTime: nil)
+        } catch {
+            print("Error generating image: \(error.localizedDescription)")
             return nil
         }
-        let rep = NSBitmapImageRep(cgImage: firstFrame)
+
+        let rep = NSBitmapImageRep(cgImage: firstFrame!)
         let data = rep.representation(using: .png, properties: [:])
         let document = getDocumentsDirectory()
         var fileName = url.lastPathComponent.split(separator: ".")[0]
@@ -686,6 +693,18 @@ extension AppState{
         return paths[0]
     }
     
+}
+
+extension FileManager {
+    public func isDirectory(at url: URL) -> Bool {
+        let fileManager = FileManager.default
+        var isDir : ObjCBool = false
+        if fileManager.fileExists(atPath: url.path, isDirectory:&isDir) {
+            return isDir.boolValue
+        } else {
+            return false
+        }
+    }
 }
 
 extension NSAlert {
@@ -824,4 +843,57 @@ extension NSAlert {
             }
         }
     }
+}
+
+class Papers{
+    @MainActor static func allPapers()->[[Any]]{
+       let allVideos = getAllPaper(path: Defaults[.defaultPaperFolder])
+       let allPaper =  allPaperImage(urls: allVideos)
+       var settings = [[Any]]()
+       for i in 0..<allVideos.count{
+           var paperSetting = [Any]()
+           paperSetting.append(allVideos[i])
+           paperSetting.append(allPaper[i])
+           settings.append(paperSetting)
+       }
+       return settings
+   }
+
+    @MainActor static func allPaperImage(urls:[String])->[URL]{
+       var images = [URL]()
+       for url in urls{
+           if let imagePath = getSelectImage(path: url) {
+               images.append(imagePath)
+           }
+       }
+       return images
+   }
+
+    @MainActor static func getSelectImage(path:String) -> URL?{
+       let url = URL(fileURLWithPath: path)
+       return AppState.getFirstFrameWithUrl(url: url)
+       
+   }
+
+   static func getAllPaper(path:String)->[String]{
+       
+
+       var urls: [String] = []
+       if path.isEmpty{
+           return []
+       }
+       if FileManager.default.isDirectory(at: URL(string: path)!) == false{
+           return urls
+       }
+       URL(string: path)!.startAccessingSecurityScopedResource()
+       var paths = FileManager.default.subpaths(atPath: path)!
+
+       for subPath in paths{
+           if subPath.hasSuffix(".mp4"){
+               urls.append("\(path)/\(subPath)")
+           }
+           
+       }
+       return urls
+   }
 }

@@ -15,19 +15,19 @@ extension AppState{
     func setUpAppEvents(){
         powerSourceWatcher?.didChangePublisher
             .sink { [self] result in
-                AppState.shared.startWallPaper()
+                AppState.shared.updatePlay()
                 //电源
             }
             .store(in: &cancellables)
         
         BatteryManager.deviceDidWake
             .sink{[self] _ in
-                AppState.shared.startWallPaper()
+                AppState.shared.updatePlay()
             }.store(in: &cancellables)
         
         BatteryManager.didChangeScreenParametersNotification
             .sink{[self] _ in
-                AppState.shared.startWallPaper()
+                AppState.shared.updatePlay()
                 BatteryManager.shared.updatePlaying()
             }.store(in: &cancellables)
 

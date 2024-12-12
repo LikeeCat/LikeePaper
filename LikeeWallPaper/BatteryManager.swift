@@ -56,7 +56,6 @@ class BatteryManager:NSObject{
         .eraseToAnyPublisher()
 
     
-    private var isStopPlay = Defaults[.isStopPlay]
 
     var playState:ScreenStateOption = .activity{
         didSet{

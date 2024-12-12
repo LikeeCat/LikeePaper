@@ -16,27 +16,32 @@ class ScreenManager{
     var playerController:PaperPlayerController?
     var window:DesktopWindow?
     var display:Display?
-    
     init(playerController:PaperPlayerController?, window:DesktopWindow?,display:Display?) {
         self.playerController = playerController
         self.window = window
         self.display = display
     }
     
+    
+    
     func update(){
         playerController?.updatePlayer()
+        hiddenFolder()
     }
     
     func play(){
         playerController?.playerplay()
+        hiddenFolder()
     }
     
     func stop(){
         playerController?.playerstop()
+        hiddenFolder()
     }
     
     func muted(){
         playerController?.ismuted = Defaults[.isMuted]
+        hiddenFolder()
     }
     
     func bindingControllerToWindow(){
@@ -45,6 +50,10 @@ class ScreenManager{
         window?.hiddenFolder = Defaults[.isHiddenFolder]
     }
     
+    private func hiddenFolder(){
+        window?.hiddenFolder = Defaults[.isHiddenFolder]
+
+    }
     func settingWindowWallPaper(){
         if let url = playerController?.assetUrl{
             if let path = AppState.getFirstFrameWithUrl(url: url){
@@ -170,10 +179,19 @@ extension AppState{
     
     
     func updatePlay(state:ScreenStateOption = .activity){
-        if state == .activity && Defaults[.isStopPlayWhenDeactivity]{
+        // 如果使用其他应用 暂停播放
+        if state == .activity &&  Defaults[.isStopPlayWhenDeactivity] {
             stopAll()
             return
         }
+        
+        // 未使用电源时  暂停播放
+        if state == .activity && Defaults[.isStopPlayWhenBattery] && powerSourceWatcher?.powerSource.isUsingBattery == true {
+            stopAll()
+            return
+        }
+
+
         playAll()
     }
     
