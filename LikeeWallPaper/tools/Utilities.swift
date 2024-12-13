@@ -870,7 +870,7 @@ class Papers{
    }
 
     @MainActor static func getSelectImage(path:String) -> URL?{
-       let url = URL(fileURLWithPath: path)
+        guard let url = URL(string: path) else { return nil }
        return AppState.getFirstFrameWithUrl(url: url)
        
    }
@@ -890,7 +890,8 @@ class Papers{
 
        for subPath in paths{
            if subPath.hasSuffix(".mp4"){
-               urls.append("\(path)/\(subPath)")
+               let url = URL(fileURLWithPath: "\(path)/\(subPath)")
+               urls.append(url.absoluteString)
            }
            
        }

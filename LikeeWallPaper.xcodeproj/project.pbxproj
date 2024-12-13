@@ -75,7 +75,6 @@
 		FC97EDCF29A75DDD00425AFB /* UserSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingView.swift; sourceTree = "<group>"; };
 		FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSettingView.swift; sourceTree = "<group>"; };
 		FC97EDD329A7981700425AFB /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
-		FC97FC432CBCCD110032C598 /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
 		FC97FC452CBCCEC00032C598 /* setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,10 +104,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC5EECD82D0BD4CE00B4F8AA /* view */ = {
+			isa = PBXGroup;
+			children = (
+				FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */,
+				FC97EDCF29A75DDD00425AFB /* UserSettingView.swift */,
+				FC97EDB729A4A1C200425AFB /* PaperPlayerView.swift */,
+				FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */,
+				FC97EDC629A60AD800425AFB /* Menus.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		FC5EECD92D0BD50000B4F8AA /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				FC97EDB529A4A1B100425AFB /* PaperPlayerController.swift */,
+				FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		FC5EECDA2D0BD51900B4F8AA /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				FC97EDBB29A5F66200425AFB /* Utilities.swift */,
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
+		FC5EECDB2D0BD56300B4F8AA /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				FC97EDCD29A7561400425AFB /* PaperManager.swift */,
+				FC97EDD329A7981700425AFB /* EventManager.swift */,
+				FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */,
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
 		FC97ED7E29A4A0E400425AFB = {
 			isa = PBXGroup;
 			children = (
-				FC97FC432CBCCD110032C598 /* Untitled.swift */,
 				FC97ED8929A4A0E400425AFB /* LikeeWallPaper */,
 				FC97ED9B29A4A0E600425AFB /* LikeeWallPaperTests */,
 				FC97EDA529A4A0E700425AFB /* LikeeWallPaperUITests */,
@@ -129,26 +166,18 @@
 		FC97ED8929A4A0E400425AFB /* LikeeWallPaper */ = {
 			isa = PBXGroup;
 			children = (
-				FC97FC442CBCCEAB0032C598 /*  window */,
+				FC5EECDB2D0BD56300B4F8AA /* manager */,
+				FC5EECDA2D0BD51900B4F8AA /* tools */,
+				FC5EECD92D0BD50000B4F8AA /* controller */,
+				FC5EECD82D0BD4CE00B4F8AA /* view */,
+				FC97FC442CBCCEAB0032C598 /* window */,
 				FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */,
 				FC97ED8C29A4A0E400425AFB /* ContentView.swift */,
 				FC97ED8E29A4A0E600425AFB /* Assets.xcassets */,
 				FC97ED9329A4A0E600425AFB /* LikeeWallPaper.entitlements */,
 				FC97ED9029A4A0E600425AFB /* Preview Content */,
-				FC97EDB529A4A1B100425AFB /* PaperPlayerController.swift */,
-				FC97EDB729A4A1C200425AFB /* PaperPlayerView.swift */,
-				FC97EDB929A5F49E00425AFB /* DesktopWindow.swift */,
-				FC97EDBB29A5F66200425AFB /* Utilities.swift */,
 				FC97EDBD29A5F7ED00425AFB /* AppState.swift */,
-				FC97EDC629A60AD800425AFB /* Menus.swift */,
 				FC97EDC829A7466000425AFB /* UserSetting.swift */,
-				FC97EDCD29A7561400425AFB /* PaperManager.swift */,
-				FC97EDCF29A75DDD00425AFB /* UserSettingView.swift */,
-				FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */,
-				FC97EDD329A7981700425AFB /* EventManager.swift */,
-				FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */,
-				FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */,
-				FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */,
 			);
 			path = LikeeWallPaper;
 			sourceTree = "<group>";
@@ -178,12 +207,13 @@
 			path = LikeeWallPaperUITests;
 			sourceTree = "<group>";
 		};
-		FC97FC442CBCCEAB0032C598 /*  window */ = {
+		FC97FC442CBCCEAB0032C598 /* window */ = {
 			isa = PBXGroup;
 			children = (
+				FC97EDB929A5F49E00425AFB /* DesktopWindow.swift */,
 				FC97FC452CBCCEC00032C598 /* setting.swift */,
 			);
-			path = " window";
+			path = window;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
