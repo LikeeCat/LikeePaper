@@ -52,7 +52,7 @@ class ScreenManager{
     
     private func hiddenFolder(){
         window?.hiddenFolder = Defaults[.isHiddenFolder]
-
+        
     }
     func settingWindowWallPaper(){
         if let url = playerController?.assetUrl{
@@ -108,7 +108,14 @@ final class AppState: ObservableObject{
             creatPaperWindow(screen: screen, asset: sc.screenAssetUrl)
         }
     }
-        private func setEvents(){
+    
+    func updateSingleWallPaper(screen:NSScreen, asset: String){
+        creatPaperWindow(screen: screen, asset: asset)
+        updatePlay(state: BatteryManager.shared.playState)
+
+    }
+    
+    private func setEvents(){
         menu.onUpdate = { [self] in
             updateMenu()
         }
@@ -190,8 +197,8 @@ extension AppState{
             stopAll()
             return
         }
-
-
+        
+        
         playAll()
     }
     
