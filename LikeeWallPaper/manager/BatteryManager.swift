@@ -9,6 +9,7 @@ import Foundation
 import Cocoa
 import Defaults
 import Combine
+import IOKit.pwr_mgt
 
 enum ScreenStateOption{
     case fullScreen
@@ -31,7 +32,7 @@ class BatteryManager:NSObject{
         timer?.invalidate()
     }
     
-    @MainActor @objc  func updatePlaying(){
+    @MainActor @objc func updatePlaying(){
         self.playState =  screenState()
     }
 
@@ -45,7 +46,9 @@ class BatteryManager:NSObject{
         .map { _ in }
         .eraseToAnyPublisher()
 
-    
+
+
+
     /**
      Publishes when the screen becomes locked/unlocked.
      */

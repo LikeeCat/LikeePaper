@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,9 @@
 		FC97EDD229A77C7D00425AFB /* PaperSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */; };
 		FC97EDD429A7981700425AFB /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDD329A7981700425AFB /* EventManager.swift */; };
 		FC97FC462CBCCEC00032C598 /* setting.swift in Resources */ = {isa = PBXBuildFile; fileRef = FC97FC452CBCCEC00032C598 /* setting.swift */; };
+		FCDA43032D2B862B001B03D9 /* BatteryDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */; };
+		FCDA43052D2BB0FC001B03D9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43042D2BB0FC001B03D9 /* Theme.swift */; };
+		FCDA43072D2BCF8A001B03D9 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43062D2BCF8A001B03D9 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +81,14 @@
 		FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSettingView.swift; sourceTree = "<group>"; };
 		FC97EDD329A7981700425AFB /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		FC97FC452CBCCEC00032C598 /* setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
+		FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryDisplayManager.swift; sourceTree = "<group>"; };
+		FCDA43042D2BB0FC001B03D9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		FCDA43062D2BCF8A001B03D9 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		FCDA43082D2BCFDC001B03D9 /* video */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = video; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FC97ED8429A4A0E400425AFB /* Frameworks */ = {
@@ -109,6 +119,8 @@
 		FC02546F2D2B6B50008995FE /* model */ = {
 			isa = PBXGroup;
 			children = (
+				FCDA43042D2BB0FC001B03D9 /* Theme.swift */,
+				FCDA43062D2BCF8A001B03D9 /* File.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -149,6 +161,7 @@
 				FC97EDCD29A7561400425AFB /* PaperManager.swift */,
 				FC97EDD329A7981700425AFB /* EventManager.swift */,
 				FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */,
+				FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -176,6 +189,7 @@
 		FC97ED8929A4A0E400425AFB /* LikeeWallPaper */ = {
 			isa = PBXGroup;
 			children = (
+				FCDA43082D2BCFDC001B03D9 /* video */,
 				FC02546F2D2B6B50008995FE /* model */,
 				FC5EECDB2D0BD56300B4F8AA /* manager */,
 				FC5EECDA2D0BD51900B4F8AA /* tools */,
@@ -241,6 +255,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				FCDA43082D2BCFDC001B03D9 /* video */,
 			);
 			name = LikeeWallPaper;
 			packageProductDependencies = (
@@ -369,6 +386,7 @@
 				FC97EDC929A7466000425AFB /* UserSetting.swift in Sources */,
 				FC97EDBC29A5F66200425AFB /* Utilities.swift in Sources */,
 				FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */,
+				FCDA43072D2BCF8A001B03D9 /* File.swift in Sources */,
 				FC61BEEB29AC4E5B00C6384F /* BatteryManager.swift in Sources */,
 				FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */,
 				FC0254712D2B6C81008995FE /* PaperSettingRightView.swift in Sources */,
@@ -377,7 +395,9 @@
 				FC97ED8B29A4A0E400425AFB /* LikeeWallPaperApp.swift in Sources */,
 				FC97EDB629A4A1B100425AFB /* PaperPlayerController.swift in Sources */,
 				FC97EDC729A60AD800425AFB /* Menus.swift in Sources */,
+				FCDA43052D2BB0FC001B03D9 /* Theme.swift in Sources */,
 				FC97EDD029A75DDD00425AFB /* UserSettingView.swift in Sources */,
+				FCDA43032D2B862B001B03D9 /* BatteryDisplayManager.swift in Sources */,
 				FC97EDD229A77C7D00425AFB /* PaperSettingView.swift in Sources */,
 				FC97EDBA29A5F49E00425AFB /* DesktopWindow.swift in Sources */,
 				FC97EDD429A7981700425AFB /* EventManager.swift in Sources */,

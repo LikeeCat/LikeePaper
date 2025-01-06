@@ -31,27 +31,37 @@ struct PaperSettingRightView: View{
 
     
     var body: some View {
-        VStack{
-            Text("显示设置").font(.title)
+        VStack(alignment: .leading){
+            Text("显示设置")
+                .font(.title)
+                .foregroundColor(Theme.textColor)
+                .padding()
+                .background(Theme.backgroundColor)
+                .cornerRadius(10)
+
             Spacer().frame(height: 10)
             LazyHGrid(rows: display, spacing: 10) {
                 ForEach(models.indices, id: \.self){ index in
                     VStack{
                         Image(systemName: "display")
                             .resizable()
-                            .frame(width: 100, height: 100, alignment: .center)
-                            .foregroundColor(Color(.gray))
+                            .frame(width: 55, height: 55, alignment: .center)
+                            .foregroundColor(Theme.accentColor)
                             .scaleEffect(selectedIndex == index ? 1.2 : 1)
-                            .shadow(color: selectedIndex == index ? .white : .black, radius: selectedIndex == index ? 2 : 1, x: 0, y: 2) // 选中时修改阴影
                             .animation(.easeInOut(duration: 0.2), value: selectedIndex) // 绑定动画到 selectedIndex
-                        Spacer().frame(height: 10)
-                        Text(models[index].name)
+                        Spacer().frame(height: 5)
+                        Text(models[index].name).font(.system(size: 15))
+                            .foregroundColor(Theme.textColor)
+                            .padding()
+                            .background(Theme.backgroundColor)
+                            .cornerRadius(10)
                         Spacer().frame(height: 5)
                     }.onTapGesture {
                         selectedIndex = index // 设置为选中项
                     }
                 }
             }
+            Spacer().frame(height: 10)
             Defaults.Toggle(
                 "将壁纸应用在所有的屏幕上",
                 key: .isUpdateAll
@@ -68,3 +78,10 @@ struct PaperSettingRightView: View{
 
     
 }
+
+
+//struct PaperSettingRightView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PaperSettingRightView(selectedIndex: 0, models: [])
+//    }
+//}

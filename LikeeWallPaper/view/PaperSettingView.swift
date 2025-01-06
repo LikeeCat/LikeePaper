@@ -14,41 +14,48 @@ private var screens = NSScreen.screens
 struct PaperSettingView: View {
     
     var body: some View {
-        PaperView().background(Color.white).frame(width: (NSScreen.main?.frame.width ?? 800) * 0.6   ,height: 600).background(Color.white)
+        PaperView().background(Theme.backgroundColor)
     }
 }
 
 @MainActor
 private struct PaperView: View{
-    var papers = Papers.allPapers()
+    @State var papers = Papers.allPapers()  // Initialize papers here to be mutable
     @State var models:[ScreenModel] = getScreen()
     @State var selectedIndex:Int = getSelectedScreen()
     
-    let columns = [GridItem(.adaptive(minimum: 180), spacing: 10)]
+    let columns = [GridItem(.adaptive(minimum: 250), spacing: 5)]
     
     var body: some View{
         HStack{
             ScrollView{
-                LazyVGrid(columns: columns, spacing: 10) {
+                LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(0..<papers.count){ index in
                         if let url = papers[index][1] as? URL {
-                            Image(nsImage: NSImage(contentsOf: url)!).resizable().scaledToFit().frame(height: 200).onTapGesture {
+                            Image(nsImage: NSImage(contentsOf: url)!).resizable().frame(width:250, height: 180).scaledToFill().onTapGesture {
                                 let url = papers[index][0]
                                 settingImage(assetUrlString: url as! String)
                             }
                         }
                     }
                 }.padding(.horizontal)
-            }.background(Color.white)
+            }.background(Theme.backgroundColor)
                 .frame(maxWidth: .infinity) // 占用剩余空间
                 .layoutPriority(0)
             Divider().frame(width: 1)
             PaperSettingRightView(selectedIndex: $selectedIndex, models: $models)
                 .layoutPriority(1) //
+        }.onAppear {
+            // This will trigger when the view appears
+            self.reloadPapers()
         }
     }
         
         
+        private func reloadPapers() {
+            // Fetch or reload your papers data here
+            self.papers = Papers.allPapers()
+        }
         private static func getScreen() -> [ScreenModel]{
             var result:[ScreenModel] = []
             for screen in screens {

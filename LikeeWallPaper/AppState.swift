@@ -153,7 +153,7 @@ extension AppState{
         let screenManager = ScreenManager(playerController: playerController, window: desktopWindow, display: display)
         desktopWindow.makeKeyAndOrderFront(self)
         screenManagers.append(screenManager)
-        screenManager.settingWindowWallPaper()
+//        screenManager.settingWindowWallPaper()
     }
     
     private func updateScreenManager(screen:NSScreen?, asset:String?, screenManager:ScreenManager){
@@ -162,7 +162,7 @@ extension AppState{
         }
         screenManager.playerController?.updateAssetUrl(newAsset: URL.init(string: asset!)!)
         screenManager.window?.contentView = screenManager.playerController?.view
-        screenManager.settingWindowWallPaper()
+//        screenManager.settingWindowWallPaper()
     }
     
     private func creatPaperWindow(screen:NSScreen?, asset:String?){
