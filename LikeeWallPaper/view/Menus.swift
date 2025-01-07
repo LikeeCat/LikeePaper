@@ -26,7 +26,7 @@ extension AppState {
         }
         menu.removeAllItems()
         menu.addCallbackItem("挑选本地壁纸") {
-            Constants.openWebsitesWindow()
+            Constants.openPaperWindow()
         }
         menu.addSeparator()
         menu.addCallbackItem("隐藏桌面文件", isChecked: Defaults[.isHiddenFolder]) {

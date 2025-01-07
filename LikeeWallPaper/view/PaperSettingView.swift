@@ -14,7 +14,9 @@ private var screens = NSScreen.screens
 struct PaperSettingView: View {
     
     var body: some View {
-        PaperView().background(Theme.backgroundColor)
+        HStack{
+            PaperView().background(Theme.backgroundColor)
+        }
     }
 }
 
@@ -38,16 +40,15 @@ private struct PaperView: View{
                             }
                         }
                     }
-                }.padding(.horizontal)
+                }
+                .padding(.horizontal)
             }.background(Theme.backgroundColor)
                 .frame(maxWidth: .infinity) // 占用剩余空间
                 .layoutPriority(0)
+                .padding(.top,1)
             Divider().frame(width: 1)
             PaperSettingRightView(selectedIndex: $selectedIndex, models: $models)
                 .layoutPriority(1) //
-        }.onAppear {
-            // This will trigger when the view appears
-            self.reloadPapers()
         }
     }
         

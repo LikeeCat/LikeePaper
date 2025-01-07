@@ -15,6 +15,8 @@ struct ScreenSetting:Codable, Defaults.Serializable, Hashable{
     var screenAssetUrl:String
 }
 
+
+
 extension Defaults.Keys {
     // play state
     static let isStopPlayWhenBattery = Key<Bool>("isStopPlayWhenBattery", default: true)
@@ -32,14 +34,26 @@ extension Defaults.Keys {
 
 }
 
+
 enum Constants {
  
     static let menuBarIcon = NSImage(named: "MenuBarIcon")!
 
     static var mainWindow: NSWindow? = NSWindow(contentViewController: PaperViewController.shared)
 
-    static func openWebsitesWindow() {
+    static func openPaperWindow() {
         NSApp.activate(ignoringOtherApps: true)
+        mainWindow?.styleMask = [
+            .titled,                // 标题栏
+            .closable,              // 关闭按钮
+            .miniaturizable,        // 最小化按钮
+            .resizable,             // 可调整大小
+            .fullSizeContentView    // 全尺寸内容
+        ]
+        mainWindow?.titlebarAppearsTransparent = true           // 标题栏透明
+        mainWindow?.isOpaque = false                            // 使窗口背景透明
+        mainWindow?.backgroundColor = NSColor(Theme.backgroundColor)  // 设置背景为透明色
+        mainWindow?.isMovableByWindowBackground = true
         mainWindow?.makeKeyAndOrderFront(nil)
     }
     
