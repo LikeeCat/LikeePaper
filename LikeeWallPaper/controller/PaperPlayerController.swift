@@ -127,7 +127,6 @@ extension PaperPlayerController{
     //MARK: 播放器相关
     func   playerplay(){
         
-        print("this is the status \( String(describing: playerLayer?.player?.timeControlStatus))")
         if isPlay{
             return 
         }

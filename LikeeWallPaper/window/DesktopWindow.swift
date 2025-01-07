@@ -70,7 +70,6 @@ final class DesktopWindow: NSWindow {
     }
     
     private func setFrame() {
-        print("this is the target display +++ \(String(describing: targetDisplay))")
         guard let screen = targetDisplay?.screen ?? .main else {
             return
         }

@@ -11,6 +11,9 @@
 		FC61BEE529A9D95C00C6384F /* VolumeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */; };
 		FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */; };
 		FC61BEEB29AC4E5B00C6384F /* BatteryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */; };
+		FC6655942D2CE87B00355CB8 /* videos.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = FC66557F2D2CE7D500355CB8 /* videos.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FC6655982D2CE89800355CB8 /* videos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC66557F2D2CE7D500355CB8 /* videos.bundle */; };
+		FC66559A2D2CE98A00355CB8 /* VideoAssetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6655992D2CE98A00355CB8 /* VideoAssetsManager.swift */; };
 		FC97ED8B29A4A0E400425AFB /* LikeeWallPaperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */; };
 		FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8C29A4A0E400425AFB /* ContentView.swift */; };
 		FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC97ED8E29A4A0E600425AFB /* Assets.xcassets */; };
@@ -37,6 +40,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FC6655952D2CE87B00355CB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC97ED7F29A4A0E400425AFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC66557E2D2CE7D500355CB8;
+			remoteInfo = videos;
+		};
 		FC97ED9929A4A0E600425AFB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FC97ED7F29A4A0E400425AFB /* Project object */;
@@ -53,11 +63,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FC6655972D2CE87B00355CB8 /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FC6655942D2CE87B00355CB8 /* videos.bundle in Embed PlugIns */,
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		FC0254702D2B6C73008995FE /* PaperSettingRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSettingRightView.swift; sourceTree = "<group>"; };
 		FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSettingView.swift; sourceTree = "<group>"; };
 		FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumentSettingController.swift; sourceTree = "<group>"; };
 		FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryManager.swift; sourceTree = "<group>"; };
+		FC66557F2D2CE7D500355CB8 /* videos.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = videos.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC6655992D2CE98A00355CB8 /* VideoAssetsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoAssetsManager.swift; path = LikeeWallPaper/manager/VideoAssetsManager.swift; sourceTree = SOURCE_ROOT; };
 		FC97ED8729A4A0E400425AFB /* LikeeWallPaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeeWallPaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeeWallPaperApp.swift; sourceTree = "<group>"; };
 		FC97ED8C29A4A0E400425AFB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,11 +112,51 @@
 		FCDA43062D2BCF8A001B03D9 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FC6655912D2CE7E300355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				23da0fb260bbbdb23d123542a8fb1e19.mp4,
+				30ba80eea323c06a90aa5c553fa931c9.mp4,
+				b69f12141b247834e74eecf4a6bc541d.mp4,
+				"coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4",
+				"coverr-calm-waves-in-an-ocean-gulf-4513-1080p.mp4",
+				"coverr-cross-on-a-mountain-1957-1080p.mp4",
+				"coverr-temp-lumafoxskunk-mp4-2964-1080p.mp4",
+				"coverr-temp-lumalion-mp4-8219-1080p.mp4",
+				"coverr-temp-mixkit-man-with-helmet-speeding-a-motorcycle-39919-hd-ready-mp4-5892-1080p.mp4",
+			);
+			target = FC66557E2D2CE7D500355CB8 /* videos */;
+		};
+		FC6655922D2CE7E500355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				23da0fb260bbbdb23d123542a8fb1e19.mp4,
+				30ba80eea323c06a90aa5c553fa931c9.mp4,
+				b69f12141b247834e74eecf4a6bc541d.mp4,
+				"coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4",
+				"coverr-calm-waves-in-an-ocean-gulf-4513-1080p.mp4",
+				"coverr-cross-on-a-mountain-1957-1080p.mp4",
+				"coverr-temp-lumafoxskunk-mp4-2964-1080p.mp4",
+				"coverr-temp-lumalion-mp4-8219-1080p.mp4",
+				"coverr-temp-mixkit-man-with-helmet-speeding-a-motorcycle-39919-hd-ready-mp4-5892-1080p.mp4",
+			);
+			target = FC97ED8629A4A0E400425AFB /* LikeeWallPaper */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		FCDA43082D2BCFDC001B03D9 /* video */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = video; sourceTree = "<group>"; };
+		FCDA43082D2BCFDC001B03D9 /* video */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FC6655922D2CE7E500355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FC6655912D2CE7E300355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = video; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FC66557C2D2CE7D500355CB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FC97ED8429A4A0E400425AFB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,6 +224,7 @@
 		FC5EECDB2D0BD56300B4F8AA /* manager */ = {
 			isa = PBXGroup;
 			children = (
+				FC6655992D2CE98A00355CB8 /* VideoAssetsManager.swift */,
 				FC97EDCD29A7561400425AFB /* PaperManager.swift */,
 				FC97EDD329A7981700425AFB /* EventManager.swift */,
 				FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */,
@@ -166,12 +233,20 @@
 			path = manager;
 			sourceTree = "<group>";
 		};
+		FC6655932D2CE87B00355CB8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FC97ED7E29A4A0E400425AFB = {
 			isa = PBXGroup;
 			children = (
 				FC97ED8929A4A0E400425AFB /* LikeeWallPaper */,
 				FC97ED9B29A4A0E600425AFB /* LikeeWallPaperTests */,
 				FC97EDA529A4A0E700425AFB /* LikeeWallPaperUITests */,
+				FC6655932D2CE87B00355CB8 /* Frameworks */,
 				FC97ED8829A4A0E400425AFB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -182,6 +257,7 @@
 				FC97ED8729A4A0E400425AFB /* LikeeWallPaper.app */,
 				FC97ED9829A4A0E600425AFB /* LikeeWallPaperTests.xctest */,
 				FC97EDA229A4A0E700425AFB /* LikeeWallPaperUITests.xctest */,
+				FC66557F2D2CE7D500355CB8 /* videos.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -244,6 +320,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FC66557E2D2CE7D500355CB8 /* videos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC6655822D2CE7D500355CB8 /* Build configuration list for PBXNativeTarget "videos" */;
+			buildPhases = (
+				FC66557B2D2CE7D500355CB8 /* Sources */,
+				FC66557C2D2CE7D500355CB8 /* Frameworks */,
+				FC66557D2D2CE7D500355CB8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = videos;
+			packageProductDependencies = (
+			);
+			productName = videos;
+			productReference = FC66557F2D2CE7D500355CB8 /* videos.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		FC97ED8629A4A0E400425AFB /* LikeeWallPaper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC97EDAC29A4A0E700425AFB /* Build configuration list for PBXNativeTarget "LikeeWallPaper" */;
@@ -251,10 +346,12 @@
 				FC97ED8329A4A0E400425AFB /* Sources */,
 				FC97ED8429A4A0E400425AFB /* Frameworks */,
 				FC97ED8529A4A0E400425AFB /* Resources */,
+				FC6655972D2CE87B00355CB8 /* Embed PlugIns */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FC6655962D2CE87B00355CB8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				FCDA43082D2BCFDC001B03D9 /* video */,
@@ -313,6 +410,9 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					FC66557E2D2CE7D500355CB8 = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					FC97ED8629A4A0E400425AFB = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -345,15 +445,24 @@
 				FC97ED8629A4A0E400425AFB /* LikeeWallPaper */,
 				FC97ED9729A4A0E600425AFB /* LikeeWallPaperTests */,
 				FC97EDA129A4A0E700425AFB /* LikeeWallPaperUITests */,
+				FC66557E2D2CE7D500355CB8 /* videos */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FC66557D2D2CE7D500355CB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FC97ED8529A4A0E400425AFB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC6655982D2CE89800355CB8 /* videos.bundle in Resources */,
 				FC97ED9229A4A0E600425AFB /* Preview Assets.xcassets in Resources */,
 				FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */,
 				FC97FC462CBCCEC00032C598 /* setting.swift in Resources */,
@@ -377,6 +486,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FC66557B2D2CE7D500355CB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FC97ED8329A4A0E400425AFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +503,7 @@
 				FC97EDBC29A5F66200425AFB /* Utilities.swift in Sources */,
 				FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */,
 				FCDA43072D2BCF8A001B03D9 /* File.swift in Sources */,
+				FC66559A2D2CE98A00355CB8 /* VideoAssetsManager.swift in Sources */,
 				FC61BEEB29AC4E5B00C6384F /* BatteryManager.swift in Sources */,
 				FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */,
 				FC0254712D2B6C81008995FE /* PaperSettingRightView.swift in Sources */,
@@ -424,6 +541,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FC6655962D2CE87B00355CB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC66557E2D2CE7D500355CB8 /* videos */;
+			targetProxy = FC6655952D2CE87B00355CB8 /* PBXContainerItemProxy */;
+		};
 		FC97ED9A29A4A0E600425AFB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FC97ED8629A4A0E400425AFB /* LikeeWallPaper */;
@@ -437,6 +559,54 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		FC6655802D2CE7D500355CB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.videos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		FC6655812D2CE7D500355CB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.videos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		FC97EDAA29A4A0E700425AFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -677,6 +847,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FC6655822D2CE7D500355CB8 /* Build configuration list for PBXNativeTarget "videos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC6655802D2CE7D500355CB8 /* Debug */,
+				FC6655812D2CE7D500355CB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FC97ED8229A4A0E400425AFB /* Build configuration list for PBXProject "LikeeWallPaper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

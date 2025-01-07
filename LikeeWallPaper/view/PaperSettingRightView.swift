@@ -45,12 +45,12 @@ struct PaperSettingRightView: View{
                     VStack{
                         Image(systemName: "display")
                             .resizable()
-                            .frame(width: 55, height: 55, alignment: .center)
-                            .foregroundColor(Theme.accentColor)
-                            .scaleEffect(selectedIndex == index ? 1.2 : 1)
+                            .frame(width: 45, height: 45, alignment: .center)
+                            .foregroundColor(Theme.buttonBackgroundColor)
+                            .scaleEffect(selectedIndex == index ? 1.15 : 1)
                             .animation(.easeInOut(duration: 0.2), value: selectedIndex) // 绑定动画到 selectedIndex
                         Spacer().frame(height: 5)
-                        Text(models[index].name).font(.system(size: 15))
+                        Text(models[index].name).font(.system(size: 13))
                             .foregroundColor(Theme.textColor)
                             .padding()
                             .background(Theme.backgroundColor)

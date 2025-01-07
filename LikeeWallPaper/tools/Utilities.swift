@@ -684,7 +684,6 @@ extension AppState{
         catch{
             return nil
         }
-        print("this is the url \(savePath)")
         return savePath
     }
     
@@ -845,18 +844,33 @@ extension NSAlert {
     }
 }
 
+struct PaperInfo {
+    var path:String
+    var image: URL
+    var resolution: String
+    init(path: String, image: URL, resolution: String) {
+        self.path = path
+        self.image = image
+        self.resolution = resolution
+    }
+}
+
 class Papers{
-    @MainActor static func allPapers()->[[Any]]{
-       let allVideos = getAllPaper(path: Defaults[.defaultPaperFolder])
-       let allPaper =  allPaperImage(urls: allVideos)
-       var settings = [[Any]]()
-       for i in 0..<allVideos.count{
-           var paperSetting = [Any]()
-           paperSetting.append(allVideos[i])
-           paperSetting.append(allPaper[i])
-           settings.append(paperSetting)
-       }
-       return settings
+    @MainActor static func allPapers()->[PaperInfo]{
+       
+        guard let defaultVideosPath = VideoAssetsManager.defaultBundler else {
+            return []
+        }
+        
+        let allVideos = getAllMP4FilePaths(inBundleAtPath: defaultVideosPath)
+        let allPaper =  allPaperImage(urls: Array(allVideos.keys))
+        var settings = [PaperInfo]()
+        for (index, (key, value)) in allVideos.enumerated() {
+            settings.append(PaperInfo(path: key, image: allPaper[index], resolution: value))
+        }
+
+        return settings
+       
    }
 
     @MainActor static func allPaperImage(urls:[String])->[URL]{
@@ -874,27 +888,79 @@ class Papers{
        return AppState.getFirstFrameWithUrl(url: url)
        
    }
+    
+    static  func getAllMP4FilePaths(inBundleAtPath bundlePath: String) -> [String: String] {
+        var mp4FilePaths: [String :String] = [:]
 
-   static func getAllPaper(path:String)->[String]{
-       
+        guard let bundle = Bundle(url: URL(string: bundlePath)!) else {
+            return mp4FilePaths
+        }
+        
+        guard let resourcePath = bundle.resourcePath else{
+            return mp4FilePaths
+            
+        }
+        let fileManager = FileManager.default
 
-       var urls: [String] = []
-       if path.isEmpty{
-           return []
-       }
-       if FileManager.default.isDirectory(at: URL(string: path)!) == false{
-           return urls
-       }
-       URL(string: path)!.startAccessingSecurityScopedResource()
-       var paths = FileManager.default.subpaths(atPath: path)!
+        do {
+            let resourceURLs = try fileManager.contentsOfDirectory(at: URL(fileURLWithPath: resourcePath), includingPropertiesForKeys: nil)
 
-       for subPath in paths{
-           if subPath.hasSuffix(".mp4"){
-               let url = URL(fileURLWithPath: "\(path)/\(subPath)")
-               urls.append(url.absoluteString)
-           }
-           
-       }
-       return urls
-   }
+            for resourceURL in resourceURLs {
+                // 检查文件扩展名是否为 mp4
+                if resourceURL.pathExtension.lowercased() == "mp4" {
+                    let resolution = getVideoResolutionCategory(url: resourceURL)
+                    mp4FilePaths[resourceURL.absoluteString] = resolution // 添加文件路径字符串
+                }
+            }
+        } catch {
+            print("遍历 bundle 资源目录时发生错误：\(error)")
+        }
+
+        return mp4FilePaths
+    }
+    
+    static func getVideoResolutionCategory(url: URL) -> String {
+        let asset = AVAsset(url: url)
+        
+        // 获取视频的所有轨道
+        for track in asset.tracks(withMediaType: .video) {
+            let resolution = track.naturalSize
+            // 判断分辨率范围并返回对应的类别
+            if resolution.width >= 1920 && resolution.height >= 1080 && resolution.width < 2048 {
+                return "1080p"
+            } else if resolution.width >= 2048 && resolution.height >= 1080 && resolution.width < 3840 {
+                return "2K"
+            } else if resolution.width >= 3840 && resolution.height >= 2160 {
+                return "4K"
+            } else {
+                return "Unknown Resolution"
+            }
+        }
+        
+        return "No Video Track Found"
+    }
+
+    
+//   static func getAllPaper(path:String)->[String]{
+//       
+//
+//       var urls: [String] = []
+//       if path.isEmpty{
+//           return []
+//       }
+//       if FileManager.default.isDirectory(at: URL(string: path)!) == false{
+//           return urls
+//       }
+//       URL(string: path)!.startAccessingSecurityScopedResource()
+//       var paths = FileManager.default.subpaths(atPath: path)!
+//
+//       for subPath in paths{
+//           if subPath.hasSuffix(".mp4"){
+//               let url = URL(fileURLWithPath: "\(path)/\(subPath)")
+//               urls.append(url.absoluteString)
+//           }
+//           
+//       }
+//       return urls
+//   }
 }
