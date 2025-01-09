@@ -15,7 +15,7 @@ import SwiftUI
 
 
 
-extension NSScreen: Identifiable {
+extension NSScreen: @retroactive Identifiable {
     public var id: CGDirectDisplayID {
         deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as! CGDirectDisplayID
     }
@@ -577,7 +577,9 @@ extension String {
     }
 }
 
-extension URL: ExpressibleByStringLiteral {
+extension URL: @retroactive ExpressibleByExtendedGraphemeClusterLiteral {}
+extension URL: @retroactive ExpressibleByUnicodeScalarLiteral {}
+extension URL: @retroactive ExpressibleByStringLiteral {
     /**
      Example:
      
@@ -848,6 +850,9 @@ struct PaperInfo {
     var path:String
     var image: URL
     var resolution: String
+    lazy var cachedImage: NSImage? = {
+            NSImage(contentsOf: image)
+    }()
     init(path: String, image: URL, resolution: String) {
         self.path = path
         self.image = image
@@ -855,7 +860,14 @@ struct PaperInfo {
     }
 }
 
+@MainActor
 class Papers{
+    lazy var all: [PaperInfo] = {
+        Papers.allPapers()
+    }()
+    
+    static let shared = Papers()
+
     @MainActor static func allPapers()->[PaperInfo]{
        
         guard let defaultVideosPath = VideoAssetsManager.defaultBundler else {

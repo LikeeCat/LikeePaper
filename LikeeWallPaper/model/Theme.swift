@@ -22,7 +22,16 @@ struct Theme {
     
     // 按钮背景色
     static var buttonBackgroundColor: Color {
-        return Color("ButtonBackgroundColor")
+        return Color("ButtonColor")
+    }
+    // 按钮背景色
+    static var buttonSelectTextColor: Color {
+        return Color("ButtonSelectTextColor")
+    }
+    
+    // 按钮背景色
+    static var buttonNomalColor: Color {
+        return Color("ButtonNomalTextColor")
     }
     
     // 强调色

@@ -15,14 +15,61 @@ struct PaperSettingView: View {
     
     var body: some View {
         HStack{
-            PaperView().background(Theme.backgroundColor)
+            FilterView().background(Theme.backgroundColor)
         }
     }
 }
 
+
+struct FilterView: View {
+    @State private var selectedTab: String = "壁纸中心"
+    
+    // 定义筛选项
+    let tabs = ["壁纸中心", "播放列表"]
+    
+    var body: some View {
+        VStack {
+            // 筛选框
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 16) {
+                    ForEach(tabs, id: \.self) { tab in
+                        Text(tab)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 16)
+                            .background(selectedTab == tab ? Theme.accentColor : Theme.disabledColor.opacity(0.2))
+                            .foregroundColor(selectedTab == tab ? .white : .black)
+                            .cornerRadius(16)
+                            .onTapGesture {
+                                withAnimation {
+                                    selectedTab = tab
+                                }
+                            }
+                    }
+                }
+                .padding()
+            }
+            
+            // 动态内容展示
+            Spacer()
+            if selectedTab == "壁纸中心" {
+                PaperView()
+            } else if selectedTab == "播放列表" {
+                Text("显示 Tab2 的内容")
+                    .font(.title)
+                    .padding()
+            } else if selectedTab == "Tab3" {
+                Text("显示 Tab3 的内容")
+                    .font(.title)
+                    .padding()
+            }
+            Spacer()
+        }
+        .background(Color.white.edgesIgnoringSafeArea(.all))
+    }
+}
 @MainActor
 private struct PaperView: View{
-    @State var papers = Papers.allPapers()  // Initialize papers here to be mutable
+    @State var papers = Papers.shared.all  // Initialize papers here to be mutable
     @State var models:[ScreenModel] = getScreen()
     @State var selectedIndex:Int = getSelectedScreen()
     
@@ -30,41 +77,48 @@ private struct PaperView: View{
     
     var body: some View{
         HStack{
-            ScrollView{
+            ScrollView {
                 LazyVGrid(columns: columns, spacing: 3) {
-                    ForEach(0..<papers.count){ index in
-                        if let url = papers[index].image as? URL {
-                            ZStack(alignment: .bottomTrailing) {
-                                // 显示图片
-                                Image(nsImage: NSImage(contentsOf: url)!)
-                                    .resizable()
-                                    .frame(width: 250, height: 180)
-                                    .scaledToFill()
+                    ForEach(0..<papers.count) { index in
+                        ZStack(alignment: .bottomTrailing) {
+                            // 显示图片
+                            if let cachedImage = papers[index].cachedImage {
+                                AsyncImageView(
+                                    cachedImage: cachedImage,
+                                    placeholder: Image(systemName: "photo.circle.fill"),
+                                    size: CGSize(width: 250, height: 180)
+                                )
+                                
+                                // 图片宽度 = ScrollView 宽度
+                                    .clipped() // 确保图片内容不超出
                                     .onTapGesture {
                                         let url = papers[index].path
                                         settingImage(assetUrlString: url)
                                     }
+                                
+                                // 显示分辨率标签
                                 if papers[index].resolution != "1080p" {
                                     Text(papers[index].resolution)
                                         .font(.subheadline)
-                                        .foregroundColor(.white)  // 设置文本颜色为白色
-                                        .padding(3)  // 内边距
-                                        .background(Theme.accentColor)  // 设置背景色
-                                        .cornerRadius(4)  // 圆角
+                                        .foregroundColor(.white) // 文本颜色
+                                        .padding(3) // 内边距
+                                        .background(Theme.accentColor) // 背景色
+                                        .cornerRadius(4) // 圆角
                                         .padding(3)
-                                    }
                                 }
                                 
-
+                                
+                            }
                             
                         }
                     }
                 }
                 .padding(.horizontal)
-            }.background(Theme.backgroundColor)
-                .frame(maxWidth: .infinity) // 占用剩余空间
-                .layoutPriority(0)
-                .padding(.top,1)
+            }
+            .background(Theme.backgroundColor)
+            .frame(maxWidth: .infinity) // 占用剩余宽度
+            .padding(.top, 1)
+            
             Divider().frame(width: 1)
             PaperSettingRightView(selectedIndex: $selectedIndex, models: $models)
                 .layoutPriority(1) //

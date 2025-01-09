@@ -33,9 +33,8 @@ struct PaperSettingRightView: View{
     var body: some View {
         VStack(alignment: .leading){
             Text("显示设置")
-                .font(.title)
+                .font(.title3)
                 .foregroundColor(Theme.textColor)
-                .padding()
                 .background(Theme.backgroundColor)
                 .cornerRadius(10)
 
@@ -45,8 +44,8 @@ struct PaperSettingRightView: View{
                     VStack{
                         Image(systemName: "display")
                             .resizable()
-                            .frame(width: 45, height: 45, alignment: .center)
-                            .foregroundColor(Theme.buttonBackgroundColor)
+                            .frame(width: 30, height: 30, alignment: .center)
+                            .foregroundColor(selectedIndex == index ? Theme.buttonSelectTextColor : Theme.buttonNomalColor)
                             .scaleEffect(selectedIndex == index ? 1.15 : 1)
                             .animation(.easeInOut(duration: 0.2), value: selectedIndex) // 绑定动画到 selectedIndex
                         Spacer().frame(height: 5)

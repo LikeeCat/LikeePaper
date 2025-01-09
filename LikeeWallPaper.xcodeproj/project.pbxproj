@@ -11,7 +11,6 @@
 		FC61BEE529A9D95C00C6384F /* VolumeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */; };
 		FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */; };
 		FC61BEEB29AC4E5B00C6384F /* BatteryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */; };
-		FC6655942D2CE87B00355CB8 /* videos.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = FC66557F2D2CE7D500355CB8 /* videos.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC6655982D2CE89800355CB8 /* videos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC66557F2D2CE7D500355CB8 /* videos.bundle */; };
 		FC66559A2D2CE98A00355CB8 /* VideoAssetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6655992D2CE98A00355CB8 /* VideoAssetsManager.swift */; };
 		FC97ED8B29A4A0E400425AFB /* LikeeWallPaperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */; };
@@ -34,19 +33,13 @@
 		FC97EDD229A77C7D00425AFB /* PaperSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */; };
 		FC97EDD429A7981700425AFB /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDD329A7981700425AFB /* EventManager.swift */; };
 		FC97FC462CBCCEC00032C598 /* setting.swift in Resources */ = {isa = PBXBuildFile; fileRef = FC97FC452CBCCEC00032C598 /* setting.swift */; };
+		FCA8722A2D2F85E9003165D5 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA872292D2F85E9003165D5 /* AsyncImageView.swift */; };
 		FCDA43032D2B862B001B03D9 /* BatteryDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */; };
 		FCDA43052D2BB0FC001B03D9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43042D2BB0FC001B03D9 /* Theme.swift */; };
 		FCDA43072D2BCF8A001B03D9 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43062D2BCF8A001B03D9 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FC6655952D2CE87B00355CB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FC97ED7F29A4A0E400425AFB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FC66557E2D2CE7D500355CB8;
-			remoteInfo = videos;
-		};
 		FC97ED9929A4A0E600425AFB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FC97ED7F29A4A0E400425AFB /* Project object */;
@@ -62,20 +55,6 @@
 			remoteInfo = LikeeWallPaper;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		FC6655972D2CE87B00355CB8 /* Embed PlugIns */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				FC6655942D2CE87B00355CB8 /* videos.bundle in Embed PlugIns */,
-			);
-			name = "Embed PlugIns";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FC0254702D2B6C73008995FE /* PaperSettingRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSettingRightView.swift; sourceTree = "<group>"; };
@@ -107,6 +86,7 @@
 		FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSettingView.swift; sourceTree = "<group>"; };
 		FC97EDD329A7981700425AFB /* EventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		FC97FC452CBCCEC00032C598 /* setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
+		FCA872292D2F85E9003165D5 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryDisplayManager.swift; sourceTree = "<group>"; };
 		FCDA43042D2BB0FC001B03D9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FCDA43062D2BCF8A001B03D9 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -116,37 +96,97 @@
 		FC6655912D2CE7E300355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				23da0fb260bbbdb23d123542a8fb1e19.mp4,
-				30ba80eea323c06a90aa5c553fa931c9.mp4,
+				"animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4",
+				"animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4",
+				"animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4",
+				"animal-puppy-dog-pets-dog-pet-animal-53643-full.mp4",
+				"autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4",
 				b69f12141b247834e74eecf4a6bc541d.mp4,
 				"coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4",
+				"coverr-beautiful-trees-by-the-ocean-9884-1080p.mp4",
+				"coverr-bird-walking-on-the-beach-1715-1080p.mp4",
+				"coverr-birds-flying-above-the-ocean-4267-1080p.mp4",
+				"coverr-blue-liquid-2432-1080p.mp4",
 				"coverr-calm-waves-in-an-ocean-gulf-4513-1080p.mp4",
+				"coverr-calm-waves-on-a-rocky-sea-gulf-4514-1080p.mp4",
+				"coverr-colorful-christmas-lights-7138-1080p.mp4",
 				"coverr-cross-on-a-mountain-1957-1080p.mp4",
+				"coverr-desert-island-7521-1080p.mp4",
+				"coverr-dog-on-the-beach-3457-1080p.mp4",
+				"coverr-edge-of-a-rocky-mountain-7100-1080p.mp4",
+				"coverr-flying-birds-animation-6922-1080p.mp4",
+				"coverr-golden-gate-bridge-4635-1080p.mp4",
+				"coverr-lambs-eating-grass-7324-1080p.mp4",
+				"coverr-pink-and-purple-mixing-together-6690-1080p.mp4",
+				"coverr-purple-colors-moving-7410-1080p.mp4",
+				"coverr-purple-liquid-6048-1080p.mp4",
+				"coverr-remnants-of-snow-on-mountains-6750-1080p.mp4",
+				"coverr-river-between-mountains-8046-1080p.mp4",
+				"coverr-surfer-catching-a-wave-on-a-surfboard-4149-1080p.mp4",
 				"coverr-temp-lumafoxskunk-mp4-2964-1080p.mp4",
 				"coverr-temp-lumalion-mp4-8219-1080p.mp4",
 				"coverr-temp-mixkit-man-with-helmet-speeding-a-motorcycle-39919-hd-ready-mp4-5892-1080p.mp4",
+				"coverr-walking-to-the-mountain-top-8360-1080p.mp4",
+				"coverr-waves-crashing-on-the-shore-694-1080p.mp4",
+				"cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4",
+				"domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4",
+				"forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4",
+				"forest-tree-winter-landscape-outdoors-nature-wintry-201812-full.mp4",
+				"snow-forest-winter-lights-snow-tree-christmas-tree-16241-full.mp4",
+				"snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4",
+				"winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4",
 			);
 			target = FC66557E2D2CE7D500355CB8 /* videos */;
 		};
-		FC6655922D2CE7E500355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		FC6655FF2D2E385900355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				23da0fb260bbbdb23d123542a8fb1e19.mp4,
-				30ba80eea323c06a90aa5c553fa931c9.mp4,
+				"animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4",
+				"animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4",
+				"animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4",
+				"animal-puppy-dog-pets-dog-pet-animal-53643-full.mp4",
+				"autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4",
 				b69f12141b247834e74eecf4a6bc541d.mp4,
 				"coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4",
+				"coverr-beautiful-trees-by-the-ocean-9884-1080p.mp4",
+				"coverr-bird-walking-on-the-beach-1715-1080p.mp4",
+				"coverr-birds-flying-above-the-ocean-4267-1080p.mp4",
+				"coverr-blue-liquid-2432-1080p.mp4",
 				"coverr-calm-waves-in-an-ocean-gulf-4513-1080p.mp4",
+				"coverr-calm-waves-on-a-rocky-sea-gulf-4514-1080p.mp4",
+				"coverr-colorful-christmas-lights-7138-1080p.mp4",
 				"coverr-cross-on-a-mountain-1957-1080p.mp4",
+				"coverr-desert-island-7521-1080p.mp4",
+				"coverr-dog-on-the-beach-3457-1080p.mp4",
+				"coverr-edge-of-a-rocky-mountain-7100-1080p.mp4",
+				"coverr-flying-birds-animation-6922-1080p.mp4",
+				"coverr-golden-gate-bridge-4635-1080p.mp4",
+				"coverr-lambs-eating-grass-7324-1080p.mp4",
+				"coverr-pink-and-purple-mixing-together-6690-1080p.mp4",
+				"coverr-purple-colors-moving-7410-1080p.mp4",
+				"coverr-purple-liquid-6048-1080p.mp4",
+				"coverr-remnants-of-snow-on-mountains-6750-1080p.mp4",
+				"coverr-river-between-mountains-8046-1080p.mp4",
+				"coverr-surfer-catching-a-wave-on-a-surfboard-4149-1080p.mp4",
 				"coverr-temp-lumafoxskunk-mp4-2964-1080p.mp4",
 				"coverr-temp-lumalion-mp4-8219-1080p.mp4",
 				"coverr-temp-mixkit-man-with-helmet-speeding-a-motorcycle-39919-hd-ready-mp4-5892-1080p.mp4",
+				"coverr-walking-to-the-mountain-top-8360-1080p.mp4",
+				"coverr-waves-crashing-on-the-shore-694-1080p.mp4",
+				"cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4",
+				"domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4",
+				"forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4",
+				"forest-tree-winter-landscape-outdoors-nature-wintry-201812-full.mp4",
+				"snow-forest-winter-lights-snow-tree-christmas-tree-16241-full.mp4",
+				"snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4",
+				"winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4",
 			);
 			target = FC97ED8629A4A0E400425AFB /* LikeeWallPaper */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		FCDA43082D2BCFDC001B03D9 /* video */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FC6655922D2CE7E500355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FC6655912D2CE7E300355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = video; sourceTree = "<group>"; };
+		FCDA43082D2BCFDC001B03D9 /* video */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FC6655FF2D2E385900355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FC6655912D2CE7E300355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = video; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +240,7 @@
 				FC97EDB729A4A1C200425AFB /* PaperPlayerView.swift */,
 				FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */,
 				FC97EDC629A60AD800425AFB /* Menus.swift */,
+				FCA872292D2F85E9003165D5 /* AsyncImageView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -346,12 +387,10 @@
 				FC97ED8329A4A0E400425AFB /* Sources */,
 				FC97ED8429A4A0E400425AFB /* Frameworks */,
 				FC97ED8529A4A0E400425AFB /* Resources */,
-				FC6655972D2CE87B00355CB8 /* Embed PlugIns */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FC6655962D2CE87B00355CB8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				FCDA43082D2BCFDC001B03D9 /* video */,
@@ -502,6 +541,7 @@
 				FC97EDC929A7466000425AFB /* UserSetting.swift in Sources */,
 				FC97EDBC29A5F66200425AFB /* Utilities.swift in Sources */,
 				FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */,
+				FCA8722A2D2F85E9003165D5 /* AsyncImageView.swift in Sources */,
 				FCDA43072D2BCF8A001B03D9 /* File.swift in Sources */,
 				FC66559A2D2CE98A00355CB8 /* VideoAssetsManager.swift in Sources */,
 				FC61BEEB29AC4E5B00C6384F /* BatteryManager.swift in Sources */,
@@ -541,11 +581,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FC6655962D2CE87B00355CB8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FC66557E2D2CE7D500355CB8 /* videos */;
-			targetProxy = FC6655952D2CE87B00355CB8 /* PBXContainerItemProxy */;
-		};
 		FC97ED9A29A4A0E600425AFB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FC97ED8629A4A0E400425AFB /* LikeeWallPaper */;
