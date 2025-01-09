@@ -323,33 +323,33 @@ extension View{
 private struct WindowAccessor: NSViewRepresentable {
     private final class WindowAccessorView: NSView {
         @Binding var windowBinding: NSWindow?
-
+        
         init(binding: Binding<NSWindow?>) {
             self._windowBinding = binding
             super.init(frame: .zero)
         }
-
+        
         override func viewDidMoveToWindow() {
             super.viewDidMoveToWindow()
             windowBinding = window
         }
-
+        
         @available(*, unavailable)
         required init?(coder: NSCoder) {
             fatalError() // swiftlint:disable:this fatal_error_message
         }
     }
-
+    
     @Binding var window: NSWindow?
-
+    
     init(_ window: Binding<NSWindow?>) {
         self._window = window
     }
-
+    
     func makeNSView(context: Context) -> NSView {
         WindowAccessorView(binding: $window)
     }
-
+    
     func updateNSView(_ nsView: NSView, context: Context) {}
 }
 
@@ -664,22 +664,26 @@ extension URL {
 extension AppState{
     //获取视频首桢
     static func getFirstFrameWithUrl(url:URL)-> URL?{
-        let asset = AVAsset(url: url)
-        let imageGen = AVAssetImageGenerator(asset: asset)
-        var firstFrame: CGImage? = nil
-        do {
-             firstFrame = try imageGen.copyCGImage(at: CMTime(value: 0, timescale: 1), actualTime: nil)
-        } catch {
-            print("Error generating image: \(error.localizedDescription)")
-            return nil
-        }
-
-        let rep = NSBitmapImageRep(cgImage: firstFrame!)
-        let data = rep.representation(using: .png, properties: [:])
         let document = getDocumentsDirectory()
         var fileName = url.lastPathComponent.split(separator: ".")[0]
         fileName = fileName + ".png"
         let savePath = document.appendingPathComponent(String(fileName), isDirectory: false)
+        if FileManager.default.fileExists(atPath: savePath.path) {
+            return savePath
+        }
+        
+        let asset = AVAsset(url: url)
+        let imageGen = AVAssetImageGenerator(asset: asset)
+        var firstFrame: CGImage? = nil
+        do {
+            firstFrame = try imageGen.copyCGImage(at: CMTime(value: 0, timescale: 1), actualTime: nil)
+        } catch {
+            print("Error generating image: \(error.localizedDescription)")
+            return nil
+        }
+        
+        let rep = NSBitmapImageRep(cgImage: firstFrame!)
+        let data = rep.representation(using: .png, properties: [:])
         do{
             try data?.write(to: savePath)
         }
@@ -687,6 +691,7 @@ extension AppState{
             return nil
         }
         return savePath
+        
     }
     
     private static func getDocumentsDirectory() -> URL {
@@ -710,8 +715,8 @@ extension FileManager {
 
 extension NSAlert {
     /**
-    Show an async alert sheet on a window.
-    */
+     Show an async alert sheet on a window.
+     */
     @MainActor
     @discardableResult
     static func show(
@@ -729,17 +734,17 @@ extension NSAlert {
             buttonTitles: buttonTitles,
             defaultButtonIndex: defaultButtonIndex
         )
-
+        
         guard let window else {
             return await alert.run()
         }
-
+        
         return await alert.beginSheetModal(for: window)
     }
-
+    
     /**
-    Show an alert as a window-modal sheet, or as an app-modal (window-indepedendent) alert if the window is `nil` or not given.
-    */
+     Show an alert as a window-modal sheet, or as an app-modal (window-indepedendent) alert if the window is `nil` or not given.
+     */
     @discardableResult
     static func showModal(
         for window: NSWindow? = nil,
@@ -756,14 +761,14 @@ extension NSAlert {
             buttonTitles: buttonTitles,
             defaultButtonIndex: defaultButtonIndex
         )
-            .runModal(for: window)
+        .runModal(for: window)
     }
-
+    
     /**
-    The index in the `buttonTitles` array for the button to use as default.
-
-    Set `-1` to not have any default. Useful for really destructive actions.
-    */
+     The index in the `buttonTitles` array for the button to use as default.
+     
+     Set `-1` to not have any default. Useful for really destructive actions.
+     */
     var defaultButtonIndex: Int {
         get {
             buttons.firstIndex { $0.keyEquivalent == "\r" } ?? -1
@@ -773,13 +778,13 @@ extension NSAlert {
             for button in buttons where button.keyEquivalent == "\r" {
                 button.keyEquivalent = ""
             }
-
+            
             if newValue != -1 {
                 buttons[newValue].keyEquivalent = "\r"
             }
         }
     }
-
+    
     convenience init(
         title: String,
         message: String? = nil,
@@ -790,37 +795,37 @@ extension NSAlert {
         self.init()
         self.messageText = title
         self.alertStyle = style
-
+        
         if let message {
             self.informativeText = message
         }
-
+        
         addButtons(withTitles: buttonTitles)
-
+        
         if let defaultButtonIndex {
             self.defaultButtonIndex = defaultButtonIndex
         }
     }
-
+    
     /**
-    Runs the alert as a window-modal sheet, or as an app-modal (window-indepedendent) alert if the window is `nil` or not given.
-    */
+     Runs the alert as a window-modal sheet, or as an app-modal (window-indepedendent) alert if the window is `nil` or not given.
+     */
     @discardableResult
     func runModal(for window: NSWindow? = nil) -> NSApplication.ModalResponse {
         guard let window else {
             return runModal()
         }
-
+        
         beginSheetModal(for: window) { returnCode in
             NSApp.stopModal(withCode: returnCode)
         }
-
+        
         return NSApp.runModal(for: window)
     }
-
+    
     /**
-    Adds buttons with the given titles to the alert.
-    */
+     Adds buttons with the given titles to the alert.
+     */
     func addButtons(withTitles buttonTitles: [String]) {
         for buttonTitle in buttonTitles {
             addButton(withTitle: buttonTitle)
@@ -831,10 +836,10 @@ extension NSAlert {
 
 extension NSAlert {
     /**
-    Workaround to allow using `NSAlert` in a `Task`.
-
-    [FB9857161](https://github.com/feedback-assistant/reports/issues/288)
-    */
+     Workaround to allow using `NSAlert` in a `Task`.
+     
+     [FB9857161](https://github.com/feedback-assistant/reports/issues/288)
+     */
     @MainActor
     @discardableResult
     func run() async -> NSApplication.ModalResponse {
@@ -847,88 +852,81 @@ extension NSAlert {
 }
 
 struct PaperInfo {
-    var path:String
-    var image: URL
-    var resolution: String
-    lazy var cachedImage: NSImage? = {
-            NSImage(contentsOf: image)
-    }()
-    init(path: String, image: URL, resolution: String) {
+    let path:String
+    let image: URL
+    let  resolution: String
+    let cachedImage: NSImage
+    
+    let tags:Set<String>
+    
+    init(path: String, image: URL, resolution: String, tags: Set<String>) {
         self.path = path
         self.image = image
         self.resolution = resolution
+        self.tags = tags
+        self.cachedImage =  NSImage(contentsOf: image)!
     }
 }
 
 @MainActor
 class Papers{
     lazy var all: [PaperInfo] = {
-        Papers.allPapers()
+        Papers.allPapers().info
+    }()
+    
+    lazy var allTags: Set<String> = {
+        Papers.allPapers().tag
     }()
     
     static let shared = Papers()
-
-    @MainActor static func allPapers()->[PaperInfo]{
-       
+    
+    @MainActor static func allPapers()->(info: [PaperInfo], tag: Set<String>){
+        
         guard let defaultVideosPath = VideoAssetsManager.defaultBundler else {
-            return []
+            return ([],Set())
         }
         
-        let allVideos = getAllMP4FilePaths(inBundleAtPath: defaultVideosPath)
-        let allPaper =  allPaperImage(urls: Array(allVideos.keys))
-        var settings = [PaperInfo]()
-        for (index, (key, value)) in allVideos.enumerated() {
-            settings.append(PaperInfo(path: key, image: allPaper[index], resolution: value))
-        }
-
-        return settings
-       
-   }
-
-    @MainActor static func allPaperImage(urls:[String])->[URL]{
-       var images = [URL]()
-       for url in urls{
-           if let imagePath = getSelectImage(path: url) {
-               images.append(imagePath)
-           }
-       }
-       return images
-   }
-
-    @MainActor static func getSelectImage(path:String) -> URL?{
-        guard let url = URL(string: path) else { return nil }
-       return AppState.getFirstFrameWithUrl(url: url)
-       
-   }
+        return getAllMP4FilePaths(inBundleAtPath: defaultVideosPath)
+        
+    }
     
-    static  func getAllMP4FilePaths(inBundleAtPath bundlePath: String) -> [String: String] {
-        var mp4FilePaths: [String :String] = [:]
-
+    
+    
+    // return [url : [resolution , tags]]
+    static  func getAllMP4FilePaths(inBundleAtPath bundlePath: String) -> (info:[PaperInfo], tag:Set<String>) {
+        var papers:[PaperInfo] = []
+        var allTags: Set<String> = []
         guard let bundle = Bundle(url: URL(string: bundlePath)!) else {
-            return mp4FilePaths
+            return (papers, allTags)
         }
         
         guard let resourcePath = bundle.resourcePath else{
-            return mp4FilePaths
+            return (papers, allTags)
             
         }
         let fileManager = FileManager.default
-
+        
         do {
             let resourceURLs = try fileManager.contentsOfDirectory(at: URL(fileURLWithPath: resourcePath), includingPropertiesForKeys: nil)
-
+            
             for resourceURL in resourceURLs {
                 // 检查文件扩展名是否为 mp4
                 if resourceURL.pathExtension.lowercased() == "mp4" {
+                    
                     let resolution = getVideoResolutionCategory(url: resourceURL)
-                    mp4FilePaths[resourceURL.absoluteString] = resolution // 添加文件路径字符串
+                    let tags = resourceURL.absoluteString.extractTags()
+                    if let imageUrl = AppState.getFirstFrameWithUrl(url: resourceURL){
+                        let info =  PaperInfo(path: resourceURL.absoluteString, image: imageUrl, resolution: resolution, tags: tags)
+                        allTags.formUnion(tags) // 合并到最终结果集合
+                        papers.append(info)
+                    }
                 }
             }
         } catch {
             print("遍历 bundle 资源目录时发生错误：\(error)")
         }
-
-        return mp4FilePaths
+        
+        return (papers , allTags)
     }
     
     static func getVideoResolutionCategory(url: URL) -> String {
@@ -951,28 +949,28 @@ class Papers{
         
         return "No Video Track Found"
     }
-
     
-//   static func getAllPaper(path:String)->[String]{
-//       
-//
-//       var urls: [String] = []
-//       if path.isEmpty{
-//           return []
-//       }
-//       if FileManager.default.isDirectory(at: URL(string: path)!) == false{
-//           return urls
-//       }
-//       URL(string: path)!.startAccessingSecurityScopedResource()
-//       var paths = FileManager.default.subpaths(atPath: path)!
-//
-//       for subPath in paths{
-//           if subPath.hasSuffix(".mp4"){
-//               let url = URL(fileURLWithPath: "\(path)/\(subPath)")
-//               urls.append(url.absoluteString)
-//           }
-//           
-//       }
-//       return urls
-//   }
+    
+    //   static func getAllPaper(path:String)->[String]{
+    //
+    //
+    //       var urls: [String] = []
+    //       if path.isEmpty{
+    //           return []
+    //       }
+    //       if FileManager.default.isDirectory(at: URL(string: path)!) == false{
+    //           return urls
+    //       }
+    //       URL(string: path)!.startAccessingSecurityScopedResource()
+    //       var paths = FileManager.default.subpaths(atPath: path)!
+    //
+    //       for subPath in paths{
+    //           if subPath.hasSuffix(".mp4"){
+    //               let url = URL(fileURLWithPath: "\(path)/\(subPath)")
+    //               urls.append(url.absoluteString)
+    //           }
+    //
+    //       }
+    //       return urls
+    //   }
 }

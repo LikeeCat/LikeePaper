@@ -14,9 +14,7 @@ private var screens = NSScreen.screens
 struct PaperSettingView: View {
     
     var body: some View {
-        HStack{
-            FilterView().background(Theme.backgroundColor)
-        }
+        FilterView().background(Theme.backgroundColor)
     }
 }
 
@@ -49,10 +47,9 @@ struct FilterView: View {
                 .padding()
             }
             
-            // 动态内容展示
-            Spacer()
             if selectedTab == "壁纸中心" {
                 PaperView()
+                //
             } else if selectedTab == "播放列表" {
                 Text("显示 Tab2 的内容")
                     .font(.title)
@@ -69,66 +66,83 @@ struct FilterView: View {
 }
 @MainActor
 private struct PaperView: View{
-    @State var papers = Papers.shared.all  // Initialize papers here to be mutable
-    @State var models:[ScreenModel] = getScreen()
-    @State var selectedIndex:Int = getSelectedScreen()
-    
+    @State var papers = Papers.shared.all // Initialize papers here to be mutable
+    @State var models: [ScreenModel] = getScreen()
+    @State var selectedIndex: Int = getSelectedScreen()
+    @State private var selectedTags: Set<String> = []
+    let tags: Set<String> = Papers.shared.allTags
     let columns = [GridItem(.adaptive(minimum: 250), spacing: 3)]
+    
+    private func filteredImages (){
+        if  selectedTags.isEmpty {
+            papers = Papers.shared.all
+        }else {
+            papers = Papers.shared.all.filter({ paper in
+                !paper.tags.isDisjoint(with: selectedTags)
+            })
+        }
+        print("paper count is \(papers.count)")
+    }
     
     var body: some View{
         HStack{
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 3) {
-                    ForEach(0..<papers.count) { index in
+                    ForEach(papers.indices, id: \.self) { index in
                         ZStack(alignment: .bottomTrailing) {
                             // 显示图片
-                            if let cachedImage = papers[index].cachedImage {
-                                AsyncImageView(
-                                    cachedImage: cachedImage,
-                                    placeholder: Image(systemName: "photo.circle.fill"),
-                                    size: CGSize(width: 250, height: 180)
-                                )
-                                
-                                // 图片宽度 = ScrollView 宽度
-                                    .clipped() // 确保图片内容不超出
-                                    .onTapGesture {
-                                        let url = papers[index].path
-                                        settingImage(assetUrlString: url)
-                                    }
-                                
-                                // 显示分辨率标签
-                                if papers[index].resolution != "1080p" {
-                                    Text(papers[index].resolution)
-                                        .font(.subheadline)
-                                        .foregroundColor(.white) // 文本颜色
-                                        .padding(3) // 内边距
-                                        .background(Theme.accentColor) // 背景色
-                                        .cornerRadius(4) // 圆角
-                                        .padding(3)
-                                }
-                                
-                                
+                            AsyncImageView(
+                                cachedImage:  papers[index].cachedImage,
+                                placeholder: Image(systemName: "photo.circle.fill"),
+                                size: CGSize(width: 250, height: 180)
+                            )
+                            .clipped() // 确保图片内容不超出
+                            .onTapGesture {
+                                let url = papers[index].path
+                                settingImage(assetUrlString: url)
                             }
+                            
+                            // 显示分辨率标签
+                            if papers[index].resolution != "1080p" {
+                                Text(papers[index].resolution)
+                                    .font(.subheadline)
+                                    .foregroundColor(.white) // 文本颜色
+                                    .padding(3) // 内边距
+                                    .background(Theme.accentColor) // 背景色
+                                    .cornerRadius(4) // 圆角
+                                    .padding(3)
+                            }
+                            
+                            
                             
                         }
                     }
                 }
                 .padding(.horizontal)
             }
-            .background(Theme.backgroundColor)
             .frame(maxWidth: .infinity) // 占用剩余宽度
             .padding(.top, 1)
-            
             Divider().frame(width: 1)
-            PaperSettingRightView(selectedIndex: $selectedIndex, models: $models)
-                .layoutPriority(1) //
+            PaperSettingRightView(tags: tags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $models, selectedTags: $selectedTags)
+                .frame(maxWidth: 300,maxHeight: .infinity)
         }
     }
+    
+    // 处理标签点击事件
+    private func handleTagSelection(tag: String) {
+        if selectedTags.contains(tag) {
+            selectedTags.remove(tag)
+        } else {
+            selectedTags.insert(tag)
+        }
+        filteredImages()
+    }
+    
     
     
     private func reloadPapers() {
         // Fetch or reload your papers data here
-        self.papers = Papers.allPapers()
+        self.papers = Papers.shared.all
     }
     private static func getScreen() -> [ScreenModel]{
         var result:[ScreenModel] = []
