@@ -31,6 +31,7 @@ extension Defaults.Keys {
     static let defaultScreenSetting = Key<ScreenSetting>("defaultScreenSetting", default: ScreenSetting(screenName: NSScreen.main!.localizedName, screenId: NSScreen.main!.id, screenAssetUrl: ""))
     // default folder setting
     static let defaultPaperFolder = Key<String>("defaultPaperFolder", default: "")
+    static let playListSetting = Key<[String]>("playListSetting", default: [])
 
 }
 

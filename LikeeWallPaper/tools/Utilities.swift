@@ -851,12 +851,28 @@ extension NSAlert {
     }
 }
 
+@MainActor
+class PaperPlayList: ObservableObject {
+    static let shared = PaperPlayList()
+    @Published var papers: [PaperInfo] = Papers.shared.all.filter { info in
+        let playListIDS = PlayListManager.getPlayList()
+        return playListIDS.contains(info.image.lastPathComponent)
+    }
+    
+    func updatePaper(){
+        papers = Papers.shared.all.filter { info in
+            let playListIDS = PlayListManager.getPlayList()
+            return playListIDS.contains(info.image.lastPathComponent)
+        }
+    }
+}
+
 struct PaperInfo: Identifiable{
     let path:String
     let image: URL
-    let  resolution: String
+    let resolution: String
     var cachedImage: NSImage?
-    let id = UUID()
+    let id:UUID
     let tags:Set<String>
     
     init(path: String, image: URL, resolution: String, tags: Set<String>) {
@@ -865,7 +881,9 @@ struct PaperInfo: Identifiable{
         self.resolution = resolution
         self.tags = tags
         self.cachedImage = NSImage(contentsOf: image)!
+        self.id = UUID()
     }
+    
     
 }
 

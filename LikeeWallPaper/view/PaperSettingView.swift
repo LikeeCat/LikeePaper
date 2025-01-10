@@ -21,6 +21,9 @@ struct PaperSettingView: View {
 
 struct FilterView: View {
     @State private var selectedTab: String = "壁纸中心"
+    @State var papers = Papers.shared.all // Initialize papers here to be mutable
+    @StateObject var playList = PaperPlayList.shared
+
     
     // 定义筛选项
     let tabs = ["壁纸中心", "播放列表"]
@@ -48,20 +51,17 @@ struct FilterView: View {
             }
             
             if selectedTab == "壁纸中心" {
-                PaperView()
+                PaperView().environmentObject(playList)
                 //
             } else if selectedTab == "播放列表" {
-                Text("显示 Tab2 的内容")
-                    .font(.title)
-                    .padding()
-            } else if selectedTab == "Tab3" {
-                Text("显示 Tab3 的内容")
-                    .font(.title)
-                    .padding()
-            }
+                PlayListSettingView().environmentObject(playList)
+            } 
             Spacer()
         }
         .background(Theme.backgroundColor.edgesIgnoringSafeArea(.all))
+        .onAppear{
+            print("this is the play list \(playList.papers.count)")
+        }
     }
 }
 @MainActor
@@ -70,6 +70,7 @@ private struct PaperView: View{
     @State var models: [ScreenModel] = getScreen()
     @State var selectedIndex: Int = getSelectedScreen()
     @State private var selectedTags: Set<String> = []
+    @EnvironmentObject var paperList: PaperPlayList // 自动获取共享对象
     let tags: Set<String> = Papers.shared.allTags
     let columns = [GridItem(.adaptive(minimum: 250), spacing: 3)]
     
@@ -95,7 +96,9 @@ private struct PaperView: View{
                             AsyncImageView(
                                 cachedImage:  paper.cachedImage,
                                 placeholder: Image(systemName: "photo.circle.fill"),
-                                size: CGSize(width: 250, height: 180)
+                                size: CGSize(width: 250, height: 180),
+                                env: .paperCenter,
+                                action: addToPlayList
                             )
                             .clipped() // 确保图片内容不超出
                             .onTapGesture {
@@ -139,6 +142,15 @@ private struct PaperView: View{
         filteredImages()
     }
     
+    // 处理标签点击事件
+    private func addToPlayList(selectPaper: NSImage?) {
+        if let selectPaper = selectPaper {
+            let matchPaper = papers.first { paper in
+                paper.cachedImage == selectPaper
+            }
+            PlayListManager.updatePlayList(paper: matchPaper)
+        }
+    }
     
     
     private func reloadPapers() {
@@ -169,21 +181,6 @@ private struct PaperView: View{
     private func settingImage(assetUrlString:String){
         PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: screens[selectedIndex])
     }
-    
-    //        HStack{
-    //
-    //        }.onAppear{
-    ////            if Defaults[.defaultPaperFolder].isEmpty{
-    ////                Task {
-    ////                    guard let assetUrl = await chooseLocalWebsite() else{
-    ////                        return
-    ////                    }
-    ////                    updatePaperFolder(url: assetUrl.path)
-    ////                }
-    ////            }
-    //        }
-    //    }
-    
     @MainActor
     private func chooseLocalWebsite() async -> URL?{
         let panel = NSOpenPanel()

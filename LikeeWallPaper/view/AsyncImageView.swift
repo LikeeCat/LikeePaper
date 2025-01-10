@@ -7,21 +7,47 @@
 
 import SwiftUI
 
+
 struct AsyncImageView: View {
-     var cachedImage: NSImage? // 从父视图绑定的图片
+    var cachedImage: NSImage? // 从父视图绑定的图片
     let placeholder: Image
     let size: CGSize
-
+    let env: AsyncImageViewEnv
+    enum AsyncImageViewEnv{
+        case paperCenter
+        case playList
+    }
     @State private var displayImage: NSImage?
+    @State private var isHovered = false  // 控制按钮显示/隐藏
+    let action: (NSImage?) -> Void
 
     var body: some View {
-        Group {
+        ZStack {
             if let displayImage = displayImage {
                 Image(nsImage: displayImage)
                     .resizable()
                     .scaledToFill()
                     .frame(width: size.width, height: size.height)
                     .clipped()
+                    // 半透明按钮，动态适配主题色
+                    if isHovered {
+                        Button(action: {
+                            action(cachedImage)
+                        }) {
+                            Text(env == .paperCenter ? "添加至播放列表" : "从播放列表移除")
+                            .font(.system(size: 12, weight: .light))// 圆角
+                            .foregroundColor(Theme.textColor)
+                            .padding(3)// 按钮文本颜色
+                        }
+                        .background(Theme.accentColor.opacity(0.3))
+                        .transition(.opacity)  // 动画效果
+                        .padding(.bottom, 20)  // 距离底部 20
+                        .frame(maxWidth: .infinity, alignment: .center) // 居中对齐
+                        .position(x: size.width / 2, y: size.height - 10)
+                        .cornerRadius(8)
+
+                    }
+
             } else {
                 placeholder
                     .resizable()
@@ -33,6 +59,11 @@ struct AsyncImageView: View {
                     .onAppear {
                         loadImageIfNeeded()
                     }
+            }
+        }.onHover { hovering in
+            // 监听鼠标是否悬停
+            withAnimation {
+                isHovered = hovering
             }
         }
     }

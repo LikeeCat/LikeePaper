@@ -66,9 +66,8 @@ class PaperManager{
     
 }
 
-
 private class UserSetting{
-        
+    
     static func hiddenFolder(hidden:Bool){
         Defaults[.isHiddenFolder] = hidden
     }

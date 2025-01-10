@@ -35,6 +35,8 @@
 		FC97FC462CBCCEC00032C598 /* setting.swift in Resources */ = {isa = PBXBuildFile; fileRef = FC97FC452CBCCEC00032C598 /* setting.swift */; };
 		FCA8722A2D2F85E9003165D5 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA872292D2F85E9003165D5 /* AsyncImageView.swift */; };
 		FCA8724C2D2FB4B0003165D5 /* TagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8724B2D2FB4AD003165D5 /* TagManager.swift */; };
+		FCA873912D30F3E6003165D5 /* PlayListSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA873902D30F3DA003165D5 /* PlayListSettingView.swift */; };
+		FCA873932D31084D003165D5 /* PlayListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA873922D31084D003165D5 /* PlayListManager.swift */; };
 		FCDA43032D2B862B001B03D9 /* BatteryDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */; };
 		FCDA43052D2BB0FC001B03D9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43042D2BB0FC001B03D9 /* Theme.swift */; };
 		FCDA43072D2BCF8A001B03D9 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43062D2BCF8A001B03D9 /* File.swift */; };
@@ -89,6 +91,8 @@
 		FC97FC452CBCCEC00032C598 /* setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
 		FCA872292D2F85E9003165D5 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		FCA8724B2D2FB4AD003165D5 /* TagManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManager.swift; sourceTree = "<group>"; };
+		FCA873902D30F3DA003165D5 /* PlayListSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListSettingView.swift; sourceTree = "<group>"; };
+		FCA873922D31084D003165D5 /* PlayListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListManager.swift; sourceTree = "<group>"; };
 		FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryDisplayManager.swift; sourceTree = "<group>"; };
 		FCDA43042D2BB0FC001B03D9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FCDA43062D2BCF8A001B03D9 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 		FC5EECD82D0BD4CE00B4F8AA /* view */ = {
 			isa = PBXGroup;
 			children = (
+				FCA873902D30F3DA003165D5 /* PlayListSettingView.swift */,
 				FC0254702D2B6C73008995FE /* PaperSettingRightView.swift */,
 				FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */,
 				FC97EDCF29A75DDD00425AFB /* UserSettingView.swift */,
@@ -301,6 +306,7 @@
 				FC97EDD329A7981700425AFB /* EventManager.swift */,
 				FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */,
 				FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */,
+				FCA873922D31084D003165D5 /* PlayListManager.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -578,6 +584,7 @@
 				FC66559A2D2CE98A00355CB8 /* VideoAssetsManager.swift in Sources */,
 				FC61BEEB29AC4E5B00C6384F /* BatteryManager.swift in Sources */,
 				FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */,
+				FCA873932D31084D003165D5 /* PlayListManager.swift in Sources */,
 				FC0254712D2B6C81008995FE /* PaperSettingRightView.swift in Sources */,
 				FC97EDBE29A5F7ED00425AFB /* AppState.swift in Sources */,
 				FC97EDB829A4A1C200425AFB /* PaperPlayerView.swift in Sources */,
@@ -590,6 +597,7 @@
 				FC97EDD229A77C7D00425AFB /* PaperSettingView.swift in Sources */,
 				FC97EDBA29A5F49E00425AFB /* DesktopWindow.swift in Sources */,
 				FC97EDD429A7981700425AFB /* EventManager.swift in Sources */,
+				FCA873912D30F3E6003165D5 /* PlayListSettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
