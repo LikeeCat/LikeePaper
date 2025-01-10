@@ -95,7 +95,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		FC6655912D2CE7E300355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		FCA8738E2D30D88C003165D5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4",
@@ -133,7 +133,6 @@
 				"coverr-waves-crashing-on-the-shore-694-1080p.mp4",
 				"cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4",
 				"domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4",
-				"forest-fog-mountain-snow-winter-snow-outdoors-55315-full 2.mp4",
 				"forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4",
 				"forest-tree-winter-landscape-outdoors-nature-wintry-201812-full.mp4",
 				"night-christmas-town-ai-generated-illuminated-snow-winter-village-71729-full.mp4",
@@ -155,7 +154,7 @@
 			);
 			target = FC66557E2D2CE7D500355CB8 /* videos */;
 		};
-		FC6655FF2D2E385900355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		FCA8738F2D30D88D003165D5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4",
@@ -193,7 +192,6 @@
 				"coverr-waves-crashing-on-the-shore-694-1080p.mp4",
 				"cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4",
 				"domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4",
-				"forest-fog-mountain-snow-winter-snow-outdoors-55315-full 2.mp4",
 				"forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4",
 				"forest-tree-winter-landscape-outdoors-nature-wintry-201812-full.mp4",
 				"night-christmas-town-ai-generated-illuminated-snow-winter-village-71729-full.mp4",
@@ -218,7 +216,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		FCDA43082D2BCFDC001B03D9 /* video */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FC6655FF2D2E385900355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FC6655912D2CE7E300355CB8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = video; sourceTree = "<group>"; };
+		FCDA43082D2BCFDC001B03D9 /* video */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FCA8738F2D30D88D003165D5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FCA8738E2D30D88C003165D5 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = video; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */

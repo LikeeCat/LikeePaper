@@ -79,19 +79,39 @@ class PaperPlayerController:NSViewController{
         return playerView
     }
     
-    func updateAssetUrl(newAsset:URL){
+    func updateAssetUrl(newAsset: URL) {
         let asset = AVAsset(url: newAsset)
         let playerItem = AVPlayerItem(asset: asset)
+        
+        // 1. 添加动画过渡效果
+        let transition = CATransition()
+        transition.type = .fade  // 使用淡入淡出的效果
+        transition.duration = 1.5  // 动画时长
+        transition.timingFunction = CAMediaTimingFunction(name: .easeOut)  // 动画的缓动曲线
+        
+        // 2. 移除当前播放器的所有项，并创建新的播放器队列
         queuePlayer?.removeAllItems()
         queuePlayer = AVQueuePlayer(playerItem: playerItem)
+        
+        // 3. 为播放器添加 AVPlayerLooper
         avPlayerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: playerItem)
+        
+        // 4. 配置新的 AVPlayerLayer
         playerLayer = AVPlayerLayer(player: queuePlayer)
         playerLayer?.videoGravity = .resize
-//        playerLayer?.videoGravity = .resizeAspect
-        let player = PlayerView(player: playerLayer, frame: .zero)
-        view = player
+        
+        // 5. 创建新的 PlayerView
+        let playerView = PlayerView(player: playerLayer, frame: .zero)
+        
+        // 6. 在视图层上添加过渡动画
+        view.layer?.add(transition, forKey: "fadeTransition")
+        
+        // 7. 设置新的播放器视图
+        view = playerView
+        
+        // 8. 开始播放
+        queuePlayer?.play()
     }
-
     //MARK: -创建播放内容
     private func preparePlayerEnv(){
         let asset = AVAsset(url: self.assetUrl!)
@@ -100,7 +120,6 @@ class PaperPlayerController:NSViewController{
         avPlayerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: playerItem)
         playerLayer = AVPlayerLayer(player: queuePlayer)
         playerLayer?.videoGravity = .resize
-        playerLayer?.videoGravity = .resizeAspectFill
         let player = PlayerView(player: playerLayer, frame: .zero)
         view = player
     }

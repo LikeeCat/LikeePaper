@@ -82,7 +82,7 @@ struct PaperSettingRightView: View{
                     }
                 }
 
-            }.frame(maxHeight: 180)
+            }.frame(minHeight: 180)
             Spacer()
             Text("显示设置")
                 .font(.title3)

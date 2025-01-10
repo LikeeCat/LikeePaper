@@ -74,14 +74,15 @@ private struct PaperView: View{
     let columns = [GridItem(.adaptive(minimum: 250), spacing: 3)]
     
     private func filteredImages (){
-        if  selectedTags.isEmpty {
-            papers = Papers.shared.all
-        }else {
-            papers = Papers.shared.all.filter({ paper in
-                !paper.tags.isDisjoint(with: selectedTags)
-            })
+        withAnimation {
+            if  selectedTags.isEmpty {
+                papers = Papers.shared.all
+            }else {
+                papers = Papers.shared.all.filter({ paper in
+                    !paper.tags.isDisjoint(with: selectedTags)
+                })
+            }
         }
-        print("paper count is \(papers.count)")
     }
     
     var body: some View{
