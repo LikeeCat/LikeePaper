@@ -87,7 +87,7 @@ class PaperPlayerController:NSViewController{
         avPlayerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: playerItem)
         playerLayer = AVPlayerLayer(player: queuePlayer)
         playerLayer?.videoGravity = .resize
-        playerLayer?.videoGravity = .resizeAspectFill
+//        playerLayer?.videoGravity = .resizeAspect
         let player = PlayerView(player: playerLayer, frame: .zero)
         view = player
     }

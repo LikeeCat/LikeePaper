@@ -9,7 +9,7 @@
 import Foundation
 
 extension String{
-    func extractTags(blacklist: Set<String> = ["with", "golden", "wind", "indoors", "mixing", "generated", "blue", "foggy", "ai", "drop", "illuminated", "catching", "horror", "running", "beautiful", "cute", "full%202", "calm", "spooky", "ready", "between", "walking", "moving", "crashing", "wet", "liquid", "modern", "together", "top", "wintry", "no", "pink", "colorful", "autumn", "winter", "halloween", "speed", "rocky", "to", "by", "at", "above", "of", "in", "on", "an", "the", "and", "a"]) -> Set<String> {
+    func extractTags(blacklist: Set<String> = ["with", "golden", "wind", "indoors", "mixing", "generated", "blue", "foggy", "ai", "drop", "illuminated", "catching", "horror", "running", "beautiful", "cute", "full%202", "calm", "spooky", "ready", "between", "walking", "moving", "crashing", "wet", "liquid", "modern", "together", "top", "wintry", "no", "pink", "colorful", "autumn", "winter", "halloween", "speed", "rocky", "to", "by", "at", "above", "of", "in", "on", "an", "the", "and", "a", "birds", "trees", "colors", "backgrounds", "animals", "pets", "remnants",  "waves", "looks", "lights","mp4", "1080p", "full", "temp", "mixkit", "lumalion", "lumafoxskunk",   "coverr", "surfboard", "speedometer", "dashboard"]) -> Set<String> {
         // 获取文件名并移除扩展名
         let fileName = URL(fileURLWithPath: self).lastPathComponent
         let nameWithoutExtension = (fileName as NSString).deletingPathExtension

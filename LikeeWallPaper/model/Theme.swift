@@ -20,6 +20,20 @@ struct Theme {
         return Color("TextColor")
     }
     
+    // 文本色
+    static var selectTextColor: Color {
+        return Color("SelectTextColor")
+    }
+
+
+    static var PrimaryTextColor: Color {
+        return Color("PrimaryTextColor")
+    }
+    
+    static var SecondaryTextColor: Color {
+        return Color("SecondaryTextColor")
+    }
+    
     // 按钮背景色
     static var buttonBackgroundColor: Color {
         return Color("ButtonColor")

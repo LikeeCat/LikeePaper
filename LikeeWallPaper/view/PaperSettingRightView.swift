@@ -36,7 +36,7 @@ struct TagView: View {
                 selectedTags.contains(tag) ? Theme.accentColor : Theme.disabledColor.opacity(0.2)
             )
             .foregroundColor(
-                selectedTags.contains(tag) ? .white : .black
+                selectedTags.contains(tag) ? Theme.selectTextColor : Theme.textColor
             )
             .clipShape(Capsule())
             .onTapGesture {

@@ -851,12 +851,12 @@ extension NSAlert {
     }
 }
 
-struct PaperInfo {
+struct PaperInfo: Identifiable{
     let path:String
     let image: URL
     let  resolution: String
-    let cachedImage: NSImage
-    
+    var cachedImage: NSImage?
+    let id = UUID()
     let tags:Set<String>
     
     init(path: String, image: URL, resolution: String, tags: Set<String>) {
@@ -864,8 +864,9 @@ struct PaperInfo {
         self.image = image
         self.resolution = resolution
         self.tags = tags
-        self.cachedImage =  NSImage(contentsOf: image)!
+        self.cachedImage = NSImage(contentsOf: image)!
     }
+    
 }
 
 @MainActor

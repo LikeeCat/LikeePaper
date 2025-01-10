@@ -35,7 +35,7 @@ struct FilterView: View {
                             .padding(.vertical, 8)
                             .padding(.horizontal, 16)
                             .background(selectedTab == tab ? Theme.accentColor : Theme.disabledColor.opacity(0.2))
-                            .foregroundColor(selectedTab == tab ? .white : .black)
+                            .foregroundColor(selectedTab == tab ? Theme.selectTextColor : Theme.textColor)
                             .cornerRadius(16)
                             .onTapGesture {
                                 withAnimation {
@@ -61,7 +61,7 @@ struct FilterView: View {
             }
             Spacer()
         }
-        .background(Color.white.edgesIgnoringSafeArea(.all))
+        .background(Theme.backgroundColor.edgesIgnoringSafeArea(.all))
     }
 }
 @MainActor
@@ -88,23 +88,23 @@ private struct PaperView: View{
         HStack{
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 3) {
-                    ForEach(papers.indices, id: \.self) { index in
+                    ForEach(papers) { paper in
                         ZStack(alignment: .bottomTrailing) {
                             // 显示图片
                             AsyncImageView(
-                                cachedImage:  papers[index].cachedImage,
+                                cachedImage:  paper.cachedImage,
                                 placeholder: Image(systemName: "photo.circle.fill"),
                                 size: CGSize(width: 250, height: 180)
                             )
                             .clipped() // 确保图片内容不超出
                             .onTapGesture {
-                                let url = papers[index].path
+                                let url = paper.path
                                 settingImage(assetUrlString: url)
                             }
                             
                             // 显示分辨率标签
-                            if papers[index].resolution != "1080p" {
-                                Text(papers[index].resolution)
+                            if paper.resolution != "1080p" {
+                                Text(paper.resolution)
                                     .font(.subheadline)
                                     .foregroundColor(.white) // 文本颜色
                                     .padding(3) // 内边距
@@ -125,7 +125,7 @@ private struct PaperView: View{
             Divider().frame(width: 1)
             PaperSettingRightView(tags: tags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $models, selectedTags: $selectedTags)
                 .frame(maxWidth: 300,maxHeight: .infinity)
-        }
+        }.background(Theme.backgroundColor)
     }
     
     // 处理标签点击事件

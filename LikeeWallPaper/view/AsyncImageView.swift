@@ -8,43 +8,38 @@
 import SwiftUI
 
 struct AsyncImageView: View {
-    let cachedImage: NSImage? // 已缓存的图片
-    let placeholder: Image // 占位图
-    let size: CGSize // 图片显示的尺寸
+     var cachedImage: NSImage? // 从父视图绑定的图片
+    let placeholder: Image
+    let size: CGSize
 
-    @State private var displayImage: NSImage? // 当前展示的图片
+    @State private var displayImage: NSImage?
 
     var body: some View {
-        
-        if let displayImage = displayImage {
-            Image(nsImage: displayImage).resizable()
-            .scaledToFill()
-            .frame(width: 250, height: 180) // 适配实际尺寸
-            .clipped()
-            .onAppear {
-                loadImage()
+        Group {
+            if let displayImage = displayImage {
+                Image(nsImage: displayImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: size.width, height: size.height)
+                    .clipped()
+            } else {
+                placeholder
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 35, height: 35)
+                    .clipped()
+                    .frame(width: size.width, height: size.height)
+                    .background(Color.gray.opacity(0.2))
+                    .onAppear {
+                        loadImageIfNeeded()
+                    }
             }
         }
-        else{
-            ZStack{
-                placeholder.resizable()
-                    .scaledToFit()
-                    .frame(width: 35, height: 35) // 适配实际尺寸
-                    .clipped()
-                    .onAppear {
-                        loadImage()
-                    }
-            }.frame(width: 250, height: 180)
-            
-        }
-           
-
     }
 
-    private func loadImage() {
-        guard let cachedImage = cachedImage else { return }
+    private func loadImageIfNeeded() {
+        guard displayImage == nil, let cachedImage = cachedImage else { return }
 
-        // 异步加载和缩放图片
         DispatchQueue.global(qos: .userInitiated).async {
             let resizedImage = resizeImage(cachedImage, to: size)
             DispatchQueue.main.async {
