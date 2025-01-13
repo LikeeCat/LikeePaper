@@ -15,12 +15,13 @@ struct PlayListSettingView: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 3) {
                     ForEach(playlist.papers) { paper in
-                        ZStack(alignment: .bottomTrailing) {
+//                        ZStack(alignment: .bottomTrailing) {
                             // 显示图片
                             AsyncImageView(
                                 cachedImage:  paper.cachedImage,
                                 placeholder: Image(systemName: "photo.circle.fill"),
                                 size: CGSize(width: 250, height: 180),
+                                resolution: paper.resolution,
                                 env: .playList,
                                 action: deletePlayList
                             )
@@ -30,20 +31,11 @@ struct PlayListSettingView: View {
 //                                settingImage(assetUrlString: url)
                             }
                             
-                            // 显示分辨率标签
-                            if paper.resolution != "1080p" {
-                                Text(paper.resolution)
-                                    .font(.subheadline)
-                                    .foregroundColor(.white) // 文本颜色
-                                    .padding(3) // 内边距
-                                    .background(Theme.accentColor) // 背景色
-                                    .cornerRadius(4) // 圆角
-                                    .padding(3)
-                            }
+
                             
                             
                             
-                        }
+//                        }
                     }
                 }
                 .padding(.horizontal)

@@ -12,6 +12,7 @@ struct AsyncImageView: View {
     var cachedImage: NSImage? // 从父视图绑定的图片
     let placeholder: Image
     let size: CGSize
+    let resolution: String
     let env: AsyncImageViewEnv
     enum AsyncImageViewEnv{
         case paperCenter
@@ -20,57 +21,72 @@ struct AsyncImageView: View {
     @State private var displayImage: NSImage?
     @State private var isHovered = false  // 控制按钮显示/隐藏
     let action: (NSImage?) -> Void
-
+    
     var body: some View {
-        ZStack {
-            if let displayImage = displayImage {
-                Image(nsImage: displayImage)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: size.width, height: size.height)
-                    .clipped()
+        ZStack(alignment: .bottomTrailing) {
+            
+            ZStack {
+                if let displayImage = displayImage {
+                    Image(nsImage: displayImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: size.width, height: size.height)
+                        .clipped()
                     // 半透明按钮，动态适配主题色
-                    if isHovered {
-                        Button(action: {
-                            action(cachedImage)
-                        }) {
-                            Text(env == .paperCenter ? "添加至播放列表" : "从播放列表移除")
+                    Button(action: {
+                        action(cachedImage)
+                    }) {
+                        Text(env == .paperCenter ? "添加至播放列表" : "从播放列表移除")
                             .font(.system(size: 12, weight: .light))// 圆角
-                            .foregroundColor(Theme.textColor)
+                            .foregroundColor(isHovered ? Theme.textColor : .clear)
                             .padding(3)// 按钮文本颜色
+                    }
+                    .background(isHovered ? Theme.accentColor.opacity(0.3) : .clear)
+                    .opacity(isHovered ? 1 : 0) // 动态透明度
+                    .transition(.opacity)  // 动画效果
+                    .padding(.bottom, 20)  // 距离底部 20
+                    .position(x: size.width / 2, y: size.height - 10)
+                    .cornerRadius(8)
+                } else {
+                    placeholder
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 35, height: 35)
+                        .clipped()
+                        .frame(width: size.width, height: size.height)
+                        .background(Color.gray.opacity(0.2))
+                        .onAppear {
+                            loadImageIfNeeded()
                         }
-                        .background(Theme.accentColor.opacity(0.3))
-                        .transition(.opacity)  // 动画效果
-                        .padding(.bottom, 20)  // 距离底部 20
-                        .frame(maxWidth: .infinity, alignment: .center) // 居中对齐
-                        .position(x: size.width / 2, y: size.height - 10)
-                        .cornerRadius(8)
-
-                    }
-
-            } else {
-                placeholder
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 35, height: 35)
-                    .clipped()
-                    .frame(width: size.width, height: size.height)
-                    .background(Color.gray.opacity(0.2))
-                    .onAppear {
-                        loadImageIfNeeded()
-                    }
+                }
+            }.onHover { hovering in
+                // 监听鼠标是否悬停
+                withAnimation {
+                    isHovered = hovering
+                }
             }
-        }.onHover { hovering in
-            // 监听鼠标是否悬停
-            withAnimation {
-                isHovered = hovering
+            
+            if resolution != "1080p" {
+                Text(resolution)
+                    .font(.subheadline)
+                    .foregroundColor(.white) // 文本颜色
+                    .padding(3) // 内边距
+                    .background(Theme.accentColor) // 背景色
+                    .cornerRadius(4) // 圆角
+                    .alignmentGuide(.bottom) { dimension in
+                        dimension[.bottom] + 10// 距底部 15
+                    }
+                    .alignmentGuide(.trailing) { dimension in
+                        dimension[.trailing] + 10 // 距右侧 20
+                    }
             }
         }
+        
     }
-
+    
     private func loadImageIfNeeded() {
         guard displayImage == nil, let cachedImage = cachedImage else { return }
-
+        
         DispatchQueue.global(qos: .userInitiated).async {
             let resizedImage = resizeImage(cachedImage, to: size)
             DispatchQueue.main.async {
@@ -78,7 +94,7 @@ struct AsyncImageView: View {
             }
         }
     }
-
+    
     private func resizeImage(_ image: NSImage, to size: CGSize) -> NSImage {
         let newImage = NSImage(size: size)
         newImage.lockFocus()

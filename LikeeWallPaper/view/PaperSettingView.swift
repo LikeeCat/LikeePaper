@@ -97,7 +97,7 @@ private struct PaperView: View{
                                 cachedImage:  paper.cachedImage,
                                 placeholder: Image(systemName: "photo.circle.fill"),
                                 size: CGSize(width: 250, height: 180),
-                                env: .paperCenter,
+                                resolution: paper.resolution, env: .paperCenter,
                                 action: addToPlayList
                             )
                             .clipped() // 确保图片内容不超出
@@ -106,17 +106,9 @@ private struct PaperView: View{
                                 settingImage(assetUrlString: url)
                             }
                             
-                            // 显示分辨率标签
-                            if paper.resolution != "1080p" {
-                                Text(paper.resolution)
-                                    .font(.subheadline)
-                                    .foregroundColor(.white) // 文本颜色
-                                    .padding(3) // 内边距
-                                    .background(Theme.accentColor) // 背景色
-                                    .cornerRadius(4) // 圆角
-                                    .padding(3)
-                            }
-                            
+//                            // 显示分辨率标签
+
+//                            
                             
                             
                         }
