@@ -699,6 +699,8 @@ extension AppState{
         return paths[0]
     }
     
+
+    
 }
 
 extension FileManager {
@@ -859,11 +861,18 @@ class PaperPlayList: ObservableObject {
         return playListIDS.contains(info.image.lastPathComponent)
     }
     
+    @Published var tags: Set<String> = []
+    
     func updatePaper(){
         papers = Papers.shared.all.filter { info in
             let playListIDS = PlayListManager.getPlayList()
             return playListIDS.contains(info.image.lastPathComponent)
         }
+        var tmp :Set<String> = []
+        papers.forEach { paper in
+            tmp = tmp.union(paper.tags)
+        }
+        tags = tmp
     }
 }
 

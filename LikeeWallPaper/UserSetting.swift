@@ -32,6 +32,9 @@ extension Defaults.Keys {
     // default folder setting
     static let defaultPaperFolder = Key<String>("defaultPaperFolder", default: "")
     static let playListSetting = Key<[String]>("playListSetting", default: [])
+    static let playListMode = Key<String>("playListMode", default: "single")
+    static let playListSwitchTime = Key<Double>("playListSwitchTime", default: 1.0)
+
 
 }
 

@@ -9,6 +9,26 @@ import Foundation
 import Defaults
 struct PlayListManager {
     
+    
+    static func getPlayListSwitchTime() -> Double {
+        Defaults[.playListSwitchTime]
+    }
+    
+    static func updatePlayListSwitchTime(time: Double) {
+        Defaults[.playListSwitchTime] = time
+    }
+    
+    static func getPlayMode() -> PlaybackMode {
+        let nowMode = Defaults[.playListMode]
+        return PlaybackMode.allCases.first { mode in
+            mode.rawValue == nowMode
+        } ?? PlaybackMode.single
+    }
+    
+    static func updatePlayMode(mode: PlaybackMode) {
+        Defaults[.playListMode] = mode.rawValue
+    }
+    
     static func getPlayList() -> [String] {
         Defaults[.playListSetting]
     }

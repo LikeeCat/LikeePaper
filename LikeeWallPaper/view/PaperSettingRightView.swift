@@ -62,7 +62,6 @@ struct PaperSettingRightView: View{
         GridItem(.adaptive(minimum: 80)) // 自动调整列宽，最小宽度为 80
     ]
     
-    
     var body: some View {
         VStack(alignment: .leading){
             Spacer()

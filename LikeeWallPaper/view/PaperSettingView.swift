@@ -67,8 +67,8 @@ struct FilterView: View {
 @MainActor
 private struct PaperView: View{
     @State var papers = Papers.shared.all // Initialize papers here to be mutable
-    @State var models: [ScreenModel] = getScreen()
-    @State var selectedIndex: Int = getSelectedScreen()
+    @State var models: [ScreenModel] = ScreenInfo.getScreen()
+    @State var selectedIndex: Int = ScreenInfo.getSelectedScreen()
     @State private var selectedTags: Set<String> = []
     @EnvironmentObject var paperList: PaperPlayList // 自动获取共享对象
     let tags: Set<String> = Papers.shared.allTags
@@ -105,12 +105,6 @@ private struct PaperView: View{
                                 let url = paper.path
                                 settingImage(assetUrlString: url)
                             }
-                            
-//                            // 显示分辨率标签
-
-//                            
-                            
-                            
                         }
                     }
                 }
@@ -123,6 +117,7 @@ private struct PaperView: View{
                 .frame(maxWidth: 300,maxHeight: .infinity)
         }.background(Theme.backgroundColor)
     }
+    
     
     // 处理标签点击事件
     private func handleTagSelection(tag: String) {
@@ -149,23 +144,6 @@ private struct PaperView: View{
         // Fetch or reload your papers data here
         self.papers = Papers.shared.all
     }
-    private static func getScreen() -> [ScreenModel]{
-        var result:[ScreenModel] = []
-        for screen in screens {
-            let model = ScreenModel(screenName: screen.localizedName)
-            result.append(model)
-        }
-        return result
-        
-    }
-    
-    private static func getSelectedScreen() -> Int{
-        let models =  getScreen()
-        let setting = Defaults[.defaultScreenSetting]
-        return models.firstIndex { model in
-            model.name == setting.screenName
-        } ?? 0
-    }
     
     
     
@@ -173,6 +151,7 @@ private struct PaperView: View{
     private func settingImage(assetUrlString:String){
         PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: screens[selectedIndex])
     }
+    
     @MainActor
     private func chooseLocalWebsite() async -> URL?{
         let panel = NSOpenPanel()
