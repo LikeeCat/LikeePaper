@@ -88,7 +88,6 @@ struct PaperSettingRightView: View{
                 .foregroundColor(Theme.textColor)
                 .background(Theme.backgroundColor)
                 .cornerRadius(10)
-                .padding()
             Spacer()
             LazyHGrid(rows: display, spacing: 10) {
                 ForEach(models.indices, id: \.self){ index in

@@ -80,36 +80,51 @@ class PaperPlayerController:NSViewController{
     }
     
     func updateAssetUrl(newAsset: URL) {
+        // 1. 创建新的 AVAsset 和 AVPlayerItem
         let asset = AVAsset(url: newAsset)
         let playerItem = AVPlayerItem(asset: asset)
         
-        // 1. 添加动画过渡效果
-        let transition = CATransition()
-        transition.type = .fade  // 使用淡入淡出的效果
-        transition.duration = 1.5  // 动画时长
-        transition.timingFunction = CAMediaTimingFunction(name: .easeOut)  // 动画的缓动曲线
+        // 2. 添加过渡遮罩视图
+        let transitionView = NSView(frame: view.bounds)
+        transitionView.wantsLayer = true
+        transitionView.layer?.backgroundColor = NSColor.black.cgColor
+        view.addSubview(transitionView)
         
-        // 2. 移除当前播放器的所有项，并创建新的播放器队列
-        queuePlayer?.removeAllItems()
-        queuePlayer = AVQueuePlayer(playerItem: playerItem)
+        // 3. 更新播放器内容
+        if let queuePlayer = queuePlayer {
+            queuePlayer.removeAllItems() // 清空现有队列
+            queuePlayer.insert(playerItem, after: nil) // 添加新内容
+        } else {
+            // 如果播放器为空，则初始化
+            queuePlayer = AVQueuePlayer(playerItem: playerItem)
+        }
         
-        // 3. 为播放器添加 AVPlayerLooper
+        // 4. 更新播放器的重复播放逻辑
+        if let avPlayerLooper = avPlayerLooper {
+            avPlayerLooper.disableLooping()
+        }
         avPlayerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: playerItem)
         
-        // 4. 配置新的 AVPlayerLayer
-        playerLayer = AVPlayerLayer(player: queuePlayer)
-        playerLayer?.videoGravity = .resize
+        // 5. 更新播放器图层
+        if let playerLayer = playerLayer {
+            playerLayer.player = queuePlayer
+        } else {
+            playerLayer = AVPlayerLayer(player: queuePlayer)
+            playerLayer?.videoGravity = .resize
+            playerLayer?.frame = view.bounds
+            view.layer?.addSublayer(playerLayer!)
+        }
         
-        // 5. 创建新的 PlayerView
-        let playerView = PlayerView(player: playerLayer, frame: .zero)
+        // 6. 动画隐藏过渡遮罩
+        NSAnimationContext.runAnimationGroup({ context in
+            context.duration = 1
+            transitionView.animator().alphaValue = 0
+        }) {
+            // 动画结束后移除遮罩视图
+            transitionView.removeFromSuperview()
+        }
         
-        // 6. 在视图层上添加过渡动画
-        view.layer?.add(transition, forKey: "fadeTransition")
-        
-        // 7. 设置新的播放器视图
-        view = playerView
-        
-        // 8. 开始播放
+        // 7. 开始播放
         queuePlayer?.play()
     }
     //MARK: -创建播放内容

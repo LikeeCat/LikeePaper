@@ -40,9 +40,19 @@ struct PlayListRightView: View {
                     }
                 }
             }.frame(minHeight: 60)
-            
-            
             Spacer()
+            HStack{
+                Image(systemName: "info.circle.fill")
+                    .foregroundColor(Theme.SecondaryTextColor)
+                Text("单张循环会循环播放当前列表的第一张")
+                    .font(.footnote)
+                    .foregroundColor(Theme.SecondaryTextColor)
+                    .padding(3)
+                Spacer()
+            }
+                
+            Spacer().frame(minHeight: 10)
+
             
             Text("切换设置")
                 .font(.title3)

@@ -57,6 +57,16 @@ struct Theme {
     static var disabledColor: Color {
         return Color("DisabledColor")
     }
+    
+    // 强调色
+    static var infoBackgroundColor: Color {
+        return Color("InfoBackgroundColor")
+    }
+    
+    // 禁用色
+    static var infoTextColor: Color {
+        return Color("InfoTextColor")
+    }
 }
 
 

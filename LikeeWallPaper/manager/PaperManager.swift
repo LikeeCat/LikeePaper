@@ -59,7 +59,7 @@ class PaperManager{
         UserSetting.updateScreenDisplay(screen: screen, assetUrl: assetUrlString)
     }
     
-    @MainActor private func updateWithAll(assetUrlString:String){
+    @MainActor func updateWithAll(assetUrlString:String){
         UserSetting.updateWithAll(assetUrlString: assetUrlString)
     }
     

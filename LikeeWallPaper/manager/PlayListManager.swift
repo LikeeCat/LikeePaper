@@ -15,6 +15,7 @@ struct PlayListManager {
     }
     
     static func updatePlayListSwitchTime(time: Double) {
+        TimerManager.shared.switchTime = time
         Defaults[.playListSwitchTime] = time
     }
     
@@ -26,6 +27,7 @@ struct PlayListManager {
     }
     
     static func updatePlayMode(mode: PlaybackMode) {
+        TimerManager.shared.switchType = mode
         Defaults[.playListMode] = mode.rawValue
     }
     
