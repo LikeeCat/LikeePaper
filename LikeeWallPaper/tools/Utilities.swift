@@ -665,9 +665,20 @@ extension AppState{
     //获取视频首桢
     static func getFirstFrameWithUrl(url:URL)-> URL?{
         let document = getDocumentsDirectory()
+        let appHome = document.appendingPathComponent(getLastBundleIDComponent(), isDirectory: true)
+        
+        do {
+            // 如果文件夹不存在，则创建它
+            if !FileManager.default.fileExists(atPath: appHome.path) {
+                try FileManager.default.createDirectory(at: appHome, withIntermediateDirectories: true, attributes: nil)
+            }
+        } catch {
+            print("创建文件夹失败：\(error.localizedDescription)")
+        }
+        
         var fileName = url.lastPathComponent.split(separator: ".")[0]
         fileName = fileName + ".png"
-        let savePath = document.appendingPathComponent(String(fileName), isDirectory: false)
+        let savePath = appHome.appendingPathComponent(String(fileName), isDirectory: false)
         if FileManager.default.fileExists(atPath: savePath.path) {
             return savePath
         }
@@ -699,6 +710,13 @@ extension AppState{
         return paths[0]
     }
     
+    private static func getLastBundleIDComponent(defaultValue: String = "LikeeWallPaper") -> String {
+        guard let bundleID = Bundle.main.bundleIdentifier else {
+            return defaultValue
+        }
+        let components = bundleID.split(separator: ".")
+        return components.last.map(String.init) ?? defaultValue
+    }
 
     
 }
@@ -856,18 +874,29 @@ extension NSAlert {
 @MainActor
 class PaperPlayList: ObservableObject {
     static let shared = PaperPlayList()
-    @Published var papers: [PaperInfo] = Papers.shared.all.filter { info in
-        let playListIDS = PlayListManager.getPlayList()
-        return playListIDS.contains(info.image.lastPathComponent)
-    }
+    @Published var papers: [PaperInfo] =  sortPaper()
     
     @Published var tags: Set<String> = []
     
+    static func sortPaper()->[PaperInfo] {
+        return Papers.shared.all
+            .filter { info in
+                PlayListManager.getPlayList().contains(info.image.lastPathComponent)
+            }
+            .sorted { paper1, paper2 in
+                let playListIDS = PlayListManager.getPlayList()
+                guard
+                    let index1 = playListIDS.firstIndex(of: paper1.image.lastPathComponent),
+                    let index2 = playListIDS.firstIndex(of: paper2.image.lastPathComponent)
+                else {
+                    return false
+                }
+                return index1 < index2
+            }
+    }
+    
     func updatePaper(){
-        papers = Papers.shared.all.filter { info in
-            let playListIDS = PlayListManager.getPlayList()
-            return playListIDS.contains(info.image.lastPathComponent)
-        }
+        papers = PaperPlayList.sortPaper()
         var tmp :Set<String> = []
         papers.forEach { paper in
             tmp = tmp.union(paper.tags)

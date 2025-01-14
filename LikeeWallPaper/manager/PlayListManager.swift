@@ -55,5 +55,17 @@ struct PlayListManager {
         Defaults[.playListSetting] = currentArray
         PaperPlayList.shared.updatePaper()
     }
+    
+    @MainActor static func rebuildPlayList(papers: [PaperInfo]){
+        if papers.isEmpty{
+            return
+        }
+        
+        let newArray = papers.map { $0.image.lastPathComponent }
+        // 保存更新后的数组
+        Defaults[.playListSetting] = newArray
+        PaperPlayList.shared.updatePaper()
+
+    }
 
 }
