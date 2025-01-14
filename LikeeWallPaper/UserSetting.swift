@@ -41,8 +41,24 @@ extension Defaults.Keys {
 
 enum Constants {
  
-    static let menuBarIcon = NSImage(named: "MenuBarIcon")!
+    static let menuBarIcon: NSImage = {
+        // 创建 SF Symbols 图标（以 "star.fill" 为例）
+        let defaultImage = NSImage(named: "MenuBarIcon")!
+        guard let symbolImage = NSImage(systemSymbolName: "macstudio.fill", accessibilityDescription: "Star icon") else {
+            return defaultImage// 默认返回一个空的 NSImage
+        }
+        
+        // 配置图标的大小、粗细等
+        let config = NSImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .small)
+        let configuredImage = symbolImage.withSymbolConfiguration(config)
+        
+        // 设置图像为模板，允许更改颜色
+        configuredImage?.isTemplate = true
+        
+        return configuredImage ?? defaultImage
+    }()
 
+    
     static var mainWindow: NSWindow? = NSWindow(contentViewController: PaperViewController.shared)
 
     static func openPaperWindow() {

@@ -12,42 +12,51 @@ struct PlayListSettingView: View {
     @State var models: [ScreenModel] = ScreenInfo.getScreen()
     @State var selectedIndex: Int = ScreenInfo.getSelectedScreen()
     
-    let columns = [GridItem(.adaptive(minimum: 250), spacing: 3)]
-    
+    let minSize = CGSize(width: 250, height: 180) // 最小尺寸
+
     var body: some View {
         HStack{
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 3) {
-                    ForEach(playlist.papers) { paper in
-                        // 显示图片
-                        AsyncImageView(
-                            cachedImage:  paper.cachedImage,
-                            placeholder: Image(systemName: "photo.circle.fill"),
-                            size: CGSize(width: 250, height: 180),
-                            resolution: paper.resolution,
-                            env: .playList,
-                            action: deletePlayList
-                        )
-                        .clipped() // 确保图片内容不超出
-                        .onTapGesture {
-                            let url = paper.path
-                            settingImage(assetUrlString: url)
-                        }
-                        .onDrag {
-                            NSItemProvider(object: paper.id.uuidString as NSString)
-                        }
-                        .onDrop(of: [UTType.text], delegate: DropViewDelegate(item: paper, playlist: Binding(get: {
-                            playlist.papers
-                        }, set: { newPapers in
-                            playlist.papers = newPapers
-                            PlayListManager.rebuildPlayList(papers: playlist.papers)
-                        })))
-                    }
-                }
-                .padding(.horizontal)
+                GeometryReader { geometry in
+                    let screenWidth = geometry.size.width - 10
+                    let columns = Int(screenWidth / minSize.width) // 每排列数
+                    let itemWidth = screenWidth / CGFloat(columns) // 动态宽度
+                    let itemHeight = itemWidth * (minSize.height / minSize.width) // 动态高度，保持比例
+                    ScrollView {
+                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: columns), spacing: 10) {
+                            ForEach(playlist.papers) { paper in
+                                ZStack(alignment: .bottomTrailing) {
+                                    // 显示图片
+                                    AsyncImageView(
+                                        cachedImage:  paper.cachedImage,
+                                        placeholder: Image(systemName: "photo.circle.fill"),
+                                        size: CGSize(width: itemWidth, height: itemHeight),
+                                        resolution: paper.resolution,
+                                        env: .playList,
+                                        action: deletePlayList
+                                    )
+                                    .clipped() // 确保图片内容不超出
+                                    .onTapGesture {
+                                        let url = paper.path
+                                        settingImage(assetUrlString: url)
+                                    }
+                                    .onDrag {
+                                        NSItemProvider(object: paper.id.uuidString as NSString)
+                                    }
+                                    .onDrop(of: [UTType.text], delegate: DropViewDelegate(item: paper, playlist: Binding(get: {
+                                        playlist.papers
+                                    }, set: { newPapers in
+                                        playlist.papers = newPapers
+                                        PlayListManager.rebuildPlayList(papers: playlist.papers)
+                                    })))                            }
+                            }
+                        }.padding(.leading, 10)
+
+                        
+                }.frame(maxWidth: .infinity) // 占用剩余宽度
+                .padding(.top, 1)
+                
             }
-            .frame(maxWidth: .infinity) // 占用剩余宽度
-            .padding(.top, 1)
+
             Divider().frame(width: 1)
             PlayListRightView(models: $models, selectedIndex: $selectedIndex,  currentMode: PlayListManager.getPlayMode())
                 .frame(maxWidth: 300,maxHeight: .infinity)

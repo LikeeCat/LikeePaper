@@ -47,6 +47,17 @@ struct AsyncImageView: View {
                     .padding(.bottom, 20)  // 距离底部 20
                     .position(x: size.width / 2, y: size.height - 10)
                     .cornerRadius(8)
+                    
+                    if resolution != "1080p" {
+                        Text(resolution)
+                            .font(.subheadline)
+                            .foregroundColor(.white)
+                            .padding(3)
+                            .background(Theme.accentColor)
+                            .cornerRadius(4)
+                            .padding([.trailing, .bottom], 10) // 标签边距
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                    }
                 } else {
                     placeholder
                         .resizable()
@@ -64,21 +75,6 @@ struct AsyncImageView: View {
                 withAnimation {
                     isHovered = hovering
                 }
-            }
-            
-            if resolution != "1080p" {
-                Text(resolution)
-                    .font(.subheadline)
-                    .foregroundColor(.white) // 文本颜色
-                    .padding(3) // 内边距
-                    .background(Theme.accentColor) // 背景色
-                    .cornerRadius(4) // 圆角
-                    .alignmentGuide(.bottom) { dimension in
-                        dimension[.bottom] + 10// 距底部 15
-                    }
-                    .alignmentGuide(.trailing) { dimension in
-                        dimension[.trailing] + 10 // 距右侧 20
-                    }
             }
         }
         

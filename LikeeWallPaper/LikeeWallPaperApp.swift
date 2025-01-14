@@ -41,13 +41,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         BatteryManager.shared.invalidate()
         TimerManager.shared.invalidate()
     }
-
     func applicationDidFinishLaunching(_ notification: Notification) {
-        Constants.mainWindow?.close()
         TimerManager.shared
         if let window = NSApplication.shared.windows.first {
             window.close()
         }
+        Constants.mainWindow?.close()
+
         Constants.mainWindow?.title = "选择壁纸"
 
     }

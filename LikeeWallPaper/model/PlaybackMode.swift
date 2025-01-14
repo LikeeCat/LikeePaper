@@ -18,7 +18,7 @@ enum PlaybackMode: String, CaseIterable {
         case .loopAll:
             return "列表循环"
         case .single:
-            return "单集循环"
+            return "单张循环"
         case .shuffle:
             return "随机播放"
         }
