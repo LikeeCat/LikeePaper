@@ -44,7 +44,7 @@ enum Constants {
     static let menuBarIcon: NSImage = {
         // 创建 SF Symbols 图标（以 "star.fill" 为例）
         let defaultImage = NSImage(named: "MenuBarIcon")!
-        guard let symbolImage = NSImage(systemSymbolName: "macstudio.fill", accessibilityDescription: "Star icon") else {
+        guard let symbolImage = NSImage(systemSymbolName: "play.display", accessibilityDescription: "打开壁纸库") else {
             return defaultImage// 默认返回一个空的 NSImage
         }
         

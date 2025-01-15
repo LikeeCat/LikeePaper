@@ -151,6 +151,10 @@ private struct PaperView: View{
             PaperSettingRightView(tags: tags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $models, selectedTags: $selectedTags)
                 .frame(maxWidth: 300,maxHeight: .infinity)
         }.background(Theme.backgroundColor)
+            .onAppear{
+                Papers.shared.reloadAll()
+                papers = Papers.shared.all
+            }
     }
     
     func selectMP4File() {

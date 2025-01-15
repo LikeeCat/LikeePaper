@@ -19,9 +19,9 @@ struct UserSettingView: View {
                 Label("高级设置", systemImage: "gearshape.2")
             }
         }.windowLevel(.floating + 1)
-          .frame(width: 300)
-            
-    
+            .frame(width: 300)
+        
+        
     }
     
     private struct GeneralSettings: View {
@@ -30,6 +30,9 @@ struct UserSettingView: View {
                 Spacer().frame(height: 10)
                 DisplaySetting().padding([.leading,.trailing], 20)
                 ShowOnAllSpacesSetting().padding([.leading,.trailing], 20)
+                Divider()
+                Spacer().frame(height: 10)
+                LocalPaperFolderView().padding([.leading,.trailing], 20)
                 Spacer().frame(height: 10)
                 Divider()
                 Spacer().frame(height: 10)
@@ -37,7 +40,7 @@ struct UserSettingView: View {
                 mutedSetting().padding([.leading,.trailing], 20)
                 Spacer().frame(height: 10)
             }
-
+            
         }
     }
     
@@ -52,7 +55,72 @@ struct UserSettingView: View {
             
         }
     }
-
+    
+    private struct LocalPaperFolderView: View {
+        @State private var showAlert = false // 控制 Alert 显示状态
+        @State private var alertMessage: String = "" // Alert 显示的消息
+        @State var folderPath  = Defaults[.defaultPaperFolder]
+        var body: some View {
+            VStack(alignment: .leading){
+                HStack{
+                    Text("本地文件存储位置")
+                    Text("选择")
+                        .font(.system(size: 12))
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(
+                            Theme.accentColor
+                        )
+                        .foregroundColor(
+                            Theme.selectTextColor
+                        )
+                        .clipShape(Capsule())
+                        .onTapGesture {
+                            selectMP4File()
+                        }
+                    Spacer()
+                }.alert("文件选择", isPresented: $showAlert) {
+                    Button("OK", role: .cancel) { }
+                } message: {
+                    Text(alertMessage)
+                }
+                HStack{
+                    Image(systemName: "externaldrive.fill")
+                    Text(folderPath)
+                } .padding(10) // 添加内边距，使内容不贴着边框
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Theme.accentColor, lineWidth: 1) // 圆角边框
+                    )
+            }
+            
+        }
+        
+        func selectMP4File() {
+            let panel = NSOpenPanel()
+            panel.title = "选择文件夹"
+            panel.message = "请选择包含 mp4 文件的文件夹"
+            panel.prompt = "选择"
+            panel.allowsMultipleSelection = false
+            panel.canChooseDirectories =  true
+            panel.canCreateDirectories = false
+            
+            panel.begin { response in
+                if response == .OK, let selectedFileURL = panel.url {
+                    FileBookmarkManager.shared.clearBookmark()
+                    folderPath = selectedFileURL.path
+                    FileBookmarkManager.shared.saveBookmark(for: selectedFileURL)
+                    PaperManager.sharedPaperManager.updatePaperFolder(assetUrl: selectedFileURL.path)
+                    showAlert = true // 显示 Alert
+                    alertMessage = "您选择的地址将作为本地动态壁纸的来源"
+                    Papers.shared.reloadAll()
+                } else {
+                    showAlert = true // 显示 Alert
+                    alertMessage = "已取消选择"
+                }
+            }
+        }
+    }
     
     private struct DisplaySetting: View {
         

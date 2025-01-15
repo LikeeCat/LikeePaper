@@ -49,9 +49,11 @@ struct AsyncImageView: View {
                     .padding(.bottom, 20)  // 距离底部 20
                     .position(x: size.width / 2, y: size.height - 10)
                     .cornerRadius(8)
-                    let info = local ? "本地" : ""  + resolution != "1080p" ? resolution : ""
-                    if !info.isEmpty {
-                        Text(info)
+                    let info = local ? "本地" : ""
+                    let re =  resolution != "1080p" ? resolution : ""
+                    let newInfo = info + (re.isEmpty ? re : "" + re)
+                    if !newInfo.isEmpty {
+                        Text(newInfo)
                             .font(.subheadline)
                             .foregroundColor(.white)
                             .padding(3)

@@ -45,7 +45,7 @@ class PaperPlayerController:NSViewController{
     private var playerLayer:AVPlayerLayer?
     private var avPlayerLooper:AVPlayerLooper?
     private var queuePlayer: AVQueuePlayer?
-
+    
     //play setting
     var stop:Bool?{
         didSet{
@@ -79,10 +79,35 @@ class PaperPlayerController:NSViewController{
         return playerView
     }
     
+    private func isURLInSandbox(_ url: URL) -> Bool {
+        guard let mainBundlePath = Bundle.main.bundlePath.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
+            return false
+        }
+        // 检查目标路径是否以 Main Bundle 的路径开头
+        return url.path.hasPrefix(mainBundlePath)
+    }
     func updateAssetUrl(newAsset: URL) {
         // 1. 创建新的 AVAsset 和 AVPlayerItem
-        let asset = AVAsset(url: newAsset)
-        let playerItem = AVPlayerItem(asset: asset)
+        var asset: AVAsset?
+        
+        if !isURLInSandbox(newAsset) {
+            FileBookmarkManager.shared.accessFileInFolder(using: newAsset.path) { fileURL in
+                if let url = fileURL {
+                    asset = AVAsset(url: url)
+                    playWithAsset(aset: asset!)
+                }
+            }
+            
+        } else {
+            asset = AVAsset(url: newAsset)
+            playWithAsset(aset: asset!)
+        }
+        
+        
+    }
+    
+    private func playWithAsset(aset: AVAsset) {
+        let playerItem = AVPlayerItem(asset: aset)
         
         // 2. 添加过渡遮罩视图
         let transitionView = NSView(frame: view.bounds)
@@ -129,7 +154,23 @@ class PaperPlayerController:NSViewController{
     }
     //MARK: -创建播放内容
     private func preparePlayerEnv(){
-        let asset = AVAsset(url: self.assetUrl!)
+        
+        if !isURLInSandbox(self.assetUrl!) {
+            FileBookmarkManager.shared.accessFileInFolder(using: self.assetUrl!.path) { fileURL in
+                if let url = fileURL {
+                    let nowAsset = AVAsset(url: url)
+                    setAVAssetEnv(asset: nowAsset)
+                }
+            }
+            
+        } else {
+            let asset = AVAsset(url: self.assetUrl!)
+            setAVAssetEnv(asset: asset)
+        }
+        
+    }
+    
+    private func setAVAssetEnv(asset: AVAsset){
         let playerItem = AVPlayerItem(asset: asset)
         queuePlayer = AVQueuePlayer(playerItem: playerItem)
         avPlayerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: playerItem)
@@ -142,7 +183,7 @@ class PaperPlayerController:NSViewController{
     override func loadView() {
         view = NSView()
     }
-
+    
     func setupEvent(){
         Defaults.publisher(keys:.isMuted,options: [])
             .sink { [self] in
@@ -162,7 +203,7 @@ extension PaperPlayerController{
     func   playerplay(){
         
         if isPlay{
-            return 
+            return
         }
         playerLayer?.player?.play()
         playerVolume(volume: self.volume)
@@ -175,13 +216,13 @@ extension PaperPlayerController{
     }
     
     func updatePlayer(){
-//        let rate = playerLayer?.player?.rate == 1 ? 0 : 1
-//        if rate == 1{
-//            playerplay()
-//        }
-//        else{
-//            playerstop()
-//        }
+        //        let rate = playerLayer?.player?.rate == 1 ? 0 : 1
+        //        if rate == 1{
+        //            playerplay()
+        //        }
+        //        else{
+        //            playerstop()
+        //        }
     }
     
     func playerstop(){
@@ -196,5 +237,5 @@ extension PaperPlayerController{
         playerLayer?.player?.volume = volume
     }
     
-
+    
 }

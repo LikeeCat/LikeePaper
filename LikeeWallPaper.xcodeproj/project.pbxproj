@@ -41,6 +41,7 @@
 		FCA874D72D34FE33003165D5 /* PlaybackMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA874D62D34FE33003165D5 /* PlaybackMode.swift */; };
 		FCA874D92D35009E003165D5 /* ScreenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA874D82D35009E003165D5 /* ScreenInfo.swift */; };
 		FCA874DD2D3637A2003165D5 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA874DC2D3637A2003165D5 /* TimerManager.swift */; };
+		FCA8761F2D37A2F9003165D5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8761E2D37A2F5003165D5 /* Alert.swift */; };
 		FCDA43032D2B862B001B03D9 /* BatteryDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */; };
 		FCDA43052D2BB0FC001B03D9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43042D2BB0FC001B03D9 /* Theme.swift */; };
 		FCDA43072D2BCF8A001B03D9 /* FileBookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */; };
@@ -108,6 +109,7 @@
 		FCA874D62D34FE33003165D5 /* PlaybackMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackMode.swift; sourceTree = "<group>"; };
 		FCA874D82D35009E003165D5 /* ScreenInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenInfo.swift; sourceTree = "<group>"; };
 		FCA874DC2D3637A2003165D5 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		FCA8761E2D37A2F5003165D5 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryDisplayManager.swift; sourceTree = "<group>"; };
 		FCDA43042D2BB0FC001B03D9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarkManager.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 		FC5EECD82D0BD4CE00B4F8AA /* view */ = {
 			isa = PBXGroup;
 			children = (
+				FCA8761E2D37A2F5003165D5 /* Alert.swift */,
 				FCA873902D30F3DA003165D5 /* PlayListSettingView.swift */,
 				FC0254702D2B6C73008995FE /* PaperSettingRightView.swift */,
 				FC97EDD129A77C7D00425AFB /* PaperSettingView.swift */,
@@ -611,6 +614,7 @@
 				FCA874D92D35009E003165D5 /* ScreenInfo.swift in Sources */,
 				FC97EDB829A4A1C200425AFB /* PaperPlayerView.swift in Sources */,
 				FC97ED8B29A4A0E400425AFB /* LikeeWallPaperApp.swift in Sources */,
+				FCA8761F2D37A2F9003165D5 /* Alert.swift in Sources */,
 				FC97EDB629A4A1B100425AFB /* PaperPlayerController.swift in Sources */,
 				FC97EDC729A60AD800425AFB /* Menus.swift in Sources */,
 				FCA874DD2D3637A2003165D5 /* TimerManager.swift in Sources */,

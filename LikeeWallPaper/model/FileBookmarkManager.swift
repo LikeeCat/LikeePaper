@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import AVFoundation
 
 class FileBookmarkManager {
     static let shared = FileBookmarkManager()
-    private let bookmarkKey = "SavedBookmark"
+     let bookmarkKey = "SavedBookmark"
 
     private init() {}
 
@@ -24,6 +25,54 @@ class FileBookmarkManager {
             print("Error saving bookmark: \(error)")
         }
     }
+    
+    func accessFileInFolder(using filePath: String, completion: (URL?) -> Void) {
+        guard let bookmarkData = UserDefaults.standard.data(forKey: bookmarkKey) else {
+            print("No bookmark data found.")
+            completion(nil)
+            return
+        }
+
+        do {
+            var isStale = false
+            let folderURL = try URL(resolvingBookmarkData: bookmarkData, options: .withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &isStale)
+
+            if isStale {
+                print("Bookmark data is stale. Consider re-saving.")
+                completion(nil)
+                return
+            }
+
+            if folderURL.startAccessingSecurityScopedResource() {
+                defer { folderURL.stopAccessingSecurityScopedResource() }
+
+                // 构建目标文件 URL
+                let targetFileURL = URL(fileURLWithPath: filePath)
+
+                // 检查目标文件是否在书签关联的文件夹内
+                guard targetFileURL.path.hasPrefix(folderURL.path) else {
+                    print("Target file is not within the bookmarked folder.")
+                    completion(nil)
+                    return
+                }
+
+                // 检查文件是否存在
+                if FileManager.default.fileExists(atPath: targetFileURL.path) {
+                    completion(targetFileURL)
+                } else {
+                    PaperAlert.showAlert(message: "文件不存在 \(filePath)")
+                    completion(nil)
+                }
+            } else {
+                print("Failed to access security-scoped resource from bookmark.")
+                completion(nil)
+            }
+        } catch {
+            print("Error accessing file from bookmark: \(error)")
+            completion(nil)
+        }
+    }
+
 
     /// 从书签中访问文件
     @MainActor func accessFileFromBookmark() -> (info:[PaperInfo], tag:Set<String>){
