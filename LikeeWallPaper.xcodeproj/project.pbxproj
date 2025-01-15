@@ -40,11 +40,10 @@
 		FCA874D52D34F930003165D5 /* PlayListRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA874D42D34F930003165D5 /* PlayListRightView.swift */; };
 		FCA874D72D34FE33003165D5 /* PlaybackMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA874D62D34FE33003165D5 /* PlaybackMode.swift */; };
 		FCA874D92D35009E003165D5 /* ScreenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA874D82D35009E003165D5 /* ScreenInfo.swift */; };
-		FCA874DB2D35096B003165D5 /* FileAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA874DA2D35096B003165D5 /* FileAccessManager.swift */; };
 		FCA874DD2D3637A2003165D5 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA874DC2D3637A2003165D5 /* TimerManager.swift */; };
 		FCDA43032D2B862B001B03D9 /* BatteryDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */; };
 		FCDA43052D2BB0FC001B03D9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43042D2BB0FC001B03D9 /* Theme.swift */; };
-		FCDA43072D2BCF8A001B03D9 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43062D2BCF8A001B03D9 /* File.swift */; };
+		FCDA43072D2BCF8A001B03D9 /* FileBookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +60,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = FC97ED8629A4A0E400425AFB;
 			remoteInfo = LikeeWallPaper;
+		};
+		FCA8757D2D3756FF003165D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC97ED7F29A4A0E400425AFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC66557E2D2CE7D500355CB8;
+			remoteInfo = videos;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -101,11 +107,10 @@
 		FCA874D42D34F930003165D5 /* PlayListRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListRightView.swift; sourceTree = "<group>"; };
 		FCA874D62D34FE33003165D5 /* PlaybackMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackMode.swift; sourceTree = "<group>"; };
 		FCA874D82D35009E003165D5 /* ScreenInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenInfo.swift; sourceTree = "<group>"; };
-		FCA874DA2D35096B003165D5 /* FileAccessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAccessManager.swift; sourceTree = "<group>"; };
 		FCA874DC2D3637A2003165D5 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryDisplayManager.swift; sourceTree = "<group>"; };
 		FCDA43042D2BB0FC001B03D9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		FCDA43062D2BCF8A001B03D9 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -270,7 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				FCDA43042D2BB0FC001B03D9 /* Theme.swift */,
-				FCDA43062D2BCF8A001B03D9 /* File.swift */,
+				FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */,
 				FCA874D62D34FE33003165D5 /* PlaybackMode.swift */,
 			);
 			path = model;
@@ -320,7 +325,6 @@
 				FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */,
 				FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */,
 				FCA873922D31084D003165D5 /* PlayListManager.swift */,
-				FCA874DA2D35096B003165D5 /* FileAccessManager.swift */,
 				FCA874DC2D3637A2003165D5 /* TimerManager.swift */,
 			);
 			path = manager;
@@ -443,6 +447,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FCA8757E2D3756FF003165D5 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				FCDA43082D2BCFDC001B03D9 /* video */,
@@ -588,7 +593,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCA874DB2D35096B003165D5 /* FileAccessManager.swift in Sources */,
 				FCA8724C2D2FB4B0003165D5 /* TagManager.swift in Sources */,
 				FC97EDCE29A7561400425AFB /* PaperManager.swift in Sources */,
 				FC61BEE529A9D95C00C6384F /* VolumeSettingView.swift in Sources */,
@@ -596,7 +600,7 @@
 				FC97EDBC29A5F66200425AFB /* Utilities.swift in Sources */,
 				FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */,
 				FCA8722A2D2F85E9003165D5 /* AsyncImageView.swift in Sources */,
-				FCDA43072D2BCF8A001B03D9 /* File.swift in Sources */,
+				FCDA43072D2BCF8A001B03D9 /* FileBookmarkManager.swift in Sources */,
 				FC66559A2D2CE98A00355CB8 /* VideoAssetsManager.swift in Sources */,
 				FC61BEEB29AC4E5B00C6384F /* BatteryManager.swift in Sources */,
 				FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */,
@@ -650,6 +654,11 @@
 			isa = PBXTargetDependency;
 			target = FC97ED8629A4A0E400425AFB /* LikeeWallPaper */;
 			targetProxy = FC97EDA329A4A0E700425AFB /* PBXContainerItemProxy */;
+		};
+		FCA8757E2D3756FF003165D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC66557E2D2CE7D500355CB8 /* videos */;
+			targetProxy = FCA8757D2D3756FF003165D5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -834,6 +843,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -862,6 +872,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";

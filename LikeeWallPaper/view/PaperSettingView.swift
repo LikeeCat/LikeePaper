@@ -23,7 +23,7 @@ struct FilterView: View {
     @State private var selectedTab: String = "壁纸中心"
     @State var papers = Papers.shared.all // Initialize papers here to be mutable
     @StateObject var playList = PaperPlayList.shared
-
+    
     
     // 定义筛选项
     let tabs = ["壁纸中心", "播放列表"]
@@ -55,7 +55,7 @@ struct FilterView: View {
                 //
             } else if selectedTab == "播放列表" {
                 PlayListSettingView().environmentObject(playList)
-            } 
+            }
             Spacer()
         }
         .background(Theme.backgroundColor.edgesIgnoringSafeArea(.all))
@@ -71,9 +71,16 @@ private struct PaperView: View{
     @State var selectedIndex: Int = ScreenInfo.getSelectedScreen()
     @State private var selectedTags: Set<String> = []
     @EnvironmentObject var paperList: PaperPlayList // 自动获取共享对象
+    
+    @State private var showAlert = false // 控制 Alert 显示状态
+    @State private var alertMessage: String = "" // Alert 显示的消息
+    
+    
     let tags: Set<String> = Papers.shared.allTags
     let minSize = CGSize(width: 250, height: 180) // 最小尺寸
-
+    
+    
+    
     private func filteredImages (){
         withAnimation {
             if  selectedTags.isEmpty {
@@ -88,13 +95,14 @@ private struct PaperView: View{
     
     var body: some View{
         HStack{
-                GeometryReader { geometry in
-                    let screenWidth = geometry.size.width - 10
-                    let columns = Int(screenWidth / minSize.width) // 每排列数
-                    let itemWidth = screenWidth / CGFloat(columns) // 动态宽度
-                    let itemHeight = itemWidth * (minSize.height / minSize.width) // 动态高度，保持比例
+            GeometryReader { geometry in
+                let screenWidth = geometry.size.width - 10
+                let columns = Int(screenWidth / minSize.width) // 每排列数
+                let itemWidth = screenWidth / CGFloat(columns) // 动态宽度
+                let itemHeight = itemWidth * (minSize.height / minSize.width) // 动态高度，保持比例
+                ZStack(alignment: .bottomTrailing) {
                     ScrollView {
-
+                        
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: columns), spacing: 10) {
                             ForEach(papers) { paper in
                                 ZStack(alignment: .bottomTrailing) {
@@ -104,7 +112,9 @@ private struct PaperView: View{
                                         placeholder: Image(systemName: "photo.circle.fill"),
                                         size: CGSize(width: itemWidth, height: itemHeight),
                                         resolution: paper.resolution, env: .paperCenter,
+                                        local: paper.local,
                                         action: addToPlayList
+
                                     )
                                     .clipped() // 确保图片内容不超出
                                     .onTapGesture {
@@ -115,8 +125,27 @@ private struct PaperView: View{
                             }
                         }.padding(.leading, 10)
                     }.frame(minHeight: 0, maxHeight: .infinity) // 确保 `ScrollView` 内容可以超出屏幕范围
-                    .padding(.top, 1)
-
+                        .padding(.top, 1)
+                    
+                    Image(systemName: "plus.circle")
+                        .resizable() // 允许调整大小
+                        .scaledToFit()
+                        .background(Theme.accentColor)
+                        .foregroundColor(.white)
+                        .frame(width: 35, height: 35) // 设置尺寸
+                        .clipShape(Circle()) // 裁切成圆形
+                        .padding([.trailing, .bottom], 10) // 标签边距
+                        .shadow(color: Color.primary.opacity(0.3), radius: 1, x: 3, y: 3) // 添加阴影
+                        .onTapGesture {
+                            selectMP4File()
+                        }
+                }.alert("文件选择", isPresented: $showAlert) {
+                    Button("OK", role: .cancel) { }
+                } message: {
+                    Text(alertMessage)
+                }
+                
+                
             }
             Divider().frame(width: 1)
             PaperSettingRightView(tags: tags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $models, selectedTags: $selectedTags)
@@ -124,6 +153,31 @@ private struct PaperView: View{
         }.background(Theme.backgroundColor)
     }
     
+    func selectMP4File() {
+        let panel = NSOpenPanel()
+        panel.title = "选择文件夹"
+        panel.message = "请选择包含 mp4 文件的文件夹"
+        panel.prompt = "选择"
+        panel.allowsMultipleSelection = false
+        panel.canChooseDirectories =  true
+        panel.canCreateDirectories = false
+        
+        panel.begin { response in
+            if response == .OK, let selectedFileURL = panel.url {
+                FileBookmarkManager.shared.clearBookmark()
+                FileBookmarkManager.shared.saveBookmark(for: selectedFileURL)
+                PaperManager.sharedPaperManager.updatePaperFolder(assetUrl: selectedFileURL.path)
+                showAlert = true // 显示 Alert
+                alertMessage = "您选择的地址将作为本地动态壁纸的来源"
+                Papers.shared.reloadAll()
+                papers = Papers.shared.all
+            } else {
+                showAlert = true // 显示 Alert
+                alertMessage = "已取消选择"
+                
+            }
+        }
+    }
     
     // 处理标签点击事件
     private func handleTagSelection(tag: String) {
@@ -165,7 +219,7 @@ private struct PaperView: View{
         panel.canChooseDirectories = false
         panel.canCreateDirectories = false
         panel.title = "选择文件夹"
-        panel.message = "请选择一个包含视频文件的文件夹作为播放源"
+        panel.message = "请选择.mp4 文件进行导入"
         panel.prompt = "选择"
         panel.level = .modalPanel
         // TODO: Make it a sheet instead when targeting the macOS bug is fixed. (macOS 13.1)
@@ -222,76 +276,56 @@ private struct GeneralSettingsScreenView: View {
 }
 
 
-private struct GeneralSettings: View {
-    @State var paperAssetUrl:String = ""
-    @State var select = false
-    @State var isShowAlert = false
-    @State var started = false
-    
-    @ObservedObject var viewModel: ScreenModel = ScreenModel(screenName: "123")
-    
-    
-    @MainActor
-    private func chooseLocalWebsite() async -> URL?{
-        let panel = NSOpenPanel()
-        panel.canChooseFiles = true
-        panel.canChooseDirectories = false
-        panel.canCreateDirectories = false
-        panel.title = "选择文件"
-        panel.message = "请选择一个视频文件"
-        panel.prompt = "选择"
-        panel.level = .modalPanel
-        // TODO: Make it a sheet instead when targeting the macOS bug is fixed. (macOS 13.1)
-        let result =  await panel.begin()
-        guard
-            result == .OK,
-            let url = panel.url
-        else {
-            return nil
-        }
-        
-        return url
-    }
-    
-    
-    var body: some View {
-        VStack{
-            SelectImageView(videoPath: paperAssetUrl, selected: select).onTapGesture {
-                Task {
-                    guard let assetUrl = await chooseLocalWebsite() else{
-                        select = false
-                        return
-                    }
-                    paperAssetUrl = assetUrl.absoluteString
-                    select = true
-                }
-            }.frame(width: 400,height: 350).border(.gray,width: 1)
-            Spacer().frame(height: 20)
-            Text("选择屏幕")
-            Spacer().frame(height: 20)
-            Spacer().frame(height: 40)
-            Button("确认") {
-                if paperAssetUrl.isEmpty {
-                    NSAlert.showModal(title: "提示",message: "请选择壁纸后重试")
-                }
-                else{
-                    settingImage(assetUrlString: paperAssetUrl)
-                    paperAssetUrl = ""
-                    Constants.mainWindow?.close()
-                }
-                
-            }
-        }
-    }
-    
-    
-    
-    @MainActor
-    private func settingImage(assetUrlString:String){
-        PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: nil)
-    }
-    
-}
+//private struct GeneralSettings: View {
+//    @State var paperAssetUrl:String = ""
+//    @State var select = false
+//    @State var isShowAlert = false
+//    @State var started = false
+//
+//    @ObservedObject var viewModel: ScreenModel = ScreenModel(screenName: "123")
+//
+//
+//
+//
+//
+//    var body: some View {
+//        VStack{
+//            SelectImageView(videoPath: paperAssetUrl, selected: select).onTapGesture {
+//                Task {
+//                    guard let assetUrl = await chooseLocalWebsite() else{
+//                        select = false
+//                        return
+//                    }
+//                    paperAssetUrl = assetUrl.absoluteString
+//                    select = true
+//                }
+//            }.frame(width: 400,height: 350).border(.gray,width: 1)
+//            Spacer().frame(height: 20)
+//            Text("选择屏幕")
+//            Spacer().frame(height: 20)
+//            Spacer().frame(height: 40)
+//            Button("确认") {
+//                if paperAssetUrl.isEmpty {
+//                    NSAlert.showModal(title: "提示",message: "请选择壁纸后重试")
+//                }
+//                else{
+//                    settingImage(assetUrlString: paperAssetUrl)
+//                    paperAssetUrl = ""
+//                    Constants.mainWindow?.close()
+//                }
+//
+//            }
+//        }
+//    }
+//
+//
+//
+//    @MainActor
+//    private func settingImage(assetUrlString:String){
+//        PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: nil)
+//    }
+//
+//}
 
 
 

@@ -14,6 +14,8 @@ struct AsyncImageView: View {
     let size: CGSize
     let resolution: String
     let env: AsyncImageViewEnv
+    let local: Bool
+    
     enum AsyncImageViewEnv{
         case paperCenter
         case playList
@@ -47,9 +49,9 @@ struct AsyncImageView: View {
                     .padding(.bottom, 20)  // 距离底部 20
                     .position(x: size.width / 2, y: size.height - 10)
                     .cornerRadius(8)
-                    
-                    if resolution != "1080p" {
-                        Text(resolution)
+                    let info = local ? "本地" : ""  + resolution != "1080p" ? resolution : ""
+                    if !info.isEmpty {
+                        Text(info)
                             .font(.subheadline)
                             .foregroundColor(.white)
                             .padding(3)
@@ -58,6 +60,7 @@ struct AsyncImageView: View {
                             .padding([.trailing, .bottom], 10) // 标签边距
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                     }
+                    
                 } else {
                     placeholder
                         .resizable()

@@ -912,12 +912,13 @@ struct PaperInfo: Identifiable{
     var cachedImage: NSImage?
     let id:UUID
     let tags:Set<String>
-    
-    init(path: String, image: URL, resolution: String, tags: Set<String>) {
+    let local: Bool
+    init(path: String, image: URL, resolution: String, tags: Set<String>, local: Bool = false) {
         self.path = path
         self.image = image
         self.resolution = resolution
         self.tags = tags
+        self.local = local
         self.cachedImage = NSImage(contentsOf: image)!
         self.id = UUID()
     }
@@ -937,14 +938,27 @@ class Papers{
     
     static let shared = Papers()
     
+    var defaultUserSettingPath = Defaults[.defaultPaperFolder]
+    
+    func reloadAll(){
+        let papers = Papers.allPapers()
+        all = papers.info
+        allTags = papers.tag
+    }
+    
     @MainActor static func allPapers()->(info: [PaperInfo], tag: Set<String>){
         
         guard let defaultVideosPath = VideoAssetsManager.defaultBundler else {
             return ([],Set())
         }
         
-        return getAllMP4FilePaths(inBundleAtPath: defaultVideosPath)
+        if Defaults[.defaultPaperFolder] == "" {
+            return getAllMP4FilePaths(inBundleAtPath: defaultVideosPath)
+        }
+        let embed = getAllMP4FilePaths(inBundleAtPath: defaultVideosPath)
+        let userSetting = FileBookmarkManager.shared.accessFileFromBookmark()
         
+        return (embed.info + userSetting.info, embed.tag.union(userSetting.tag))
     }
     
     
@@ -965,6 +979,35 @@ class Papers{
         
         do {
             let resourceURLs = try fileManager.contentsOfDirectory(at: URL(fileURLWithPath: resourcePath), includingPropertiesForKeys: nil)
+            
+            for resourceURL in resourceURLs {
+                // 检查文件扩展名是否为 mp4
+                if resourceURL.pathExtension.lowercased() == "mp4" {
+                    
+                    let resolution = getVideoResolutionCategory(url: resourceURL)
+                    let tags = resourceURL.absoluteString.extractTags()
+                    if let imageUrl = AppState.getFirstFrameWithUrl(url: resourceURL){
+                        let info =  PaperInfo(path: resourceURL.absoluteString, image: imageUrl, resolution: resolution, tags: tags)
+                        allTags.formUnion(tags) // 合并到最终结果集合
+                        papers.append(info)
+                    }
+                }
+            }
+        } catch {
+            print("遍历 bundle 资源目录时发生错误：\(error)")
+        }
+        
+        return (papers , allTags)
+    }
+    
+    static  func getAllLocalMP4FilePaths(url: URL) -> (info:[PaperInfo], tag:Set<String>) {
+        var papers:[PaperInfo] = []
+        var allTags: Set<String> = []
+
+        let fileManager = FileManager.default
+        
+        do {
+            let resourceURLs = try fileManager.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)
             
             for resourceURL in resourceURLs {
                 // 检查文件扩展名是否为 mp4

@@ -32,6 +32,7 @@ struct PlayListSettingView: View {
                                         size: CGSize(width: itemWidth, height: itemHeight),
                                         resolution: paper.resolution,
                                         env: .playList,
+                                        local: paper.local,
                                         action: deletePlayList
                                     )
                                     .clipped() // 确保图片内容不超出

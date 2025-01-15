@@ -43,6 +43,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func applicationDidFinishLaunching(_ notification: Notification) {
         TimerManager.shared
+        NSApp.setActivationPolicy(.accessory)
+
         if let window = NSApplication.shared.windows.first {
             window.close()
         }

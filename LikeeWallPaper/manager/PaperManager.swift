@@ -10,7 +10,6 @@ import Defaults
 import Cocoa
 class PaperManager{
     static let sharedPaperManager = PaperManager()
-    
     @MainActor func updatePaper(assetUrlString:String, screen:NSScreen?){
         if Defaults[.isUpdateAll]{
             updateWithAll(assetUrlString: assetUrlString)
