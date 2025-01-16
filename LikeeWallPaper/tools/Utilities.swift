@@ -927,14 +927,17 @@ struct PaperInfo: Identifiable{
 }
 
 @MainActor
-class Papers{
-    lazy var all: [PaperInfo] = {
+class Papers: ObservableObject {
+    @Published var all: [PaperInfo] = {
         Papers.allPapers().info
     }()
     
-    lazy var allTags: Set<String> = {
+    @Published  var allTags: Set<String> = {
         Papers.allPapers().tag
     }()
+    
+    @Published  var selectTags: Set<String> = []
+
     
     static let shared = Papers()
     
@@ -944,6 +947,22 @@ class Papers{
         let papers = Papers.allPapers()
         all = papers.info
         allTags = papers.tag
+    }
+    
+    func filterWithTag(tag: String){
+        if selectTags.contains(tag) {
+            selectTags.remove(tag)
+        } else {
+            selectTags.insert(tag)
+        }
+        
+        if  selectTags.isEmpty {
+            all =  Papers.allPapers().info
+        }else {
+            all = Papers.shared.all.filter({ paper in
+                !paper.tags.isDisjoint(with: selectTags)
+            })
+        }
     }
     
     @MainActor static func allPapers()->(info: [PaperInfo], tag: Set<String>){

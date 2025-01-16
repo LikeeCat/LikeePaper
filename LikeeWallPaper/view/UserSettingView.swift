@@ -113,7 +113,8 @@ struct UserSettingView: View {
                     PaperManager.sharedPaperManager.updatePaperFolder(assetUrl: selectedFileURL.path)
                     showAlert = true // 显示 Alert
                     alertMessage = "您选择的地址将作为本地动态壁纸的来源"
-                    Papers.shared.reloadAll()
+                    Papers.shared.all = Papers.allPapers().info
+                    Papers.shared.allTags = Papers.allPapers().tag
                 } else {
                     showAlert = true // 显示 Alert
                     alertMessage = "已取消选择"

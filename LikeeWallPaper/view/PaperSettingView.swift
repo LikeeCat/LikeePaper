@@ -66,7 +66,7 @@ struct FilterView: View {
 }
 @MainActor
 private struct PaperView: View{
-    @State var papers = Papers.shared.all // Initialize papers here to be mutable
+    @StateObject var papers = Papers.shared // Initialize papers here to be mutable
     @State var models: [ScreenModel] = ScreenInfo.getScreen()
     @State var selectedIndex: Int = ScreenInfo.getSelectedScreen()
     @State private var selectedTags: Set<String> = []
@@ -76,22 +76,8 @@ private struct PaperView: View{
     @State private var alertMessage: String = "" // Alert 显示的消息
     
     
-    let tags: Set<String> = Papers.shared.allTags
     let minSize = CGSize(width: 250, height: 180) // 最小尺寸
     
-    
-    
-    private func filteredImages (){
-        withAnimation {
-            if  selectedTags.isEmpty {
-                papers = Papers.shared.all
-            }else {
-                papers = Papers.shared.all.filter({ paper in
-                    !paper.tags.isDisjoint(with: selectedTags)
-                })
-            }
-        }
-    }
     
     var body: some View{
         HStack{
@@ -104,7 +90,7 @@ private struct PaperView: View{
                     ScrollView {
                         
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: columns), spacing: 10) {
-                            ForEach(papers) { paper in
+                            ForEach(papers.all) { paper in
                                 ZStack(alignment: .bottomTrailing) {
                                     // 显示图片
                                     AsyncImageView(
@@ -148,13 +134,10 @@ private struct PaperView: View{
                 
             }
             Divider().frame(width: 1)
-            PaperSettingRightView(tags: tags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $models, selectedTags: $selectedTags)
+            PaperSettingRightView(tags: papers.allTags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $models, selectedTags: $selectedTags)
                 .frame(maxWidth: 300,maxHeight: .infinity)
         }.background(Theme.backgroundColor)
-            .onAppear{
-                Papers.shared.reloadAll()
-                papers = Papers.shared.all
-            }
+           
     }
     
     func selectMP4File() {
@@ -174,7 +157,7 @@ private struct PaperView: View{
                 showAlert = true // 显示 Alert
                 alertMessage = "您选择的地址将作为本地动态壁纸的来源"
                 Papers.shared.reloadAll()
-                papers = Papers.shared.all
+                
             } else {
                 showAlert = true // 显示 Alert
                 alertMessage = "已取消选择"
@@ -185,34 +168,25 @@ private struct PaperView: View{
     
     // 处理标签点击事件
     private func handleTagSelection(tag: String) {
-        if selectedTags.contains(tag) {
-            selectedTags.remove(tag)
-        } else {
-            selectedTags.insert(tag)
+        withAnimation {
+            Papers.shared.filterWithTag(tag: tag)
+            selectedTags =  Papers.shared.selectTags
         }
-        filteredImages()
     }
     
     // 处理标签点击事件
     private func addToPlayList(selectPaper: NSImage?) {
         if let selectPaper = selectPaper {
-            let matchPaper = papers.first { paper in
+            let matchPaper = papers.all.first { paper in
                 paper.cachedImage == selectPaper
             }
             PlayListManager.updatePlayList(paper: matchPaper)
         }
     }
-    
-    
-    private func reloadPapers() {
-        // Fetch or reload your papers data here
-        self.papers = Papers.shared.all
-    }
-    
-    
-    
+        
     @MainActor
     private func settingImage(assetUrlString:String){
+        PlayListManager.updatePlayMode(mode: .single)
         PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: screens[selectedIndex])
     }
     

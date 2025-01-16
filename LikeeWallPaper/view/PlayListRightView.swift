@@ -15,7 +15,9 @@ struct PlayListRightView: View {
     @State var switchTime =  PlayListManager.getPlayListSwitchTime()
     
     let display = [GridItem(.flexible())]
-    let palyModes = PlaybackMode.allCases
+    let palyModes = PlaybackMode.allCases.filter { mode in
+        mode != .single
+    }
     
     let tagsConf = [
         GridItem(.adaptive(minimum: 80)) // 自动调整列宽，最小宽度为 80
@@ -44,7 +46,7 @@ struct PlayListRightView: View {
             HStack{
                 Image(systemName: "info.circle.fill")
                     .foregroundColor(Theme.SecondaryTextColor)
-                Text("单张循环会循环播放当前列表的第一张")
+                Text("点击图片即可切换为单循环")
                     .font(.footnote)
                     .foregroundColor(Theme.SecondaryTextColor)
                     .padding(3)

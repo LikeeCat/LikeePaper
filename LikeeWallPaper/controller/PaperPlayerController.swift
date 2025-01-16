@@ -94,19 +94,33 @@ class PaperPlayerController:NSViewController{
             FileBookmarkManager.shared.accessFileInFolder(using: newAsset.path) { fileURL in
                 if let url = fileURL {
                     asset = AVAsset(url: url)
-                    playWithAsset(aset: asset!)
+                    playWithAsset(aset: asset!, url: url)
                 }
             }
             
         } else {
             asset = AVAsset(url: newAsset)
-            playWithAsset(aset: asset!)
+            playWithAsset(aset: asset!, url: newAsset)
         }
         
         
     }
     
-    private func playWithAsset(aset: AVAsset) {
+
+    private func playWithAsset(aset: AVAsset , url: URL) {
+        // Check if the new asset is the same as the previous one
+            // If it's the same, just start looping
+        if let assetUrl = assetUrl {
+            if assetUrl == url {
+                queuePlayer?.play()
+                return
+
+            }
+        }
+        
+        // Update the previous asset reference
+        assetUrl = url
+        
         let playerItem = AVPlayerItem(asset: aset)
         
         // 2. 添加过渡遮罩视图
@@ -115,39 +129,33 @@ class PaperPlayerController:NSViewController{
         transitionView.layer?.backgroundColor = NSColor.black.cgColor
         view.addSubview(transitionView)
         
-        // 3. 更新播放器内容
-        if let queuePlayer = queuePlayer {
-            queuePlayer.removeAllItems() // 清空现有队列
-            queuePlayer.insert(playerItem, after: nil) // 添加新内容
-        } else {
-            // 如果播放器为空，则初始化
-            queuePlayer = AVQueuePlayer(playerItem: playerItem)
-        }
-        
-        // 4. 更新播放器的重复播放逻辑
-        if let avPlayerLooper = avPlayerLooper {
-            avPlayerLooper.disableLooping()
-        }
+    
+        queuePlayer = AVQueuePlayer(playerItem: playerItem)
         avPlayerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: playerItem)
         
-        // 5. 更新播放器图层
+        // 5. 保持现有的 AVPlayerLayer
         if let playerLayer = playerLayer {
             playerLayer.player = queuePlayer
         } else {
+            // 如果没有现有的 playerLayer，则初始化一个新的并添加到视图
             playerLayer = AVPlayerLayer(player: queuePlayer)
             playerLayer?.videoGravity = .resize
             playerLayer?.frame = view.bounds
             view.layer?.addSublayer(playerLayer!)
         }
         
-        // 6. 动画隐藏过渡遮罩
         NSAnimationContext.runAnimationGroup({ context in
-            context.duration = 1
+            context.duration = 1  // 总时长为 1 秒
+            
+            // 使用自定义的 timingFunction，使得前半部分慢，后半部分快
+            context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut) // 也可以尝试其他函数，如 .easeIn 或 .easeOut
+            
             transitionView.animator().alphaValue = 0
         }) {
             // 动画结束后移除遮罩视图
             transitionView.removeFromSuperview()
         }
+
         
         // 7. 开始播放
         queuePlayer?.play()
