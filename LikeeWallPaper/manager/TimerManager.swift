@@ -53,7 +53,7 @@ class TimerManager: ObservableObject {
 //    *3600
     
     private func startWallpaperChangeTimer() {
-        timer = Timer.scheduledTimer(timeInterval: switchTime * 1 , target: self, selector: #selector(changeWallpaper), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: switchTime * 3600 , target: self, selector: #selector(changeWallpaper), userInfo: nil, repeats: true)
     }
     
     // 切换壁纸的操作
