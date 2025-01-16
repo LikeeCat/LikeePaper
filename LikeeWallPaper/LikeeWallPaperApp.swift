@@ -13,11 +13,7 @@ struct LikeeWallPaperApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
     var body: some Scene {
-        WindowGroup {
-            VStack{
-                
-            }
-        }
+     
         Settings{
             UserSettingView()
         }
@@ -29,6 +25,7 @@ struct LikeeWallPaperApp: App {
 
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
+
     // Without this, Plash quits when the screen is locked. (macOS 13.2)
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { false }
 
@@ -43,11 +40,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func applicationDidFinishLaunching(_ notification: Notification) {
         TimerManager.shared
-        NSApp.setActivationPolicy(.accessory)
-
-        if let window = NSApplication.shared.windows.first {
-            window.close()
-        }
+   
         Constants.mainWindow?.close()
 
         Constants.mainWindow?.title = "选择壁纸"

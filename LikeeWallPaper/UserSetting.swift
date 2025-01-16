@@ -74,6 +74,7 @@ enum Constants {
         mainWindow?.isOpaque = false                            // 使窗口背景透明
         mainWindow?.backgroundColor = NSColor(Theme.backgroundColor)  // 设置背景为透明色
         mainWindow?.isMovableByWindowBackground = true
+        mainWindow?.level = .floating
         mainWindow?.makeKeyAndOrderFront(nil)
     }
     

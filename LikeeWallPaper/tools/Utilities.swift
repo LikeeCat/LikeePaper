@@ -1055,11 +1055,11 @@ class Papers: ObservableObject {
         for track in asset.tracks(withMediaType: .video) {
             let resolution = track.naturalSize
             // 判断分辨率范围并返回对应的类别
-            if resolution.width >= 1920 && resolution.height >= 1080 && resolution.width < 2048 {
+            if resolution.width >= 1920  && resolution.width < 2048 {
                 return "1080p"
-            } else if resolution.width >= 2048 && resolution.height >= 1080 && resolution.width < 3840 {
+            } else if resolution.width >= 2048 && resolution.width < 3840 {
                 return "2K"
-            } else if resolution.width >= 3840 && resolution.height >= 2160 {
+            } else if resolution.width >= 3840 {
                 return "4K"
             } else {
                 return "Unknown Resolution"
