@@ -39,12 +39,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         BatteryManager.shared.invalidate()
         TimerManager.shared.invalidate()
         DisplayMonitorObserver.shared.invalidate()
+        
+        AppState.shared.screenManagers.forEach { sc in
+            sc.window?.hiddenFolder = true
+        }
     }
     func applicationDidFinishLaunching(_ notification: Notification) {
         // init timer
         TimerManager.shared
         DisplayMonitorObserver.shared
-        
+        NSApp.setActivationPolicy(.accessory)
         Constants.mainWindow?.title = "选择壁纸"
         Constants.mainWindow?.titlebarAppearsTransparent = true           // 标题栏透明
         Constants.mainWindow?.isOpaque = false                            // 使窗口背景透明

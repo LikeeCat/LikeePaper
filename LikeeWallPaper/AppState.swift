@@ -173,6 +173,7 @@ extension AppState{
         if let index = screenManagers.firstIndex (where: { sc in
             sc.display?.screen?.id == screen.id
         }) {
+            screenManagers[index].stop()
             screenManagers.remove(at: index)
         }
         
