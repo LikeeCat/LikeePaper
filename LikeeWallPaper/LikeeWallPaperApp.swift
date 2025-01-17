@@ -35,17 +35,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationWillTerminate(_ notification: Notification) {
+        // stop timer
         BatteryManager.shared.invalidate()
         TimerManager.shared.invalidate()
+        DisplayMonitorObserver.shared.invalidate()
     }
     func applicationDidFinishLaunching(_ notification: Notification) {
+        // init timer
         TimerManager.shared
+        DisplayMonitorObserver.shared
+        
         Constants.mainWindow?.title = "选择壁纸"
         Constants.mainWindow?.titlebarAppearsTransparent = true           // 标题栏透明
         Constants.mainWindow?.isOpaque = false                            // 使窗口背景透明
         Constants.mainWindow?.backgroundColor = NSColor(Theme.backgroundColor)  // 设置背景为透明色
         Constants.mainWindow?.isMovableByWindowBackground = true
-        Constants.mainWindow?.level = .floating
+        Constants.mainWindow?.level = .normal
         Constants.mainWindow?.makeKeyAndOrderFront(nil)
 
 

@@ -75,7 +75,7 @@ class TimerManager: ObservableObject {
         
         let currentPaperIndex = paperPlayList.papers.firstIndex { paper in
             if let comp = URL.init(string: mainScreenSetting?.screenAssetUrl ?? "")?.deletingPathExtension() {
-                var  imagePath = paper.image
+                let  imagePath = paper.image
                 return imagePath.deletingPathExtension().lastPathComponent == comp.lastPathComponent
             }
             return false

@@ -685,6 +685,10 @@ extension AppState{
         
         let asset = AVAsset(url: url)
         let imageGen = AVAssetImageGenerator(asset: asset)
+        // 设置图像的最大尺寸
+        let maxSize = CGSize(width: 800, height: 600)  // 设置最大尺寸，根据需要调整
+        imageGen.maximumSize = maxSize
+
         var firstFrame: CGImage? = nil
         do {
             firstFrame = try imageGen.copyCGImage(at: CMTime(value: 0, timescale: 1), actualTime: nil)

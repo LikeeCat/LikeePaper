@@ -9,8 +9,8 @@ import SwiftUI
 import UniformTypeIdentifiers
 struct PlayListSettingView: View {
     @EnvironmentObject var playlist: PaperPlayList
-    @State var models: [ScreenModel] = ScreenInfo.getScreen()
-    @State var selectedIndex: Int = ScreenInfo.getSelectedScreen()
+    @StateObject var display = DisplayMonitorObserver.shared
+    @State var selectedIndex: Int =  DisplayMonitorObserver.shared.selectIndex
     
     let minSize = CGSize(width: 250, height: 180) // 最小尺寸
 
@@ -59,7 +59,7 @@ struct PlayListSettingView: View {
             }
 
             Divider().frame(width: 1)
-            PlayListRightView(models: $models, selectedIndex: $selectedIndex,  currentMode: PlayListManager.getPlayMode())
+            PlayListRightView(models: $display.screens, selectedIndex: $selectedIndex,  currentMode: PlayListManager.getPlayMode())
                 .frame(maxWidth: 300,maxHeight: .infinity)
             
         }.background(Theme.backgroundColor)

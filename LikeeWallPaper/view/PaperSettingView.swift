@@ -9,7 +9,6 @@ import SwiftUI
 import Defaults
 
 let item = GridItem.init(.flexible(), spacing: 0, alignment: .center)
-private var screens = NSScreen.screens
 
 struct PaperSettingView: View {
     
@@ -67,8 +66,8 @@ struct FilterView: View {
 @MainActor
 private struct PaperView: View{
     @StateObject var papers = Papers.shared // Initialize papers here to be mutable
-    @State var models: [ScreenModel] = ScreenInfo.getScreen()
-    @State var selectedIndex: Int = ScreenInfo.getSelectedScreen()
+    @StateObject var display = DisplayMonitorObserver.shared
+    @State var selectedIndex: Int =  DisplayMonitorObserver.shared.selectIndex
     @State private var selectedTags: Set<String> = []
     @EnvironmentObject var paperList: PaperPlayList // 自动获取共享对象
     
@@ -134,7 +133,7 @@ private struct PaperView: View{
                 
             }
             Divider().frame(width: 1)
-            PaperSettingRightView(tags: papers.allTags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $models, selectedTags: $selectedTags)
+            PaperSettingRightView(tags: papers.allTags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $display.screens, selectedTags: $selectedTags)
                 .frame(maxWidth: 300,maxHeight: .infinity)
         }.background(Theme.backgroundColor)
            
@@ -178,7 +177,7 @@ private struct PaperView: View{
     private func addToPlayList(selectPaper: NSImage?) {
         if let selectPaper = selectPaper {
             let matchPaper = papers.all.first { paper in
-                paper.cachedImage == selectPaper
+                paper.cachedImage  == selectPaper
             }
             PlayListManager.updatePlayList(paper: matchPaper)
         }
@@ -187,7 +186,7 @@ private struct PaperView: View{
     @MainActor
     private func settingImage(assetUrlString:String){
         PlayListManager.updatePlayMode(mode: .single)
-        PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: screens[selectedIndex])
+        PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: DisplayMonitorObserver.shared.defaultScreens[selectedIndex])
     }
     
     @MainActor
@@ -218,27 +217,6 @@ private struct PaperView: View{
     
 }
 
-private struct SelectImageView: View {
-    
-    
-    var videoPath: String
-    var selected = false
-    var body: some View {
-        if selected && videoPath.count > 0{
-            Image(nsImage: getSelectImage(path: videoPath)).resizable().frame(width: 192*2, height: 168*2, alignment: .center).scaledToFill()
-        }else{
-            
-            Image(systemName: "plus").resizable().frame(width: 100, height: 100, alignment: .center).scaledToFit().foregroundColor(Color(.gray))
-        }
-    }
-    
-    @MainActor func getSelectImage(path:String) -> NSImage{
-        let url = URL(string: path)
-        let imgPath = AppState.getFirstFrameWithUrl(url: url!)
-        let image = NSImage(contentsOf: imgPath!)
-        return image!
-    }
-}
 
 private struct GeneralSettingsScreenView: View {
     var stared = false

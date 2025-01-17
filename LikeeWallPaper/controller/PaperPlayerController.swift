@@ -83,6 +83,7 @@ class PaperPlayerController:NSViewController{
         guard let mainBundlePath = Bundle.main.bundlePath.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
             return false
         }
+        print(NSHomeDirectory())
         // 检查目标路径是否以 Main Bundle 的路径开头
         return url.path.hasPrefix(mainBundlePath)
     }

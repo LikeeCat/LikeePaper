@@ -64,13 +64,13 @@ struct PaperSettingRightView: View{
     
     var body: some View {
         VStack(alignment: .leading){
-            Spacer()
+            Spacer().frame(height:10)
             Text("壁纸筛选")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
                 .background(Theme.backgroundColor)
                 .cornerRadius(10)
-            Spacer()
+            Spacer().frame(height:10)
             ScrollView{
                 LazyVGrid(columns: tagsConf, spacing: 16) {
                     ForEach(Array(tags).sorted(), id: \.self) { tag in
@@ -82,43 +82,42 @@ struct PaperSettingRightView: View{
                 }
 
             }.frame(minHeight: 180)
-            Spacer()
+            Spacer().frame(height:10)
             Text("显示设置")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
                 .background(Theme.backgroundColor)
                 .cornerRadius(10)
-            Spacer()
-            LazyHGrid(rows: display, spacing: 10) {
+            Spacer().frame(height:10)
+            LazyVGrid(columns: Array(repeating: GridItem(.fixed(130), spacing: 10), count: 2), spacing: 10) {
                 ForEach(models.indices, id: \.self){ index in
-                    VStack{
+                    HStack{
                         Image(systemName: "display")
                             .resizable()
-                            .frame(width: 30, height: 30, alignment: .center)
+                            .frame(width: 25, height: 25, alignment: .center)
                             .foregroundColor(selectedIndex == index ? Theme.buttonSelectTextColor : Theme.buttonNomalColor)
-                            .scaleEffect(selectedIndex == index ? 1.15 : 1)
+                            .scaleEffect(selectedIndex == index ? 1.05 : 1)
                             .animation(.easeInOut(duration: 0.2), value: selectedIndex) // 绑定动画到 selectedIndex
-                        Spacer().frame(height: 5)
                         Text(models[index].name).font(.system(size: 13))
                             .foregroundColor(Theme.textColor)
-                            .padding()
+                            .padding(2)
                             .background(Theme.backgroundColor)
                             .cornerRadius(10)
-                        Spacer().frame(height: 5)
-                    }.onTapGesture {
+                        Spacer()
+                    }.padding(5).onTapGesture {
                         selectedIndex = index // 设置为选中项
                     }
                 }
             }
-            Spacer()
+            Spacer().frame(height:10)
             Defaults.Toggle(
                 "将壁纸应用在所有的屏幕上",
                 key: .isUpdateAll
             ).onChange({ newValue in
                 PaperManager.sharedPaperManager.isUpdateAll(isUpdateAll: newValue)
             })
-            Spacer()
-            
+            Spacer().frame(minHeight: 10)
+
         }.frame(maxWidth: .infinity, maxHeight: .infinity) // 确保 VStack 占用全部空间
 
         
