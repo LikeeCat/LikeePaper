@@ -40,10 +40,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func applicationDidFinishLaunching(_ notification: Notification) {
         TimerManager.shared
-   
-        Constants.mainWindow?.close()
-
         Constants.mainWindow?.title = "选择壁纸"
+        Constants.mainWindow?.titlebarAppearsTransparent = true           // 标题栏透明
+        Constants.mainWindow?.isOpaque = false                            // 使窗口背景透明
+        Constants.mainWindow?.backgroundColor = NSColor(Theme.backgroundColor)  // 设置背景为透明色
+        Constants.mainWindow?.isMovableByWindowBackground = true
+        Constants.mainWindow?.level = .floating
+        Constants.mainWindow?.makeKeyAndOrderFront(nil)
+
 
     }
     // This is only run when the app is started when it's already running.
