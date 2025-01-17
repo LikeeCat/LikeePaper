@@ -28,7 +28,6 @@ class DisplayMonitorObserver:ObservableObject {
     }
 
     @objc func checkDisplayCount() {
-        print("+++++++")
         reloadScreenSetting()
         defaultScreens = NSScreen.screens
     }
@@ -42,8 +41,6 @@ class DisplayMonitorObserver:ObservableObject {
        var result:[ScreenModel] = []
        for screen in NSScreen.screens {
            let model = ScreenModel(screenName: screen.localizedName)
-           result.append(model)
-           result.append(model)
            result.append(model)
        }
        return result
