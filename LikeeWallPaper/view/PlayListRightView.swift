@@ -11,7 +11,7 @@ struct PlayListRightView: View {
     
     @Binding var models: [ScreenModel]
     @Binding var selectedIndex: Int // 用来记录选中的索引
-    @State var currentMode:PlaybackMode = PlayListManager.getPlayMode()
+    @Binding var currentMode:PlaybackMode
     @State var switchTime =  PlayListManager.getPlayListSwitchTime()
     
     let display = [GridItem(.flexible())]

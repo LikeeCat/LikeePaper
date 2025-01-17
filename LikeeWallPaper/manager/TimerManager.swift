@@ -27,7 +27,7 @@ class TimerManager: ObservableObject {
                 invalidate()
             }
             else{
-                startWallpaperChangeTimer()
+                rebuildTimer()
             }
         }
     }
@@ -45,7 +45,6 @@ class TimerManager: ObservableObject {
     private func rebuildTimer() {
         // 停止现有定时器
         timer?.invalidate()
-        
         // 重建定时器
         startWallpaperChangeTimer()
     }
@@ -59,7 +58,6 @@ class TimerManager: ObservableObject {
     // 切换壁纸的操作
     @objc private func changeWallpaper() {
         
-        print("timer is \(switchTime) ++++++++++")
         if paperPlayList.papers.isEmpty {
             return
         }
@@ -93,7 +91,7 @@ class TimerManager: ObservableObject {
                     updateWallPaper(assetUrlString: paperPlayList.papers[0].path)
                 }
             case .shuffle:
-                let randomIndex = Int.random(in: 0..<(paperPlayList.papers.count - 1))
+                let randomIndex = Int.random(in: 0...(paperPlayList.papers.count - 1))
                 updateWallPaper(assetUrlString: paperPlayList.papers[randomIndex].path)
             }
         }

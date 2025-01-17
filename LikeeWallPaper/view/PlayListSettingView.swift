@@ -11,7 +11,7 @@ struct PlayListSettingView: View {
     @EnvironmentObject var playlist: PaperPlayList
     @StateObject var display = DisplayMonitorObserver.shared
     @State var selectedIndex: Int =  DisplayMonitorObserver.shared.selectIndex
-    
+    @State  var playMode = PlayListManager.getPlayMode()
     let minSize = CGSize(width: 250, height: 180) // 最小尺寸
 
     var body: some View {
@@ -59,7 +59,7 @@ struct PlayListSettingView: View {
             }
 
             Divider().frame(width: 1)
-            PlayListRightView(models: $display.screens, selectedIndex: $selectedIndex,  currentMode: PlayListManager.getPlayMode())
+            PlayListRightView(models: $display.screens, selectedIndex: $selectedIndex,  currentMode: $playMode)
                 .frame(maxWidth: 300,maxHeight: .infinity)
             
         }.background(Theme.backgroundColor)
@@ -75,6 +75,7 @@ struct PlayListSettingView: View {
     @MainActor
     private func settingImage(assetUrlString:String){
         PlayListManager.updatePlayMode(mode: .single)
+        playMode = .single
         PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: NSScreen.screens[selectedIndex])
     }
     

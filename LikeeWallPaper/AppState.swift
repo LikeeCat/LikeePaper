@@ -170,14 +170,22 @@ extension AppState{
         guard let screen = screen else{
             return
         }
-        if let index = screenManagers.firstIndex (where: { sc in
-            sc.display?.screen?.id == screen.id
-        }) {
-            screenManagers[index].stop()
-            screenManagers.remove(at: index)
-        }
         
-        creatScreenManager(screen: screen, asset: asset)
+        let filterResult = screenManagers.filter({$0.display?.screen?.id == screen.id})
+        if filterResult.isEmpty{
+            creatScreenManager(screen: screen, asset: asset)
+        }
+        else{
+            updateScreenManager(screen: screen, asset: asset, screenManager:filterResult[0])
+        }
+//        if let index = screenManagers.firstIndex (where: { sc in
+//            sc.display?.screen?.id == screen.id
+//        }) {
+//            screenManagers[index].stop()
+//            screenManagers.remove(at: index)
+//        }
+//        
+//        creatScreenManager(screen: screen, asset: asset)
         
     }
     
