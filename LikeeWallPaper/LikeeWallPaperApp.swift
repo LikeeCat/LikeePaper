@@ -11,9 +11,9 @@ import Defaults
 struct LikeeWallPaperApp: App {
     private var appState = AppState.shared
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
-
+    
     var body: some Scene {
-     
+        
         Settings{
             UserSettingView()
         }
@@ -25,13 +25,13 @@ struct LikeeWallPaperApp: App {
 
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
     // Without this, Plash quits when the screen is locked. (macOS 13.2)
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { false }
-
+    
     func applicationWillFinishLaunching(_ notification: Notification) {
         // It's important that this is here so it's registered in time.
-//        Defaults.removeAll()
+        //        Defaults.removeAll()
     }
     
     func applicationWillTerminate(_ notification: Notification) {
@@ -56,9 +56,19 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         Constants.mainWindow?.isMovableByWindowBackground = true
         Constants.mainWindow?.level = .normal
         Constants.mainWindow?.makeKeyAndOrderFront(nil)
-
-
+        
+        
     }
+    
+    func application(_ application: NSApplication, open urls: [URL]) {
+        print(">> \(urls)")
+        guard urls.count > 0 else{
+            return
+        }
+        PaperShortCut.settingImageWithShortCut(url: urls[0])
+        
+    }
+    
     // This is only run when the app is started when it's already running.
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         return false

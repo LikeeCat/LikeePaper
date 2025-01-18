@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         PaperSettingView().frame(minWidth: 855, minHeight: 600)
+
     }
 }
 

@@ -17,12 +17,10 @@ struct PaperSettingView: View {
     }
 }
 
-
 struct FilterView: View {
     @State private var selectedTab: String = "壁纸中心"
     @State var papers = Papers.shared.all // Initialize papers here to be mutable
     @StateObject var playList = PaperPlayList.shared
-    
     
     // 定义筛选项
     let tabs = ["壁纸中心", "播放列表"]
@@ -230,61 +228,6 @@ private struct GeneralSettingsScreenView: View {
         }
     }
 }
-
-
-//private struct GeneralSettings: View {
-//    @State var paperAssetUrl:String = ""
-//    @State var select = false
-//    @State var isShowAlert = false
-//    @State var started = false
-//
-//    @ObservedObject var viewModel: ScreenModel = ScreenModel(screenName: "123")
-//
-//
-//
-//
-//
-//    var body: some View {
-//        VStack{
-//            SelectImageView(videoPath: paperAssetUrl, selected: select).onTapGesture {
-//                Task {
-//                    guard let assetUrl = await chooseLocalWebsite() else{
-//                        select = false
-//                        return
-//                    }
-//                    paperAssetUrl = assetUrl.absoluteString
-//                    select = true
-//                }
-//            }.frame(width: 400,height: 350).border(.gray,width: 1)
-//            Spacer().frame(height: 20)
-//            Text("选择屏幕")
-//            Spacer().frame(height: 20)
-//            Spacer().frame(height: 40)
-//            Button("确认") {
-//                if paperAssetUrl.isEmpty {
-//                    NSAlert.showModal(title: "提示",message: "请选择壁纸后重试")
-//                }
-//                else{
-//                    settingImage(assetUrlString: paperAssetUrl)
-//                    paperAssetUrl = ""
-//                    Constants.mainWindow?.close()
-//                }
-//
-//            }
-//        }
-//    }
-//
-//
-//
-//    @MainActor
-//    private func settingImage(assetUrlString:String){
-//        PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: nil)
-//    }
-//
-//}
-
-
-
 
 struct PaperSettingView_Previews: PreviewProvider {
     static var previews: some View {
