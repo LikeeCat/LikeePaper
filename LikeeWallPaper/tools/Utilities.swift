@@ -963,9 +963,10 @@ class Papers: ObservableObject {
         if  selectTags.isEmpty {
             all =  Papers.allPapers().info
         }else {
-            all = Papers.shared.all.filter({ paper in
-                !paper.tags.isDisjoint(with: selectTags)
-            })
+            all  = Papers.allPapers().info.filter { paper in
+                return paper.tags.contains { selectTags.contains($0) }
+            }
+
         }
     }
     

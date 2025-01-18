@@ -40,7 +40,7 @@ struct AsyncImageView: View {
                     }) {
                         Text(env == .paperCenter ? "添加至播放列表" : "从播放列表移除")
                             .font(.system(size: 12, weight: .light))// 圆角
-                            .foregroundColor(isHovered ? Theme.textColor : .clear)
+                            .foregroundColor(isHovered ? Theme.selectTextColor : .clear)
                             .padding(3)// 按钮文本颜色
                     }
                     .background(isHovered ? Theme.accentColor.opacity(0.3) : .clear)
@@ -48,7 +48,7 @@ struct AsyncImageView: View {
                     .transition(.opacity)  // 动画效果
                     .padding(.bottom, 20)  // 距离底部 20
                     .position(x: size.width / 2, y: size.height - 10)
-                    .cornerRadius(8)
+                    .cornerRadius(15)
                     let info = local ? "本地" : ""
                     let re =  resolution != "1080p" ? resolution : ""
                     let newInfo = info + (re.isEmpty ? re : "" + re)

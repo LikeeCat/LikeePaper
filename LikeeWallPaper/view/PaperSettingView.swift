@@ -66,7 +66,7 @@ private struct PaperView: View{
     @StateObject var papers = Papers.shared // Initialize papers here to be mutable
     @StateObject var display = DisplayMonitorObserver.shared
     @State var selectedIndex: Int =  DisplayMonitorObserver.shared.selectIndex
-    @State private var selectedTags: Set<String> = []
+//    @State private var selectedTags: Set<String> = []
     @EnvironmentObject var paperList: PaperPlayList // 自动获取共享对象
     
     @State private var showAlert = false // 控制 Alert 显示状态
@@ -131,7 +131,7 @@ private struct PaperView: View{
                 
             }
             Divider().frame(width: 1)
-            PaperSettingRightView(tags: papers.allTags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $display.screens, selectedTags: $selectedTags)
+            PaperSettingRightView(tags: papers.allTags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $display.screens, selectedTags: $papers.selectTags)
                 .frame(maxWidth: 300,maxHeight: .infinity)
         }.background(Theme.backgroundColor)
            
@@ -167,7 +167,6 @@ private struct PaperView: View{
     private func handleTagSelection(tag: String) {
         withAnimation {
             Papers.shared.filterWithTag(tag: tag)
-            selectedTags =  Papers.shared.selectTags
         }
     }
     
