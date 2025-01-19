@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */; };
 		FC61BEEB29AC4E5B00C6384F /* BatteryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */; };
 		FC66559A2D2CE98A00355CB8 /* VideoAssetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6655992D2CE98A00355CB8 /* VideoAssetsManager.swift */; };
+		FC96BAD82D3CD03D0096D0A0 /* LivePaperHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = FCE6E2062D3CC25F006F7471 /* LivePaperHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FC97ED8B29A4A0E400425AFB /* LikeeWallPaperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */; };
 		FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8C29A4A0E400425AFB /* ContentView.swift */; };
 		FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC97ED8E29A4A0E600425AFB /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		FCDA43032D2B862B001B03D9 /* BatteryDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */; };
 		FCDA43052D2BB0FC001B03D9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43042D2BB0FC001B03D9 /* Theme.swift */; };
 		FCDA43072D2BCF8A001B03D9 /* FileBookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */; };
+		FCE6E2322D3CC4E3006F7471 /* HelperToolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6E2312D3CC4DB006F7471 /* HelperToolManager.swift */; };
 		FCFBFCDF2D3B44AA0052C815 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCCC2D3B44AA0052C815 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 */; };
 		FCFBFCE02D3B44AA0052C815 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCD12D3B44AA0052C815 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 */; };
 		FCFBFCE12D3B44AA0052C815 /* coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCB92D3B44AA0052C815 /* coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4 */; };
@@ -108,6 +110,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FC96BAD72D3CCFED0096D0A0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				FC96BAD82D3CD03D0096D0A0 /* LivePaperHelper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		FC0254702D2B6C73008995FE /* PaperSettingRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSettingRightView.swift; sourceTree = "<group>"; };
 		FC210B5B2D3B9BC100DE14B7 /* videos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = videos.bundle; sourceTree = "<group>"; };
@@ -152,6 +167,8 @@
 		FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryDisplayManager.swift; sourceTree = "<group>"; };
 		FCDA43042D2BB0FC001B03D9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarkManager.swift; sourceTree = "<group>"; };
+		FCE6E2062D3CC25F006F7471 /* LivePaperHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivePaperHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCE6E2312D3CC4DB006F7471 /* HelperToolManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperToolManager.swift; sourceTree = "<group>"; };
 		FCFBFCB32D3B44AA0052C815 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4"; sourceTree = "<group>"; };
 		FCFBFCB42D3B44AA0052C815 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4"; sourceTree = "<group>"; };
 		FCFBFCB52D3B44AA0052C815 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4"; sourceTree = "<group>"; };
@@ -199,6 +216,20 @@
 		FCFBFD0B2D3B48990052C815 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FCE6E2342D3CC99A006F7471 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = FCE6E2052D3CC25F006F7471 /* LikeeWallPaperHelper */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		FCE6E2072D3CC25F006F7471 /* LikeeWallPaperHelper */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FCE6E2342D3CC99A006F7471 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LikeeWallPaperHelper; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		FC66557C2D2CE7D500355CB8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -223,6 +254,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FC97ED9F29A4A0E700425AFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCE6E2032D3CC25F006F7471 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -280,6 +318,7 @@
 		FC5EECDB2D0BD56300B4F8AA /* manager */ = {
 			isa = PBXGroup;
 			children = (
+				FCE6E2312D3CC4DB006F7471 /* HelperToolManager.swift */,
 				FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */,
 				FCA8724B2D2FB4AD003165D5 /* TagManager.swift */,
 				FC6655992D2CE98A00355CB8 /* VideoAssetsManager.swift */,
@@ -308,6 +347,7 @@
 				FC97ED8929A4A0E400425AFB /* LikeeWallPaper */,
 				FC97ED9B29A4A0E600425AFB /* LikeeWallPaperTests */,
 				FC97EDA529A4A0E700425AFB /* LikeeWallPaperUITests */,
+				FCE6E2072D3CC25F006F7471 /* LikeeWallPaperHelper */,
 				FC6655932D2CE87B00355CB8 /* Frameworks */,
 				FC97ED8829A4A0E400425AFB /* Products */,
 			);
@@ -320,6 +360,7 @@
 				FC97ED9829A4A0E600425AFB /* LikeeWallPaperTests.xctest */,
 				FC97EDA229A4A0E700425AFB /* LikeeWallPaperUITests.xctest */,
 				FC66557F2D2CE7D500355CB8 /* videos.bundle */,
+				FCE6E2062D3CC25F006F7471 /* LivePaperHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -459,6 +500,7 @@
 				FC97ED8329A4A0E400425AFB /* Sources */,
 				FC97ED8429A4A0E400425AFB /* Frameworks */,
 				FC97ED8529A4A0E400425AFB /* Resources */,
+				FC96BAD72D3CCFED0096D0A0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -508,6 +550,28 @@
 			productReference = FC97EDA229A4A0E700425AFB /* LikeeWallPaperUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		FCE6E2052D3CC25F006F7471 /* LikeeWallPaperHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCE6E22E2D3CC262006F7471 /* Build configuration list for PBXNativeTarget "LikeeWallPaperHelper" */;
+			buildPhases = (
+				FCE6E2022D3CC25F006F7471 /* Sources */,
+				FCE6E2032D3CC25F006F7471 /* Frameworks */,
+				FCE6E2042D3CC25F006F7471 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				FCE6E2072D3CC25F006F7471 /* LikeeWallPaperHelper */,
+			);
+			name = LikeeWallPaperHelper;
+			packageProductDependencies = (
+			);
+			productName = LikeeWallPaperHelper;
+			productReference = FCE6E2062D3CC25F006F7471 /* LivePaperHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -515,7 +579,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					FC66557E2D2CE7D500355CB8 = {
@@ -531,6 +595,9 @@
 					FC97EDA129A4A0E700425AFB = {
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = FC97ED8629A4A0E400425AFB;
+					};
+					FCE6E2052D3CC25F006F7471 = {
+						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
@@ -554,6 +621,7 @@
 				FC97ED9729A4A0E600425AFB /* LikeeWallPaperTests */,
 				FC97EDA129A4A0E700425AFB /* LikeeWallPaperUITests */,
 				FC66557E2D2CE7D500355CB8 /* videos */,
+				FCE6E2052D3CC25F006F7471 /* LikeeWallPaperHelper */,
 			);
 		};
 /* End PBXProject section */
@@ -633,6 +701,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCE6E2042D3CC25F006F7471 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -660,6 +735,7 @@
 				FCFBFD0C2D3B48990052C815 /* DocumentManager.swift in Sources */,
 				FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */,
 				FCA873932D31084D003165D5 /* PlayListManager.swift in Sources */,
+				FCE6E2322D3CC4E3006F7471 /* HelperToolManager.swift in Sources */,
 				FCA874D72D34FE33003165D5 /* PlaybackMode.swift in Sources */,
 				FC0254712D2B6C81008995FE /* PaperSettingRightView.swift in Sources */,
 				FC97EDBE29A5F7ED00425AFB /* AppState.swift in Sources */,
@@ -696,6 +772,13 @@
 			files = (
 				FC97EDA929A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift in Sources */,
 				FC97EDA729A4A0E700425AFB /* LikeeWallPaperUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCE6E2022D3CC25F006F7471 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -905,6 +988,7 @@
 				INFOPLIST_FILE = LikeeWallPaper/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LivePaper;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -939,6 +1023,7 @@
 				INFOPLIST_FILE = LikeeWallPaper/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LivePaper;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1022,6 +1107,79 @@
 			};
 			name = Release;
 		};
+		FCE6E2282D3CC262006F7471 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LikeeWallPaperHelper/LikeeWallPaperHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LikeeWallPaperHelper/Preview Content\"";
+				DEVELOPMENT_TEAM = 823GH4ASKZ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LikeeWallPaperHelper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LivePaperHelper;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaper.Helper;
+				PRODUCT_NAME = LivePaperHelper;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FCE6E2292D3CC262006F7471 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LikeeWallPaperHelper/LikeeWallPaperHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LikeeWallPaperHelper/Preview Content\"";
+				DEVELOPMENT_TEAM = 823GH4ASKZ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LikeeWallPaperHelper/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LivePaperHelper;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaper.Helper;
+				PRODUCT_NAME = LivePaperHelper;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1066,6 +1224,15 @@
 			buildConfigurations = (
 				FC97EDB329A4A0E700425AFB /* Debug */,
 				FC97EDB429A4A0E700425AFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCE6E22E2D3CC262006F7471 /* Build configuration list for PBXNativeTarget "LikeeWallPaperHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCE6E2282D3CC262006F7471 /* Debug */,
+				FCE6E2292D3CC262006F7471 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

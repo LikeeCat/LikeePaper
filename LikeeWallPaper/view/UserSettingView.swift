@@ -49,7 +49,10 @@ struct UserSettingView: View {
             VStack(alignment: .leading){
                 Spacer().frame(height: 10)
                 isStopPlayWhenBattery().padding([.leading,.trailing], 20)
+                Spacer().frame(height: 10)
                 isStopPlayWhenOtherAppActivity().padding([.leading,.trailing], 20)
+                Spacer().frame(height: 10)
+                isLaunchAtStartUP().padding([.leading,.trailing], 20)
                 Spacer().frame(height: 10)
             }
             
@@ -204,6 +207,24 @@ struct UserSettingView: View {
                 key: .isStopPlayWhenDeactivity
             ).onChange({ newValue in
                 PaperManager.sharedPaperManager.isStopPlayWhenDeactivity(isStopPlayWhenDeactivity: newValue)
+            })
+            .help("当前桌面上有其他应用程序活跃时,停止播放视频")
+        }
+    }
+    
+    private struct isLaunchAtStartUP : View {
+        var body: some View {
+            Defaults.Toggle(
+                "是否开机自启动",
+                key: .isLaunchAtStartUP
+            ).onChange({ newValue in
+                let result = HelperToolManager.shared.handleEvent(install: newValue)
+                if newValue == true {
+                    
+                }else{
+                  
+                }
+                
             })
             .help("当前桌面上有其他应用程序活跃时,停止播放视频")
         }

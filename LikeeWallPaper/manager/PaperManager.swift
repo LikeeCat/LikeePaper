@@ -46,6 +46,10 @@ class PaperManager{
          UserSetting.isStopPlayWhenDeactivity(isStopPlayWhenDeactivity: isStopPlayWhenDeactivity)
     }
 
+    @MainActor func isLaunchAtStartUP(isLaunchAtStartUP:Bool){
+         UserSetting.isLaunchAtStartUP(isLaunchAtStartUP: isLaunchAtStartUP)
+    }
+
     
     
     @MainActor private func updateSinglePaper(assetUrlString:String, screen:NSScreen?){
@@ -74,6 +78,11 @@ private class UserSetting{
     static func isUpdateAll(isUpdateAll:Bool){
         Defaults[.isUpdateAll] = isUpdateAll
     }
+    
+    static func isStopPlayWhenDeactivity(isStopPlayWhenDeactivity:Bool){
+        Defaults[.isStopPlayWhenDeactivity] = isStopPlayWhenDeactivity
+    }
+    
 
     @MainActor static func isStopPlayWhenBattery(isStopPlayWhenBattery:Bool){
         Defaults[.isStopPlayWhenBattery] = isStopPlayWhenBattery
@@ -81,10 +90,8 @@ private class UserSetting{
 
     }
     
-    @MainActor static func isStopPlayWhenDeactivity(isStopPlayWhenDeactivity:Bool){
-        Defaults[.isStopPlayWhenDeactivity] = isStopPlayWhenDeactivity
-        AppState.shared.updatePlay()
-
+    @MainActor static func isLaunchAtStartUP(isLaunchAtStartUP:Bool){
+        Defaults[.isLaunchAtStartUP] = isLaunchAtStartUP
     }
 
     static func updatePaperFolder(assetUrl:String){

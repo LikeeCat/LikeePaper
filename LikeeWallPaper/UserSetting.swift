@@ -22,6 +22,8 @@ extension Defaults.Keys {
     static let isStopPlayWhenBattery = Key<Bool>("isStopPlayWhenBattery", default: true)
     static let isStopPlayWhenDeactivity = Key<Bool>("isStopPlayWhenDeactivity", default: true)
     static let isStopPlayWhenFullScreen = Key<Bool>("isStopPlayWhenFullScreen", default: true)
+    static let isLaunchAtStartUP = Key<Bool>("isLaunchAtStartUP", default: false)
+    
     static let volume = Key<Float>("volume", default: 0.5)
     static let isMuted = Key<Bool>("isMuted", default: true)
     // update state
