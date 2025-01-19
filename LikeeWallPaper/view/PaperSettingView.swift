@@ -140,7 +140,7 @@ private struct PaperView: View{
     func selectMP4File() {
         let panel = NSOpenPanel()
         panel.title = "选择文件夹"
-        panel.message = "请选择包含 mp4 文件的文件夹"
+        panel.message = "请选择包含 mp4 or mov 格式文件的文件夹"
         panel.prompt = "选择"
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories =  true
@@ -156,9 +156,7 @@ private struct PaperView: View{
                 Papers.shared.reloadAll()
                 
             } else {
-                showAlert = true // 显示 Alert
-                alertMessage = "已取消选择"
-                
+                showAlert = false // 显示 Alert
             }
         }
     }

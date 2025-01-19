@@ -61,7 +61,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func application(_ application: NSApplication, open urls: [URL]) {
-        print(">> \(urls)")
         guard urls.count > 0 else{
             return
         }

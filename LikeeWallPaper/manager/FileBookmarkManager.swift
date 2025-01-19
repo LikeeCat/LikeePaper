@@ -100,7 +100,7 @@ class FileBookmarkManager {
 
                 for resourceURL in contents {
                     // 检查文件扩展名是否为 mp4
-                    if resourceURL.pathExtension.lowercased() == "mp4" {
+                    if ["mp4", "mov"].contains(resourceURL.pathExtension.lowercased()){
                         
                         let resolution = Papers.getVideoResolutionCategory(url: resourceURL)
                         let tags = resourceURL.absoluteString.extractTags()

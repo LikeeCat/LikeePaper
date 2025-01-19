@@ -79,8 +79,10 @@ private class UserSetting{
         Defaults[.isUpdateAll] = isUpdateAll
     }
     
-    static func isStopPlayWhenDeactivity(isStopPlayWhenDeactivity:Bool){
+    @MainActor static func isStopPlayWhenDeactivity(isStopPlayWhenDeactivity:Bool){
         Defaults[.isStopPlayWhenDeactivity] = isStopPlayWhenDeactivity
+        AppState.shared.updatePlay()
+
     }
     
 
