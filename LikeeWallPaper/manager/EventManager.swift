@@ -27,7 +27,9 @@ extension AppState{
         
         BatteryManager.didChangeScreenParametersNotification
             .sink{[self] _ in
-                AppState.shared.updatePlay()
+                
+                AppState.shared.screenManagers.removeAll()
+                AppState.shared.startWallPaper()
                 BatteryManager.shared.updatePlaying()
             }.store(in: &cancellables)
 

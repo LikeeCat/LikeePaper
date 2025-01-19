@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FC97ED8629A4A0E400425AFB"
-               BuildableName = "LikeeWallPaper.app"
+               BuildableName = "LivePaper.app"
                BlueprintName = "LikeeWallPaper"
                ReferencedContainer = "container:LikeeWallPaper.xcodeproj">
             </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC97ED8629A4A0E400425AFB"
-            BuildableName = "LikeeWallPaper.app"
+            BuildableName = "LivePaper.app"
             BlueprintName = "LikeeWallPaper"
             ReferencedContainer = "container:LikeeWallPaper.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC97ED8629A4A0E400425AFB"
-            BuildableName = "LikeeWallPaper.app"
+            BuildableName = "LivePaper.app"
             BlueprintName = "LikeeWallPaper"
             ReferencedContainer = "container:LikeeWallPaper.xcodeproj">
          </BuildableReference>

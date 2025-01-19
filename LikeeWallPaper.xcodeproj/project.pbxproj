@@ -116,7 +116,7 @@
 		FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryManager.swift; sourceTree = "<group>"; };
 		FC66557F2D2CE7D500355CB8 /* videos.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = videos.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC6655992D2CE98A00355CB8 /* VideoAssetsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoAssetsManager.swift; path = LikeeWallPaper/manager/VideoAssetsManager.swift; sourceTree = SOURCE_ROOT; };
-		FC97ED8729A4A0E400425AFB /* LikeeWallPaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LikeeWallPaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC97ED8729A4A0E400425AFB /* LivePaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivePaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeeWallPaperApp.swift; sourceTree = "<group>"; };
 		FC97ED8C29A4A0E400425AFB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FC97ED8E29A4A0E600425AFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -316,7 +316,7 @@
 		FC97ED8829A4A0E400425AFB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FC97ED8729A4A0E400425AFB /* LikeeWallPaper.app */,
+				FC97ED8729A4A0E400425AFB /* LivePaper.app */,
 				FC97ED9829A4A0E600425AFB /* LikeeWallPaperTests.xctest */,
 				FC97EDA229A4A0E700425AFB /* LikeeWallPaperUITests.xctest */,
 				FC66557F2D2CE7D500355CB8 /* videos.bundle */,
@@ -469,7 +469,7 @@
 				FC97EDCB29A748B000425AFB /* Defaults */,
 			);
 			productName = LikeeWallPaper;
-			productReference = FC97ED8729A4A0E400425AFB /* LikeeWallPaper.app */;
+			productReference = FC97ED8729A4A0E400425AFB /* LivePaper.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FC97ED9729A4A0E600425AFB /* LikeeWallPaperTests */ = {
@@ -896,7 +896,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LikeeWallPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 823GH4ASKZ;
@@ -904,6 +904,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeeWallPaper/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LivePaper;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -912,7 +913,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.LikeeWallPaper.app;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LivePaper;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -929,7 +930,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LikeeWallPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 823GH4ASKZ;
@@ -937,6 +938,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LikeeWallPaper/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LivePaper;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -945,7 +947,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.LikeeWallPaper.app;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LivePaper;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
