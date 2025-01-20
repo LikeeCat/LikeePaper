@@ -13,8 +13,9 @@ class PaperShortCut{
         FileBookmarkManager.shared.saveBookmark(for: url)
         let resolution = Papers.getVideoResolutionCategory(url: url)
         let tags = url.absoluteString.extractTags()
+        let audio = Papers.hasAudioTrack(for: url)
         if let imageUrl = AppState.getFirstFrameWithUrl(url: url){
-            let info =  PaperInfo(path: url.absoluteString, image: imageUrl, resolution: resolution, tags: tags, local: true)
+            let info =  PaperInfo(path: url.absoluteString, image: imageUrl, resolution: resolution, tags: tags, local: true, audio: audio)
             let selectedIndex = DisplayMonitorObserver.shared.selectIndex
             PlayListManager.updatePlayMode(mode: .single)
             PaperManager.sharedPaperManager.updatePaper(assetUrlString: info.path, screen: DisplayMonitorObserver.shared.defaultScreens[selectedIndex])

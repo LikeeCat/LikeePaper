@@ -919,16 +919,17 @@ struct PaperInfo: Identifiable{
     let id:UUID
     let tags:Set<String>
     let local: Bool
-    init(path: String, image: URL, resolution: String, tags: Set<String>, local: Bool = false) {
+    let audio: Bool
+    init(path: String, image: URL, resolution: String, tags: Set<String>, local: Bool = false, audio: Bool = false) {
         self.path = path
         self.image = image
         self.resolution = resolution
         self.tags = tags
         self.local = local
+        self.audio = audio
         self.cachedImage = NSImage(contentsOf: image)!
         self.id = UUID()
     }
-    
     
 }
 
@@ -1011,9 +1012,10 @@ class Papers: ObservableObject {
                 if resourceURL.pathExtension.lowercased() == "mp4" {
                     
                     let resolution = getVideoResolutionCategory(url: resourceURL)
+                    let audio = hasAudioTrack(for: resourceURL)
                     let tags = resourceURL.absoluteString.extractTags()
                     if let imageUrl = AppState.getFirstFrameWithUrl(url: resourceURL){
-                        let info =  PaperInfo(path: resourceURL.absoluteString, image: imageUrl, resolution: resolution, tags: tags)
+                        let info =  PaperInfo(path: resourceURL.absoluteString, image: imageUrl, resolution: resolution, tags: tags, audio: audio)
                         allTags.formUnion(tags) // 合并到最终结果集合
                         papers.append(info)
                     }
@@ -1024,6 +1026,14 @@ class Papers: ObservableObject {
         }
         
         return (papers , allTags)
+    }
+    
+    static func hasAudioTrack(for url: URL) -> Bool {
+        let asset = AVAsset(url: url)
+        // 获取所有轨道
+        let audioTracks = asset.tracks(withMediaType: .audio)
+        // 如果有音频轨道，说明视频文件包含音频
+        return !audioTracks.isEmpty
     }
     
     static  func getAllLocalMP4FilePaths(url: URL) -> (info:[PaperInfo], tag:Set<String>) {
@@ -1041,8 +1051,9 @@ class Papers: ObservableObject {
                     
                     let resolution = getVideoResolutionCategory(url: resourceURL)
                     let tags = resourceURL.absoluteString.extractTags()
+                    let audio = hasAudioTrack(for: resourceURL)
                     if let imageUrl = AppState.getFirstFrameWithUrl(url: resourceURL){
-                        let info =  PaperInfo(path: resourceURL.absoluteString, image: imageUrl, resolution: resolution, tags: tags)
+                        let info =  PaperInfo(path: resourceURL.absoluteString, image: imageUrl, resolution: resolution, tags: tags, audio: audio)
                         allTags.formUnion(tags) // 合并到最终结果集合
                         papers.append(info)
                     }

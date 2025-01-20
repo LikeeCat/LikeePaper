@@ -104,8 +104,9 @@ class FileBookmarkManager {
                         
                         let resolution = Papers.getVideoResolutionCategory(url: resourceURL)
                         let tags = resourceURL.absoluteString.extractTags()
+                        let audio = Papers.hasAudioTrack(for: resourceURL)
                         if let imageUrl = AppState.getFirstFrameWithUrl(url: resourceURL){
-                            let info =  PaperInfo(path: resourceURL.absoluteString, image: imageUrl, resolution: resolution, tags: tags, local: true)
+                            let info =  PaperInfo(path: resourceURL.absoluteString, image: imageUrl, resolution: resolution, tags: tags, local: true, audio: audio)
                             allTags.formUnion(tags) // 合并到最终结果集合
                             papers.append(info)
                         }

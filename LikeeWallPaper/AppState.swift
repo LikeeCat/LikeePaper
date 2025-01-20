@@ -16,12 +16,27 @@ class ScreenManager{
     var playerController:PaperPlayerController?
     var window:DesktopWindow?
     var display:Display?
+    var audio: Bool = false
     init(playerController:PaperPlayerController?, window:DesktopWindow?,display:Display?) {
         self.playerController = playerController
         self.window = window
         self.display = display
     }
     
+    func cleanUp() {
+        stop()
+        playerController = nil
+        window = nil
+        display = nil
+    }
+    
+    deinit {
+        // 在对象销毁时清理资源
+        playerController = nil
+        window = nil
+        display = nil
+        print("ScreenManager is being deallocated")
+    }
     
     
     func update(){
@@ -44,6 +59,10 @@ class ScreenManager{
         hiddenFolder()
     }
     
+    func forceMuted(){
+        playerController?.ismuted = true
+    }
+    
     func bindingControllerToWindow(){
         window?.contentView = playerController?.view
         window?.makeKeyAndOrderFront(self)
@@ -54,6 +73,7 @@ class ScreenManager{
         window?.hiddenFolder = Defaults[.isHiddenFolder]
         
     }
+    
     func settingWindowWallPaper(){
         if let url = playerController?.assetUrl{
             if let path = AppState.getFirstFrameWithUrl(url: url){
@@ -93,6 +113,7 @@ final class AppState: ObservableObject{
         DispatchQueue.main.async { [self] in
             didLaunch()
             startWallPaper()
+            
         }
     }
     
@@ -149,9 +170,13 @@ extension AppState{
         let desktopWindow = DesktopWindow(display: display)
         desktopWindow.alphaValue = 1
         let playerController = PaperPlayerController(assetUrl: URL.init(string: asset!))
+        let paper = Papers.shared.all.first { info in
+            info.path == asset!
+        }
         desktopWindow.contentView = playerController.view
         let screenManager = ScreenManager(playerController: playerController, window: desktopWindow, display: display)
         desktopWindow.makeKeyAndOrderFront(self)
+        screenManager.audio = ((paper?.audio) != nil)
         screenManagers.append(screenManager)
     }
     
@@ -169,24 +194,14 @@ extension AppState{
             return
         }
         
-        let filterResult = screenManagers.filter({$0.display?.screen?.id == screen.id})
-        if filterResult.isEmpty{
-            creatScreenManager(screen: screen, asset: asset)
+        if let index = screenManagers.firstIndex (where: { sc in
+            sc.display?.screen?.id == screen.id
+        }) {
+            screenManagers[index].cleanUp()
+            screenManagers.remove(at: index)
         }
-        else{
-            updateScreenManager(screen: screen, asset: asset, screenManager:filterResult[0])
-        }
-//        if let index = screenManagers.firstIndex (where: { sc in
-//            sc.display?.screen?.id == screen.id
-//        }) {
-//            screenManagers[index].stop()
-//            screenManagers.remove(at: index)
-//        }
-//        
-//        creatScreenManager(screen: screen, asset: asset)
-        
+        creatScreenManager(screen: screen, asset: asset)
     }
-    
 }
 
 //MARK: play
@@ -218,13 +233,28 @@ extension AppState{
     }
     
     func playAll(){
+        manageAudioPlayback()
         screenManagers.forEach { sc in
             sc.play()
         }
     }
     
-    
+    func manageAudioPlayback() {
+        var audioCount = 0
+
+        // 先遍历所有的 ScreenManager，统计有音频的数量
+        let audioManger = screenManagers.filter { sc in
+            sc.audio
+        }
+        
+        audioManger.forEach { manager in
+            manager.forceMuted()
+        }
+        audioManger.last?.muted()
+    }
+
     func update(screen:NSScreen){
+        manageAudioPlayback()
         let sms = screenManagers.filter{$0.display?.id == screen.id}
         if sms.count > 0 {
             let sm = sms[0]
