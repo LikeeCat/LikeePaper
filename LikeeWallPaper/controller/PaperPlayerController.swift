@@ -53,6 +53,52 @@ class PaperPlayerController:NSViewController{
         }
     }
     
+    func releasePlayer() {
+            // 停止播放器
+        queuePlayer?.pause()
+        queuePlayer?.removeAllItems()
+        queuePlayer = nil
+        
+        // 释放循环播放器
+        avPlayerLooper = nil
+        
+        // 释放播放器层
+        playerLayer?.player = nil
+        playerLayer = nil
+        
+        // 清空资源引用
+        assetUrl = nil
+        
+        // 取消订阅
+        cancellables.removeAll()
+        
+        print("Player resources have been released.")
+    }
+        
+        // deinit 方法
+    deinit {
+        // 释放资源时调用 releasePlayer 方法
+        queuePlayer?.pause()
+        queuePlayer?.removeAllItems()
+        queuePlayer = nil
+        
+        // 释放循环播放器
+        avPlayerLooper = nil
+        
+        // 释放播放器层
+        playerLayer?.player = nil
+        playerLayer = nil
+        
+        // 清空资源引用
+        assetUrl = nil
+        
+        // 取消订阅
+        cancellables.removeAll()
+
+        // 打印日志，确认对象销毁
+        print("PaperPlayerController is being deinitialized.")
+    }
+    
     var isPlay:Bool {
         get{
             playerLayer?.player?.timeControlStatus == .playing
@@ -222,16 +268,6 @@ extension PaperPlayerController{
     
     func playerpause(){
         playerLayer?.player?.pause()
-    }
-    
-    func updatePlayer(){
-        //        let rate = playerLayer?.player?.rate == 1 ? 0 : 1
-        //        if rate == 1{
-        //            playerplay()
-        //        }
-        //        else{
-        //            playerstop()
-        //        }
     }
     
     func playerstop(){

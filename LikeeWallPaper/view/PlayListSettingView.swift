@@ -51,17 +51,24 @@ struct PlayListSettingView: View {
                                     })))
                                 }
                             }
-                        }.padding(.leading, 10)
-
+                        }
                         
                 }.frame(maxWidth: .infinity) // 占用剩余宽度
                 .padding(.top, 1)
                 
-            }
+                }
+                .padding(10)
+                .background(Theme.contentBackgroundColor)
+                .cornerRadius(12)
+                .padding(5)
 
             PlayListRightView(models: $display.screens, selectedIndex: $selectedIndex,  currentMode: $playMode)
                 .frame(maxWidth: 300,maxHeight: .infinity)
-            
+                .padding(10)
+                .background(Theme.settingsBackgroundColor)
+                .cornerRadius(12)
+                .padding(5)
+
         }.background(Theme.backgroundColor)
             .onAppear {
                 updateWindowDraggableState()

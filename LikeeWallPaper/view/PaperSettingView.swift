@@ -26,38 +26,54 @@ struct FilterView: View {
     let tabs = ["壁纸中心", "播放列表"]
     
     var body: some View {
-        VStack {
-            // 筛选框
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 16) {
-                    ForEach(tabs, id: \.self) { tab in
-                        Text(tab)
-                            .padding(.vertical, 8)
-                            .padding(.horizontal, 16)
-                            .background(selectedTab == tab ? Theme.accentColor : Theme.disabledColor.opacity(0.2))
-                            .foregroundColor(selectedTab == tab ? Theme.selectTextColor : Theme.textColor)
-                            .cornerRadius(16)
-                            .onTapGesture {
-                                withAnimation {
-                                    selectedTab = tab
+        ZStack(alignment: .topTrailing){
+            VStack {
+                // 筛选框
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 16) {
+                        ForEach(tabs, id: \.self) { tab in
+                            Text(tab)
+                                .padding(.vertical, 8)
+                                .padding(.horizontal, 16)
+                                .background(selectedTab == tab ? Theme.accentColor : Theme.disabledColor.opacity(0.2))
+                                .foregroundColor(selectedTab == tab ? Theme.selectTextColor : Theme.textColor)
+                                .cornerRadius(16)
+                                .onTapGesture {
+                                    withAnimation {
+                                        selectedTab = tab
+                                    }
                                 }
-                            }
+                        }
                     }
+                    .padding(.top, 10)
+                    .padding(.leading, 10)
                 }
-                .padding(.top, 10)
-                .padding(.leading, 10)
+                
+                if selectedTab == "壁纸中心" {
+                    PaperView().environmentObject(playList)
+                    //
+                } else if selectedTab == "播放列表" {
+                    PlayListSettingView().environmentObject(playList)
+                }
             }
-            
-            if selectedTab == "壁纸中心" {
-                PaperView().environmentObject(playList)
-                //
-            } else if selectedTab == "播放列表" {
-                PlayListSettingView().environmentObject(playList)
+            .background(Theme.backgroundColor.edgesIgnoringSafeArea(.all))
+            .onAppear{
+                print("this is the play list \(playList.papers.count)")
             }
-        }
-        .background(Theme.backgroundColor.edgesIgnoringSafeArea(.all))
-        .onAppear{
-            print("this is the play list \(playList.papers.count)")
+
+            Text("LivePaper")
+                .font(.system(size: 30, weight: .bold, design: .rounded)) // 超大字体
+                .foregroundStyle(
+                    LinearGradient(
+                        gradient: Gradient(colors: [Color("AccentColor"), Color("SecondaryTextColor")]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .topTrailing) // 定位到右上角
+                .offset(x: -20, y: -30) // 微调位置
+                
         }
     }
 }
@@ -106,7 +122,7 @@ private struct PaperView: View{
                                     }
                                 }
                             }
-                        }.padding(.leading, 10)
+                        }
                     }.frame(minHeight: 0, maxHeight: .infinity) // 确保 `ScrollView` 内容可以超出屏幕范围
                         .padding(.top, 1)
                     
@@ -128,8 +144,18 @@ private struct PaperView: View{
                     Text(alertMessage)
                 }
             }
+            .padding(10)
+            .background(Theme.contentBackgroundColor)
+            .cornerRadius(12)
+            .padding(5)
+
             PaperSettingRightView(tags: papers.allTags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $display.screens, selectedTags: $papers.selectTags)
                 .frame(maxWidth: 300,maxHeight: .infinity)
+                .padding(10)
+                .background(Theme.settingsBackgroundColor)
+                .cornerRadius(12)
+                .padding(5)
+
         }.background(Theme.backgroundColor)
            
     }

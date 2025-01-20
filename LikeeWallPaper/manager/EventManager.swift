@@ -12,6 +12,7 @@ import Combine
 
 
 extension AppState{
+
     func setUpAppEvents(){
         powerSourceWatcher?.didChangePublisher
             .sink { [self] result in
@@ -27,10 +28,11 @@ extension AppState{
         
         BatteryManager.didChangeScreenParametersNotification
             .sink{[self] _ in
-                
-                AppState.shared.screenManagers.removeAll()
-                AppState.shared.startWallPaper()
-                BatteryManager.shared.updatePlaying()
+                handleScreenChangeIfNeeded()
+//                AppState.shared.screenManagers.removeAll()
+//                print("error: didChangeScreenParametersNotification startWallPaper +++++++++++")
+//                AppState.shared.startWallPaper()
+//                BatteryManager.shared.updatePlaying()
             }.store(in: &cancellables)
 
         
@@ -40,5 +42,25 @@ extension AppState{
                 isScreenLocked = $0
             }
             .store(in: &cancellables)
+    }
+    
+    private func handleScreenChangeIfNeeded() {
+        let currentScreens = NSScreen.screens
+
+        // 只有当屏幕配置变化时才处理
+        if currentScreens != lastScreenState {
+            lastScreenState = currentScreens
+            handleScreenChange()
+        }
+    }
+    
+    private func handleScreenChange() {
+        print("error: didChangeScreenParametersNotification startWallPaper +++++++++++")
+        
+        AppState.shared.screenManagers.forEach { sc in
+            sc.cleanUp()
+        }
+        AppState.shared.screenManagers.removeAll()
+        AppState.shared.startWallPaper()
     }
 }

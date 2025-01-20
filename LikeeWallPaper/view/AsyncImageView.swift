@@ -34,6 +34,8 @@ struct AsyncImageView: View {
                         .scaledToFill()
                         .frame(width: size.width, height: size.height)
                         .clipped()
+                        .scaleEffect(isHovered ? 1.25 : 1)
+
                     // 半透明按钮，动态适配主题色
                     Button(action: {
                         action(cachedImage, local)

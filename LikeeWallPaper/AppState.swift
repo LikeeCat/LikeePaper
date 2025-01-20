@@ -25,6 +25,7 @@ class ScreenManager{
     
     func cleanUp() {
         stop()
+        playerController?.releasePlayer()
         playerController = nil
         window = nil
         display = nil
@@ -37,13 +38,7 @@ class ScreenManager{
         display = nil
         print("ScreenManager is being deallocated")
     }
-    
-    
-    func update(){
-        playerController?.updatePlayer()
-        hiddenFolder()
-    }
-    
+
     func play(){
         playerController?.playerplay()
         hiddenFolder()
@@ -99,7 +94,8 @@ final class AppState: ObservableObject{
     let powerSourceWatcher = PowerSourceWatcher()
     var cancellables = Set<AnyCancellable>()
     var isScreenLocked = false
-    
+    var lastScreenState: [NSScreen]?
+
     var screenManagers:[ScreenManager] = []
     var canPlay = false
     
@@ -112,6 +108,7 @@ final class AppState: ObservableObject{
     init() {
         DispatchQueue.main.async { [self] in
             didLaunch()
+            print("error: init startWallPaper +++++++++++")
             startWallPaper()
             
         }
@@ -131,6 +128,8 @@ final class AppState: ObservableObject{
     }
     
     func updateSingleWallPaper(screen:NSScreen, asset: String){
+        print("error: updateSingleWallPaper +++++++++++")
+
         creatPaperWindow(screen: screen, asset: asset)
         updatePlay(state: BatteryManager.shared.playState)
 
@@ -184,23 +183,35 @@ extension AppState{
         guard let _ = screen else{
             return
         }
+        let paper = Papers.shared.all.first { info in
+            info.path == asset!
+        }
         screenManager.playerController?.updateAssetUrl(newAsset: URL.init(string: asset!)!)
+        screenManager.audio = ((paper?.audio) != nil)
         screenManager.window?.contentView = screenManager.playerController?.view
     }
     
     private func creatPaperWindow(screen:NSScreen?, asset:String?){
-        
+        print("error: creatPaperWindow +++++++++++")
         guard let screen = screen else{
             return
         }
         
-        if let index = screenManagers.firstIndex (where: { sc in
-            sc.display?.screen?.id == screen.id
-        }) {
-            screenManagers[index].cleanUp()
-            screenManagers.remove(at: index)
+//        if let index = screenManagers.firstIndex (where: { sc in
+//            sc.display?.screen?.id == screen.id
+//        }) {
+//            screenManagers[index].cleanUp()
+//            screenManagers.remove(at: index)
+//        }
+//        creatScreenManager(screen: screen, asset: asset)
+        let filterResult = screenManagers.filter({$0.display?.screen?.id == screen.id})
+        if filterResult.isEmpty{
+            creatScreenManager(screen: screen, asset: asset)
         }
-        creatScreenManager(screen: screen, asset: asset)
+        else{
+            updateScreenManager(screen: screen, asset: asset, screenManager:filterResult[0])
+        }
+
     }
 }
 
@@ -241,7 +252,7 @@ extension AppState{
     
     func manageAudioPlayback() {
         var audioCount = 0
-
+        
         // 先遍历所有的 ScreenManager，统计有音频的数量
         let audioManger = screenManagers.filter { sc in
             sc.audio
@@ -253,15 +264,6 @@ extension AppState{
         audioManger.last?.muted()
     }
 
-    func update(screen:NSScreen){
-        manageAudioPlayback()
-        let sms = screenManagers.filter{$0.display?.id == screen.id}
-        if sms.count > 0 {
-            let sm = sms[0]
-            sm.update()
-        }
-    }
-    
     func muted(){
         for sc in screenManagers{
             sc.muted()

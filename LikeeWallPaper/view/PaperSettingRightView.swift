@@ -67,7 +67,6 @@ struct PaperSettingRightView: View{
             Text("壁纸筛选")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
-                .background(Theme.backgroundColor)
                 .padding(10)
                 .cornerRadius(10)
             ScrollView{
@@ -84,7 +83,6 @@ struct PaperSettingRightView: View{
             Text("显示设置")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
-                .background(Theme.backgroundColor)
                 .padding(10)
                 .cornerRadius(10)
             LazyVGrid(columns: Array(repeating: GridItem(.fixed(130), spacing: 10), count: 2), spacing: 10) {
@@ -99,7 +97,6 @@ struct PaperSettingRightView: View{
                         Text(models[index].name).font(.system(size: 13))
                             .foregroundColor(Theme.textColor)
                             .padding(2)
-                            .background(Theme.backgroundColor)
                             .cornerRadius(10)
                         Spacer()
                     }.padding(5).onTapGesture {

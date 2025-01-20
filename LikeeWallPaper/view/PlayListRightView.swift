@@ -28,7 +28,6 @@ struct PlayListRightView: View {
             Text("循环设置")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
-                .background(Theme.backgroundColor)
                 .padding(10)
                 .cornerRadius(10)
             LazyHGrid(rows: tagsConf, spacing: 16) {
@@ -50,17 +49,25 @@ struct PlayListRightView: View {
                     .padding(.trailing, 3)   //
                 Spacer()
             }.padding(5)
+            HStack{
+                Image(systemName: "info.circle.fill")
+                    .foregroundColor(Theme.SecondaryTextColor)
+                Text("拖拽图片即可改变播放顺序")
+                    .font(.footnote)
+                    .foregroundColor(Theme.SecondaryTextColor)
+                    .padding(.vertical, 3)   // 上下边距为 3
+                    .padding(.trailing, 3)   //
+                Spacer()
+            }.padding(5)
             Text("切换设置")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
-                .background(Theme.backgroundColor)
                 .padding(10)
                 .cornerRadius(10)
             TimeProgressView(progress: $switchTime)
             Text("显示设置")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
-                .background(Theme.backgroundColor)
                 .padding(10)
                 .cornerRadius(10)
             LazyVGrid(columns: Array(repeating: GridItem(.fixed(130), spacing: 10), count: 2), spacing: 10) {
@@ -75,7 +82,6 @@ struct PlayListRightView: View {
                         Text(models[index].name).font(.system(size: 13))
                             .foregroundColor(Theme.textColor)
                             .padding(2)
-                            .background(Theme.backgroundColor)
                             .cornerRadius(10)
                         Spacer()
                     }.padding(5).onTapGesture {
