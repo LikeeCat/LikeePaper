@@ -44,7 +44,8 @@ struct FilterView: View {
                             }
                     }
                 }
-                .padding()
+                .padding(.top, 10)
+                .padding(.leading, 10)
             }
             
             if selectedTab == "壁纸中心" {
@@ -53,7 +54,6 @@ struct FilterView: View {
             } else if selectedTab == "播放列表" {
                 PlayListSettingView().environmentObject(playList)
             }
-            Spacer()
         }
         .background(Theme.backgroundColor.edgesIgnoringSafeArea(.all))
         .onAppear{
@@ -127,10 +127,7 @@ private struct PaperView: View{
                 } message: {
                     Text(alertMessage)
                 }
-                
-                
             }
-            Divider().frame(width: 1)
             PaperSettingRightView(tags: papers.allTags, onTagSelected: handleTagSelection, selectedIndex: $selectedIndex, models: $display.screens, selectedTags: $papers.selectTags)
                 .frame(maxWidth: 300,maxHeight: .infinity)
         }.background(Theme.backgroundColor)
@@ -169,12 +166,12 @@ private struct PaperView: View{
     }
     
     // 处理标签点击事件
-    private func addToPlayList(selectPaper: NSImage?) {
+    private func addToPlayList(selectPaper: NSImage?, local: Bool) {
         if let selectPaper = selectPaper {
             let matchPaper = papers.all.first { paper in
-                paper.cachedImage  == selectPaper
+                paper.cachedImage  == selectPaper && paper.local == local
             }
-            PlayListManager.updatePlayList(paper: matchPaper)
+            PlayListManager.updatePlayList(paper: matchPaper, local: local)
         }
     }
         

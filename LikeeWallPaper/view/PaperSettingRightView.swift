@@ -64,13 +64,12 @@ struct PaperSettingRightView: View{
     
     var body: some View {
         VStack(alignment: .leading){
-            Spacer().frame(height:10)
             Text("壁纸筛选")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
                 .background(Theme.backgroundColor)
+                .padding(10)
                 .cornerRadius(10)
-            Spacer().frame(height:10)
             ScrollView{
                 LazyVGrid(columns: tagsConf, spacing: 16) {
                     ForEach(Array(tags).sorted(), id: \.self) { tag in
@@ -81,14 +80,13 @@ struct PaperSettingRightView: View{
                     }
                 }
 
-            }.frame(minHeight: 180)
-            Spacer().frame(height:10)
+            }.frame(minHeight: 180).padding(5)
             Text("显示设置")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
                 .background(Theme.backgroundColor)
+                .padding(10)
                 .cornerRadius(10)
-            Spacer().frame(height:10)
             LazyVGrid(columns: Array(repeating: GridItem(.fixed(130), spacing: 10), count: 2), spacing: 10) {
                 ForEach(models.indices, id: \.self){ index in
                     HStack{
@@ -108,17 +106,16 @@ struct PaperSettingRightView: View{
                         selectedIndex = index // 设置为选中项
                     }
                 }
-            }
-            Spacer().frame(height:10)
+            }.padding(5)
             Defaults.Toggle(
                 "将壁纸应用在所有的屏幕上",
                 key: .isUpdateAll
             ).onChange({ newValue in
                 PaperManager.sharedPaperManager.isUpdateAll(isUpdateAll: newValue)
-            })
+            }).padding(.leading,10)
             Spacer().frame(minHeight: 10)
 
-        }.frame(maxWidth: .infinity, maxHeight: .infinity) // 确保 VStack 占用全部空间
+        }
 
         
     }

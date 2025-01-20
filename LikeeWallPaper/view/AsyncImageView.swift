@@ -22,7 +22,7 @@ struct AsyncImageView: View {
     }
     @State private var displayImage: NSImage?
     @State private var isHovered = false  // 控制按钮显示/隐藏
-    let action: (NSImage?) -> Void
+    let action: (NSImage?, Bool) -> Void
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -36,19 +36,19 @@ struct AsyncImageView: View {
                         .clipped()
                     // 半透明按钮，动态适配主题色
                     Button(action: {
-                        action(cachedImage)
+                        action(cachedImage, local)
                     }) {
                         Text(env == .paperCenter ? "添加至播放列表" : "从播放列表移除")
                             .font(.system(size: 12, weight: .light))// 圆角
-                            .foregroundColor(isHovered ? Theme.selectTextColor : .clear)
+                            .foregroundColor(Theme.textColor)
                             .padding(3)// 按钮文本颜色
                     }
-                    .background(isHovered ? Theme.accentColor.opacity(0.3) : .clear)
+                    .background(isHovered ? Theme.accentColor.opacity(0.7) : .clear)
                     .opacity(isHovered ? 1 : 0) // 动态透明度
                     .transition(.opacity)  // 动画效果
                     .padding(.bottom, 20)  // 距离底部 20
                     .position(x: size.width / 2, y: size.height - 10)
-                    .cornerRadius(15)
+                    .cornerRadius(20)
                     let info = local ? "本地" : ""
                     let re =  resolution != "1080p" ? resolution : ""
                     let newInfo = info + (re.isEmpty ? re : "" + re)

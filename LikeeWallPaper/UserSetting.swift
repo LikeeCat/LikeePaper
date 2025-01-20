@@ -15,6 +15,10 @@ struct ScreenSetting:Codable, Defaults.Serializable, Hashable{
     var screenAssetUrl:String
 }
 
+struct playListSetting:Codable, Defaults.Serializable, Hashable{
+    var local:Bool
+    var name: String
+}
 
 
 extension Defaults.Keys {
@@ -33,7 +37,7 @@ extension Defaults.Keys {
     static let defaultScreenSetting = Key<ScreenSetting>("defaultScreenSetting", default: ScreenSetting(screenName: NSScreen.main!.localizedName, screenId: NSScreen.main!.id, screenAssetUrl: ""))
     // default folder setting
     static let defaultPaperFolder = Key<String>("defaultPaperFolder", default: "")
-    static let playListSetting = Key<[String]>("playListSetting", default: [])
+    static let playListSetting = Key<[playListSetting]>("playListSetting", default: [])
     static let playListMode = Key<String>("playListMode", default: "single")
     static let playListSwitchTime = Key<Double>("playListSwitchTime", default: 1.0)
 

@@ -48,7 +48,8 @@ struct PlayListSettingView: View {
                                     }, set: { newPapers in
                                         playlist.papers = newPapers
                                         PlayListManager.rebuildPlayList(papers: playlist.papers)
-                                    })))                            }
+                                    })))
+                                }
                             }
                         }.padding(.leading, 10)
 
@@ -58,7 +59,6 @@ struct PlayListSettingView: View {
                 
             }
 
-            Divider().frame(width: 1)
             PlayListRightView(models: $display.screens, selectedIndex: $selectedIndex,  currentMode: $playMode)
                 .frame(maxWidth: 300,maxHeight: .infinity)
             
@@ -79,12 +79,12 @@ struct PlayListSettingView: View {
         PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: NSScreen.screens[selectedIndex])
     }
     
-    private func deletePlayList(selectPaper: NSImage?) {
+    private func deletePlayList(selectPaper: NSImage?, local: Bool) {
         if let selectPaper = selectPaper {
             let matchPaper = playlist.papers.first { paper in
-                paper.cachedImage == selectPaper
+                paper.cachedImage == selectPaper && paper.local == local
             }
-            PlayListManager.updatePlayList(paper: matchPaper, delete: true)
+            PlayListManager.updatePlayList(paper: matchPaper, local: local, delete: true)
         }
     }
     
@@ -119,6 +119,7 @@ struct DropViewDelegate: DropDelegate {
             itemProvider.loadObject(ofClass: NSString.self) { object, error in
                 if let targetIDString = object as? String,
                    let targetIndex = playlist.firstIndex(where: { $0.id.uuidString == targetIDString }) {
+                    print("this is the target \(targetIndex) sourceIndex is \(sourceIndex)")
                     DispatchQueue.main.async {
                         if sourceIndex != targetIndex {
                             playlist.swapAt(targetIndex, sourceIndex)

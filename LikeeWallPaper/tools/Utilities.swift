@@ -885,13 +885,15 @@ class PaperPlayList: ObservableObject {
     static func sortPaper()->[PaperInfo] {
         return Papers.shared.all
             .filter { info in
-                PlayListManager.getPlayList().contains(info.image.lastPathComponent)
+                PlayListManager.getPlayList().contains { playList in
+                    playList.local == info.local && playList.name == info.image.lastPathComponent
+                }
             }
             .sorted { paper1, paper2 in
                 let playListIDS = PlayListManager.getPlayList()
                 guard
-                    let index1 = playListIDS.firstIndex(of: paper1.image.lastPathComponent),
-                    let index2 = playListIDS.firstIndex(of: paper2.image.lastPathComponent)
+                    let index1 = playListIDS.firstIndex(of: playListSetting(local: paper1.local, name: paper1.image.lastPathComponent)),
+                    let index2 = playListIDS.firstIndex(of: playListSetting(local: paper2.local, name: paper2.image.lastPathComponent))
                 else {
                     return false
                 }

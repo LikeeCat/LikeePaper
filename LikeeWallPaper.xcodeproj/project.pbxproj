@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		FC0254712D2B6C81008995FE /* PaperSettingRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC0254702D2B6C73008995FE /* PaperSettingRightView.swift */; };
-		FC210B5C2D3B9BC100DE14B7 /* videos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC210B5B2D3B9BC100DE14B7 /* videos.bundle */; };
 		FC61BEE529A9D95C00C6384F /* VolumeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */; };
 		FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */; };
 		FC61BEEB29AC4E5B00C6384F /* BatteryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */; };
 		FC66559A2D2CE98A00355CB8 /* VideoAssetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6655992D2CE98A00355CB8 /* VideoAssetsManager.swift */; };
-		FC96BAD82D3CD03D0096D0A0 /* LivePaperHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = FCE6E2062D3CC25F006F7471 /* LivePaperHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FC97ED8B29A4A0E400425AFB /* LikeeWallPaperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */; };
 		FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8C29A4A0E400425AFB /* ContentView.swift */; };
 		FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC97ED8E29A4A0E600425AFB /* Assets.xcassets */; };
@@ -47,49 +45,24 @@
 		FCDA43052D2BB0FC001B03D9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43042D2BB0FC001B03D9 /* Theme.swift */; };
 		FCDA43072D2BCF8A001B03D9 /* FileBookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */; };
 		FCE6E2322D3CC4E3006F7471 /* HelperToolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6E2312D3CC4DB006F7471 /* HelperToolManager.swift */; };
-		FCFBFCDF2D3B44AA0052C815 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCCC2D3B44AA0052C815 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 */; };
-		FCFBFCE02D3B44AA0052C815 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCD12D3B44AA0052C815 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 */; };
-		FCFBFCE12D3B44AA0052C815 /* coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCB92D3B44AA0052C815 /* coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4 */; };
-		FCFBFCE22D3B44AA0052C815 /* forest-tree-winter-landscape-outdoors-nature-wintry-201812-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCCF2D3B44AA0052C815 /* forest-tree-winter-landscape-outdoors-nature-wintry-201812-full.mp4 */; };
-		FCFBFCE32D3B44AA0052C815 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCB32D3B44AA0052C815 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 */; };
-		FCFBFCE42D3B44AA0052C815 /* coverr-cross-on-a-mountain-1957-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCBF2D3B44AA0052C815 /* coverr-cross-on-a-mountain-1957-1080p.mp4 */; };
-		FCFBFCE52D3B44AA0052C815 /* coverr-temp-lumafoxskunk-mp4-2964-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCC92D3B44AA0052C815 /* coverr-temp-lumafoxskunk-mp4-2964-1080p.mp4 */; };
-		FCFBFCE62D3B44AA0052C815 /* night-christmas-town-ai-generated-illuminated-snow-winter-village-71729-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCD02D3B44AA0052C815 /* night-christmas-town-ai-generated-illuminated-snow-winter-village-71729-full.mp4 */; };
-		FCFBFCE72D3B44AA0052C815 /* coverr-bird-walking-on-the-beach-1715-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCBB2D3B44AA0052C815 /* coverr-bird-walking-on-the-beach-1715-1080p.mp4 */; };
-		FCFBFCE82D3B44AA0052C815 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCB72D3B44AA0052C815 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 */; };
-		FCFBFCE92D3B44AA0052C815 /* coverr-golden-gate-bridge-4635-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCC32D3B44AA0052C815 /* coverr-golden-gate-bridge-4635-1080p.mp4 */; };
-		FCFBFCEA2D3B44AA0052C815 /* coverr-blue-liquid-2432-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCBC2D3B44AA0052C815 /* coverr-blue-liquid-2432-1080p.mp4 */; };
-		FCFBFCEB2D3B44AA0052C815 /* coverr-purple-liquid-6048-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCC62D3B44AA0052C815 /* coverr-purple-liquid-6048-1080p.mp4 */; };
-		FCFBFCEC2D3B44AA0052C815 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCDD2D3B44AA0052C815 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 */; };
-		FCFBFCED2D3B44AA0052C815 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCDB2D3B44AA0052C815 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 */; };
-		FCFBFCEE2D3B44AA0052C815 /* animal-puppy-dog-pets-dog-pet-animal-53643-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCB62D3B44AA0052C815 /* animal-puppy-dog-pets-dog-pet-animal-53643-full.mp4 */; };
-		FCFBFCEF2D3B44AA0052C815 /* coverr-dog-on-the-beach-3457-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCC12D3B44AA0052C815 /* coverr-dog-on-the-beach-3457-1080p.mp4 */; };
-		FCFBFCF02D3B44AA0052C815 /* coverr-walking-to-the-mountain-top-8360-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCCA2D3B44AA0052C815 /* coverr-walking-to-the-mountain-top-8360-1080p.mp4 */; };
-		FCFBFCF12D3B44AA0052C815 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCD92D3B44AA0052C815 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 */; };
-		FCFBFCF22D3B44AA0052C815 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCD42D3B44AA0052C815 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 */; };
-		FCFBFCF32D3B44AA0052C815 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCCE2D3B44AA0052C815 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 */; };
-		FCFBFCF42D3B44AA0052C815 /* coverr-desert-island-7521-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCC02D3B44AA0052C815 /* coverr-desert-island-7521-1080p.mp4 */; };
-		FCFBFCF52D3B44AA0052C815 /* coverr-purple-colors-moving-7410-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCC52D3B44AA0052C815 /* coverr-purple-colors-moving-7410-1080p.mp4 */; };
-		FCFBFCF62D3B44AA0052C815 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCB52D3B44AA0052C815 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 */; };
-		FCFBFCF72D3B44AA0052C815 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCDA2D3B44AA0052C815 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 */; };
-		FCFBFCF82D3B44AA0052C815 /* coverr-beautiful-trees-by-the-ocean-9884-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCBA2D3B44AA0052C815 /* coverr-beautiful-trees-by-the-ocean-9884-1080p.mp4 */; };
-		FCFBFCF92D3B44AA0052C815 /* coverr-waves-crashing-on-the-shore-694-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCCB2D3B44AA0052C815 /* coverr-waves-crashing-on-the-shore-694-1080p.mp4 */; };
-		FCFBFCFA2D3B44AA0052C815 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCCD2D3B44AA0052C815 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 */; };
-		FCFBFCFB2D3B44AA0052C815 /* coverr-calm-waves-in-an-ocean-gulf-4513-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCBD2D3B44AA0052C815 /* coverr-calm-waves-in-an-ocean-gulf-4513-1080p.mp4 */; };
-		FCFBFCFC2D3B44AA0052C815 /* coverr-remnants-of-snow-on-mountains-6750-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCC72D3B44AA0052C815 /* coverr-remnants-of-snow-on-mountains-6750-1080p.mp4 */; };
-		FCFBFCFD2D3B44AA0052C815 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCD52D3B44AA0052C815 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 */; };
-		FCFBFCFE2D3B44AA0052C815 /* coverr-edge-of-a-rocky-mountain-7100-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCC22D3B44AA0052C815 /* coverr-edge-of-a-rocky-mountain-7100-1080p.mp4 */; };
-		FCFBFCFF2D3B44AA0052C815 /* coverr-pink-and-purple-mixing-together-6690-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCC42D3B44AA0052C815 /* coverr-pink-and-purple-mixing-together-6690-1080p.mp4 */; };
-		FCFBFD002D3B44AA0052C815 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCD22D3B44AA0052C815 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 */; };
-		FCFBFD012D3B44AA0052C815 /* spooky-pumpkin-night-horror-halloween-halloween-holiday-161723-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCD72D3B44AA0052C815 /* spooky-pumpkin-night-horror-halloween-halloween-holiday-161723-full.mp4 */; };
-		FCFBFD022D3B44AA0052C815 /* coverr-river-between-mountains-8046-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCC82D3B44AA0052C815 /* coverr-river-between-mountains-8046-1080p.mp4 */; };
-		FCFBFD032D3B44AA0052C815 /* wave-nature-waves-ocean-water-sand-water-23350-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCD82D3B44AA0052C815 /* wave-nature-waves-ocean-water-sand-water-23350-full.mp4 */; };
-		FCFBFD042D3B44AA0052C815 /* space-space-space-earth-running-blue-planet-blue-planet-17712-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCD62D3B44AA0052C815 /* space-space-space-earth-running-blue-planet-blue-planet-17712-full.mp4 */; };
-		FCFBFD052D3B44AA0052C815 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCB82D3B44AA0052C815 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 */; };
-		FCFBFD062D3B44AA0052C815 /* relax-ai-generated-luxury-spa-modern-indoors-domestic-room-91246-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCD32D3B44AA0052C815 /* relax-ai-generated-luxury-spa-modern-indoors-domestic-room-91246-full.mp4 */; };
-		FCFBFD072D3B44AA0052C815 /* coverr-calm-waves-on-a-rocky-sea-gulf-4514-1080p.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCBE2D3B44AA0052C815 /* coverr-calm-waves-on-a-rocky-sea-gulf-4514-1080p.mp4 */; };
-		FCFBFD082D3B44AA0052C815 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCDC2D3B44AA0052C815 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 */; };
-		FCFBFD092D3B44AA0052C815 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFBFCB42D3B44AA0052C815 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 */; };
+		FCFB5C8C2D3D207C00839F60 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7E2D3D1FF700839F60 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 */; };
+		FCFB5C8D2D3D207C00839F60 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C762D3D1FF700839F60 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 */; };
+		FCFB5C8E2D3D207C00839F60 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C802D3D1FF700839F60 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 */; };
+		FCFB5C8F2D3D207C00839F60 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C722D3D1FF700839F60 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 */; };
+		FCFB5C902D3D207C00839F60 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C812D3D1FF700839F60 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 */; };
+		FCFB5C912D3D207C00839F60 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C792D3D1FF700839F60 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 */; };
+		FCFB5C922D3D207C00839F60 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7C2D3D1FF700839F60 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 */; };
+		FCFB5C932D3D207C00839F60 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C732D3D1FF700839F60 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 */; };
+		FCFB5C942D3D207C00839F60 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C742D3D1FF700839F60 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 */; };
+		FCFB5C952D3D207C00839F60 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7B2D3D1FF700839F60 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 */; };
+		FCFB5C962D3D207C00839F60 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C752D3D1FF700839F60 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 */; };
+		FCFB5C972D3D207C00839F60 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7D2D3D1FF700839F60 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 */; };
+		FCFB5C982D3D207C00839F60 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7F2D3D1FF700839F60 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 */; };
+		FCFB5C992D3D207C00839F60 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C822D3D1FF700839F60 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 */; };
+		FCFB5C9A2D3D207C00839F60 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7A2D3D1FF700839F60 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 */; };
+		FCFB5C9B2D3D207C00839F60 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C782D3D1FF700839F60 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 */; };
+		FCFB5C9C2D3D207C00839F60 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C772D3D1FF700839F60 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 */; };
+		FCFB5C9E2D3D20A100839F60 /* videos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C9D2D3D20A100839F60 /* videos.bundle */; };
 		FCFBFD0C2D3B48990052C815 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBFD0B2D3B48990052C815 /* DocumentManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,26 +83,12 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		FC96BAD72D3CCFED0096D0A0 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Contents/Library/LoginItems;
-			dstSubfolderSpec = 1;
-			files = (
-				FC96BAD82D3CD03D0096D0A0 /* LivePaperHelper.app in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		FC0254702D2B6C73008995FE /* PaperSettingRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSettingRightView.swift; sourceTree = "<group>"; };
-		FC210B5B2D3B9BC100DE14B7 /* videos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = videos.bundle; sourceTree = "<group>"; };
+		FC32F0412D3D17250018B327 /* LivePaperHelper.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = LivePaperHelper.app; sourceTree = "<group>"; };
 		FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSettingView.swift; sourceTree = "<group>"; };
 		FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumentSettingController.swift; sourceTree = "<group>"; };
 		FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryManager.swift; sourceTree = "<group>"; };
-		FC66557F2D2CE7D500355CB8 /* videos.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = videos.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC6655992D2CE98A00355CB8 /* VideoAssetsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoAssetsManager.swift; path = LikeeWallPaper/manager/VideoAssetsManager.swift; sourceTree = SOURCE_ROOT; };
 		FC97ED8729A4A0E400425AFB /* LivePaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivePaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC97ED8A29A4A0E400425AFB /* LikeeWallPaperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeeWallPaperApp.swift; sourceTree = "<group>"; };
@@ -169,49 +128,25 @@
 		FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarkManager.swift; sourceTree = "<group>"; };
 		FCE6E2062D3CC25F006F7471 /* LivePaperHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivePaperHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE6E2312D3CC4DB006F7471 /* HelperToolManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperToolManager.swift; sourceTree = "<group>"; };
-		FCFBFCB32D3B44AA0052C815 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCB42D3B44AA0052C815 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCB52D3B44AA0052C815 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCB62D3B44AA0052C815 /* animal-puppy-dog-pets-dog-pet-animal-53643-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-puppy-dog-pets-dog-pet-animal-53643-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCB72D3B44AA0052C815 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCB82D3B44AA0052C815 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCB92D3B44AA0052C815 /* coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCBA2D3B44AA0052C815 /* coverr-beautiful-trees-by-the-ocean-9884-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-beautiful-trees-by-the-ocean-9884-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCBB2D3B44AA0052C815 /* coverr-bird-walking-on-the-beach-1715-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-bird-walking-on-the-beach-1715-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCBC2D3B44AA0052C815 /* coverr-blue-liquid-2432-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-blue-liquid-2432-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCBD2D3B44AA0052C815 /* coverr-calm-waves-in-an-ocean-gulf-4513-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-calm-waves-in-an-ocean-gulf-4513-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCBE2D3B44AA0052C815 /* coverr-calm-waves-on-a-rocky-sea-gulf-4514-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-calm-waves-on-a-rocky-sea-gulf-4514-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCBF2D3B44AA0052C815 /* coverr-cross-on-a-mountain-1957-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-cross-on-a-mountain-1957-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCC02D3B44AA0052C815 /* coverr-desert-island-7521-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-desert-island-7521-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCC12D3B44AA0052C815 /* coverr-dog-on-the-beach-3457-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-dog-on-the-beach-3457-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCC22D3B44AA0052C815 /* coverr-edge-of-a-rocky-mountain-7100-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-edge-of-a-rocky-mountain-7100-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCC32D3B44AA0052C815 /* coverr-golden-gate-bridge-4635-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-golden-gate-bridge-4635-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCC42D3B44AA0052C815 /* coverr-pink-and-purple-mixing-together-6690-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-pink-and-purple-mixing-together-6690-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCC52D3B44AA0052C815 /* coverr-purple-colors-moving-7410-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-purple-colors-moving-7410-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCC62D3B44AA0052C815 /* coverr-purple-liquid-6048-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-purple-liquid-6048-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCC72D3B44AA0052C815 /* coverr-remnants-of-snow-on-mountains-6750-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-remnants-of-snow-on-mountains-6750-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCC82D3B44AA0052C815 /* coverr-river-between-mountains-8046-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-river-between-mountains-8046-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCC92D3B44AA0052C815 /* coverr-temp-lumafoxskunk-mp4-2964-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-temp-lumafoxskunk-mp4-2964-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCCA2D3B44AA0052C815 /* coverr-walking-to-the-mountain-top-8360-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-walking-to-the-mountain-top-8360-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCCB2D3B44AA0052C815 /* coverr-waves-crashing-on-the-shore-694-1080p.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "coverr-waves-crashing-on-the-shore-694-1080p.mp4"; sourceTree = "<group>"; };
-		FCFBFCCC2D3B44AA0052C815 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCCD2D3B44AA0052C815 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCCE2D3B44AA0052C815 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCCF2D3B44AA0052C815 /* forest-tree-winter-landscape-outdoors-nature-wintry-201812-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "forest-tree-winter-landscape-outdoors-nature-wintry-201812-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCD02D3B44AA0052C815 /* night-christmas-town-ai-generated-illuminated-snow-winter-village-71729-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "night-christmas-town-ai-generated-illuminated-snow-winter-village-71729-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCD12D3B44AA0052C815 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCD22D3B44AA0052C815 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCD32D3B44AA0052C815 /* relax-ai-generated-luxury-spa-modern-indoors-domestic-room-91246-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "relax-ai-generated-luxury-spa-modern-indoors-domestic-room-91246-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCD42D3B44AA0052C815 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCD52D3B44AA0052C815 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCD62D3B44AA0052C815 /* space-space-space-earth-running-blue-planet-blue-planet-17712-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "space-space-space-earth-running-blue-planet-blue-planet-17712-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCD72D3B44AA0052C815 /* spooky-pumpkin-night-horror-halloween-halloween-holiday-161723-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "spooky-pumpkin-night-horror-halloween-halloween-holiday-161723-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCD82D3B44AA0052C815 /* wave-nature-waves-ocean-water-sand-water-23350-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "wave-nature-waves-ocean-water-sand-water-23350-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCD92D3B44AA0052C815 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCDA2D3B44AA0052C815 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCDB2D3B44AA0052C815 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCDC2D3B44AA0052C815 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4"; sourceTree = "<group>"; };
-		FCFBFCDD2D3B44AA0052C815 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C722D3D1FF700839F60 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C732D3D1FF700839F60 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C742D3D1FF700839F60 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C752D3D1FF700839F60 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C762D3D1FF700839F60 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C772D3D1FF700839F60 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C782D3D1FF700839F60 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C792D3D1FF700839F60 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C7A2D3D1FF700839F60 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C7B2D3D1FF700839F60 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C7C2D3D1FF700839F60 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C7D2D3D1FF700839F60 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C7E2D3D1FF700839F60 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C7F2D3D1FF700839F60 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C802D3D1FF700839F60 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C812D3D1FF700839F60 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C822D3D1FF700839F60 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4"; sourceTree = "<group>"; };
+		FCFB5C882D3D207200839F60 /* videos.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = videos.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCFB5C9D2D3D20A100839F60 /* videos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = videos.bundle; sourceTree = "<group>"; };
 		FCFBFD0A2D3B46630052C815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FCFBFD0B2D3B48990052C815 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,13 +166,6 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FC66557C2D2CE7D500355CB8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FC97ED8429A4A0E400425AFB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -261,6 +189,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FCE6E2032D3CC25F006F7471 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCFB5C852D3D207200839F60 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -343,7 +278,9 @@
 		FC97ED7E29A4A0E400425AFB = {
 			isa = PBXGroup;
 			children = (
-				FC210B5B2D3B9BC100DE14B7 /* videos.bundle */,
+				FCFB5C9D2D3D20A100839F60 /* videos.bundle */,
+				FCFB5C832D3D202600839F60 /* video */,
+				FC32F0412D3D17250018B327 /* LivePaperHelper.app */,
 				FC97ED8929A4A0E400425AFB /* LikeeWallPaper */,
 				FC97ED9B29A4A0E600425AFB /* LikeeWallPaperTests */,
 				FC97EDA529A4A0E700425AFB /* LikeeWallPaperUITests */,
@@ -359,8 +296,8 @@
 				FC97ED8729A4A0E400425AFB /* LivePaper.app */,
 				FC97ED9829A4A0E600425AFB /* LikeeWallPaperTests.xctest */,
 				FC97EDA229A4A0E700425AFB /* LikeeWallPaperUITests.xctest */,
-				FC66557F2D2CE7D500355CB8 /* videos.bundle */,
 				FCE6E2062D3CC25F006F7471 /* LivePaperHelper.app */,
+				FCFB5C882D3D207200839F60 /* videos.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -369,7 +306,6 @@
 			isa = PBXGroup;
 			children = (
 				FCFBFD0A2D3B46630052C815 /* Info.plist */,
-				FCFBFCDE2D3B44AA0052C815 /* video */,
 				FC02546F2D2B6B50008995FE /* model */,
 				FC5EECDB2D0BD56300B4F8AA /* manager */,
 				FC5EECDA2D0BD51900B4F8AA /* tools */,
@@ -421,52 +357,26 @@
 			path = window;
 			sourceTree = "<group>";
 		};
-		FCFBFCDE2D3B44AA0052C815 /* video */ = {
+		FCFB5C832D3D202600839F60 /* video */ = {
 			isa = PBXGroup;
 			children = (
-				FCFBFCB32D3B44AA0052C815 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 */,
-				FCFBFCB42D3B44AA0052C815 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 */,
-				FCFBFCB52D3B44AA0052C815 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 */,
-				FCFBFCB62D3B44AA0052C815 /* animal-puppy-dog-pets-dog-pet-animal-53643-full.mp4 */,
-				FCFBFCB72D3B44AA0052C815 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 */,
-				FCFBFCB82D3B44AA0052C815 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 */,
-				FCFBFCB92D3B44AA0052C815 /* coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4 */,
-				FCFBFCBA2D3B44AA0052C815 /* coverr-beautiful-trees-by-the-ocean-9884-1080p.mp4 */,
-				FCFBFCBB2D3B44AA0052C815 /* coverr-bird-walking-on-the-beach-1715-1080p.mp4 */,
-				FCFBFCBC2D3B44AA0052C815 /* coverr-blue-liquid-2432-1080p.mp4 */,
-				FCFBFCBD2D3B44AA0052C815 /* coverr-calm-waves-in-an-ocean-gulf-4513-1080p.mp4 */,
-				FCFBFCBE2D3B44AA0052C815 /* coverr-calm-waves-on-a-rocky-sea-gulf-4514-1080p.mp4 */,
-				FCFBFCBF2D3B44AA0052C815 /* coverr-cross-on-a-mountain-1957-1080p.mp4 */,
-				FCFBFCC02D3B44AA0052C815 /* coverr-desert-island-7521-1080p.mp4 */,
-				FCFBFCC12D3B44AA0052C815 /* coverr-dog-on-the-beach-3457-1080p.mp4 */,
-				FCFBFCC22D3B44AA0052C815 /* coverr-edge-of-a-rocky-mountain-7100-1080p.mp4 */,
-				FCFBFCC32D3B44AA0052C815 /* coverr-golden-gate-bridge-4635-1080p.mp4 */,
-				FCFBFCC42D3B44AA0052C815 /* coverr-pink-and-purple-mixing-together-6690-1080p.mp4 */,
-				FCFBFCC52D3B44AA0052C815 /* coverr-purple-colors-moving-7410-1080p.mp4 */,
-				FCFBFCC62D3B44AA0052C815 /* coverr-purple-liquid-6048-1080p.mp4 */,
-				FCFBFCC72D3B44AA0052C815 /* coverr-remnants-of-snow-on-mountains-6750-1080p.mp4 */,
-				FCFBFCC82D3B44AA0052C815 /* coverr-river-between-mountains-8046-1080p.mp4 */,
-				FCFBFCC92D3B44AA0052C815 /* coverr-temp-lumafoxskunk-mp4-2964-1080p.mp4 */,
-				FCFBFCCA2D3B44AA0052C815 /* coverr-walking-to-the-mountain-top-8360-1080p.mp4 */,
-				FCFBFCCB2D3B44AA0052C815 /* coverr-waves-crashing-on-the-shore-694-1080p.mp4 */,
-				FCFBFCCC2D3B44AA0052C815 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 */,
-				FCFBFCCD2D3B44AA0052C815 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 */,
-				FCFBFCCE2D3B44AA0052C815 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 */,
-				FCFBFCCF2D3B44AA0052C815 /* forest-tree-winter-landscape-outdoors-nature-wintry-201812-full.mp4 */,
-				FCFBFCD02D3B44AA0052C815 /* night-christmas-town-ai-generated-illuminated-snow-winter-village-71729-full.mp4 */,
-				FCFBFCD12D3B44AA0052C815 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 */,
-				FCFBFCD22D3B44AA0052C815 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 */,
-				FCFBFCD32D3B44AA0052C815 /* relax-ai-generated-luxury-spa-modern-indoors-domestic-room-91246-full.mp4 */,
-				FCFBFCD42D3B44AA0052C815 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 */,
-				FCFBFCD52D3B44AA0052C815 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 */,
-				FCFBFCD62D3B44AA0052C815 /* space-space-space-earth-running-blue-planet-blue-planet-17712-full.mp4 */,
-				FCFBFCD72D3B44AA0052C815 /* spooky-pumpkin-night-horror-halloween-halloween-holiday-161723-full.mp4 */,
-				FCFBFCD82D3B44AA0052C815 /* wave-nature-waves-ocean-water-sand-water-23350-full.mp4 */,
-				FCFBFCD92D3B44AA0052C815 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 */,
-				FCFBFCDA2D3B44AA0052C815 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 */,
-				FCFBFCDB2D3B44AA0052C815 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 */,
-				FCFBFCDC2D3B44AA0052C815 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 */,
-				FCFBFCDD2D3B44AA0052C815 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 */,
+				FCFB5C722D3D1FF700839F60 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 */,
+				FCFB5C732D3D1FF700839F60 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 */,
+				FCFB5C742D3D1FF700839F60 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 */,
+				FCFB5C752D3D1FF700839F60 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 */,
+				FCFB5C762D3D1FF700839F60 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 */,
+				FCFB5C772D3D1FF700839F60 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 */,
+				FCFB5C782D3D1FF700839F60 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 */,
+				FCFB5C792D3D1FF700839F60 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 */,
+				FCFB5C7A2D3D1FF700839F60 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 */,
+				FCFB5C7B2D3D1FF700839F60 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 */,
+				FCFB5C7C2D3D1FF700839F60 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 */,
+				FCFB5C7D2D3D1FF700839F60 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 */,
+				FCFB5C7E2D3D1FF700839F60 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 */,
+				FCFB5C7F2D3D1FF700839F60 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 */,
+				FCFB5C802D3D1FF700839F60 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 */,
+				FCFB5C812D3D1FF700839F60 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 */,
+				FCFB5C822D3D1FF700839F60 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 */,
 			);
 			path = video;
 			sourceTree = "<group>";
@@ -474,25 +384,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FC66557E2D2CE7D500355CB8 /* videos */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FC6655822D2CE7D500355CB8 /* Build configuration list for PBXNativeTarget "videos" */;
-			buildPhases = (
-				FC66557B2D2CE7D500355CB8 /* Sources */,
-				FC66557C2D2CE7D500355CB8 /* Frameworks */,
-				FC66557D2D2CE7D500355CB8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = videos;
-			packageProductDependencies = (
-			);
-			productName = videos;
-			productReference = FC66557F2D2CE7D500355CB8 /* videos.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 		FC97ED8629A4A0E400425AFB /* LikeeWallPaper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FC97EDAC29A4A0E700425AFB /* Build configuration list for PBXNativeTarget "LikeeWallPaper" */;
@@ -500,7 +391,6 @@
 				FC97ED8329A4A0E400425AFB /* Sources */,
 				FC97ED8429A4A0E400425AFB /* Frameworks */,
 				FC97ED8529A4A0E400425AFB /* Resources */,
-				FC96BAD72D3CCFED0096D0A0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -572,6 +462,25 @@
 			productReference = FCE6E2062D3CC25F006F7471 /* LivePaperHelper.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FCFB5C872D3D207200839F60 /* videos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCFB5C892D3D207200839F60 /* Build configuration list for PBXNativeTarget "videos" */;
+			buildPhases = (
+				FCFB5C842D3D207200839F60 /* Sources */,
+				FCFB5C852D3D207200839F60 /* Frameworks */,
+				FCFB5C862D3D207200839F60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = videos;
+			packageProductDependencies = (
+			);
+			productName = videos;
+			productReference = FCFB5C882D3D207200839F60 /* videos.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -582,9 +491,6 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					FC66557E2D2CE7D500355CB8 = {
-						CreatedOnToolsVersion = 16.2;
-					};
 					FC97ED8629A4A0E400425AFB = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -597,6 +503,9 @@
 						TestTargetID = FC97ED8629A4A0E400425AFB;
 					};
 					FCE6E2052D3CC25F006F7471 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					FCFB5C872D3D207200839F60 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -620,69 +529,19 @@
 				FC97ED8629A4A0E400425AFB /* LikeeWallPaper */,
 				FC97ED9729A4A0E600425AFB /* LikeeWallPaperTests */,
 				FC97EDA129A4A0E700425AFB /* LikeeWallPaperUITests */,
-				FC66557E2D2CE7D500355CB8 /* videos */,
 				FCE6E2052D3CC25F006F7471 /* LikeeWallPaperHelper */,
+				FCFB5C872D3D207200839F60 /* videos */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FC66557D2D2CE7D500355CB8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FCFBFCDF2D3B44AA0052C815 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 in Resources */,
-				FCFBFCE02D3B44AA0052C815 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 in Resources */,
-				FCFBFCE12D3B44AA0052C815 /* coverr-a-child-looks-in-awe-at-the-luminous-cosmic-sky-above-1080p.mp4 in Resources */,
-				FCFBFCE22D3B44AA0052C815 /* forest-tree-winter-landscape-outdoors-nature-wintry-201812-full.mp4 in Resources */,
-				FCFBFCE32D3B44AA0052C815 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 in Resources */,
-				FCFBFCE42D3B44AA0052C815 /* coverr-cross-on-a-mountain-1957-1080p.mp4 in Resources */,
-				FCFBFCE52D3B44AA0052C815 /* coverr-temp-lumafoxskunk-mp4-2964-1080p.mp4 in Resources */,
-				FCFBFCE62D3B44AA0052C815 /* night-christmas-town-ai-generated-illuminated-snow-winter-village-71729-full.mp4 in Resources */,
-				FCFBFCE72D3B44AA0052C815 /* coverr-bird-walking-on-the-beach-1715-1080p.mp4 in Resources */,
-				FCFBFCE82D3B44AA0052C815 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 in Resources */,
-				FCFBFCE92D3B44AA0052C815 /* coverr-golden-gate-bridge-4635-1080p.mp4 in Resources */,
-				FCFBFCEA2D3B44AA0052C815 /* coverr-blue-liquid-2432-1080p.mp4 in Resources */,
-				FCFBFCEB2D3B44AA0052C815 /* coverr-purple-liquid-6048-1080p.mp4 in Resources */,
-				FCFBFCEC2D3B44AA0052C815 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 in Resources */,
-				FCFBFCED2D3B44AA0052C815 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 in Resources */,
-				FCFBFCEE2D3B44AA0052C815 /* animal-puppy-dog-pets-dog-pet-animal-53643-full.mp4 in Resources */,
-				FCFBFCEF2D3B44AA0052C815 /* coverr-dog-on-the-beach-3457-1080p.mp4 in Resources */,
-				FCFBFCF02D3B44AA0052C815 /* coverr-walking-to-the-mountain-top-8360-1080p.mp4 in Resources */,
-				FCFBFCF12D3B44AA0052C815 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 in Resources */,
-				FCFBFCF22D3B44AA0052C815 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 in Resources */,
-				FCFBFCF32D3B44AA0052C815 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 in Resources */,
-				FCFBFCF42D3B44AA0052C815 /* coverr-desert-island-7521-1080p.mp4 in Resources */,
-				FCFBFCF52D3B44AA0052C815 /* coverr-purple-colors-moving-7410-1080p.mp4 in Resources */,
-				FCFBFCF62D3B44AA0052C815 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 in Resources */,
-				FCFBFCF72D3B44AA0052C815 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 in Resources */,
-				FCFBFCF82D3B44AA0052C815 /* coverr-beautiful-trees-by-the-ocean-9884-1080p.mp4 in Resources */,
-				FCFBFCF92D3B44AA0052C815 /* coverr-waves-crashing-on-the-shore-694-1080p.mp4 in Resources */,
-				FCFBFCFA2D3B44AA0052C815 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 in Resources */,
-				FCFBFCFB2D3B44AA0052C815 /* coverr-calm-waves-in-an-ocean-gulf-4513-1080p.mp4 in Resources */,
-				FCFBFCFC2D3B44AA0052C815 /* coverr-remnants-of-snow-on-mountains-6750-1080p.mp4 in Resources */,
-				FCFBFCFD2D3B44AA0052C815 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 in Resources */,
-				FCFBFCFE2D3B44AA0052C815 /* coverr-edge-of-a-rocky-mountain-7100-1080p.mp4 in Resources */,
-				FCFBFCFF2D3B44AA0052C815 /* coverr-pink-and-purple-mixing-together-6690-1080p.mp4 in Resources */,
-				FCFBFD002D3B44AA0052C815 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 in Resources */,
-				FCFBFD012D3B44AA0052C815 /* spooky-pumpkin-night-horror-halloween-halloween-holiday-161723-full.mp4 in Resources */,
-				FCFBFD022D3B44AA0052C815 /* coverr-river-between-mountains-8046-1080p.mp4 in Resources */,
-				FCFBFD032D3B44AA0052C815 /* wave-nature-waves-ocean-water-sand-water-23350-full.mp4 in Resources */,
-				FCFBFD042D3B44AA0052C815 /* space-space-space-earth-running-blue-planet-blue-planet-17712-full.mp4 in Resources */,
-				FCFBFD052D3B44AA0052C815 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 in Resources */,
-				FCFBFD062D3B44AA0052C815 /* relax-ai-generated-luxury-spa-modern-indoors-domestic-room-91246-full.mp4 in Resources */,
-				FCFBFD072D3B44AA0052C815 /* coverr-calm-waves-on-a-rocky-sea-gulf-4514-1080p.mp4 in Resources */,
-				FCFBFD082D3B44AA0052C815 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 in Resources */,
-				FCFBFD092D3B44AA0052C815 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FC97ED8529A4A0E400425AFB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FC97ED9229A4A0E600425AFB /* Preview Assets.xcassets in Resources */,
-				FC210B5C2D3B9BC100DE14B7 /* videos.bundle in Resources */,
+				FCFB5C9E2D3D20A100839F60 /* videos.bundle in Resources */,
 				FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -708,16 +567,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		FC66557B2D2CE7D500355CB8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		FCFB5C862D3D207200839F60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFB5C8C2D3D207C00839F60 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 in Resources */,
+				FCFB5C8D2D3D207C00839F60 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 in Resources */,
+				FCFB5C8E2D3D207C00839F60 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 in Resources */,
+				FCFB5C8F2D3D207C00839F60 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 in Resources */,
+				FCFB5C902D3D207C00839F60 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 in Resources */,
+				FCFB5C912D3D207C00839F60 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 in Resources */,
+				FCFB5C922D3D207C00839F60 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 in Resources */,
+				FCFB5C932D3D207C00839F60 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 in Resources */,
+				FCFB5C942D3D207C00839F60 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 in Resources */,
+				FCFB5C952D3D207C00839F60 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 in Resources */,
+				FCFB5C962D3D207C00839F60 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 in Resources */,
+				FCFB5C972D3D207C00839F60 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 in Resources */,
+				FCFB5C982D3D207C00839F60 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 in Resources */,
+				FCFB5C992D3D207C00839F60 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 in Resources */,
+				FCFB5C9A2D3D207C00839F60 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 in Resources */,
+				FCFB5C9B2D3D207C00839F60 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 in Resources */,
+				FCFB5C9C2D3D207C00839F60 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		FC97ED8329A4A0E400425AFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -782,6 +658,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FCFB5C842D3D207200839F60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -798,60 +681,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		FC6655802D2CE7D500355CB8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 823GH4ASKZ;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSPrincipalClass = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.LikeeWallPaper.videos;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		FC6655812D2CE7D500355CB8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 823GH4ASKZ;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSPrincipalClass = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.LikeeWallPaper.videos;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		FC97EDAA29A4A0E700425AFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -979,7 +808,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LikeeWallPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 823GH4ASKZ;
@@ -1014,7 +843,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LikeeWallPaper/Preview Content\"";
 				DEVELOPMENT_TEAM = 823GH4ASKZ;
@@ -1134,7 +963,7 @@
 					"@executable_path/../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaper.Helper;
 				PRODUCT_NAME = LivePaperHelper;
@@ -1171,7 +1000,7 @@
 					"@executable_path/../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.LikeeWallPaper.Helper;
 				PRODUCT_NAME = LivePaperHelper;
@@ -1180,18 +1009,59 @@
 			};
 			name = Release;
 		};
+		FCFB5C8A2D3D207200839F60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 823GH4ASKZ;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.videos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		FCFB5C8B2D3D207200839F60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 823GH4ASKZ;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shukangfan.videos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FC6655822D2CE7D500355CB8 /* Build configuration list for PBXNativeTarget "videos" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FC6655802D2CE7D500355CB8 /* Debug */,
-				FC6655812D2CE7D500355CB8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		FC97ED8229A4A0E400425AFB /* Build configuration list for PBXProject "LikeeWallPaper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1233,6 +1103,15 @@
 			buildConfigurations = (
 				FCE6E2282D3CC262006F7471 /* Debug */,
 				FCE6E2292D3CC262006F7471 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCFB5C892D3D207200839F60 /* Build configuration list for PBXNativeTarget "videos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCFB5C8A2D3D207200839F60 /* Debug */,
+				FCFB5C8B2D3D207200839F60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

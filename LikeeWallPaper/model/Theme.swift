@@ -67,6 +67,23 @@ struct Theme {
     static var infoTextColor: Color {
         return Color("InfoTextColor")
     }
+    
+    // 内容背景色
+    static var contentBackgroundColor: Color {
+        return Color("ContentBackgroundColor")
+    }
+    // 内容阴影色
+    static var contentShadowColor: Color {
+        return Color("ContentShadowColor")
+    }
+    //设置背景色
+    static var settingsBackgroundColor: Color {
+        return Color("SettingsBackgroundColor")
+    }
+    // 设置的阴影色
+    static var settingsShadowColor: Color {
+        return Color("SettingsShadowColor")
+    }
 }
 
 

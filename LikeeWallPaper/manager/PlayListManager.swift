@@ -31,31 +31,33 @@ struct PlayListManager {
         Defaults[.playListMode] = mode.rawValue
     }
     
-    static func getPlayList() -> [String] {
+    static func getPlayList() -> [playListSetting] {
         Defaults[.playListSetting]
     }
     
-    @MainActor static func updatePlayList(paper: PaperInfo?, delete: Bool = false){
+    @MainActor static func updatePlayList(paper: PaperInfo?, local: Bool, delete: Bool = false){
         guard let paper = paper else{
             return
         }
         var currentArray = Defaults[.playListSetting]
-        
-        if currentArray.contains(paper.image.lastPathComponent) && delete  {
-            currentArray.removeAll { id in
-                id == paper.image.lastPathComponent
+        if delete {
+            currentArray.removeAll() { setting in
+                setting.name == paper.image.lastPathComponent && setting.local == local
             }
             Defaults[.playListSetting] = currentArray
             PaperPlayList.shared.updatePaper()
+        }
+        
+        if currentArray.first(where: { setting in
+            setting.name == paper.image.lastPathComponent && setting.local == local
+        }) != nil {
             return
+        } else{
+            currentArray.append(playListSetting(local: local, name: paper.image.lastPathComponent))
+            // 保存更新后的数组
+            Defaults[.playListSetting] = currentArray
+            PaperPlayList.shared.updatePaper()
         }
-        // 添加新元素
-        if !currentArray.contains(paper.image.lastPathComponent) { // 可选：防止重复
-            currentArray.append(paper.image.lastPathComponent)
-        }
-        // 保存更新后的数组
-        Defaults[.playListSetting] = currentArray
-        PaperPlayList.shared.updatePaper()
     }
     
     @MainActor static func rebuildPlayList(papers: [PaperInfo]){
@@ -63,8 +65,10 @@ struct PlayListManager {
             return
         }
         
-        let newArray = papers.map { $0.image.lastPathComponent }
         // 保存更新后的数组
+        let newArray =  papers.map { paper in
+            playListSetting(local: paper.local, name: paper.image.lastPathComponent)
+        }
         Defaults[.playListSetting] = newArray
         PaperPlayList.shared.updatePaper()
 

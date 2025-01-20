@@ -25,13 +25,12 @@ struct PlayListRightView: View {
     
     var body: some View {
         VStack(alignment: .leading){
-            Spacer().frame(height:10)
             Text("循环设置")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
                 .background(Theme.backgroundColor)
+                .padding(10)
                 .cornerRadius(10)
-            Spacer().frame(height:10)
             LazyHGrid(rows: tagsConf, spacing: 16) {
                 ForEach(palyModes, id: \.self) { mode in
                     PlayTagView(tag: mode, currentMode: $currentMode) { selectMode in
@@ -40,32 +39,30 @@ struct PlayListRightView: View {
                         PlayListManager.updatePlayMode(mode: selectMode)
                     }
                 }
-            }.padding(10)
-            Spacer().frame(height:10)
+            }.padding(5)
             HStack{
                 Image(systemName: "info.circle.fill")
                     .foregroundColor(Theme.SecondaryTextColor)
                 Text("点击图片即可切换为单循环")
                     .font(.footnote)
                     .foregroundColor(Theme.SecondaryTextColor)
-                    .padding(3)
+                    .padding(.vertical, 3)   // 上下边距为 3
+                    .padding(.trailing, 3)   //
                 Spacer()
-            }
-            Spacer().frame(height:10)
+            }.padding(5)
             Text("切换设置")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
                 .background(Theme.backgroundColor)
+                .padding(10)
                 .cornerRadius(10)
-            Spacer().frame(height:10)
             TimeProgressView(progress: $switchTime)
-            Spacer().frame(height:10)
             Text("显示设置")
                 .font(.title3)
                 .foregroundColor(Theme.textColor)
                 .background(Theme.backgroundColor)
+                .padding(10)
                 .cornerRadius(10)
-            Spacer().frame(height:10)
             LazyVGrid(columns: Array(repeating: GridItem(.fixed(130), spacing: 10), count: 2), spacing: 10) {
                 ForEach(models.indices, id: \.self){ index in
                     HStack{
@@ -85,15 +82,15 @@ struct PlayListRightView: View {
                         selectedIndex = index // 设置为选中项
                     }
                 }
-            }.padding(10)
-            Spacer().frame(height:10)
+            }.padding(5)
             Defaults.Toggle(
                 "将壁纸应用在所有的屏幕上",
                 key: .isUpdateAll
             ).onChange({ newValue in
                 PaperManager.sharedPaperManager.isUpdateAll(isUpdateAll: newValue)
-            })
-            Spacer().frame(minHeight: 10)
+            }).padding(.leading,10)
+
+            Spacer().frame(minHeight: 5)
 
         }.frame(maxWidth: .infinity, maxHeight: .infinity) //
         
@@ -149,11 +146,11 @@ struct TimeProgressView: View {
                 .font(.title3)
                 .bold().frame(minWidth: 100).padding(.trailing,10)
 
-        }.padding(10)
+        }.padding(5)
     }
 }
 
-//
+
 //#Preview {
 //    PlayListRightView()
 //}

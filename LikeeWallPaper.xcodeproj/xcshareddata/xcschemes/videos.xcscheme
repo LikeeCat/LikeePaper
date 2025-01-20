@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FC66557E2D2CE7D500355CB8"
+               BlueprintIdentifier = "FCFB5C872D3D207200839F60"
                BuildableName = "videos.bundle"
                BlueprintName = "videos"
                ReferencedContainer = "container:LikeeWallPaper.xcodeproj">
@@ -50,7 +50,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FC66557E2D2CE7D500355CB8"
+            BlueprintIdentifier = "FCFB5C872D3D207200839F60"
             BuildableName = "videos.bundle"
             BlueprintName = "videos"
             ReferencedContainer = "container:LikeeWallPaper.xcodeproj">
