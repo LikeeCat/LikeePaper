@@ -66,7 +66,7 @@ struct PaperSettingRightView: View{
         VStack(alignment: .leading){
             Text("壁纸筛选")
                 .font(.title3)
-                .foregroundColor(Theme.textColor)
+                .foregroundColor(Theme.PrimaryTextColor)
                 .padding(10)
                 .cornerRadius(10)
             ScrollView{
@@ -82,7 +82,7 @@ struct PaperSettingRightView: View{
             }.frame(minHeight: 180).padding(5)
             Text("显示设置")
                 .font(.title3)
-                .foregroundColor(Theme.textColor)
+                .foregroundColor(Theme.PrimaryTextColor)
                 .padding(10)
                 .cornerRadius(10)
             LazyVGrid(columns: Array(repeating: GridItem(.fixed(130), spacing: 10), count: 2), spacing: 10) {
@@ -95,7 +95,7 @@ struct PaperSettingRightView: View{
                             .scaleEffect(selectedIndex == index ? 1.05 : 1)
                             .animation(.easeInOut(duration: 0.2), value: selectedIndex) // 绑定动画到 selectedIndex
                         Text(models[index].name).font(.system(size: 13))
-                            .foregroundColor(Theme.textColor)
+                            .foregroundColor(Theme.SecondaryTextColor)
                             .padding(2)
                             .cornerRadius(10)
                         Spacer()

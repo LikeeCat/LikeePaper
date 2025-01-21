@@ -38,7 +38,11 @@ struct UserSettingView: View {
                 Spacer().frame(height: 10)
                 hiddenFolderSetting().padding([.leading,.trailing], 20)
                 mutedSetting().padding([.leading,.trailing], 20)
+                Divider()
                 Spacer().frame(height: 10)
+                cleanPaperFolderSetting().padding([.leading,.trailing], 20)
+                Spacer().frame(height: 10)
+                
             }
             
         }
@@ -178,6 +182,30 @@ struct UserSettingView: View {
         }
     }
     
+    private struct cleanPaperFolderSetting: View {
+        var body: some View {
+            Text("重置所有选择")
+                .font(.system(size: 12))
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
+                .background(
+                    Theme.accentColor
+                )
+                .foregroundColor(
+                    Theme.selectTextColor
+                )
+                .clipShape(Capsule())
+                .onTapGesture {
+                    Defaults.removeAll()
+                    Papers.shared.all = Papers.allPapers().info
+                    Papers.shared.allTags = Papers.allPapers().tag
+                }
+        }
+    }
+
+    
+
+    
     private struct mutedSetting: View {
         var body: some View {
             Defaults.Toggle(
@@ -218,13 +246,7 @@ struct UserSettingView: View {
                 "是否开机自启动",
                 key: .isLaunchAtStartUP
             ).onChange({ newValue in
-                let result = HelperToolManager.shared.handleEvent(install: newValue)
-                if newValue == true {
-                    
-                }else{
-                  
-                }
-                
+                 HelperToolManager.shared.handleEvent(install: newValue)
             })
             .help("当前桌面上有其他应用程序活跃时,停止播放视频")
         }

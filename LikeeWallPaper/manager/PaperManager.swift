@@ -19,6 +19,10 @@ class PaperManager{
         }
     }
     
+    func updateUserSelectPath(userSelectPath:String){
+        UserSetting.updateUserSelectPath(userSelectPath: userSelectPath)
+    }
+    
 
     func hiddenFolder(hiddenFolder:Bool){
         UserSetting.hiddenFolder(hidden: hiddenFolder)
@@ -70,6 +74,12 @@ class PaperManager{
 }
 
 private class UserSetting{
+    
+    
+    static func updateUserSelectPath(userSelectPath:String){
+        Defaults[.userSelectPath] = userSelectPath
+    }
+
     
     static func hiddenFolder(hidden:Bool){
         Defaults[.isHiddenFolder] = hidden

@@ -138,7 +138,8 @@ class PaperPlayerController:NSViewController{
         var asset: AVAsset?
         
         if !isURLInSandbox(newAsset) {
-            FileBookmarkManager.shared.accessFileInFolder(using: newAsset.path) { fileURL in
+            let userSelectPath = Defaults[.userSelectPath]
+            FileBookmarkManager.shared.accessFileInFolder(using: newAsset.path, userSetting: userSelectPath == self.assetUrl!.path) { fileURL in
                 if let url = fileURL {
                     asset = AVAsset(url: url)
                     playWithAsset(aset: asset!, url: url)
@@ -211,7 +212,8 @@ class PaperPlayerController:NSViewController{
     private func preparePlayerEnv(){
         
         if !isURLInSandbox(self.assetUrl!) {
-            FileBookmarkManager.shared.accessFileInFolder(using: self.assetUrl!.path) { fileURL in
+            let userSelectPath = Defaults[.userSelectPath]
+            FileBookmarkManager.shared.accessFileInFolder(using: self.assetUrl!.path, userSetting: userSelectPath == self.assetUrl!.path) { fileURL in
                 if let url = fileURL {
                     let nowAsset = AVAsset(url: url)
                     setAVAssetEnv(asset: nowAsset)

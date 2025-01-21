@@ -15,67 +15,85 @@ struct PlayListSettingView: View {
     let minSize = CGSize(width: 250, height: 180) // 最小尺寸
 
     var body: some View {
-        HStack{
-                GeometryReader { geometry in
-                    let screenWidth = geometry.size.width - 10
-                    let columns = Int(screenWidth / minSize.width) // 每排列数
-                    let itemWidth = screenWidth / CGFloat(columns) // 动态宽度
-                    let itemHeight = itemWidth * (minSize.height / minSize.width) // 动态高度，保持比例
-                    ScrollView {
-                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: columns), spacing: 10) {
-                            ForEach(playlist.papers) { paper in
-                                ZStack(alignment: .bottomTrailing) {
-                                    // 显示图片
-                                    AsyncImageView(
-                                        cachedImage:  paper.cachedImage,
-                                        placeholder: Image(systemName: "photo.circle.fill"),
-                                        size: CGSize(width: itemWidth, height: itemHeight),
-                                        resolution: paper.resolution,
-                                        env: .playList,
-                                        local: paper.local,
-                                        action: deletePlayList
-                                    )
-                                    .clipped() // 确保图片内容不超出
-                                    .onTapGesture {
-                                        let url = paper.path
-                                        settingImage(assetUrlString: url)
+        if playlist.papers.isEmpty {
+            VStack {
+                Spacer()
+                Text("🙄暂时没有任何播放内容，请前往壁纸中心进行添加")
+                    .font(.title2)
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+                    .padding()
+                Spacer()
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Theme.backgroundColor)
+            .cornerRadius(20)
+            .shadow(radius: 10)
+        }
+        else{
+            HStack{
+                    GeometryReader { geometry in
+                        let screenWidth = geometry.size.width - 10
+                        let columns = Int(screenWidth / minSize.width) // 每排列数
+                        let itemWidth = screenWidth / CGFloat(columns) // 动态宽度
+                        let itemHeight = itemWidth * (minSize.height / minSize.width) // 动态高度，保持比例
+                        ScrollView {
+                            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: columns), spacing: 10) {
+                                ForEach(playlist.papers) { paper in
+                                    ZStack(alignment: .bottomTrailing) {
+                                        // 显示图片
+                                        AsyncImageView(
+                                            cachedImage:  paper.cachedImage,
+                                            placeholder: Image(systemName: "photo.circle.fill"),
+                                            size: CGSize(width: itemWidth, height: itemHeight),
+                                            resolution: paper.resolution,
+                                            env: .playList,
+                                            local: paper.local,
+                                            action: deletePlayList
+                                        )
+                                        .clipped() // 确保图片内容不超出
+                                        .onTapGesture {
+                                            let url = paper.path
+                                            settingImage(assetUrlString: url)
+                                        }
+                                        .onDrag {
+                                            NSItemProvider(object: paper.id.uuidString as NSString)
+                                        }
+                                        .onDrop(of: [UTType.text], delegate: DropViewDelegate(item: paper, playlist: Binding(get: {
+                                            playlist.papers
+                                        }, set: { newPapers in
+                                            playlist.papers = newPapers
+                                            PlayListManager.rebuildPlayList(papers: playlist.papers)
+                                        })))
                                     }
-                                    .onDrag {
-                                        NSItemProvider(object: paper.id.uuidString as NSString)
-                                    }
-                                    .onDrop(of: [UTType.text], delegate: DropViewDelegate(item: paper, playlist: Binding(get: {
-                                        playlist.papers
-                                    }, set: { newPapers in
-                                        playlist.papers = newPapers
-                                        PlayListManager.rebuildPlayList(papers: playlist.papers)
-                                    })))
                                 }
                             }
-                        }
-                        
-                }.frame(maxWidth: .infinity) // 占用剩余宽度
-                .padding(.top, 1)
-                
+                            
+                    }.frame(maxWidth: .infinity) // 占用剩余宽度
+                    .padding(.top, 1)
+                    
+                    }
+                    .padding(10)
+                    .background(Theme.contentBackgroundColor)
+                    .cornerRadius(12)
+                    .padding(5)
+
+                PlayListRightView(models: $display.screens, selectedIndex: $selectedIndex,  currentMode: $playMode)
+                    .frame(maxWidth: 300,maxHeight: .infinity)
+                    .padding(10)
+                    .background(Theme.settingsBackgroundColor)
+                    .cornerRadius(12)
+                    .padding(5)
+
+            }.background(Theme.backgroundColor)
+                .onAppear {
+                    updateWindowDraggableState()
                 }
-                .padding(10)
-                .background(Theme.contentBackgroundColor)
-                .cornerRadius(12)
-                .padding(5)
+                .onDisappear {
+                    resetWindowDraggableState()
+                }
 
-            PlayListRightView(models: $display.screens, selectedIndex: $selectedIndex,  currentMode: $playMode)
-                .frame(maxWidth: 300,maxHeight: .infinity)
-                .padding(10)
-                .background(Theme.settingsBackgroundColor)
-                .cornerRadius(12)
-                .padding(5)
-
-        }.background(Theme.backgroundColor)
-            .onAppear {
-                updateWindowDraggableState()
-            }
-            .onDisappear {
-                resetWindowDraggableState()
-            }
+        }
         
     }
     

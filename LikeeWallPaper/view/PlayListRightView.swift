@@ -27,7 +27,7 @@ struct PlayListRightView: View {
         VStack(alignment: .leading){
             Text("循环设置")
                 .font(.title3)
-                .foregroundColor(Theme.textColor)
+                .foregroundColor(Theme.PrimaryTextColor)
                 .padding(10)
                 .cornerRadius(10)
             LazyHGrid(rows: tagsConf, spacing: 16) {
@@ -61,13 +61,13 @@ struct PlayListRightView: View {
             }.padding(5)
             Text("切换设置")
                 .font(.title3)
-                .foregroundColor(Theme.textColor)
+                .foregroundColor(Theme.PrimaryTextColor)
                 .padding(10)
                 .cornerRadius(10)
             TimeProgressView(progress: $switchTime)
             Text("显示设置")
                 .font(.title3)
-                .foregroundColor(Theme.textColor)
+                .foregroundColor(Theme.PrimaryTextColor)
                 .padding(10)
                 .cornerRadius(10)
             LazyVGrid(columns: Array(repeating: GridItem(.fixed(130), spacing: 10), count: 2), spacing: 10) {
@@ -80,7 +80,7 @@ struct PlayListRightView: View {
                             .scaleEffect(selectedIndex == index ? 1.05 : 1)
                             .animation(.easeInOut(duration: 0.2), value: selectedIndex) // 绑定动画到 selectedIndex
                         Text(models[index].name).font(.system(size: 13))
-                            .foregroundColor(Theme.textColor)
+                            .foregroundColor(Theme.SecondaryTextColor)
                             .padding(2)
                             .cornerRadius(10)
                         Spacer()

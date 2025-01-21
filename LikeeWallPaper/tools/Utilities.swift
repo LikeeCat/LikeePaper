@@ -883,7 +883,7 @@ class PaperPlayList: ObservableObject {
     @Published var tags: Set<String> = []
     
     static func sortPaper()->[PaperInfo] {
-        return Papers.shared.all
+        let result =  Papers.shared.all
             .filter { info in
                 PlayListManager.getPlayList().contains { playList in
                     playList.local == info.local && playList.name == info.image.lastPathComponent
@@ -899,6 +899,7 @@ class PaperPlayList: ObservableObject {
                 }
                 return index1 < index2
             }
+        return result
     }
     
     func updatePaper(){
@@ -984,8 +985,8 @@ class Papers: ObservableObject {
         }
         let embed = getAllMP4FilePaths(inBundleAtPath: defaultVideosPath)
         let userSetting = FileBookmarkManager.shared.accessFileFromBookmark()
-        
-        return (embed.info + userSetting.info, embed.tag.union(userSetting.tag))
+        let userSelectSetting = FileBookmarkManager.shared.accessFileFromBookmark(userSetting: true)
+        return (embed.info + userSetting.info + userSelectSetting.info, (embed.tag.union(userSetting.tag)).union(userSelectSetting.tag))
     }
     
     

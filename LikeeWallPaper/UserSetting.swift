@@ -24,10 +24,8 @@ struct playListSetting:Codable, Defaults.Serializable, Hashable{
 extension Defaults.Keys {
     // play state
     static let isStopPlayWhenBattery = Key<Bool>("isStopPlayWhenBattery", default: true)
-    static let isStopPlayWhenDeactivity = Key<Bool>("isStopPlayWhenDeactivity", default: true)
-    static let isStopPlayWhenFullScreen = Key<Bool>("isStopPlayWhenFullScreen", default: true)
+    static let isStopPlayWhenDeactivity = Key<Bool>("isStopPlayWhenDeactivity", default: false)
     static let isLaunchAtStartUP = Key<Bool>("isLaunchAtStartUP", default: false)
-    
     static let volume = Key<Float>("volume", default: 0.5)
     static let isMuted = Key<Bool>("isMuted", default: true)
     // update state
@@ -37,6 +35,7 @@ extension Defaults.Keys {
     static let defaultScreenSetting = Key<ScreenSetting>("defaultScreenSetting", default: ScreenSetting(screenName: NSScreen.main!.localizedName, screenId: NSScreen.main!.id, screenAssetUrl: ""))
     // default folder setting
     static let defaultPaperFolder = Key<String>("defaultPaperFolder", default: "")
+    static let userSelectPath = Key<String>("userSelectPath", default: "")
     static let playListSetting = Key<[playListSetting]>("playListSetting", default: [])
     static let playListMode = Key<String>("playListMode", default: "single")
     static let playListSwitchTime = Key<Double>("playListSwitchTime", default: 1.0)

@@ -80,6 +80,11 @@ struct Theme {
     static var settingsBackgroundColor: Color {
         return Color("SettingsBackgroundColor")
     }
+    
+    static var tagBackgroundColor: Color {
+        return Color("TagBackgroundColor")
+    }
+
     // 设置的阴影色
     static var settingsShadowColor: Color {
         return Color("SettingsShadowColor")

@@ -41,28 +41,29 @@
 		FCA874DD2D3637A2003165D5 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA874DC2D3637A2003165D5 /* TimerManager.swift */; };
 		FCA8761F2D37A2F9003165D5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8761E2D37A2F5003165D5 /* Alert.swift */; };
 		FCA8772E2D39E86D003165D5 /* DisplayMonitorObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8772D2D39E85C003165D5 /* DisplayMonitorObserver.swift */; };
+		FCD9C1F02D3F4C0400350FA0 /* PhilosophicalQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD9C1EF2D3F4C0200350FA0 /* PhilosophicalQuotes.swift */; };
+		FCD9C2282D3F549C00350FA0 /* 动物-鸟-食物-Ranndp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21B2D3F549C00350FA0 /* 动物-鸟-食物-Ranndp.mp4 */; };
+		FCD9C2292D3F549C00350FA0 /* 动物-猫-宠物-Raneud.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21A2D3F549C00350FA0 /* 动物-猫-宠物-Raneud.mp4 */; };
+		FCD9C22A2D3F549C00350FA0 /* 雨-风暴-湿滑-Ranqpj.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2252D3F549C00350FA0 /* 雨-风暴-湿滑-Ranqpj.mp4 */; };
+		FCD9C22B2D3F549C00350FA0 /* 猫-花园-动物-Rankvk.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2222D3F549C00350FA0 /* 猫-花园-动物-Rankvk.mp4 */; };
+		FCD9C22C2D3F549C00350FA0 /* 海滩-海洋-日落-Ranilc.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2212D3F549C00350FA0 /* 海滩-海洋-日落-Ranilc.mp4 */; };
+		FCD9C22D2D3F549C00350FA0 /* 海浪-海岸-风暴-Ranule.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21E2D3F549C00350FA0 /* 海浪-海岸-风暴-Ranule.mp4 */; };
+		FCD9C22E2D3F549C00350FA0 /* 雪-森林-自然-Ranjdv.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2262D3F549C00350FA0 /* 雪-森林-自然-Ranjdv.mp4 */; };
+		FCD9C22F2D3F549C00350FA0 /* 冬天-雪-森林-Ranhqv.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2182D3F549C00350FA0 /* 冬天-雪-森林-Ranhqv.mp4 */; };
+		FCD9C2302D3F549C00350FA0 /* 雨-街道-雨滴-Ranxdg.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2242D3F549C00350FA0 /* 雨-街道-雨滴-Ranxdg.mp4 */; };
+		FCD9C2312D3F549C00350FA0 /* 森林-雾-山脉-Ranusi.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21D2D3F549C00350FA0 /* 森林-雾-山脉-Ranusi.mp4 */; };
+		FCD9C2322D3F549C00350FA0 /* 宠物-猫-动物-Ranabm.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21C2D3F549C00350FA0 /* 宠物-猫-动物-Ranabm.mp4 */; };
+		FCD9C2332D3F549C00350FA0 /* 海滩-夏天-海洋-Ranwwz.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2202D3F549C00350FA0 /* 海滩-夏天-海洋-Ranwwz.mp4 */; };
+		FCD9C2342D3F549C00350FA0 /* 冬天-森林-雪-Rankux.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2162D3F549C00350FA0 /* 冬天-森林-雪-Rankux.mp4 */; };
+		FCD9C2352D3F549C00350FA0 /* 冬天-雪-树木-Ranlgs.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2172D3F549C00350FA0 /* 冬天-雪-树木-Ranlgs.mp4 */; };
+		FCD9C2362D3F549C00350FA0 /* 秋天-森林-树木-Ranyyp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2232D3F549C00350FA0 /* 秋天-森林-树木-Ranyyp.mp4 */; };
+		FCD9C2372D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21F2D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 */; };
+		FCD9C2382D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2192D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 */; };
+		FCD9C23A2D3F54D300350FA0 /* videos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2392D3F54D300350FA0 /* videos.bundle */; };
 		FCDA43032D2B862B001B03D9 /* BatteryDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */; };
 		FCDA43052D2BB0FC001B03D9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43042D2BB0FC001B03D9 /* Theme.swift */; };
 		FCDA43072D2BCF8A001B03D9 /* FileBookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */; };
 		FCE6E2322D3CC4E3006F7471 /* HelperToolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6E2312D3CC4DB006F7471 /* HelperToolManager.swift */; };
-		FCFB5C8C2D3D207C00839F60 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7E2D3D1FF700839F60 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 */; };
-		FCFB5C8D2D3D207C00839F60 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C762D3D1FF700839F60 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 */; };
-		FCFB5C8E2D3D207C00839F60 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C802D3D1FF700839F60 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 */; };
-		FCFB5C8F2D3D207C00839F60 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C722D3D1FF700839F60 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 */; };
-		FCFB5C902D3D207C00839F60 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C812D3D1FF700839F60 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 */; };
-		FCFB5C912D3D207C00839F60 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C792D3D1FF700839F60 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 */; };
-		FCFB5C922D3D207C00839F60 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7C2D3D1FF700839F60 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 */; };
-		FCFB5C932D3D207C00839F60 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C732D3D1FF700839F60 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 */; };
-		FCFB5C942D3D207C00839F60 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C742D3D1FF700839F60 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 */; };
-		FCFB5C952D3D207C00839F60 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7B2D3D1FF700839F60 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 */; };
-		FCFB5C962D3D207C00839F60 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C752D3D1FF700839F60 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 */; };
-		FCFB5C972D3D207C00839F60 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7D2D3D1FF700839F60 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 */; };
-		FCFB5C982D3D207C00839F60 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7F2D3D1FF700839F60 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 */; };
-		FCFB5C992D3D207C00839F60 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C822D3D1FF700839F60 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 */; };
-		FCFB5C9A2D3D207C00839F60 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C7A2D3D1FF700839F60 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 */; };
-		FCFB5C9B2D3D207C00839F60 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C782D3D1FF700839F60 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 */; };
-		FCFB5C9C2D3D207C00839F60 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C772D3D1FF700839F60 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 */; };
-		FCFB5C9E2D3D20A100839F60 /* videos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCFB5C9D2D3D20A100839F60 /* videos.bundle */; };
 		FCFBFD0C2D3B48990052C815 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBFD0B2D3B48990052C815 /* DocumentManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,30 +124,31 @@
 		FCA874DC2D3637A2003165D5 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		FCA8761E2D37A2F5003165D5 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		FCA8772D2D39E85C003165D5 /* DisplayMonitorObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMonitorObserver.swift; sourceTree = "<group>"; };
+		FCD9C1EF2D3F4C0200350FA0 /* PhilosophicalQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhilosophicalQuotes.swift; sourceTree = "<group>"; };
+		FCD9C2162D3F549C00350FA0 /* 冬天-森林-雪-Rankux.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "冬天-森林-雪-Rankux.mp4"; sourceTree = "<group>"; };
+		FCD9C2172D3F549C00350FA0 /* 冬天-雪-树木-Ranlgs.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "冬天-雪-树木-Ranlgs.mp4"; sourceTree = "<group>"; };
+		FCD9C2182D3F549C00350FA0 /* 冬天-雪-森林-Ranhqv.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "冬天-雪-森林-Ranhqv.mp4"; sourceTree = "<group>"; };
+		FCD9C2192D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "动物-猫-宠物-Ranbqi.mp4"; sourceTree = "<group>"; };
+		FCD9C21A2D3F549C00350FA0 /* 动物-猫-宠物-Raneud.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "动物-猫-宠物-Raneud.mp4"; sourceTree = "<group>"; };
+		FCD9C21B2D3F549C00350FA0 /* 动物-鸟-食物-Ranndp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "动物-鸟-食物-Ranndp.mp4"; sourceTree = "<group>"; };
+		FCD9C21C2D3F549C00350FA0 /* 宠物-猫-动物-Ranabm.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "宠物-猫-动物-Ranabm.mp4"; sourceTree = "<group>"; };
+		FCD9C21D2D3F549C00350FA0 /* 森林-雾-山脉-Ranusi.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "森林-雾-山脉-Ranusi.mp4"; sourceTree = "<group>"; };
+		FCD9C21E2D3F549C00350FA0 /* 海浪-海岸-风暴-Ranule.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "海浪-海岸-风暴-Ranule.mp4"; sourceTree = "<group>"; };
+		FCD9C21F2D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "海浪-海洋-水花-Ranuvb.mp4"; sourceTree = "<group>"; };
+		FCD9C2202D3F549C00350FA0 /* 海滩-夏天-海洋-Ranwwz.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "海滩-夏天-海洋-Ranwwz.mp4"; sourceTree = "<group>"; };
+		FCD9C2212D3F549C00350FA0 /* 海滩-海洋-日落-Ranilc.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "海滩-海洋-日落-Ranilc.mp4"; sourceTree = "<group>"; };
+		FCD9C2222D3F549C00350FA0 /* 猫-花园-动物-Rankvk.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "猫-花园-动物-Rankvk.mp4"; sourceTree = "<group>"; };
+		FCD9C2232D3F549C00350FA0 /* 秋天-森林-树木-Ranyyp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "秋天-森林-树木-Ranyyp.mp4"; sourceTree = "<group>"; };
+		FCD9C2242D3F549C00350FA0 /* 雨-街道-雨滴-Ranxdg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "雨-街道-雨滴-Ranxdg.mp4"; sourceTree = "<group>"; };
+		FCD9C2252D3F549C00350FA0 /* 雨-风暴-湿滑-Ranqpj.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "雨-风暴-湿滑-Ranqpj.mp4"; sourceTree = "<group>"; };
+		FCD9C2262D3F549C00350FA0 /* 雪-森林-自然-Ranjdv.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "雪-森林-自然-Ranjdv.mp4"; sourceTree = "<group>"; };
+		FCD9C2392D3F54D300350FA0 /* videos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = videos.bundle; sourceTree = "<group>"; };
 		FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryDisplayManager.swift; sourceTree = "<group>"; };
 		FCDA43042D2BB0FC001B03D9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarkManager.swift; sourceTree = "<group>"; };
 		FCE6E2062D3CC25F006F7471 /* LivePaperHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LivePaperHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE6E2312D3CC4DB006F7471 /* HelperToolManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperToolManager.swift; sourceTree = "<group>"; };
-		FCFB5C722D3D1FF700839F60 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C732D3D1FF700839F60 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C742D3D1FF700839F60 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C752D3D1FF700839F60 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C762D3D1FF700839F60 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C772D3D1FF700839F60 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C782D3D1FF700839F60 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C792D3D1FF700839F60 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C7A2D3D1FF700839F60 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C7B2D3D1FF700839F60 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C7C2D3D1FF700839F60 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C7D2D3D1FF700839F60 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C7E2D3D1FF700839F60 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C7F2D3D1FF700839F60 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C802D3D1FF700839F60 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C812D3D1FF700839F60 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4"; sourceTree = "<group>"; };
-		FCFB5C822D3D1FF700839F60 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4"; sourceTree = "<group>"; };
 		FCFB5C882D3D207200839F60 /* videos.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = videos.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCFB5C9D2D3D20A100839F60 /* videos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = videos.bundle; sourceTree = "<group>"; };
 		FCFBFD0A2D3B46630052C815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FCFBFD0B2D3B48990052C815 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +210,7 @@
 		FC02546F2D2B6B50008995FE /* model */ = {
 			isa = PBXGroup;
 			children = (
+				FCD9C1EF2D3F4C0200350FA0 /* PhilosophicalQuotes.swift */,
 				FCA8772D2D39E85C003165D5 /* DisplayMonitorObserver.swift */,
 				FCDA43042D2BB0FC001B03D9 /* Theme.swift */,
 				FCA874D62D34FE33003165D5 /* PlaybackMode.swift */,
@@ -278,8 +281,8 @@
 		FC97ED7E29A4A0E400425AFB = {
 			isa = PBXGroup;
 			children = (
-				FCFB5C9D2D3D20A100839F60 /* videos.bundle */,
-				FCFB5C832D3D202600839F60 /* video */,
+				FCD9C2392D3F54D300350FA0 /* videos.bundle */,
+				FCD9C2272D3F549C00350FA0 /* videos 2 */,
 				FC32F0412D3D17250018B327 /* LivePaperHelper.app */,
 				FC97ED8929A4A0E400425AFB /* LikeeWallPaper */,
 				FC97ED9B29A4A0E600425AFB /* LikeeWallPaperTests */,
@@ -357,28 +360,28 @@
 			path = window;
 			sourceTree = "<group>";
 		};
-		FCFB5C832D3D202600839F60 /* video */ = {
+		FCD9C2272D3F549C00350FA0 /* videos 2 */ = {
 			isa = PBXGroup;
 			children = (
-				FCFB5C722D3D1FF700839F60 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 */,
-				FCFB5C732D3D1FF700839F60 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 */,
-				FCFB5C742D3D1FF700839F60 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 */,
-				FCFB5C752D3D1FF700839F60 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 */,
-				FCFB5C762D3D1FF700839F60 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 */,
-				FCFB5C772D3D1FF700839F60 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 */,
-				FCFB5C782D3D1FF700839F60 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 */,
-				FCFB5C792D3D1FF700839F60 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 */,
-				FCFB5C7A2D3D1FF700839F60 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 */,
-				FCFB5C7B2D3D1FF700839F60 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 */,
-				FCFB5C7C2D3D1FF700839F60 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 */,
-				FCFB5C7D2D3D1FF700839F60 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 */,
-				FCFB5C7E2D3D1FF700839F60 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 */,
-				FCFB5C7F2D3D1FF700839F60 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 */,
-				FCFB5C802D3D1FF700839F60 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 */,
-				FCFB5C812D3D1FF700839F60 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 */,
-				FCFB5C822D3D1FF700839F60 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 */,
+				FCD9C2162D3F549C00350FA0 /* 冬天-森林-雪-Rankux.mp4 */,
+				FCD9C2172D3F549C00350FA0 /* 冬天-雪-树木-Ranlgs.mp4 */,
+				FCD9C2182D3F549C00350FA0 /* 冬天-雪-森林-Ranhqv.mp4 */,
+				FCD9C2192D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 */,
+				FCD9C21A2D3F549C00350FA0 /* 动物-猫-宠物-Raneud.mp4 */,
+				FCD9C21B2D3F549C00350FA0 /* 动物-鸟-食物-Ranndp.mp4 */,
+				FCD9C21C2D3F549C00350FA0 /* 宠物-猫-动物-Ranabm.mp4 */,
+				FCD9C21D2D3F549C00350FA0 /* 森林-雾-山脉-Ranusi.mp4 */,
+				FCD9C21E2D3F549C00350FA0 /* 海浪-海岸-风暴-Ranule.mp4 */,
+				FCD9C21F2D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 */,
+				FCD9C2202D3F549C00350FA0 /* 海滩-夏天-海洋-Ranwwz.mp4 */,
+				FCD9C2212D3F549C00350FA0 /* 海滩-海洋-日落-Ranilc.mp4 */,
+				FCD9C2222D3F549C00350FA0 /* 猫-花园-动物-Rankvk.mp4 */,
+				FCD9C2232D3F549C00350FA0 /* 秋天-森林-树木-Ranyyp.mp4 */,
+				FCD9C2242D3F549C00350FA0 /* 雨-街道-雨滴-Ranxdg.mp4 */,
+				FCD9C2252D3F549C00350FA0 /* 雨-风暴-湿滑-Ranqpj.mp4 */,
+				FCD9C2262D3F549C00350FA0 /* 雪-森林-自然-Ranjdv.mp4 */,
 			);
-			path = video;
+			path = "videos 2";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,7 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC97ED9229A4A0E600425AFB /* Preview Assets.xcassets in Resources */,
-				FCFB5C9E2D3D20A100839F60 /* videos.bundle in Resources */,
+				FCD9C23A2D3F54D300350FA0 /* videos.bundle in Resources */,
 				FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,23 +574,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCFB5C8C2D3D207C00839F60 /* waves-coastline-nature-wave-blue-rocks-storm-9716-full.mp4 in Resources */,
-				FCFB5C8D2D3D207C00839F60 /* beach-ocean-water-wave-sea-sunset-nature-64112-full.mp4 in Resources */,
-				FCFB5C8E2D3D207C00839F60 /* winter-landscape-forest-nature-snow-winter-nature-61129-full.mp4 in Resources */,
-				FCFB5C8F2D3D207C00839F60 /* animal-feline-domestic-cat-kitten-pets-cat-whiskers-11245-full.mp4 in Resources */,
-				FCFB5C902D3D207C00839F60 /* winter-wind-snow-forest-snow-outdoors-foggy-54710-full.mp4 in Resources */,
-				FCFB5C912D3D207C00839F60 /* forest-fog-mountain-snow-winter-snow-outdoors-55315-full.mp4 in Resources */,
-				FCFB5C922D3D207C00839F60 /* sea-summer-nature-blue-sand-beach-vacations-22445-full.mp4 in Resources */,
-				FCFB5C932D3D207C00839F60 /* animal-food-branch-bird-animals-in-the-wild-nature-tree-162143-full.mp4 in Resources */,
-				FCFB5C942D3D207C00839F60 /* animal-nature-feline-animal-domestic-cat-cat-pet-105854-full.mp4 in Resources */,
-				FCFB5C952D3D207C00839F60 /* rain-wet-sidewalk-storm-raindrop-drop-rain-7347-full.mp4 in Resources */,
-				FCFB5C962D3D207C00839F60 /* autumn-autumn-trees-forest-nature-outdoors-tree-121213-full.mp4 in Resources */,
-				FCFB5C972D3D207C00839F60 /* snow-road-outdoors-trees-nature-forest-snow-55137-full.mp4 in Resources */,
-				FCFB5C982D3D207C00839F60 /* waves-water-ocean-splash-nature-outdoors-wave-221512-full.mp4 in Resources */,
-				FCFB5C992D3D207C00839F60 /* winter-winter-magic-snow-snow-tree-nature-winter-5274-full.mp4 in Resources */,
-				FCFB5C9A2D3D207C00839F60 /* rain-storm-wet-water-rain-backgrounds-no-people-711-full.mp4 in Resources */,
-				FCFB5C9B2D3D207C00839F60 /* domestic-cat-feline-garden-animal-cute-cat-animal-105656-full.mp4 in Resources */,
-				FCFB5C9C2D3D207C00839F60 /* cute-pets-nature-cat-animal-animal-domestic-cat-10533-full.mp4 in Resources */,
+				FCD9C2282D3F549C00350FA0 /* 动物-鸟-食物-Ranndp.mp4 in Resources */,
+				FCD9C2292D3F549C00350FA0 /* 动物-猫-宠物-Raneud.mp4 in Resources */,
+				FCD9C22A2D3F549C00350FA0 /* 雨-风暴-湿滑-Ranqpj.mp4 in Resources */,
+				FCD9C22B2D3F549C00350FA0 /* 猫-花园-动物-Rankvk.mp4 in Resources */,
+				FCD9C22C2D3F549C00350FA0 /* 海滩-海洋-日落-Ranilc.mp4 in Resources */,
+				FCD9C22D2D3F549C00350FA0 /* 海浪-海岸-风暴-Ranule.mp4 in Resources */,
+				FCD9C22E2D3F549C00350FA0 /* 雪-森林-自然-Ranjdv.mp4 in Resources */,
+				FCD9C22F2D3F549C00350FA0 /* 冬天-雪-森林-Ranhqv.mp4 in Resources */,
+				FCD9C2302D3F549C00350FA0 /* 雨-街道-雨滴-Ranxdg.mp4 in Resources */,
+				FCD9C2312D3F549C00350FA0 /* 森林-雾-山脉-Ranusi.mp4 in Resources */,
+				FCD9C2322D3F549C00350FA0 /* 宠物-猫-动物-Ranabm.mp4 in Resources */,
+				FCD9C2332D3F549C00350FA0 /* 海滩-夏天-海洋-Ranwwz.mp4 in Resources */,
+				FCD9C2342D3F549C00350FA0 /* 冬天-森林-雪-Rankux.mp4 in Resources */,
+				FCD9C2352D3F549C00350FA0 /* 冬天-雪-树木-Ranlgs.mp4 in Resources */,
+				FCD9C2362D3F549C00350FA0 /* 秋天-森林-树木-Ranyyp.mp4 in Resources */,
+				FCD9C2372D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 in Resources */,
+				FCD9C2382D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +613,7 @@
 				FC61BEEB29AC4E5B00C6384F /* BatteryManager.swift in Sources */,
 				FCFBFD0C2D3B48990052C815 /* DocumentManager.swift in Sources */,
 				FC61BEE829A9D9CA00C6384F /* VolumentSettingController.swift in Sources */,
+				FCD9C1F02D3F4C0400350FA0 /* PhilosophicalQuotes.swift in Sources */,
 				FCA873932D31084D003165D5 /* PlayListManager.swift in Sources */,
 				FCE6E2322D3CC4E3006F7471 /* HelperToolManager.swift in Sources */,
 				FCA874D72D34FE33003165D5 /* PlaybackMode.swift in Sources */,

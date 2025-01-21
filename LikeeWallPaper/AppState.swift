@@ -128,7 +128,6 @@ final class AppState: ObservableObject{
     }
     
     func updateSingleWallPaper(screen:NSScreen, asset: String){
-        print("error: updateSingleWallPaper +++++++++++")
 
         creatPaperWindow(screen: screen, asset: asset)
         updatePlay(state: BatteryManager.shared.playState)
@@ -197,20 +196,20 @@ extension AppState{
             return
         }
         
-//        if let index = screenManagers.firstIndex (where: { sc in
-//            sc.display?.screen?.id == screen.id
-//        }) {
-//            screenManagers[index].cleanUp()
-//            screenManagers.remove(at: index)
+        if let index = screenManagers.firstIndex (where: { sc in
+            sc.display?.screen?.id == screen.id
+        }) {
+            screenManagers[index].cleanUp()
+            screenManagers.remove(at: index)
+        }
+        creatScreenManager(screen: screen, asset: asset)
+//        let filterResult = screenManagers.filter({$0.display?.screen?.id == screen.id})
+//        if filterResult.isEmpty{
+//            creatScreenManager(screen: screen, asset: asset)
 //        }
-//        creatScreenManager(screen: screen, asset: asset)
-        let filterResult = screenManagers.filter({$0.display?.screen?.id == screen.id})
-        if filterResult.isEmpty{
-            creatScreenManager(screen: screen, asset: asset)
-        }
-        else{
-            updateScreenManager(screen: screen, asset: asset, screenManager:filterResult[0])
-        }
+//        else{
+//            updateScreenManager(screen: screen, asset: asset, screenManager:filterResult[0])
+//        }
 
     }
 }

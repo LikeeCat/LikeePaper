@@ -44,6 +44,20 @@ struct FilterView: View {
                                     }
                                 }
                         }
+                        Spacer()
+                        Text(PhilosophicalQuotes.randomQuote())
+                            .font(.system(size: 20, weight: .bold, design: .rounded)) // 超大字体
+                            .foregroundStyle(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [
+                                                   Color(red: 1.0, green: 0.8, blue: 0.6), // 温暖的米黄色
+                                                   Color(red: 1.0, green: 0.9, blue: 0.7)  // 轻微的浅橙色
+                                               ]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+
                     }
                     .padding(.top, 10)
                     .padding(.leading, 10)
@@ -60,19 +74,22 @@ struct FilterView: View {
             .onAppear{
                 print("this is the play list \(playList.papers.count)")
             }
-
+            
             Text("LivePaper")
                 .font(.system(size: 30, weight: .bold, design: .rounded)) // 超大字体
                 .foregroundStyle(
                     LinearGradient(
-                        gradient: Gradient(colors: [Color("AccentColor"), Color("SecondaryTextColor")]),
+                        gradient: Gradient(colors: [
+                                        Color(red: 0.6, green: 0.6, blue: 0.6), // 中性灰色，低调且不干扰
+                                        Color(red: 0.9, green: 0.9, blue: 0.9)  // 轻微的灰白色
+                                    ]),
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
                 )
-                .padding()
-                .frame(maxWidth: .infinity, alignment: .topTrailing) // 定位到右上角
-                .offset(x: -20, y: -30) // 微调位置
+                .padding(10)
+                .frame(maxWidth: 180, alignment: .topTrailing) // 定位到右上角
+                .offset(x: -20, y: -20) // 微调位置
                 
         }
     }

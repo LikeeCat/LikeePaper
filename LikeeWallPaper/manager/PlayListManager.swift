@@ -46,6 +46,7 @@ struct PlayListManager {
             }
             Defaults[.playListSetting] = currentArray
             PaperPlayList.shared.updatePaper()
+            return 
         }
         
         if currentArray.first(where: { setting in
