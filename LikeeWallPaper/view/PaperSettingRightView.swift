@@ -110,6 +110,11 @@ struct PaperSettingRightView: View{
             ).onChange({ newValue in
                 PaperManager.sharedPaperManager.isUpdateAll(isUpdateAll: newValue)
             }).padding(.leading,10)
+            
+            HelperButtonView()
+                .padding(.leading, 5)
+                .padding(.vertical, 10)
+
             Spacer().frame(minHeight: 10)
 
         }

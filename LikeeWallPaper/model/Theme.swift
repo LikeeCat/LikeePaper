@@ -65,7 +65,7 @@ struct Theme {
     
     // 禁用色
     static var infoTextColor: Color {
-        return Color("InfoTextColor")
+        return Color("infoTextColor")
     }
     
     // 内容背景色

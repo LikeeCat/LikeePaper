@@ -60,6 +60,7 @@
 		FCD9C2372D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21F2D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 */; };
 		FCD9C2382D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2192D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 */; };
 		FCD9C23A2D3F54D300350FA0 /* videos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2392D3F54D300350FA0 /* videos.bundle */; };
+		FCD9C23C2D3F748300350FA0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD9C23B2D3F747B00350FA0 /* Helper.swift */; };
 		FCDA43032D2B862B001B03D9 /* BatteryDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */; };
 		FCDA43052D2BB0FC001B03D9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43042D2BB0FC001B03D9 /* Theme.swift */; };
 		FCDA43072D2BCF8A001B03D9 /* FileBookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */; };
@@ -143,6 +144,7 @@
 		FCD9C2252D3F549C00350FA0 /* 雨-风暴-湿滑-Ranqpj.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "雨-风暴-湿滑-Ranqpj.mp4"; sourceTree = "<group>"; };
 		FCD9C2262D3F549C00350FA0 /* 雪-森林-自然-Ranjdv.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "雪-森林-自然-Ranjdv.mp4"; sourceTree = "<group>"; };
 		FCD9C2392D3F54D300350FA0 /* videos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = videos.bundle; sourceTree = "<group>"; };
+		FCD9C23B2D3F747B00350FA0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryDisplayManager.swift; sourceTree = "<group>"; };
 		FCDA43042D2BB0FC001B03D9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		FCDA43062D2BCF8A001B03D9 /* FileBookmarkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBookmarkManager.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		FCD9C23D2D3F91CE00350FA0 /* assets */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = assets; sourceTree = "<group>"; };
 		FCE6E2072D3CC25F006F7471 /* LikeeWallPaperHelper */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FCE6E2342D3CC99A006F7471 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = LikeeWallPaperHelper; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -221,6 +224,7 @@
 		FC5EECD82D0BD4CE00B4F8AA /* view */ = {
 			isa = PBXGroup;
 			children = (
+				FCD9C23B2D3F747B00350FA0 /* Helper.swift */,
 				FCA8761E2D37A2F5003165D5 /* Alert.swift */,
 				FCA873902D30F3DA003165D5 /* PlayListSettingView.swift */,
 				FC0254702D2B6C73008995FE /* PaperSettingRightView.swift */,
@@ -308,6 +312,7 @@
 		FC97ED8929A4A0E400425AFB /* LikeeWallPaper */ = {
 			isa = PBXGroup;
 			children = (
+				FCD9C23D2D3F91CE00350FA0 /* assets */,
 				FCFBFD0A2D3B46630052C815 /* Info.plist */,
 				FC02546F2D2B6B50008995FE /* model */,
 				FC5EECDB2D0BD56300B4F8AA /* manager */,
@@ -398,6 +403,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				FCD9C23D2D3F91CE00350FA0 /* assets */,
 			);
 			name = LikeeWallPaper;
 			packageProductDependencies = (
@@ -623,6 +631,7 @@
 				FC97EDB829A4A1C200425AFB /* PaperPlayerView.swift in Sources */,
 				FC97ED8B29A4A0E400425AFB /* LikeeWallPaperApp.swift in Sources */,
 				FCA8761F2D37A2F9003165D5 /* Alert.swift in Sources */,
+				FCD9C23C2D3F748300350FA0 /* Helper.swift in Sources */,
 				FC97EDB629A4A1B100425AFB /* PaperPlayerController.swift in Sources */,
 				FC97EDC729A60AD800425AFB /* Menus.swift in Sources */,
 				FCA874DD2D3637A2003165D5 /* TimerManager.swift in Sources */,
