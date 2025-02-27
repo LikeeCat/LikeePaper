@@ -23,6 +23,7 @@ class TimerManager: ObservableObject {
     
     var switchType: PlaybackMode = (PlaybackMode(rawValue: Defaults[.playListMode]) ?? .single) {
         didSet{
+            print("++++++++++++, enter herr")
             if switchType == .single {
                 invalidate()
             }
@@ -36,7 +37,7 @@ class TimerManager: ObservableObject {
     
     func invalidate(){
         timer?.invalidate()
-//        changeWallpaper()
+        changeWallpaper()
 
     }
     
@@ -49,7 +50,7 @@ class TimerManager: ObservableObject {
     private func rebuildTimer() {
         // 停止现有定时器
         timer?.invalidate()
-//        changeWallpaper()
+        changeWallpaper()
         // 重建定时器
         startWallpaperChangeTimer()
         // 立即执行一次
@@ -58,7 +59,7 @@ class TimerManager: ObservableObject {
 //    *3600
     
     private func startWallpaperChangeTimer() {
-        timer = Timer.scheduledTimer(timeInterval: switchTime * 3600 , target: self, selector: #selector(changeWallpaper), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: switchTime * 15 , target: self, selector: #selector(changeWallpaper), userInfo: nil, repeats: true)
     }
     
     // 切换壁纸的操作

@@ -20,7 +20,7 @@ class PlayerView: NSView {
         if layer == nil{
            layer =  CALayer()
            layer?.contents = cacheImage  // 设置背景图片
-           layer?.contentsGravity = .resizeAspectFill  // 适配图片填充
+           layer?.contentsGravity = .resize  // 适配图片填充
         }
         
         if player != nil{

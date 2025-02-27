@@ -80,11 +80,29 @@ class PaperPlayerController: NSViewController {
         }
         
         assetUrl = url
-        
         let playerItem = AVPlayerItem(asset: aset)
-        queuePlayer?.replaceCurrentItem(with: playerItem)
+
+        queuePlayer = AVQueuePlayer(playerItem: playerItem)
+
+        avPlayerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: playerItem)
+        
+//        // 5. 保持现有的 AVPlayerLayer
+//        if let playerLayer = playerLayer {
+//        } else {
+//            // 如果没有现有的 playerLayer，则初始化一个新的并添加到视图
+//            playerLayer = AVPlayerLayer(player: queuePlayer)
+//            playerLayer?.videoGravity = .resize
+//            playerLayer?.frame = view.bounds
+//            view.layer?.addSublayer(playerLayer!)
+//        }
+//
+        
+        playerLayer?.player = queuePlayer
+
         if let cacheImage = getBackGroundImage(){
             playerView?.layer?.contents = cacheImage
+            playerView?.layer?.contentsGravity = .resize  // 适配图片填充
+
             queuePlayer?.play()
         }
       
