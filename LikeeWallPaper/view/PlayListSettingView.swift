@@ -99,7 +99,7 @@ struct PlayListSettingView: View {
     
     @MainActor
     private func settingImage(assetUrlString:String){
-        PlayListManager.updatePlayMode(mode: .single)
+        PlayListManager.updatePlayMode(mode: .single, envType: .PlayList)
         playMode = .single
         PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: NSScreen.screens[selectedIndex])
     }

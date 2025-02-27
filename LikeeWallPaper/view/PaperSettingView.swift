@@ -61,7 +61,7 @@ struct FilterView: View {
                     }
                     .padding(.top, 10)
                     .padding(.leading, 10)
-                }
+                }.frame(width: .infinity)
                 
                 if selectedTab == "壁纸中心" {
                     PaperView().environmentObject(playList)
@@ -220,7 +220,7 @@ private struct PaperView: View{
         
     @MainActor
     private func settingImage(assetUrlString:String){
-        PlayListManager.updatePlayMode(mode: .single)
+        PlayListManager.updatePlayMode(mode: .single, envType: .paperCenter)
         PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: DisplayMonitorObserver.shared.defaultScreens[selectedIndex])
     }
     

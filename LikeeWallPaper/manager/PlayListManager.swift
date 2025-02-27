@@ -26,7 +26,8 @@ struct PlayListManager {
         } ?? PlaybackMode.single
     }
     
-    static func updatePlayMode(mode: PlaybackMode) {
+    static func updatePlayMode(mode: PlaybackMode, envType: EnvType) {
+        TimerManager.shared.envType = envType
         TimerManager.shared.switchType = mode
         Defaults[.playListMode] = mode.rawValue
     }

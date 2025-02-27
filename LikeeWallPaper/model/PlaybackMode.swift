@@ -6,6 +6,10 @@
 //
 
 import Foundation
+enum EnvType {
+    case paperCenter
+    case PlayList
+}
 
 enum PlaybackMode: String, CaseIterable {
     case single = "single"      // 单个播放

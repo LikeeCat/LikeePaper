@@ -35,7 +35,7 @@ struct PlayListRightView: View {
                     PlayTagView(tag: mode, currentMode: $currentMode) { selectMode in
                         // 点击触发父视图中的标签选择处理函数
                         currentMode = selectMode
-                        PlayListManager.updatePlayMode(mode: selectMode)
+                        PlayListManager.updatePlayMode(mode: selectMode, envType: .PlayList)
                     }
                 }
             }.padding(5)

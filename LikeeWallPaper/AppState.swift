@@ -176,6 +176,8 @@ extension AppState{
         desktopWindow.makeKeyAndOrderFront(self)
         screenManager.audio = ((paper?.audio) != nil)
         screenManagers.append(screenManager)
+
+        
     }
     
     private func updateScreenManager(screen:NSScreen?, asset:String?, screenManager:ScreenManager){
@@ -187,29 +189,21 @@ extension AppState{
         }
         screenManager.playerController?.updateAssetUrl(newAsset: URL.init(string: asset!)!)
         screenManager.audio = ((paper?.audio) != nil)
-        screenManager.window?.contentView = screenManager.playerController?.view
     }
     
     private func creatPaperWindow(screen:NSScreen?, asset:String?){
-        print("error: creatPaperWindow +++++++++++")
         guard let screen = screen else{
             return
         }
-        
-        if let index = screenManagers.firstIndex (where: { sc in
-            sc.display?.screen?.id == screen.id
-        }) {
-            screenManagers[index].cleanUp()
-            screenManagers.remove(at: index)
+
+
+        let filterResult = screenManagers.filter({$0.display?.screen?.id == screen.id})
+        if filterResult.isEmpty{
+            creatScreenManager(screen: screen, asset: asset)
         }
-        creatScreenManager(screen: screen, asset: asset)
-//        let filterResult = screenManagers.filter({$0.display?.screen?.id == screen.id})
-//        if filterResult.isEmpty{
-//            creatScreenManager(screen: screen, asset: asset)
-//        }
-//        else{
-//            updateScreenManager(screen: screen, asset: asset, screenManager:filterResult[0])
-//        }
+        else{
+            updateScreenManager(screen: screen, asset: asset, screenManager:filterResult[0])
+        }
 
     }
 }

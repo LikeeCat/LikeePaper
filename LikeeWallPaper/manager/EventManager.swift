@@ -21,6 +21,13 @@ extension AppState{
             }
             .store(in: &cancellables)
         
+        BatteryManager.willSleepNotification
+            .sink{[self] _ in
+                print("++++ sleep ")
+                AppState.shared.updatePlay(state: .nomal)
+            }.store(in: &cancellables)
+
+        
         BatteryManager.deviceDidWake
             .sink{[self] _ in
                 AppState.shared.updatePlay()
@@ -29,10 +36,7 @@ extension AppState{
         BatteryManager.didChangeScreenParametersNotification
             .sink{[self] _ in
                 handleScreenChangeIfNeeded()
-//                AppState.shared.screenManagers.removeAll()
-//                print("error: didChangeScreenParametersNotification startWallPaper +++++++++++")
-//                AppState.shared.startWallPaper()
-//                BatteryManager.shared.updatePlaying()
+
             }.store(in: &cancellables)
 
         
@@ -55,8 +59,6 @@ extension AppState{
     }
     
     private func handleScreenChange() {
-        print("error: didChangeScreenParametersNotification startWallPaper +++++++++++")
-        
         AppState.shared.screenManagers.forEach { sc in
             sc.cleanUp()
         }

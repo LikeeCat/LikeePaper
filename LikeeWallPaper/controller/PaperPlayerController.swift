@@ -1,111 +1,36 @@
-//
-//  PaperManager.swift
-//  LikeeWallPaper
-//
-//  Created by likeecat on 2023/2/21.
-//
-
 import Foundation
 import AVKit
 import Defaults
-
 import AVFoundation
 
-extension AVPlayer.TimeControlStatus: @retroactive CustomStringConvertible {
-    public var description: String {
-        switch self {
-        case .paused: return "paused"
-        case .waitingToPlayAtSpecifiedRate: return "waitingToPlayAtSpecifiedRate"
-        case .playing: return "playing"
-        @unknown default: return "unknown"
-        }
-    }
-}
-
-
 @MainActor
-class PaperPlayerController:NSViewController{
+class PaperPlayerController: NSViewController {
     
-    //property
-    var volume = Defaults[.volume]{
-        didSet{
-            playerVolume(volume: volume)
-        }
+    var volume = Defaults[.volume] {
+        didSet { playerVolume(volume: volume) }
     }
     
     var cancellables = Set<AnyCancellable>()
     
-    var ismuted = Defaults[.isMuted]{
-        didSet{
-            playermuted(muted: ismuted)
-        }
+    var ismuted = Defaults[.isMuted] {
+        didSet { playermuted(muted: ismuted) }
     }
     
-    //player ref
-    private var playerLayer:AVPlayerLayer?
-    private var avPlayerLooper:AVPlayerLooper?
+    private var playerLayer: AVPlayerLayer?
+    private var avPlayerLooper: AVPlayerLooper?
     private var queuePlayer: AVQueuePlayer?
     
-    //play setting
-    var stop:Bool?{
-        didSet{
-            playerstop()
-        }
+    var stop: Bool? {
+        didSet { playerstop() }
     }
     
-    func releasePlayer() {
-            // 停止播放器
-        queuePlayer?.pause()
-        queuePlayer?.removeAllItems()
-        queuePlayer = nil
-        
-        // 释放循环播放器
-        avPlayerLooper = nil
-        
-        // 释放播放器层
-        playerLayer?.player = nil
-        playerLayer = nil
-        
-        // 清空资源引用
-        assetUrl = nil
-        
-        // 取消订阅
-        cancellables.removeAll()
-        
-        print("Player resources have been released.")
-    }
-        
-        // deinit 方法
-    deinit {
-        // 释放资源时调用 releasePlayer 方法
-        queuePlayer?.pause()
-        queuePlayer?.removeAllItems()
-        queuePlayer = nil
-        
-        // 释放循环播放器
-        avPlayerLooper = nil
-        
-        // 释放播放器层
-        playerLayer?.player = nil
-        playerLayer = nil
-        
-        // 清空资源引用
-        assetUrl = nil
-        
-        // 取消订阅
-        cancellables.removeAll()
-
-        // 打印日志，确认对象销毁
-        print("PaperPlayerController is being deinitialized.")
+    var assetUrl: URL?
+    
+    var isPlay: Bool {
+        playerLayer?.player?.timeControlStatus == .playing
     }
     
-    var isPlay:Bool {
-        get{
-            playerLayer?.player?.timeControlStatus == .playing
-        }
-    }
-    
-    var assetUrl:URL?
+    var playerView: PlayerView?
     
     convenience init(volume: Float = Defaults[.volume], ismuted: Bool = Defaults[.isMuted], playerLayer: AVPlayerLayer? = nil, avPlayerLooper: AVPlayerLooper? = nil, queuePlayer: AVQueuePlayer? = nil, stop: Bool? = nil, assetUrl: URL? = nil) {
         self.init()
@@ -120,21 +45,18 @@ class PaperPlayerController:NSViewController{
         setupEvent()
     }
     
-    func createPlayerView() -> PlayerView{
-        let playerView = PlayerView(player: nil, frame: .zero)
-        return playerView
+    override func loadView() {
+        view = NSView()
     }
     
     private func isURLInSandbox(_ url: URL) -> Bool {
         guard let mainBundlePath = Bundle.main.bundlePath.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
             return false
         }
-        print(NSHomeDirectory())
-        // 检查目标路径是否以 Main Bundle 的路径开头
         return url.path.hasPrefix(mainBundlePath)
     }
+    
     func updateAssetUrl(newAsset: URL) {
-        // 1. 创建新的 AVAsset 和 AVPlayerItem
         var asset: AVAsset?
         
         if !isURLInSandbox(newAsset) {
@@ -142,147 +64,137 @@ class PaperPlayerController:NSViewController{
             FileBookmarkManager.shared.accessFileInFolder(using: newAsset.path, userSetting: userSelectPath == self.assetUrl!.path) { fileURL in
                 if let url = fileURL {
                     asset = AVAsset(url: url)
-                    playWithAsset(aset: asset!, url: url)
+                    self.playWithAsset(aset: asset!, url: url)
                 }
             }
-            
         } else {
             asset = AVAsset(url: newAsset)
             playWithAsset(aset: asset!, url: newAsset)
         }
-        
-        
     }
     
-
-    private func playWithAsset(aset: AVAsset , url: URL) {
-        // Check if the new asset is the same as the previous one
-            // If it's the same, just start looping
-        if let assetUrl = assetUrl {
-            if assetUrl == url {
-                queuePlayer?.play()
-                return
-
-            }
+    private func playWithAsset(aset: AVAsset, url: URL) {
+        if let assetUrl = assetUrl, assetUrl == url {
+            queuePlayer?.play()
+            return
         }
         
-        // Update the previous asset reference
         assetUrl = url
         
         let playerItem = AVPlayerItem(asset: aset)
-        
-        // 2. 添加过渡遮罩视图
-        let transitionView = NSView(frame: view.bounds)
-        transitionView.wantsLayer = true
-        transitionView.layer?.backgroundColor = NSColor.black.cgColor
-        view.addSubview(transitionView)
-        
-    
-        queuePlayer = AVQueuePlayer(playerItem: playerItem)
-        avPlayerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: playerItem)
-        
-        // 5. 保持现有的 AVPlayerLayer
-        if let playerLayer = playerLayer {
-            playerLayer.player = queuePlayer
-        } else {
-            // 如果没有现有的 playerLayer，则初始化一个新的并添加到视图
-            playerLayer = AVPlayerLayer(player: queuePlayer)
-            playerLayer?.videoGravity = .resize
-            playerLayer?.frame = view.bounds
-            view.layer?.addSublayer(playerLayer!)
+        queuePlayer?.replaceCurrentItem(with: playerItem)
+        if let cacheImage = getBackGroundImage(){
+            playerView?.layer?.contents = cacheImage
+            queuePlayer?.play()
         }
-        
-        NSAnimationContext.runAnimationGroup({ context in
-            context.duration = 1  // 总时长为 1 秒
-            
-            // 使用自定义的 timingFunction，使得前半部分慢，后半部分快
-            context.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut) // 也可以尝试其他函数，如 .easeIn 或 .easeOut
-            
-            transitionView.animator().alphaValue = 0
-        }) {
-            // 动画结束后移除遮罩视图
-            transitionView.removeFromSuperview()
-        }
-
-        
-        // 7. 开始播放
-        queuePlayer?.play()
+      
     }
-    //MARK: -创建播放内容
-    private func preparePlayerEnv(){
+    
+    
+    private func getBackGroundImage() -> NSImage?{
+        let papers = Papers.allPapers().info.filter { paper in
+            paper.path == assetUrl?.absoluteString
+        }
+        if papers.isEmpty {
+            return nil
+        }
         
-        if !isURLInSandbox(self.assetUrl!) {
-            let userSelectPath = Defaults[.userSelectPath]
-            FileBookmarkManager.shared.accessFileInFolder(using: self.assetUrl!.path, userSetting: userSelectPath == self.assetUrl!.path) { fileURL in
-                if let url = fileURL {
-                    let nowAsset = AVAsset(url: url)
-                    setAVAssetEnv(asset: nowAsset)
+        return papers[0].cachedImage
+    }
+    
+    private func preparePlayerEnv() {
+        if let assetUrl = assetUrl {
+            if !isURLInSandbox(assetUrl) {
+                let userSelectPath = Defaults[.userSelectPath]
+                FileBookmarkManager.shared.accessFileInFolder(using: assetUrl.path, userSetting: userSelectPath == assetUrl.path) { fileURL in
+                    if let url = fileURL {
+                        let nowAsset = AVAsset(url: url)
+                        setAVAssetEnv(asset: nowAsset)
+                    }
                 }
+            } else {
+                let asset = AVAsset(url: assetUrl)
+                setAVAssetEnv(asset: asset)
             }
-            
-        } else {
-            let asset = AVAsset(url: self.assetUrl!)
-            setAVAssetEnv(asset: asset)
         }
-        
     }
     
-    private func setAVAssetEnv(asset: AVAsset){
+    private func setAVAssetEnv(asset: AVAsset) {
         let playerItem = AVPlayerItem(asset: asset)
-        queuePlayer = AVQueuePlayer(playerItem: playerItem)
-        avPlayerLooper = AVPlayerLooper(player: queuePlayer!, templateItem: playerItem)
-        playerLayer = AVPlayerLayer(player: queuePlayer)
-        playerLayer?.videoGravity = .resize
-        let player = PlayerView(player: playerLayer, frame: .zero)
-        view = player
+        
+        let queuePlayer = AVQueuePlayer(playerItem: playerItem)
+        self.queuePlayer = queuePlayer
+
+        avPlayerLooper = AVPlayerLooper(player: queuePlayer, templateItem: playerItem)
+
+        let playerLayer = AVPlayerLayer(player: queuePlayer)
+        playerLayer.videoGravity = .resize
+        self.playerLayer = playerLayer  // 让 playerLayer 被强引用
+        if let cacheImage = getBackGroundImage(){
+            playerView = PlayerView(player: playerLayer, frame: .zero, cacheImage: cacheImage)
+            if playerView.isNil == false{
+                self.view = playerView!
+            }
+        }
+       
     }
     
-    override func loadView() {
-        view = NSView()
-    }
     
-    func setupEvent(){
-        Defaults.publisher(keys:.isMuted,options: [])
+    func setupEvent() {
+        Defaults.publisher(keys: .isMuted, options: [])
             .sink { [self] in
                 self.ismuted = Defaults[.isMuted]
             }.store(in: &cancellables)
         
-        Defaults.publisher(keys:.volume,options: [])
+        Defaults.publisher(keys: .volume, options: [])
             .sink { [self] in
                 self.volume = Defaults[.volume]
             }.store(in: &cancellables)
     }
-}
-
-extension PaperPlayerController{
     
-    //MARK: 播放器相关
-    func   playerplay(){
-        
-        if isPlay{
-            return
-        }
+    func playerplay() {
+        if isPlay { return }
         playerLayer?.player?.play()
         playerVolume(volume: self.volume)
         playermuted(muted: self.ismuted)
     }
     
-    
-    func playerpause(){
+    func playerpause() {
         playerLayer?.player?.pause()
     }
     
-    func playerstop(){
+    func playerstop() {
         playerpause()
     }
     
-    func playermuted(muted:Bool){
+    override func viewWillLayout() {
+        super.viewWillLayout()
+        playerLayer?.frame = view.bounds
+    }
+
+    
+    func playermuted(muted: Bool) {
         playerLayer?.player?.isMuted = muted
     }
     
-    func playerVolume(volume:Float){
+    func playerVolume(volume: Float) {
         playerLayer?.player?.volume = volume
     }
     
+    func releasePlayer() {
+        queuePlayer?.pause()
+        queuePlayer?.removeAllItems()
+        queuePlayer = nil
+        avPlayerLooper = nil
+        playerLayer?.player = nil
+        playerLayer = nil
+        assetUrl = nil
+        cancellables.removeAll()
+        print("Player resources have been released.")
+    }
     
+    deinit {
+        print("PaperPlayerController is being deinitialized.")
+    }
 }
+

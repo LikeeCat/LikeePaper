@@ -18,7 +18,7 @@ class PaperShortCut{
         if let imageUrl = AppState.getFirstFrameWithUrl(url: url){
             let info =  PaperInfo(path: url.absoluteString, image: imageUrl, resolution: resolution, tags: tags, local: true, audio: audio)
             let selectedIndex = DisplayMonitorObserver.shared.selectIndex
-            PlayListManager.updatePlayMode(mode: .single)
+            PlayListManager.updatePlayMode(mode: .single, envType: .paperCenter)
             PaperManager.sharedPaperManager.updatePaper(assetUrlString: info.path, screen: DisplayMonitorObserver.shared.defaultScreens[selectedIndex])
             Papers.shared.reloadAll()
             Papers.shared.all = Papers.allPapers().info

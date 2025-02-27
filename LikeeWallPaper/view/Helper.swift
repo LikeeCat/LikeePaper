@@ -8,7 +8,7 @@ struct HelperButtonView: View {
             .font(.headline)
             .padding(10)
             .background(Theme.infoTextColor)
-            .foregroundColor(Theme.selectTextColor)
+            .foregroundColor(Theme.textColor)
             .cornerRadius(10)
             .onTapGesture {
                 openHTMLFile()

@@ -46,7 +46,10 @@ class BatteryManager:NSObject{
         .map { _ in }
         .eraseToAnyPublisher()
 
-
+    //MARK: Noti
+    static let willSleepNotification = NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.willSleepNotification)
+        .map { _ in }
+        .eraseToAnyPublisher()
 
 
     /**

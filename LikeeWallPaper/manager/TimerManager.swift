@@ -32,8 +32,12 @@ class TimerManager: ObservableObject {
         }
     }
     
+    var envType: EnvType?
+    
     func invalidate(){
         timer?.invalidate()
+//        changeWallpaper()
+
     }
     
     init() {
@@ -45,8 +49,10 @@ class TimerManager: ObservableObject {
     private func rebuildTimer() {
         // 停止现有定时器
         timer?.invalidate()
+//        changeWallpaper()
         // 重建定时器
         startWallpaperChangeTimer()
+        // 立即执行一次
     }
     
 //    *3600
@@ -71,14 +77,17 @@ class TimerManager: ObservableObject {
             return
         }
         
-        let currentPaperIndex = paperPlayList.papers.firstIndex { paper in
+        var currentPaperIndex = paperPlayList.papers.firstIndex { paper in
             if let comp = URL.init(string: mainScreenSetting?.screenAssetUrl ?? "")?.deletingPathExtension() {
                 let  imagePath = paper.image
                 return imagePath.deletingPathExtension().lastPathComponent == comp.lastPathComponent
-            }
+            } 
             return false
         }
         
+        if envType == .paperCenter {
+            return
+        }
         if let currentIndex = currentPaperIndex {
             switch switchType {
                 case .single:
