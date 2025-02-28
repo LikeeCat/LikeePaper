@@ -99,9 +99,9 @@ struct PlayListSettingView: View {
     
     @MainActor
     private func settingImage(assetUrlString:String){
-        PlayListManager.updatePlayMode(mode: .single, envType: .PlayList)
+        PlayListManager.updatePlayMode(mode: .single, envType: .paperCenter)
         playMode = .single
-        PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: NSScreen.screens[selectedIndex])
+        PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: DisplayMonitorObserver.shared.defaultScreens[selectedIndex])
     }
     
     private func deletePlayList(selectPaper: NSImage?, local: Bool) {

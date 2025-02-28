@@ -23,7 +23,6 @@ class TimerManager: ObservableObject {
     
     var switchType: PlaybackMode = (PlaybackMode(rawValue: Defaults[.playListMode]) ?? .single) {
         didSet{
-            print("++++++++++++, enter herr")
             if switchType == .single {
                 invalidate()
             }
@@ -78,7 +77,7 @@ class TimerManager: ObservableObject {
             return
         }
         
-        var currentPaperIndex = paperPlayList.papers.firstIndex { paper in
+        let currentPaperIndex = paperPlayList.papers.firstIndex { paper in
             if let comp = URL.init(string: mainScreenSetting?.screenAssetUrl ?? "")?.deletingPathExtension() {
                 let  imagePath = paper.image
                 return imagePath.deletingPathExtension().lastPathComponent == comp.lastPathComponent
@@ -89,6 +88,8 @@ class TimerManager: ObservableObject {
         if envType == .paperCenter {
             return
         }
+        
+
         if let currentIndex = currentPaperIndex {
             switch switchType {
                 case .single:
@@ -110,8 +111,7 @@ class TimerManager: ObservableObject {
     
     
     private func updateWallPaper(assetUrlString: String){
-        PaperManager.sharedPaperManager.updateWithAll(assetUrlString: assetUrlString)
-
+        PaperManager.sharedPaperManager.updatePaper(assetUrlString: assetUrlString, screen: DisplayMonitorObserver.shared.defaultScreens[ DisplayMonitorObserver.shared.selectIndex])
     }
     
     // 模拟选择下一个壁纸

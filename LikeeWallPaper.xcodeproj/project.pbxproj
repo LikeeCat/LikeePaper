@@ -16,9 +16,6 @@
 		FC97ED8D29A4A0E400425AFB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED8C29A4A0E400425AFB /* ContentView.swift */; };
 		FC97ED8F29A4A0E600425AFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC97ED8E29A4A0E600425AFB /* Assets.xcassets */; };
 		FC97ED9229A4A0E600425AFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC97ED9129A4A0E600425AFB /* Preview Assets.xcassets */; };
-		FC97ED9D29A4A0E600425AFB /* LikeeWallPaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97ED9C29A4A0E600425AFB /* LikeeWallPaperTests.swift */; };
-		FC97EDA729A4A0E700425AFB /* LikeeWallPaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDA629A4A0E700425AFB /* LikeeWallPaperUITests.swift */; };
-		FC97EDA929A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDA829A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift */; };
 		FC97EDB629A4A1B100425AFB /* PaperPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDB529A4A1B100425AFB /* PaperPlayerController.swift */; };
 		FC97EDB829A4A1C200425AFB /* PaperPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDB729A4A1C200425AFB /* PaperPlayerView.swift */; };
 		FC97EDBA29A5F49E00425AFB /* DesktopWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EDB929A5F49E00425AFB /* DesktopWindow.swift */; };
@@ -87,7 +84,6 @@
 
 /* Begin PBXFileReference section */
 		FC0254702D2B6C73008995FE /* PaperSettingRightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperSettingRightView.swift; sourceTree = "<group>"; };
-		FC32F0412D3D17250018B327 /* LivePaperHelper.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = LivePaperHelper.app; sourceTree = "<group>"; };
 		FC61BEE429A9D95C00C6384F /* VolumeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSettingView.swift; sourceTree = "<group>"; };
 		FC61BEE629A9D9CA00C6384F /* VolumentSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumentSettingController.swift; sourceTree = "<group>"; };
 		FC61BEEA29AC4E5B00C6384F /* BatteryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryManager.swift; sourceTree = "<group>"; };
@@ -99,10 +95,7 @@
 		FC97ED9129A4A0E600425AFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FC97ED9329A4A0E600425AFB /* LikeeWallPaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LikeeWallPaper.entitlements; sourceTree = "<group>"; };
 		FC97ED9829A4A0E600425AFB /* LikeeWallPaperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LikeeWallPaperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC97ED9C29A4A0E600425AFB /* LikeeWallPaperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeeWallPaperTests.swift; sourceTree = "<group>"; };
 		FC97EDA229A4A0E700425AFB /* LikeeWallPaperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LikeeWallPaperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC97EDA629A4A0E700425AFB /* LikeeWallPaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeeWallPaperUITests.swift; sourceTree = "<group>"; };
-		FC97EDA829A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeeWallPaperUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FC97EDB529A4A1B100425AFB /* PaperPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperPlayerController.swift; sourceTree = "<group>"; };
 		FC97EDB729A4A1C200425AFB /* PaperPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperPlayerView.swift; sourceTree = "<group>"; };
 		FC97EDB929A5F49E00425AFB /* DesktopWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopWindow.swift; sourceTree = "<group>"; };
@@ -288,10 +281,7 @@
 			children = (
 				FCD9C2392D3F54D300350FA0 /* videos.bundle */,
 				FCD9C2272D3F549C00350FA0 /* videos 2 */,
-				FC32F0412D3D17250018B327 /* LivePaperHelper.app */,
 				FC97ED8929A4A0E400425AFB /* LikeeWallPaper */,
-				FC97ED9B29A4A0E600425AFB /* LikeeWallPaperTests */,
-				FC97EDA529A4A0E700425AFB /* LikeeWallPaperUITests */,
 				FCE6E2072D3CC25F006F7471 /* LikeeWallPaperHelper */,
 				FC6655932D2CE87B00355CB8 /* Frameworks */,
 				FC97ED8829A4A0E400425AFB /* Products */,
@@ -339,23 +329,6 @@
 				FC97ED9129A4A0E600425AFB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		FC97ED9B29A4A0E600425AFB /* LikeeWallPaperTests */ = {
-			isa = PBXGroup;
-			children = (
-				FC97ED9C29A4A0E600425AFB /* LikeeWallPaperTests.swift */,
-			);
-			path = LikeeWallPaperTests;
-			sourceTree = "<group>";
-		};
-		FC97EDA529A4A0E700425AFB /* LikeeWallPaperUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FC97EDA629A4A0E700425AFB /* LikeeWallPaperUITests.swift */,
-				FC97EDA829A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift */,
-			);
-			path = LikeeWallPaperUITests;
 			sourceTree = "<group>";
 		};
 		FC97FC442CBCCEAB0032C598 /* window */ = {
@@ -653,7 +626,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC97ED9D29A4A0E600425AFB /* LikeeWallPaperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,8 +633,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC97EDA929A4A0E700425AFB /* LikeeWallPaperUITestsLaunchTests.swift in Sources */,
-				FC97EDA729A4A0E700425AFB /* LikeeWallPaperUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

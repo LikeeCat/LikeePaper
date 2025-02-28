@@ -42,17 +42,7 @@ struct PlayListRightView: View {
             HStack{
                 Image(systemName: "info.circle.fill")
                     .foregroundColor(Theme.SecondaryTextColor)
-                Text("点击图片即可切换为单循环")
-                    .font(.footnote)
-                    .foregroundColor(Theme.SecondaryTextColor)
-                    .padding(.vertical, 3)   // 上下边距为 3
-                    .padding(.trailing, 3)   //
-                Spacer()
-            }.padding(5)
-            HStack{
-                Image(systemName: "info.circle.fill")
-                    .foregroundColor(Theme.SecondaryTextColor)
-                Text("拖拽图片即可改变播放顺序")
+                Text("点击图片即可切换为单循环,拖拽图片即可改变播放顺序")
                     .font(.footnote)
                     .foregroundColor(Theme.SecondaryTextColor)
                     .padding(.vertical, 3)   // 上下边距为 3
