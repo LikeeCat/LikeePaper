@@ -33,11 +33,11 @@ struct LikeeWallPaperHelperApp: App {
         // 查询主应用路径
         if let mainAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: mainAppBundleIdentifier) {
             NSWorkspace.shared.open(mainAppURL)
-           
         } else {
             print("找不到主应用，确保它已正确安装并具有指定的 Bundle Identifier")
         }
-
+        let notification = Notification.Name("CloseMainAppWindow")
+        NotificationCenter.default.post(name: notification, object: nil)
         // Helper App 自行退出
         NSApplication.shared.terminate(nil)
     }

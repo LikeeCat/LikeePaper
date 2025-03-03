@@ -57,7 +57,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         Constants.mainWindow?.level = .normal
         Constants.mainWindow?.makeKeyAndOrderFront(nil)
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(closeWindow), name: Notification.Name("CloseMainAppWindow"), object: nil)
+
+    }
+    
+    @objc func closeWindow() {
+        Constants.mainWindow?.close()
     }
     
     func application(_ application: NSApplication, open urls: [URL]) {

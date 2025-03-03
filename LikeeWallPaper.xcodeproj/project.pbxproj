@@ -39,23 +39,6 @@
 		FCA8761F2D37A2F9003165D5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8761E2D37A2F5003165D5 /* Alert.swift */; };
 		FCA8772E2D39E86D003165D5 /* DisplayMonitorObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8772D2D39E85C003165D5 /* DisplayMonitorObserver.swift */; };
 		FCD9C1F02D3F4C0400350FA0 /* PhilosophicalQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD9C1EF2D3F4C0200350FA0 /* PhilosophicalQuotes.swift */; };
-		FCD9C2282D3F549C00350FA0 /* 动物-鸟-食物-Ranndp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21B2D3F549C00350FA0 /* 动物-鸟-食物-Ranndp.mp4 */; };
-		FCD9C2292D3F549C00350FA0 /* 动物-猫-宠物-Raneud.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21A2D3F549C00350FA0 /* 动物-猫-宠物-Raneud.mp4 */; };
-		FCD9C22A2D3F549C00350FA0 /* 雨-风暴-湿滑-Ranqpj.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2252D3F549C00350FA0 /* 雨-风暴-湿滑-Ranqpj.mp4 */; };
-		FCD9C22B2D3F549C00350FA0 /* 猫-花园-动物-Rankvk.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2222D3F549C00350FA0 /* 猫-花园-动物-Rankvk.mp4 */; };
-		FCD9C22C2D3F549C00350FA0 /* 海滩-海洋-日落-Ranilc.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2212D3F549C00350FA0 /* 海滩-海洋-日落-Ranilc.mp4 */; };
-		FCD9C22D2D3F549C00350FA0 /* 海浪-海岸-风暴-Ranule.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21E2D3F549C00350FA0 /* 海浪-海岸-风暴-Ranule.mp4 */; };
-		FCD9C22E2D3F549C00350FA0 /* 雪-森林-自然-Ranjdv.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2262D3F549C00350FA0 /* 雪-森林-自然-Ranjdv.mp4 */; };
-		FCD9C22F2D3F549C00350FA0 /* 冬天-雪-森林-Ranhqv.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2182D3F549C00350FA0 /* 冬天-雪-森林-Ranhqv.mp4 */; };
-		FCD9C2302D3F549C00350FA0 /* 雨-街道-雨滴-Ranxdg.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2242D3F549C00350FA0 /* 雨-街道-雨滴-Ranxdg.mp4 */; };
-		FCD9C2312D3F549C00350FA0 /* 森林-雾-山脉-Ranusi.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21D2D3F549C00350FA0 /* 森林-雾-山脉-Ranusi.mp4 */; };
-		FCD9C2322D3F549C00350FA0 /* 宠物-猫-动物-Ranabm.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21C2D3F549C00350FA0 /* 宠物-猫-动物-Ranabm.mp4 */; };
-		FCD9C2332D3F549C00350FA0 /* 海滩-夏天-海洋-Ranwwz.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2202D3F549C00350FA0 /* 海滩-夏天-海洋-Ranwwz.mp4 */; };
-		FCD9C2342D3F549C00350FA0 /* 冬天-森林-雪-Rankux.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2162D3F549C00350FA0 /* 冬天-森林-雪-Rankux.mp4 */; };
-		FCD9C2352D3F549C00350FA0 /* 冬天-雪-树木-Ranlgs.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2172D3F549C00350FA0 /* 冬天-雪-树木-Ranlgs.mp4 */; };
-		FCD9C2362D3F549C00350FA0 /* 秋天-森林-树木-Ranyyp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2232D3F549C00350FA0 /* 秋天-森林-树木-Ranyyp.mp4 */; };
-		FCD9C2372D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C21F2D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 */; };
-		FCD9C2382D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2192D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 */; };
 		FCD9C23A2D3F54D300350FA0 /* videos.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FCD9C2392D3F54D300350FA0 /* videos.bundle */; };
 		FCD9C23C2D3F748300350FA0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD9C23B2D3F747B00350FA0 /* Helper.swift */; };
 		FCDA43032D2B862B001B03D9 /* BatteryDisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */; };
@@ -120,23 +103,6 @@
 		FCA8772D2D39E85C003165D5 /* DisplayMonitorObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMonitorObserver.swift; sourceTree = "<group>"; };
 		FCAC18502D6D8A4E000AEFA8 /* LikeeWallPaperRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LikeeWallPaperRelease.entitlements; sourceTree = "<group>"; };
 		FCD9C1EF2D3F4C0200350FA0 /* PhilosophicalQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhilosophicalQuotes.swift; sourceTree = "<group>"; };
-		FCD9C2162D3F549C00350FA0 /* 冬天-森林-雪-Rankux.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "冬天-森林-雪-Rankux.mp4"; sourceTree = "<group>"; };
-		FCD9C2172D3F549C00350FA0 /* 冬天-雪-树木-Ranlgs.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "冬天-雪-树木-Ranlgs.mp4"; sourceTree = "<group>"; };
-		FCD9C2182D3F549C00350FA0 /* 冬天-雪-森林-Ranhqv.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "冬天-雪-森林-Ranhqv.mp4"; sourceTree = "<group>"; };
-		FCD9C2192D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "动物-猫-宠物-Ranbqi.mp4"; sourceTree = "<group>"; };
-		FCD9C21A2D3F549C00350FA0 /* 动物-猫-宠物-Raneud.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "动物-猫-宠物-Raneud.mp4"; sourceTree = "<group>"; };
-		FCD9C21B2D3F549C00350FA0 /* 动物-鸟-食物-Ranndp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "动物-鸟-食物-Ranndp.mp4"; sourceTree = "<group>"; };
-		FCD9C21C2D3F549C00350FA0 /* 宠物-猫-动物-Ranabm.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "宠物-猫-动物-Ranabm.mp4"; sourceTree = "<group>"; };
-		FCD9C21D2D3F549C00350FA0 /* 森林-雾-山脉-Ranusi.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "森林-雾-山脉-Ranusi.mp4"; sourceTree = "<group>"; };
-		FCD9C21E2D3F549C00350FA0 /* 海浪-海岸-风暴-Ranule.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "海浪-海岸-风暴-Ranule.mp4"; sourceTree = "<group>"; };
-		FCD9C21F2D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "海浪-海洋-水花-Ranuvb.mp4"; sourceTree = "<group>"; };
-		FCD9C2202D3F549C00350FA0 /* 海滩-夏天-海洋-Ranwwz.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "海滩-夏天-海洋-Ranwwz.mp4"; sourceTree = "<group>"; };
-		FCD9C2212D3F549C00350FA0 /* 海滩-海洋-日落-Ranilc.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "海滩-海洋-日落-Ranilc.mp4"; sourceTree = "<group>"; };
-		FCD9C2222D3F549C00350FA0 /* 猫-花园-动物-Rankvk.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "猫-花园-动物-Rankvk.mp4"; sourceTree = "<group>"; };
-		FCD9C2232D3F549C00350FA0 /* 秋天-森林-树木-Ranyyp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "秋天-森林-树木-Ranyyp.mp4"; sourceTree = "<group>"; };
-		FCD9C2242D3F549C00350FA0 /* 雨-街道-雨滴-Ranxdg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "雨-街道-雨滴-Ranxdg.mp4"; sourceTree = "<group>"; };
-		FCD9C2252D3F549C00350FA0 /* 雨-风暴-湿滑-Ranqpj.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "雨-风暴-湿滑-Ranqpj.mp4"; sourceTree = "<group>"; };
-		FCD9C2262D3F549C00350FA0 /* 雪-森林-自然-Ranjdv.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "雪-森林-自然-Ranjdv.mp4"; sourceTree = "<group>"; };
 		FCD9C2392D3F54D300350FA0 /* videos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = videos.bundle; sourceTree = "<group>"; };
 		FCD9C23B2D3F747B00350FA0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		FCDA43022D2B862B001B03D9 /* BatteryDisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryDisplayManager.swift; sourceTree = "<group>"; };
@@ -280,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				FCD9C2392D3F54D300350FA0 /* videos.bundle */,
-				FCD9C2272D3F549C00350FA0 /* videos 2 */,
 				FC97ED8929A4A0E400425AFB /* LikeeWallPaper */,
 				FCE6E2072D3CC25F006F7471 /* LikeeWallPaperHelper */,
 				FC6655932D2CE87B00355CB8 /* Frameworks */,
@@ -338,30 +303,6 @@
 				FC97FC452CBCCEC00032C598 /* setting.swift */,
 			);
 			path = window;
-			sourceTree = "<group>";
-		};
-		FCD9C2272D3F549C00350FA0 /* videos 2 */ = {
-			isa = PBXGroup;
-			children = (
-				FCD9C2162D3F549C00350FA0 /* 冬天-森林-雪-Rankux.mp4 */,
-				FCD9C2172D3F549C00350FA0 /* 冬天-雪-树木-Ranlgs.mp4 */,
-				FCD9C2182D3F549C00350FA0 /* 冬天-雪-森林-Ranhqv.mp4 */,
-				FCD9C2192D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 */,
-				FCD9C21A2D3F549C00350FA0 /* 动物-猫-宠物-Raneud.mp4 */,
-				FCD9C21B2D3F549C00350FA0 /* 动物-鸟-食物-Ranndp.mp4 */,
-				FCD9C21C2D3F549C00350FA0 /* 宠物-猫-动物-Ranabm.mp4 */,
-				FCD9C21D2D3F549C00350FA0 /* 森林-雾-山脉-Ranusi.mp4 */,
-				FCD9C21E2D3F549C00350FA0 /* 海浪-海岸-风暴-Ranule.mp4 */,
-				FCD9C21F2D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 */,
-				FCD9C2202D3F549C00350FA0 /* 海滩-夏天-海洋-Ranwwz.mp4 */,
-				FCD9C2212D3F549C00350FA0 /* 海滩-海洋-日落-Ranilc.mp4 */,
-				FCD9C2222D3F549C00350FA0 /* 猫-花园-动物-Rankvk.mp4 */,
-				FCD9C2232D3F549C00350FA0 /* 秋天-森林-树木-Ranyyp.mp4 */,
-				FCD9C2242D3F549C00350FA0 /* 雨-街道-雨滴-Ranxdg.mp4 */,
-				FCD9C2252D3F549C00350FA0 /* 雨-风暴-湿滑-Ranqpj.mp4 */,
-				FCD9C2262D3F549C00350FA0 /* 雪-森林-自然-Ranjdv.mp4 */,
-			);
-			path = "videos 2";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,23 +498,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCD9C2282D3F549C00350FA0 /* 动物-鸟-食物-Ranndp.mp4 in Resources */,
-				FCD9C2292D3F549C00350FA0 /* 动物-猫-宠物-Raneud.mp4 in Resources */,
-				FCD9C22A2D3F549C00350FA0 /* 雨-风暴-湿滑-Ranqpj.mp4 in Resources */,
-				FCD9C22B2D3F549C00350FA0 /* 猫-花园-动物-Rankvk.mp4 in Resources */,
-				FCD9C22C2D3F549C00350FA0 /* 海滩-海洋-日落-Ranilc.mp4 in Resources */,
-				FCD9C22D2D3F549C00350FA0 /* 海浪-海岸-风暴-Ranule.mp4 in Resources */,
-				FCD9C22E2D3F549C00350FA0 /* 雪-森林-自然-Ranjdv.mp4 in Resources */,
-				FCD9C22F2D3F549C00350FA0 /* 冬天-雪-森林-Ranhqv.mp4 in Resources */,
-				FCD9C2302D3F549C00350FA0 /* 雨-街道-雨滴-Ranxdg.mp4 in Resources */,
-				FCD9C2312D3F549C00350FA0 /* 森林-雾-山脉-Ranusi.mp4 in Resources */,
-				FCD9C2322D3F549C00350FA0 /* 宠物-猫-动物-Ranabm.mp4 in Resources */,
-				FCD9C2332D3F549C00350FA0 /* 海滩-夏天-海洋-Ranwwz.mp4 in Resources */,
-				FCD9C2342D3F549C00350FA0 /* 冬天-森林-雪-Rankux.mp4 in Resources */,
-				FCD9C2352D3F549C00350FA0 /* 冬天-雪-树木-Ranlgs.mp4 in Resources */,
-				FCD9C2362D3F549C00350FA0 /* 秋天-森林-树木-Ranyyp.mp4 in Resources */,
-				FCD9C2372D3F549C00350FA0 /* 海浪-海洋-水花-Ranuvb.mp4 in Resources */,
-				FCD9C2382D3F549C00350FA0 /* 动物-猫-宠物-Ranbqi.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -59,18 +59,18 @@ class PaperPlayerController: NSViewController {
     func updateAssetUrl(newAsset: URL) {
         var asset: AVAsset?
         
-        if !isURLInSandbox(newAsset) {
-            let userSelectPath = Defaults[.userSelectPath]
-            FileBookmarkManager.shared.accessFileInFolder(using: newAsset.path, userSetting: userSelectPath == self.assetUrl!.path) { fileURL in
-                if let url = fileURL {
-                    asset = AVAsset(url: url)
-                    self.playWithAsset(aset: asset!, url: url)
-                }
-            }
-        } else {
+//        if !isURLInSandbox(newAsset) {
+//            let userSelectPath = Defaults[.userSelectPath]
+//            FileBookmarkManager.shared.accessFileInFolder(using: newAsset.path, userSetting: userSelectPath == self.assetUrl!.path) { fileURL in
+//                if let url = fileURL {
+//                    asset = AVAsset(url: url)
+//                    self.playWithAsset(aset: asset!, url: url)
+//                }
+//            }
+//        } else {
             asset = AVAsset(url: newAsset)
             playWithAsset(aset: asset!, url: newAsset)
-        }
+//        }
     }
     
     private func playWithAsset(aset: AVAsset, url: URL) {
@@ -122,18 +122,18 @@ class PaperPlayerController: NSViewController {
     
     private func preparePlayerEnv() {
         if let assetUrl = assetUrl {
-            if !isURLInSandbox(assetUrl) {
-                let userSelectPath = Defaults[.userSelectPath]
-                FileBookmarkManager.shared.accessFileInFolder(using: assetUrl.path, userSetting: userSelectPath == assetUrl.path) { fileURL in
-                    if let url = fileURL {
-                        let nowAsset = AVAsset(url: url)
-                        setAVAssetEnv(asset: nowAsset)
-                    }
-                }
-            } else {
+//            if !isURLInSandbox(assetUrl) {
+//                let userSelectPath = Defaults[.userSelectPath]
+//                FileBookmarkManager.shared.accessFileInFolder(using: assetUrl.path, userSetting: userSelectPath == assetUrl.path) { fileURL in
+//                    if let url = fileURL {
+//                        let nowAsset = AVAsset(url: url)
+//                        setAVAssetEnv(asset: nowAsset)
+//                    }
+//                }
+//            } else {
                 let asset = AVAsset(url: assetUrl)
                 setAVAssetEnv(asset: asset)
-            }
+//            }
         }
     }
     
