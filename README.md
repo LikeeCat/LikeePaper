@@ -19,18 +19,18 @@ LivePaper is a macOS dynamic wallpaper app developed with SwiftUI, designed to s
 - Auto Start on Boot – Launch automatically when the system starts.
 
 
-## 界面展示
-### 亮色模式
+## Interface Display
+### Light Mode
 <img src="img/day.jpg" alt="Icon" width="400">
 
-### 暗色模式
+### Dark Mode
 <img src="img/night.jpg" alt="Icon" width="400">
 
 ## Dynamic Effect Showcase
 <img src="img/video/demo.gif" alt="Icon" width="800">
 
 
-## 编译与安装
+## Compilation and Installation
 You can go to the [release page](https://github.com/LikeeCat/LikeePaper/releases) to download the latest version of the software.
 
 This project is developed using Xcode 15 and does not currently support Swift 6.
