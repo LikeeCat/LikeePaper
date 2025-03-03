@@ -27,10 +27,8 @@ LivePaper is a macOS dynamic wallpaper app developed with SwiftUI, designed to s
 <img src="img/night.jpg" alt="Icon" width="400">
 
 ## Dynamic Effect Showcase
-<video width="800" controls>
-  <source src="img/video/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="img/video/demo.gif" alt="Icon" width="800">
+
 
 ## 编译与安装
 You can go to the [release page](https://github.com/LikeeCat/LikeePaper/releases) to download the latest version of the software.

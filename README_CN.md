@@ -25,10 +25,8 @@
 
 
 ## 动态效果展示
-<video width="800" controls>
-  <source src="img/video/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<img src="img/video/demo.gif" alt="Icon" width="800">
+
 
 ## 编译与安装
 
