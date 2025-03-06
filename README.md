@@ -7,7 +7,6 @@
 [![Swift 5.9](https://img.shields.io/badge/Swift-5.9-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![Platforms OS X \| Linux](https://img.shields.io/badge/Platforms-macOS%20-lightgray.svg?style=flat)](https://developer.apple.com/swift/)
 [![GitHub downloads](https://img.shields.io/github/downloads/LikeeCat/LikeePaper/total?)](https://github.com/LikeeCat/LikeePaper/releases)
-![GitHub hits](https://api.countapi.xyz/hit/LikeeCat/LikeePaper?style=flat-square)
 
 LivePaper is a macOS dynamic wallpaper app developed with SwiftUI, designed to simplify the process of switching and modifying wallpapers, making it effortless to enjoy dynamic wallpapers on macOS.
 
