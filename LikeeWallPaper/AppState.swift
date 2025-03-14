@@ -27,8 +27,8 @@ class ScreenManager{
         stop()
         playerController?.releasePlayer()
         playerController = nil
-        window = nil
-        display = nil
+        window?.contentView = nil
+        window?.close()
     }
     
     deinit {
@@ -164,47 +164,47 @@ extension AppState{
         guard let screen = screen else{
             return
         }
-        let display = Display(screen: screen)
-        let desktopWindow = DesktopWindow(display: display)
-        desktopWindow.alphaValue = 1
-        let playerController = PaperPlayerController(assetUrl: URL.init(string: asset!))
-        let paper = Papers.shared.all.first { info in
-            info.path == asset!
-        }
-        desktopWindow.contentView = playerController.view
-        let screenManager = ScreenManager(playerController: playerController, window: desktopWindow, display: display)
-        desktopWindow.makeKeyAndOrderFront(self)
-        screenManager.audio = ((paper?.audio) != nil)
-        screenManagers.append(screenManager)
-
         
+        if let index = screenManagers.firstIndex (where: { sc in
+            sc.display?.screen?.id == screen.id
+        }) {
+            let sc = screenManagers[index]
+            let paper = Papers.shared.all.first { info in
+                info.path == asset!
+            }
+            sc.playerController?.updateAssetUrl(newAsset: URL.init(string: asset!)!)
+            sc.audio = ((paper?.audio) != nil)
+            
+        }else{
+            let display = Display(screen: screen)
+            let desktopWindow = DesktopWindow(display: display)
+            desktopWindow.alphaValue = 1
+            let playerController = PaperPlayerController(assetUrl: URL.init(string: asset!))
+            let paper = Papers.shared.all.first { info in
+                info.path == asset!
+            }
+            desktopWindow.contentView = playerController.view
+            let screenManager = ScreenManager(playerController: playerController, window: desktopWindow, display: display)
+            desktopWindow.makeKeyAndOrderFront(self)
+            screenManager.audio = ((paper?.audio) != nil)
+            screenManagers.append(screenManager)
+        }
+
     }
     
-    private func updateScreenManager(screen:NSScreen?, asset:String?, screenManager:ScreenManager){
-        guard let _ = screen else{
-            return
-        }
-        let paper = Papers.shared.all.first { info in
-            info.path == asset!
-        }
-        screenManager.playerController?.updateAssetUrl(newAsset: URL.init(string: asset!)!)
-        screenManager.audio = ((paper?.audio) != nil)
-    }
+//    private func updateScreenManager(screen:NSScreen?, asset:String?, screenManager:ScreenManager){
+//        guard let _ = screen else{
+//            return
+//        }
+//        
+//    }
     
     private func creatPaperWindow(screen:NSScreen?, asset:String?){
         guard let screen = screen else{
             return
         }
 
-
-        let filterResult = screenManagers.filter({$0.display?.screen?.id == screen.id})
-        if filterResult.isEmpty{
-            creatScreenManager(screen: screen, asset: asset)
-        }
-        else{
-            updateScreenManager(screen: screen, asset: asset, screenManager:filterResult[0])
-        }
-
+        creatScreenManager(screen: screen, asset: asset)
     }
 }
 
