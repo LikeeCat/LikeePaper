@@ -16,6 +16,8 @@ extension AppState{
     func setUpAppEvents(){
         powerSourceWatcher?.didChangePublisher
             .sink { [self] result in
+                print("++++ didChangePublisher ")
+
                 AppState.shared.updatePlay()
                 //电源
             }
@@ -29,20 +31,26 @@ extension AppState{
 
         
         BatteryManager.deviceDidWake
+
             .sink{[self] _ in
+                print("++++ deviceDidWake ")
+
                 AppState.shared.updatePlay()
             }.store(in: &cancellables)
         
         BatteryManager.didChangeScreenParametersNotification
             .sink{[self] _ in
-                handleScreenChangeIfNeeded()
+                print("++++ didChangeScreenParametersNotification ")
+
+                handleScreenChange()
 
             }.store(in: &cancellables)
 
         
         BatteryManager.isScreenLocked
             .sink { [self] in
-                
+                print("++++ isScreenLocked ")
+
                 isScreenLocked = $0
             }
             .store(in: &cancellables)
